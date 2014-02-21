@@ -10,12 +10,18 @@
 #define __crazyvideo__GameScene__
 
 #include <iostream>
-
 #include "cocos2d.h"
 #include "cocos-ext.h"
 
 USING_NS_CC;
 USING_NS_CC_EXT;
+
+typedef enum GameAnswerState{
+	GameStateAnswerStateInit = 0x00,
+	GameStateAnswerStateWrong = 0x01,
+	GameStateAnswerStateRight = 0x02,
+
+}GameAnswerState;
 
 class GameScene : public cocos2d::Layer
 {
@@ -49,7 +55,6 @@ public:
 	void onEnter();
 	void onExit();
 	
-	Dictionary* currentDic_;
 	cocos2d::Layer* createStartBackLayer();
 	
 	LabelTTF* gold;
@@ -83,7 +88,16 @@ public:
 	
 	//检查 是否答对
 	bool checkAnswer(int answerIndex);
-	void answerAnimation( bool bRight);
+	void answerAnimation( int answerIndex);
+	
+//	void btnStateLogic(int nIndex, bool bChanged);
+private:
+	Dictionary* currentDic_;
+	GameAnswerState answerOneState_;
+	GameAnswerState answerTwoState_;
+	GameAnswerState answerThreeState_;
+	GameAnswerState answerFouState_;
+
 };
 
 #endif /* defined(__crazyvideo__GameScene__) */

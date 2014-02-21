@@ -323,6 +323,10 @@ void GameScene::resetView(){
 	guanka_index->setString(index->_string);
 	topic_title->setString(topic->_string);
 	
+	answerOneState_ = GameStateAnswerStateInit;
+	answerTwoState_ = GameStateAnswerStateInit;
+	answerThreeState_ = GameStateAnswerStateInit;
+	answerFouState_ = GameStateAnswerStateInit;
 }
 
 #pragma mark --
@@ -419,10 +423,31 @@ bool GameScene::checkAnswer(int answerIndex){
 	int a = arc4random()/4;
 	
 	if ( a == answerIndex ){
-		
 		bRet = true;
 	}else{
 		bRet = false;
+	}
+	
+	if ( bRet ) {
+		if ( answerIndex == 1) {
+			answerOneState_ = GameAnswerState::GameStateAnswerStateRight;
+		}else if( answerIndex == 2){
+			answerTwoState_ = GameAnswerState::GameStateAnswerStateRight;
+		}else if( answerIndex == 3){
+			answerThreeState_ = GameAnswerState::GameStateAnswerStateRight;
+		}else if( answerIndex == 4){
+			answerFouState_ = GameAnswerState::GameStateAnswerStateRight;
+		}
+	}else{
+		if ( answerIndex == 1) {
+			answerOneState_ = GameAnswerState::GameStateAnswerStateWrong;
+		}else if( answerIndex == 2){
+			answerTwoState_ = GameAnswerState::GameStateAnswerStateWrong;
+		}else if( answerIndex == 3){
+			answerThreeState_ = GameAnswerState::GameStateAnswerStateWrong;
+		}else if( answerIndex == 4){
+			answerFouState_ = GameAnswerState::GameStateAnswerStateWrong;
+		}
 	}
 	
 	if ( bRet ) {
@@ -434,12 +459,40 @@ bool GameScene::checkAnswer(int answerIndex){
 	return bRet;
 }
 
-void answerAnimation( bool bRight){
+void GameScene::answerAnimation( int answerIndex){
 	
-	if ( bRight ){
-		//show right animation
-	}else{
-		//show wrong animation
+	GameAnswerState st;
+	ControlButton* btn;
+	switch ( answerIndex ) {
+		case 1:
+			st = answerOneState_;
+			btn = btn1;
+			break;
+		case 2:
+			st = answerTwoState_;
+			btn = btn2;
+		    break;
+		case 3:
+			st = answerThreeState_;
+			btn = btn3;
+			break;
+		case 4:
+			st = answerFouState_;
+			btn = btn4;
+			break;
+		default:
+			break;
 	}
+	
+	std::string correctwrongImgStr;
+	
+	if ( st == GameStateAnswerStateRight ) {
+		//right
+		correctwrongImgStr = "";
+	}else{
+		correctwrongImgStr = "";
+	}
+	
+	
 }
 
