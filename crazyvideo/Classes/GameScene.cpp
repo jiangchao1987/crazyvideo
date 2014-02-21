@@ -496,8 +496,9 @@ void GameScene::answerAnimation( int answerIndex){
 		correctwrongImgStr = "play_wrong.png";
 	}
 	
+	btn->setEnabled(false);
 	Sprite* sp = Sprite::create(correctwrongImgStr);
-	sp->setPosition( Point( btn->getPositionX() - btn->getContentSize().width/2 + sp->getContentSize().width, btn->getPositionY()));//(btn->getContentSize())
+	sp->setPosition( Point( btn->getPositionX() - btn->getContentSize().width/2 + sp->getContentSize().width, btn->getPositionY()));
 	this->addChild(sp);
 	
 }
