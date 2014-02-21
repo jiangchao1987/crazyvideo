@@ -177,10 +177,10 @@ bool GameScene::init()
 	
 //522 88
 
-	btn1 = standardButtonWithTitle("play_answer_a_bg.png", "play_answer_a_bg.png", "a1");
-	btn2 = standardButtonWithTitle("play_answer_b_bg.png", "play_answer_b_bg.png", "a2");
-	btn3 = standardButtonWithTitle("play_answer_c_bg.png", "play_answer_c_bg.png", "a3");
-	btn4 = standardButtonWithTitle("play_answer_d_bg.png", "play_answer_d_bg.png", "a4");
+	btn1 = standardButtonWithTitle("play_answer_a_bg.png", "play_answer_a_bg.png", "");
+	btn2 = standardButtonWithTitle("play_answer_b_bg.png", "play_answer_b_bg.png", "");
+	btn3 = standardButtonWithTitle("play_answer_c_bg.png", "play_answer_c_bg.png", "");
+	btn4 = standardButtonWithTitle("play_answer_d_bg.png", "play_answer_d_bg.png", "");
 	
 	int ybase = nav->getPositionY() - 850;
 	int offset = 20;
