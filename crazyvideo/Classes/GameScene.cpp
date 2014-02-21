@@ -263,12 +263,7 @@ void GameScene::menu3CloseCallback(Object* pSender){
 
 void GameScene::menuBackCallback(Object* pSender){
 	
-	if (CocosDenshion::SimpleAudioEngine::getInstance()->isBackgroundMusicPlaying()) {
-		
-	}else{
-		CocosDenshion::SimpleAudioEngine::getInstance()->playBackgroundMusic("");
-
-	}
+	playBackGroundMusic();
 	
 	Scene* s = LevelView::scene();
 	Director::getInstance()->replaceScene(TransitionFade::create(0.5, s));

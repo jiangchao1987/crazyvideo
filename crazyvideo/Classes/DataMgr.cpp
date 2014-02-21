@@ -11,6 +11,7 @@
 #include "DataMgr.h"
 #include "json/document.h"
 #include "Defines.h"
+#include "Tools.h"
 using namespace rapidjson;
 
 DataMgr* DataMgr::instance = NULL;
@@ -225,4 +226,11 @@ CCDictionary* DataMgr::getCurrentQuestion(){
 //}
 int DataMgr::getCurrentQuestionIndex(){
 	return currnetIndex;
+}
+
+bool DataMgr::isBgSoundOpen(){
+	return LoadBooleanFromXML( "isBgSoundOpen" );
+}
+void DataMgr::openBgSound(bool bOpen){
+	SaveBooleanToXML("isBgSoundOpen", bOpen);
 }

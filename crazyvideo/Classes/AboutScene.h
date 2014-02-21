@@ -42,8 +42,8 @@ public:
 	
 	cocos2d::Layer* createStartBackLayer();
 
-	//void setItemPos(Layer* layer, Point anchor, Point position, MenuItemImage* item);
-
+	MenuItemImage* mii1;
+	MenuItemImage* mii2;
 };
 
 #endif /* defined(__crazyvideo__AboutScene__) */

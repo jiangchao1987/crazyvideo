@@ -10,8 +10,8 @@
 #include "TeamScene.h"
 #include "Tools.h"
 #include "SimpleAudioEngine.h"
-
 #include "StartScene.h"
+#include "DataMgr.h"
 USING_NS_CC;
 
 Scene* AboutScene::createScene()
@@ -55,23 +55,21 @@ bool AboutScene::init()
 //	auto soundItem = MenuItemImage::create(
 //		"setting_soundon.png",
 //		"setting_soundoff.png",
-	auto soundItem = MenuItemImage::create(
+	mii1 = MenuItemImage::create(
 										   "setting_soundon.png",
 										   "setting_soundon.png",
 
 		CC_CALLBACK_1(AboutScene::menuSoundCallback, this));
 	setItemPosition(backLayer, Point(0.5f, 0.5f),
-		Point(origin.x + visibleSize.width / 3 - 10, origin.y + visibleSize.height * 3 / 4), soundItem);
+		Point(origin.x + visibleSize.width / 3 - 10, origin.y + visibleSize.height * 3 / 4), mii1);
 
-	auto soundItem1 = MenuItemImage::create(
+	mii2 = MenuItemImage::create(
 										   "setting_soundoff.png",
 										   "setting_soundoff.png",
 					   
 										   CC_CALLBACK_1(AboutScene::menuSoundCallback, this));
 	setItemPosition(backLayer, Point(0.5f, 0.5f),
-					Point(origin.x + visibleSize.width / 3 - 10, origin.y + visibleSize.height * 3 / 4), soundItem1);
-	soundItem->setTag(10000);
-	soundItem1->setTag(10001);
+					Point(origin.x + visibleSize.width / 3 - 10, origin.y + visibleSize.height * 3 / 4), mii2);
 	
 	////mail
 	auto mailItem = MenuItemImage::create(
@@ -129,16 +127,17 @@ void AboutScene::menuBackCallback(Object* pSender){
 	Director::getInstance()->replaceScene(TransitionFade::create(0.5, s));
 }
 void AboutScene::menuSoundCallback(Object* pSender){
-	
-	MenuItemImage* mii1 = (MenuItemImage*)this->getChildByTag(10000);
-	MenuItemImage* mii2 = (MenuItemImage*)this->getChildByTag(10001);
 
 	if ( (MenuItemImage*) pSender == mii1){
 		mii1->setVisible(false);
 		mii2->setVisible(true);
+		DataMgr::getInstance()->openBgSound(false);
+		stopBackGroundMusic();
 	}else{
 		mii1->setVisible(true);
 		mii2->setVisible(false);
+		DataMgr::getInstance()->openBgSound(true);
+		playBackGroundMusic();
 	}
 }
 
@@ -162,11 +161,3 @@ cocos2d::Layer* AboutScene::createStartBackLayer(){
 	return NULL;
 }
 
-//void AboutScene::setItemPos(Layer* backLayer, Point anchor, Point position, MenuItemImage* item) {
-//	item->setAnchorPoint(anchor);
-//	item->setPosition(position);
-//	// create menu, it's an autorelease object
-//	auto menu = Menu::create(item, NULL);
-//	menu->setPosition(Point::ZERO);
-//	backLayer->addChild(menu, 1);
-//}

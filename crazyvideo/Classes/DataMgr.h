@@ -41,6 +41,8 @@ public:
 	int getCurrentQuestionIndex();
 	void answerRight();
 	
+	bool isBgSoundOpen();
+	void openBgSound(bool bOpen);
 };
 
 #endif /* defined(__crazyvideo__DataMgr__) */

@@ -794,10 +794,10 @@
 				611390EE18B360EF00FFAF9B /* GameScene.h */,
 				611390F018B360FB00FFAF9B /* LevelScene.cpp */,
 				611390F118B360FB00FFAF9B /* LevelScene.h */,
+				611390F418B3610800FFAF9B /* AboutScene.h */,
 				611390F318B3610800FFAF9B /* AboutScene.cpp */,
 				61DA12E418B72730002EE4C6 /* TeamScene.cpp */,
 				61DA12E518B72730002EE4C6 /* TeamScene.h */,
-				611390F418B3610800FFAF9B /* AboutScene.h */,
 			);
 			name = Scene;
 			sourceTree = "<group>";
