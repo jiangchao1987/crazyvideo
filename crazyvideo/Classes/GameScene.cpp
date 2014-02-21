@@ -394,7 +394,8 @@ void GameScene::shareToTencent(Node * node){
 	
 }
 void GameScene::shareToQZone(Node * node){
-	
+	Scene* s = GameScene::createScene();
+	Director::getInstance()->replaceScene(s);
 }
 void GameScene::shareClose(Node *node){
 	PopUpShareLayer* p = (PopUpShareLayer*)this->getChildByTag(POPUPSHARELAYER_TAG);
@@ -507,10 +508,10 @@ void GameScene::answerAnimation( int answerIndex){
 	sp->setPosition( Point( btn->getPositionX() - btn->getContentSize().width/2 + sp->getContentSize().width, btn->getPositionY()));
 	this->addChild(sp);
 	
-	CCLabelBMFont* label = CCLabelBMFont::create("23","prim30.fnt");
-	label->setColor(Color3B::BLACK);
-	label->setPosition(sp->getPosition());
-	this->addChild(label);
+//	CCLabelBMFont* label = CCLabelBMFont::create("23","prim30.fnt");
+//	label->setColor(Color3B::BLACK);
+//	label->setPosition(sp->getPosition());
+//	this->addChild(label);
 	
 }
 

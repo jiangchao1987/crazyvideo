@@ -153,7 +153,7 @@ void PopUpShareLayer::setCallbackFunc(Object* target, SEL_CallFuncN callfun, SEL
 	m1_ = m1;
 	m2_ = m2;
 	m3_ = m3;
-	m4_ = m3;
+	m4_ = m4;
 }
 
 
