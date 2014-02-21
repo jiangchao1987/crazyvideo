@@ -13,6 +13,8 @@
 
 #include "cocos2d.h"
 
+USING_NS_CC;
+
 class AboutScene : public cocos2d::Layer
 {
 public:
@@ -23,19 +25,25 @@ public:
     virtual bool init();
     
     // a selector callback
-    void menuCloseCallback(Object* pSender);
-	void menu1CloseCallback(Object* pSender);
-    void menu2CloseCallback(Object* pSender);
-    void menu3CloseCallback(Object* pSender);
+    void menuBackCallback(Object* pSender);
+	void menuSoundCallback(Object* pSender);
+    void menuMailCallback(Object* pSender);
+    void menuResetCallback(Object* pSender);
+	void menuRateCallback(Object* pSender);
+	void menuTeamCallback(Object* pSender);
+	void menuDeclaimerCallback(Object* pSender);
+
 	
     // implement the "static create()" method manually
     CREATE_FUNC(AboutScene);
 	
-	void onEnter();
-	void onExit();
+	//void onEnter();
+	//void onExit();
 	
 	cocos2d::Layer* createStartBackLayer();
-};
 
+	//void setItemPos(Layer* layer, Point anchor, Point position, MenuItemImage* item);
+
+};
 
 #endif /* defined(__crazyvideo__AboutScene__) */

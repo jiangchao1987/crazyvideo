@@ -7,6 +7,7 @@
 //
 
 #include "AboutScene.h"
+#include "TeamScene.h"
 #include "Tools.h"
 #include "SimpleAudioEngine.h"
 
@@ -15,152 +16,140 @@ USING_NS_CC;
 
 Scene* AboutScene::createScene()
 {
-    // 'scene' is an autorelease object
-    auto scene = Scene::create();
-    
-    // 'layer' is an autorelease object
-    auto layer = AboutScene::create();
-	
-    // add layer as a child to scene
-    scene->addChild(layer);
-	
-    // return the scene
-    return scene;
+	// 'scene' is an autorelease object
+	auto scene = Scene::create();
+
+	// 'layer' is an autorelease object
+	auto layer = AboutScene::create();
+
+	// add layer as a child to scene
+	scene->addChild(layer);
+
+	// return the scene
+	return scene;
 }
 
 // on "init" you need to initialize your instance
 bool AboutScene::init()
 {
-    //////////////////////////////
-    // 1. super init first
-    if ( !Layer::init() )
-    {
-        return false;
-    }
-    
-    Size visibleSize = Director::getInstance()->getVisibleSize();
-    Point origin = Director::getInstance()->getVisibleOrigin();
-	
-    
-    auto label = LabelTTF::create("Hello World", "Arial", 24);
-    
-    // position the label on the center of the screen
-    label->setPosition(Point(origin.x + visibleSize.width/2,
-							 origin.y + visibleSize.height - label->getContentSize().height));
-	
-    // add the label as a child to this layer
-	// this->addChild(label, 1);
-	
-    // add "HelloWorld" splash screen"
-    auto sprite = Sprite::create("HelloWorld.png");
-	
-    // position the sprite on the center of the screen
-    sprite->setPosition(Point(visibleSize.width/2 + origin.x, visibleSize.height/2 + origin.y));
-	
-    // add the sprite as a child to this layer
-	// this->addChild(sprite, 0);
-	
-	Size size = Director::getInstance()->getVisibleSize();
-	
-	Layer* backLayer =	createCommonBackLayer();
-	
-	//logo
-	Sprite* spriteLogo = createLogo();
-	backLayer->addChild(spriteLogo);
-	MoveTo* move1 = MoveTo::create(2, Point( spriteLogo->getPositionX(),spriteLogo->getPositionY() - 10));
-	MoveTo* move2 = MoveTo::create(2, Point( spriteLogo->getPositionX(), spriteLogo->getPositionY() + 10));
-	spriteLogo->runAction( RepeatForever::create(Sequence::create(move1, move2, NULL)));
-	
-	//play
-	auto closeItem = MenuItemImage::create(
-                                           "index_play.png",
-                                           "index_play_selected.png",
-                                           CC_CALLBACK_1(AboutScene::menu1CloseCallback, this));
-	closeItem->setAnchorPoint(Point(0.5f, 0.5f));
-	
-	closeItem->setPosition(Point(origin.x + visibleSize.width/2,
-								 visibleSize.height/2 - closeItem->getContentSize().height));
-	
-    // create menu, it's an autorelease object
-    auto menu = Menu::create(closeItem, NULL);
-    menu->setPosition(Point::ZERO);
-    backLayer->addChild(menu, 1);
-	
-	//shop
-	auto shopItem = MenuItemImage::create(
-										  "index_store.png",
-										  "index_store_selected.png",
-										  CC_CALLBACK_1(AboutScene::menu2CloseCallback, this));
-    shopItem->setAnchorPoint(Point(0.5f, 0.5f));
-	shopItem->setPosition(Point(visibleSize.width/2 - shopItem->getContentSize().width/2  ,
-								visibleSize.height/4 ));
-	
-    // create menu, it's an autorelease object
-    auto menu1 = Menu::create(shopItem, NULL);
-    menu1->setPosition(Point::ZERO);
-    backLayer->addChild(menu1, 1);
-	
-	//setting
-	auto settingItem = MenuItemImage::create(
-											 "index_setting.png",
-											 "index_setting_selected.png",
-											 CC_CALLBACK_1(AboutScene::menu3CloseCallback, this));
-    settingItem->setAnchorPoint(Point(0.5f, 0.5f));
-	settingItem->setPosition(Point(visibleSize.width/2 + settingItem->getContentSize().width/2  ,
-								   visibleSize.height/4 ));
-	
-    // create menu, it's an autorelease object
-    auto menu2 = Menu::create(settingItem, NULL);
-    menu2->setPosition(Point::ZERO);
-    backLayer->addChild(menu2, 1);
-	
-	
+	//////////////////////////////
+	if (!Layer::init())
+	{
+		return false;
+	}
+
+	Size visibleSize = Director::getInstance()->getVisibleSize();
+	Point origin = Director::getInstance()->getVisibleOrigin();
+
+	Layer* backLayer = createCommonBackLayer();
+
+	////back
+	auto backItem = MenuItemImage::create(
+		"setting_back.png",
+		"setting_back_selected.png",
+		CC_CALLBACK_1(AboutScene::menuBackCallback, this));
+	setItemPosition(backLayer, Point(0.5f, 0.5f),
+		Point(origin.x + visibleSize.width / 7, origin.y + visibleSize.height * 6 / 7 + backItem->getContentSize().height / 2), backItem);
+	//backItem->setAnchorPoint(Point(0.5f, 0.5f));
+	//backItem->setPosition(Point(origin.x + visibleSize.width / 7, origin.y + visibleSize.height * 6 / 7 + backItem->getContentSize().height / 2));
+	//// create menu, it's an autorelease object
+	//auto backMenu = Menu::create(backItem, NULL);
+	//backMenu->setPosition(Point::ZERO);
+	//backLayer->addChild(backMenu, 1);
+
+	////sound
+	auto soundItem = MenuItemImage::create(
+		"setting_soundon.png",
+		"setting_soundoff.png",
+		CC_CALLBACK_1(AboutScene::menuSoundCallback, this));
+	//this->setItemPos(backLayer, Point(0.5f, 0.5f),
+	//	Point(origin.x + visibleSize.width / 3 - 10, origin.y + visibleSize.height * 3 / 4), soundItem);
+	setItemPosition(backLayer, Point(0.5f, 0.5f),
+		Point(origin.x + visibleSize.width / 3 - 10, origin.y + visibleSize.height * 3 / 4), soundItem);
+
+	////mail
+	auto mailItem = MenuItemImage::create(
+		"setting_mail.png",
+		"setting_mail_selected.png",
+		CC_CALLBACK_1(AboutScene::menuMailCallback, this));
+	setItemPosition(backLayer, Point(0.5f, 0.5f),
+		Point(origin.x + visibleSize.width * 2 / 3 + 10, origin.y + visibleSize.height * 3 / 4), mailItem);
+
+	////reset
+	auto resetItem = MenuItemImage::create(
+		"setting_reset.png",
+		"setting_reset_selected.png",
+		CC_CALLBACK_1(AboutScene::menuResetCallback, this));
+	setItemPosition(backLayer, Point(0.5f, 0.5f),
+		Point(origin.x + visibleSize.width / 2, origin.y + visibleSize.height / 2 + resetItem->getContentSize().height), resetItem);
+
+	////rate
+	auto rateItem = MenuItemImage::create(
+		"setting_rate.png",
+		"setting_rate_selected.png",
+		CC_CALLBACK_1(AboutScene::menuRateCallback, this));
+	setItemPosition(backLayer, Point(0.5f, 0.5f),
+		Point(origin.x + visibleSize.width / 2, origin.y + visibleSize.height / 2), rateItem);
+
+	////team
+	auto teamItem = MenuItemImage::create(
+		"setting_team.png",
+		"setting_team_selected.png",
+		CC_CALLBACK_1(AboutScene::menuTeamCallback, this));
+	setItemPosition(backLayer, Point(0.5f, 0.5f),
+		Point(origin.x + visibleSize.width / 2, origin.y + visibleSize.height / 2 - teamItem->getContentSize().height), teamItem);
+
+	////declaimer
+	auto declaimerItem = MenuItemImage::create(
+		"setting_declaimer.png",
+		"setting_declaimer_selected.png",
+		CC_CALLBACK_1(AboutScene::menuDeclaimerCallback, this));
+	setItemPosition(backLayer, Point(0.5f, 0.5f),
+		Point(origin.x + visibleSize.width / 2, origin.y + visibleSize.height / 2 - declaimerItem->getContentSize().height * 2), declaimerItem);
+
+	////version label
+	auto versionLabel = LabelTTF::create("Version: 1.0", "Arial", 30);
+	versionLabel->setAnchorPoint(Point(0.5f, 0.5f));
+	versionLabel->setPosition(Point(origin.x + visibleSize.width / 2, origin.y + visibleSize.height / 8));
+	backLayer->addChild(versionLabel, 1);
+
 	this->addChild(backLayer);
-    
-	auto listener = EventListenerTouchOneByOne::create();
-	//listener->registerScriptHandler();
-	listener->onTouchBegan = NULL;
-	listener->onTouchEnded = NULL;
-	
-	EventDispatcher* eventDispatcher = backLayer->getEventDispatcher();
-	//eventDispatcher->addEventListenerWithSceneGraphPriority( listener, backLayer);
-	
-	
+
 	return true;
 }
 
-void AboutScene::onEnter(){
-	CCLayer::onEnter();
-	
-	if (CocosDenshion::SimpleAudioEngine::getInstance()->isBackgroundMusicPlaying()) {
-		;
-	}else{
-		
-		CocosDenshion::SimpleAudioEngine::getInstance()->playBackgroundMusic("background.wav", true);
-	}
-}
-void AboutScene::onExit(){
-	CCLayer::onExit();
-}
-void AboutScene::menuCloseCallback(Object* pSender)
-{
-    Director::getInstance()->end();
-	
-#if (CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
-    exit(0);
-#endif
-}
-
-void AboutScene::menu1CloseCallback(Object* pSender){
-	
-}
-void AboutScene::menu2CloseCallback(Object* pSender){
-	
-}
-void AboutScene::menu3CloseCallback(Object* pSender){
+void AboutScene::menuBackCallback(Object* pSender){
 	Scene* s = StartScene::createScene();
 	Director::getInstance()->replaceScene(TransitionFade::create(0.5, s));
+}
+void AboutScene::menuSoundCallback(Object* pSender){
+
+}
+void AboutScene::menuMailCallback(Object* pSender){
+
+}
+void AboutScene::menuResetCallback(Object* pSender){
+
+}
+void AboutScene::menuRateCallback(Object* pSender){
+
+}
+void AboutScene::menuTeamCallback(Object* pSender){
+	Scene* s = TeamScene::createScene();
+	Director::getInstance()->replaceScene(TransitionFade::create(0.5, s));
+}
+void AboutScene::menuDeclaimerCallback(Object* pSender){
+
 }
 cocos2d::Layer* AboutScene::createStartBackLayer(){
 	return NULL;
 }
+
+//void AboutScene::setItemPos(Layer* backLayer, Point anchor, Point position, MenuItemImage* item) {
+//	item->setAnchorPoint(anchor);
+//	item->setPosition(position);
+//	// create menu, it's an autorelease object
+//	auto menu = Menu::create(item, NULL);
+//	menu->setPosition(Point::ZERO);
+//	backLayer->addChild(menu, 1);
+//}

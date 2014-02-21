@@ -101,3 +101,12 @@ ControlButton* standardButtonWithTitle( const char * bgname, const char * bgsele
     return btn;
 }
 
+void setItemPosition(Layer* backLayer, Point anchor, Point position, MenuItemImage* item) {
+	item->setAnchorPoint(anchor);
+	item->setPosition(position);
+	// create menu, it's an autorelease object
+	auto menu = Menu::create(item, NULL);
+	menu->setPosition(Point::ZERO);
+	backLayer->addChild(menu, 1);
+}
+

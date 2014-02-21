@@ -27,5 +27,6 @@ ControlButton* standardButtonWithTitle( const char * bgname, const char * bgsele
 
 //cocos2d::Sprite* create();
 
+void setItemPosition(Layer* layer, Point anchor, Point position, MenuItemImage* item);
 
 #endif /* defined(__crazyvideo__Tools__) */
