@@ -7,45 +7,28 @@
 //
 
 #include "PopUpRightLayer.h"
-PopUpShareLayer::PopUpShareLayer():
-m__pMenu(NULL)
-, m_contentPadding(0)
-, m_contentPaddingTop(0)
-, m_callbackListener(NULL)
-, m_callback(NULL)
-, m__sfBackGround(NULL)
-, m__s9BackGround(NULL)
-, m__ltContentText(NULL)
-, m__ltTitle(NULL)
+PopUpRightLayer::PopUpRightLayer():
+m_callbackListener(NULL)
+, m1_(NULL)
+, m2_(NULL)
+, m3_(NULL)
 {
     
 }
 
-PopUpShareLayer::~PopUpShareLayer(){
-    CC_SAFE_RELEASE(m__pMenu);
-    CC_SAFE_RELEASE(m__sfBackGround);
-    CC_SAFE_RELEASE(m__ltContentText);
-    CC_SAFE_RELEASE(m__ltTitle);
-    CC_SAFE_RELEASE(m__s9BackGround);
+PopUpRightLayer::~PopUpRightLayer(){
 }
 
-bool PopUpShareLayer::init(){
+bool PopUpRightLayer::init(){
     bool bRef = false;
     do{
-        CC_BREAK_IF(!CCLayer::init());
-        this->setContentSize(Size::ZERO);
+		CC_BREAK_IF(!CCLayerColor::initWithColor(Color4B( 0x0a, 0x0a, 0x0a, 150 )) );
         
-        // 初始化需要的 Menu
-        Menu* menu = Menu::create();
-        menu->setPosition(Point::ZERO);
-        setMenuButton(menu);
-        
-        setTouchEnabled(true);
-        
+		this->setUpView();
 		auto myListener = EventListenerTouchOneByOne::create();
-		myListener->onTouchBegan = CC_CALLBACK_2(PopUpShareLayer::onTouchBegan, this);
-		myListener->onTouchMoved = CC_CALLBACK_2(PopUpShareLayer::onTouchMoved, this);
-		myListener->onTouchEnded = CC_CALLBACK_2(PopUpShareLayer::onTouchEnded, this);
+		myListener->onTouchBegan = CC_CALLBACK_2(PopUpRightLayer::onTouchBegan, this);
+		myListener->onTouchMoved = CC_CALLBACK_2(PopUpRightLayer::onTouchMoved, this);
+		myListener->onTouchEnded = CC_CALLBACK_2(PopUpRightLayer::onTouchEnded, this);
 		
 		myListener->setSwallowTouches(true);
 		auto dispatcher = Director::getInstance()->getEventDispatcher();
@@ -57,161 +40,122 @@ bool PopUpShareLayer::init(){
     return bRef;
 }
 
-//void PopupLayer::registerWithTouchDispatcher(){
-//    // 这里的触摸优先级设置为 -128 这保证了，屏蔽下方的触摸
-//    CCDirector::getInstance()->getTouchDispatcher()->addTargetedDelegate(this, -128, true);
-//
-//}
-//
-//bool PopupLayer::ccTouchBegan(cocos2d::CCTouch *pTouch, cocos2d::CCEvent *pEvent){
-//    //
-//    CCLog("PopupLayer touch");
-//    return true;
-//}
-bool PopUpShareLayer::onTouchBegan(Touch *touch, Event *unused_event){
+bool PopUpRightLayer::onTouchBegan(Touch *touch, Event *unused_event){
 	log("PopupLayer touch");
 	return true;
 }
 
-void PopUpShareLayer::onTouchMoved(cocos2d::Touch *touch, cocos2d::Event *unused_event){
+void PopUpRightLayer::onTouchMoved(cocos2d::Touch *touch, cocos2d::Event *unused_event){
 	
 }
-void PopUpShareLayer::onTouchEnded(cocos2d::Touch *touch, cocos2d::Event *unused_event){
+void PopUpRightLayer::onTouchEnded(cocos2d::Touch *touch, cocos2d::Event *unused_event){
 	
 }
-void PopUpShareLayer::onTouchCancelled(cocos2d::Touch *touch, cocos2d::Event *unused_event){
+void PopUpRightLayer::onTouchCancelled(cocos2d::Touch *touch, cocos2d::Event *unused_event){
 	
 }
 
-
-
-PopUpShareLayer* PopUpShareLayer::create(const char *backgroundImage){
-    PopUpShareLayer* ml = PopUpShareLayer::create();
-    ml->setSpriteBackGround(CCSprite::create(backgroundImage));
-    ml->setSprite9BackGround(Scale9Sprite::create(backgroundImage));
-    return ml;
-}
-
-void PopUpShareLayer::setTitle(const char *title, int fontsize){
-    LabelTTF* ltfTitle = LabelTTF::create(title, "", fontsize);
-    setLabelTitle(ltfTitle);
-}
-
-void PopUpShareLayer::setContentText(const char *text, int fontsize, int padding, int paddingTop){
-    CCLabelTTF* ltf = CCLabelTTF::create(text, "", fontsize);
-    setLabelContentText(ltf);
-    m_contentPadding = padding;
-    m_contentPaddingTop = paddingTop;
-}
-
-void PopUpShareLayer::setCallbackFunc(cocos2d::CCObject *target, SEL_CallFuncN callfun){
-    m_callbackListener = target;
-    m_callback = callfun;
-}
-
-
-bool PopUpShareLayer::addButton(const char *normalImage, const char *selectedImage, const char *title, int tag){
-    CCSize winSize = CCDirector::sharedDirector()->getWinSize();
-    CCPoint pCenter = ccp(winSize.width / 2, winSize.height / 2);
-    
-    // 创建图片菜单按钮
-    MenuItemImage* menuImage = MenuItemImage::create(normalImage, selectedImage, this, menu_selector(PopUpShareLayer::buttonCallback));
-    menuImage->setTag(tag);
-    menuImage->setPosition(pCenter);
-    
-    // 添加文字说明并设置位置
-    Size imenu = menuImage->getContentSize();
-    LabelTTF* ttf = LabelTTF::create(title, "", 20);
-    ttf->setColor(ccc3(0, 0, 0));
-    ttf->setPosition(ccp(imenu.width / 2, imenu.height / 2));
-    menuImage->addChild(ttf);
-    
-    getMenuButton()->addChild(menuImage);
-    return true;
-}
-
-void PopUpShareLayer::buttonCallback(cocos2d::Object *pSender){
-    Node* node = dynamic_cast<CCNode*>(pSender);
-    log("touch tag: %d", node->getTag());
-    if (m_callback && m_callbackListener){
-        (m_callbackListener->*m_callback)(node);
-    }
-    this->removeFromParent();
-}
-
-void PopUpShareLayer::onEnter(){
+void PopUpRightLayer::onEnter(){
     Layer::onEnter();
-    
-    Size winSize = Director::getInstance()->getWinSize();
-    Point pCenter = Point(winSize.width / 2, winSize.height / 2);
-    
-    Size contentSize;
-    // 设定好参数，在运行时加载
-    if (getContentSize().equals(Size::ZERO)) {
-        getSpriteBackGround()->setPosition(Point(winSize.width / 2, winSize.height / 2));
-        this->addChild(getSpriteBackGround(), 0, 0);
-        contentSize = getSpriteBackGround()->getTexture()->getContentSize();
-    } else {
-        Scale9Sprite *background = getSprite9BackGround();
-        background->setContentSize(getContentSize());
-        background->setPosition(Point(winSize.width / 2, winSize.height / 2));
-        this->addChild(background, 0, 0);
-        contentSize = getContentSize();
-    }
-    
-    // 添加按钮，并设置其位置
-    this->addChild(getMenuButton());
-    float btnWidth = contentSize.width / (getMenuButton()->getChildrenCount() + 1);
-    
-	//    Array* array = getMenuButton()->getChildren();
-	Vector<Node*>& array = getMenuButton()->getChildren();
 	
-    Object* pObj = NULL;
-    int i = 0;
-	/*
-	 vector<NODE>::iterator it;
-	 
-	 for (it=v.begin(); it!=v.end(); it++)
-	 {
-	 v[*it]->id=2;
-	 
-	 }
-	 */
-	Vector<Node*>::iterator it;
-	
-    for (it=array.begin() ; it!=array.end(); it++) {
-        Node* node = *it;//dynamic_cast<Node*>(array[*it]);
-        node->setPosition(Point( winSize.width / 2 - contentSize.width / 2 + btnWidth * (i + 1), winSize.height / 2 - contentSize.height / 3));
-        i++;
-    }
-    
-    
-    // 显示对话框标题
-    if (getLabelTitle()){
-        getLabelTitle()->setPosition(pCenter + Point(0, contentSize.height / 2 - 35.0f));
-        this->addChild(getLabelTitle());
-    }
-    
-    // 显示文本内容
-    if (getLabelContentText()){
-        LabelTTF* ltf = getLabelContentText();
-        ltf->setPosition(Point(winSize.width / 2, winSize.height / 2));
-        ltf->setDimensions(Size(contentSize.width - m_contentPadding * 2, contentSize.height - m_contentPaddingTop));
-        ltf->setHorizontalAlignment(kCCTextAlignmentLeft);
-        this->addChild(ltf);
-    }
 	
     // 弹出效果
     Action* popupLayer = Sequence::create(CCScaleTo::create(0.0, 0.0),
 										  CCScaleTo::create(0.06, 1.05),
 										  CCScaleTo::create(0.08, 0.95),
 										  CCScaleTo::create(0.08, 1.0), NULL);
-    this->runAction(popupLayer);
+    bgLay->runAction(popupLayer);
 	
 }
 
-void PopUpShareLayer::onExit(){
+void PopUpRightLayer::onExit(){
     
-    CCLog("popup on exit.");
+    log("popup on exit.");
     CCLayer::onExit();
+}
+
+#pragma mark --
+#pragma mark -- Functions
+
+void PopUpRightLayer::setUpView(){
+	Size winSize = Director::getInstance()->getWinSize();
+    Point pCenter = Point(winSize.width / 2, winSize.height / 2);
+	
+	std::vector<std::string> imgs;
+	imgs.push_back(std::string("play_dialog_bg.png"));//bg
+	imgs.push_back(std::string("UMS_qq_icon@2x.png"));
+	imgs.push_back(std::string("UMS_qzone_icon_bonus@2x.png"));
+	imgs.push_back(std::string("UMS_wechat_session_icon@2x.png"));
+	imgs.push_back(std::string("UMS_wechat_timeline_icon_bonus@2x.png"));
+	imgs.push_back(std::string("play_dialog_button.png")); //close b n
+	imgs.push_back(std::string("play_dialog_button_selected.png")); //close b s
+	
+	Sprite* bg = Sprite::create( imgs.at(0));
+	auto menuItem1 = MenuItemImage::create(
+										   imgs.at(1),
+										   imgs.at(1),
+										   CC_CALLBACK_1(PopUpRightLayer::wrongShare, this));
+	auto menuItem2 = MenuItemImage::create(
+										   imgs.at(2),
+										   imgs.at(2),
+										   CC_CALLBACK_1(PopUpRightLayer::wrongBomb, this));
+	auto menuItem3 = MenuItemImage::create(
+										   imgs.at(3),
+										   imgs.at(3),
+										   CC_CALLBACK_1(PopUpRightLayer::wrongBomb, this));
+	
+	bg->setAnchorPoint(Point(0.5f, 0.5f));
+	menuItem1->setAnchorPoint(Point(0.5f, 0.5f));
+	menuItem2->setAnchorPoint(Point(0.5f, 0.5f));
+	menuItem3->setAnchorPoint(Point(0.5f, 0.5f));
+	
+	// create menu, it's an autorelease object
+    auto menu = Menu::create(menuItem1, menuItem2, menuItem3, NULL);
+    menu->setPosition(Point::ZERO);
+	
+	menuItem2->setPosition(Point(pCenter.x - 70,  pCenter.y - 50));
+	menuItem1->setPosition(Point(pCenter.x - 70 *3 ,  pCenter.y - 50));
+	menuItem3->setPosition(Point(pCenter.x + 70,  pCenter.y - 50));
+	
+	//	backItem->setPosition(Point(pCenter.x, pCenter.y - 200 ));
+	//	LabelTTF* title = LabelTTF::create("关闭", "Arial", 40, backItem->getContentSize(), TextHAlignment::CENTER);
+	//	title->cocos2d::Node::setAnchorPoint(Point(0.5f, 0.5f));
+	//	title->setPosition(backItem->getPosition());
+	bg->setPosition(pCenter);
+	
+	bgLay = Layer::create();
+	bgLay->setContentSize(winSize);
+	bgLay->addChild(bg);
+    bgLay->addChild(menu, 1);
+	//	bgLay->addChild(title,2);
+	
+	this->addChild(bgLay);
+}
+void PopUpRightLayer::setCallbackFunc(Object* target, SEL_CallFuncN m1, SEL_CallFuncN m2, SEL_CallFuncN m3){
+	m_callbackListener = target;
+	m1_ = m1;
+	m2_ = m2;
+	m3_ = m3;
+}
+
+
+void PopUpRightLayer::wrongShare(Object * pSender){
+	
+	Node* node = dynamic_cast<Node*>(pSender);
+    if (m1_ && m_callbackListener){
+        (m_callbackListener->*m1_)(node);
+    }
+	
+}
+void PopUpRightLayer::wrongBomb(Object * pSender){
+	Node* node = dynamic_cast<Node*>(pSender);
+    if (m2_ && m_callbackListener){
+        (m_callbackListener->*m2_)(node);
+    }
+}
+void PopUpRightLayer::wrongBack(Object * pSender){
+	Node* node = dynamic_cast<Node*>(pSender);
+    if (m3_ && m_callbackListener){
+        (m_callbackListener->*m3_)(node);
+    }
 }

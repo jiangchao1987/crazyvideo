@@ -169,6 +169,7 @@
 		61D8072418B4D2F200A7EC06 /* JAVAHelper.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 61D8071E18B4D2F200A7EC06 /* JAVAHelper.cpp */; };
 		61D8073C18B4DA0500A7EC06 /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 61D8073B18B4DA0500A7EC06 /* MediaPlayer.framework */; };
 		61DA12AD18B6F8CA002EE4C6 /* PopUpWrongLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 61DA12AB18B6F8CA002EE4C6 /* PopUpWrongLayer.cpp */; };
+		61DA12B818B722D3002EE4C6 /* PopUpRightLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 61DA12B618B722D3002EE4C6 /* PopUpRightLayer.cpp */; };
 		BF171245129291EC00B8313A /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF170DB012928DE900B8313A /* OpenGLES.framework */; };
 		BF1712471292920000B8313A /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = BF170DB412928DE900B8313A /* libz.dylib */; };
 		BF1C47F01293687400B63C5D /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF1C47EA1293683800B63C5D /* QuartzCore.framework */; };
@@ -527,6 +528,8 @@
 		61D8073B18B4DA0500A7EC06 /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.0.sdk/System/Library/Frameworks/MediaPlayer.framework; sourceTree = DEVELOPER_DIR; };
 		61DA12AB18B6F8CA002EE4C6 /* PopUpWrongLayer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = PopUpWrongLayer.cpp; path = ../Classes/PopUpWrongLayer.cpp; sourceTree = "<group>"; };
 		61DA12AC18B6F8CA002EE4C6 /* PopUpWrongLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PopUpWrongLayer.h; path = ../Classes/PopUpWrongLayer.h; sourceTree = "<group>"; };
+		61DA12B618B722D3002EE4C6 /* PopUpRightLayer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = PopUpRightLayer.cpp; path = ../Classes/PopUpRightLayer.cpp; sourceTree = "<group>"; };
+		61DA12B718B722D3002EE4C6 /* PopUpRightLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PopUpRightLayer.h; path = ../Classes/PopUpRightLayer.h; sourceTree = "<group>"; };
 		BF170DB012928DE900B8313A /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
 		BF170DB412928DE900B8313A /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		BF1C47EA1293683800B63C5D /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
@@ -943,6 +946,8 @@
 		61D5E4CF18B5EDE3002341CB /* popup */ = {
 			isa = PBXGroup;
 			children = (
+				61DA12B618B722D3002EE4C6 /* PopUpRightLayer.cpp */,
+				61DA12B718B722D3002EE4C6 /* PopUpRightLayer.h */,
 				61DA12AB18B6F8CA002EE4C6 /* PopUpWrongLayer.cpp */,
 				61DA12AC18B6F8CA002EE4C6 /* PopUpWrongLayer.h */,
 				61D5E4D618B5EE14002341CB /* PopUpShareLayer.cpp */,
@@ -1328,6 +1333,7 @@
 				611390F218B360FB00FFAF9B /* LevelScene.cpp in Sources */,
 				6113915418B3955F00FFAF9B /* LevelView.cpp in Sources */,
 				61D8072218B4D2F200A7EC06 /* IOSHelper.mm in Sources */,
+				61DA12B818B722D3002EE4C6 /* PopUpRightLayer.cpp in Sources */,
 				61D8070F18B4BA4500A7EC06 /* DataMgr.cpp in Sources */,
 				503AE10117EB989F00D1A890 /* main.m in Sources */,
 				1AFAF8B816D35DE700DB1158 /* HelloWorldScene.cpp in Sources */,
