@@ -75,6 +75,11 @@ public:
 	void shareToTencent(CCNode * node);
 	void shareToQZone(CCNode * node);
 	void shareClose(CCNode *node);
+	//wrong pop call back
+	void wrongShare(CCNode * pSender);
+	void wrongBomb(CCNode * pSender);
+	void wrongBack(CCNode * pSender);
+    
 	
 	//检查 是否答对
 	bool checkAnswer(int answerIndex);

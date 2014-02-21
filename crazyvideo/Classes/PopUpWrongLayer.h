@@ -29,7 +29,7 @@ public:
     virtual void onTouchEnded(cocos2d::Touch *touch, cocos2d::Event *unused_event);
     virtual void onTouchCancelled(cocos2d::Touch *touch, cocos2d::Event *unused_event);
 	
-	void setCallbackFunc(CCObject* target, SEL_CallFuncN callfun, SEL_CallFuncN m1, SEL_CallFuncN m2, SEL_CallFuncN m3, SEL_CallFuncN m4);
+	void setCallbackFunc(CCObject* target, SEL_CallFuncN m1, SEL_CallFuncN m2, SEL_CallFuncN m3);
 	
     
     virtual void onEnter();
@@ -41,17 +41,13 @@ private:
     void setUpView();
     
     Object* m_callbackListener;
-    SEL_CallFuncN m_callback;
 	SEL_CallFuncN m1_;
 	SEL_CallFuncN m2_;
 	SEL_CallFuncN m3_;
-	SEL_CallFuncN m4_;
 	
-	void shareToFriends(Object * pSender);
-	void shareToFriend(Object * pSender);
-	void shareToTencent(Object * pSender);
-	void shareToQZone(Object * pSender);
-	void shareClose(Object *pSender);
+	void wrongShare(Object * pSender);
+	void wrongBomb(Object * pSender);
+	void wrongBack(Object * pSender);
     
 };
 #endif /* defined(__crazyvideo__PopUpWrongLayer__) */

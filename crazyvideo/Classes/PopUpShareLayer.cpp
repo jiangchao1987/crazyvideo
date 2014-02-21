@@ -160,26 +160,26 @@ void PopUpShareLayer::setCallbackFunc(Object* target, SEL_CallFuncN callfun, SEL
 void PopUpShareLayer::shareToFriends(Object * pSender){
 
 	Node* node = dynamic_cast<Node*>(pSender);
-    if (m_callback && m_callbackListener){
+    if (m1_ && m_callbackListener){
         (m_callbackListener->*m1_)(node);
     }
 	
 }
 void PopUpShareLayer::shareToFriend(Object * pSender){
 	Node* node = dynamic_cast<Node*>(pSender);
-    if (m_callback && m_callbackListener){
+    if (m2_ && m_callbackListener){
         (m_callbackListener->*m2_)(node);
     }
 }
 void PopUpShareLayer::shareToQZone(Object * pSender){
 	Node* node = dynamic_cast<Node*>(pSender);
-    if (m_callback && m_callbackListener){
+    if (m3_ && m_callbackListener){
         (m_callbackListener->*m3_)(node);
     }
 }
 void PopUpShareLayer::shareToTencent(Object * pSender){
 	Node* node = dynamic_cast<Node*>(pSender);
-    if (m_callback && m_callbackListener){
+    if (m4_ && m_callbackListener){
         (m_callbackListener->*m4_)(node);
     }
 }

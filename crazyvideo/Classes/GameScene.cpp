@@ -350,19 +350,13 @@ void GameScene::btn4callBack(Object *pSender, Control::EventType controlEvents){
 }
 
 #pragma mark --
-#pragma mark -- Pop Functions
+#pragma mark -- Pop Functions  Share
 void GameScene::popShareLayer(){
 	
 	PopUpShareLayer* p = PopUpShareLayer::create();//create("play_dialog_bg.png");
-//	p->setTitle("Hello World");
 	p->setTag(POPUPSHARELAYER_TAG);
 	p->setCallbackFunc(this, callfuncN_selector(GameScene::shareClose),callfuncN_selector(GameScene::shareToFriend),callfuncN_selector(GameScene::shareToFriends),callfuncN_selector(GameScene::shareToTencent),callfuncN_selector(GameScene::shareToQZone) );
-	
-
-	//p->addButton("UMS_qzone_icon_bonus@2x.png", "UMS_qzone_icon_bonus@2x.png", "");
 	this->addChild(p,2);
-	
-	
 }
 void GameScene::popBombLayer(){
 	
@@ -371,7 +365,10 @@ void GameScene::popRightLayer(){
 	
 }
 void GameScene::popWrongLayer(){
-	
+	PopUpWrongLayer* p = PopUpWrongLayer::create();
+	p->setTag(POPUPWRONGLAYER_TAG);
+	p->setCallbackFunc(this, callfuncN_selector(GameScene::wrongShare),callfuncN_selector(GameScene::wrongBomb), callfuncN_selector(GameScene::wrongBack) );
+	this->addChild(p,2);
 }
 
 #pragma mark --
@@ -392,20 +389,49 @@ void GameScene::shareToQZone(Node * node){
 void GameScene::shareClose(Node *node){
 	PopUpShareLayer* p = (PopUpShareLayer*)this->getChildByTag(POPUPSHARELAYER_TAG);
 	p->removeFromParentAndCleanup(true);
+}
 
+#pragma mark --
+#pragma mark PopWrongLayer CallBack
+//wrong pop call back
+void GameScene::wrongShare(Node * pSender){
+	PopUpWrongLayer* p = (PopUpWrongLayer*)this->getChildByTag(POPUPWRONGLAYER_TAG);
+	p->removeFromParentAndCleanup(true);
+	
+	this->popShareLayer();
+}
+void GameScene::wrongBomb(Node * pSender){
+	PopUpWrongLayer* p = (PopUpWrongLayer*)this->getChildByTag(POPUPWRONGLAYER_TAG);
+	p->removeFromParentAndCleanup(true);
+	
+}
+void GameScene::wrongBack(Node * pSender){
+	PopUpWrongLayer* p = (PopUpWrongLayer*)this->getChildByTag(POPUPWRONGLAYER_TAG);
+	p->removeFromParentAndCleanup(true);
+	
 }
 
 #pragma mark --
 #pragma mark -- Game Logic Functions
 bool GameScene::checkAnswer(int answerIndex){
 	
-	int a = 2;
+	bool bRet = false;
+	int a = arc4random()/4;
 	
 	if ( a == answerIndex ){
-		return true;
+		
+		bRet = true;
+	}else{
+		bRet = false;
 	}
 	
-	return false;
+	if ( bRet ) {
+		this->popRightLayer();
+	}else{
+		this->popWrongLayer();
+	}
+	
+	return bRet;
 }
 
 void answerAnimation( bool bRight){

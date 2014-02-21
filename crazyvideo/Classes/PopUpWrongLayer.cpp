@@ -9,11 +9,9 @@
 #include "PopUpWrongLayer.h"
 PopUpWrongLayer::PopUpWrongLayer():
 m_callbackListener(NULL)
-, m_callback(NULL)
 , m1_(NULL)
 , m2_(NULL)
 , m3_(NULL)
-, m4_(NULL)
 {
     
 }
@@ -96,96 +94,68 @@ void PopUpWrongLayer::setUpView(){
 	auto menuItem1 = MenuItemImage::create(
 										   imgs.at(1),
 										   imgs.at(1),
-										   CC_CALLBACK_1(PopUpWrongLayer::shareToFriend, this));
+										   CC_CALLBACK_1(PopUpWrongLayer::wrongShare, this));
 	auto menuItem2 = MenuItemImage::create(
 										   imgs.at(2),
 										   imgs.at(2),
-										   CC_CALLBACK_1(PopUpWrongLayer::shareToFriends, this));
+										   CC_CALLBACK_1(PopUpWrongLayer::wrongBomb, this));
 	auto menuItem3 = MenuItemImage::create(
 										   imgs.at(3),
 										   imgs.at(3),
-										   CC_CALLBACK_1(PopUpWrongLayer::shareToTencent, this));
-	auto menuItem4 = MenuItemImage::create(
-										   imgs.at(4),
-										   imgs.at(4),
-										   CC_CALLBACK_1(PopUpWrongLayer::shareToQZone, this));
-	
-	auto backItem = MenuItemImage::create(
-										  imgs.at(5),
-										  imgs.at(6),
-										  CC_CALLBACK_1(PopUpWrongLayer::shareClose, this));
-	
+										   CC_CALLBACK_1(PopUpWrongLayer::wrongBomb, this));
+		
 	bg->setAnchorPoint(Point(0.5f, 0.5f));
 	menuItem1->setAnchorPoint(Point(0.5f, 0.5f));
 	menuItem2->setAnchorPoint(Point(0.5f, 0.5f));
 	menuItem3->setAnchorPoint(Point(0.5f, 0.5f));
-	menuItem4->setAnchorPoint(Point(0.5f, 0.5f));
-	backItem->setAnchorPoint(Point(0.5f, 0.5f));
 	
 	// create menu, it's an autorelease object
-    auto menu = Menu::create(menuItem1, menuItem2, menuItem3, menuItem4,backItem, NULL);
+    auto menu = Menu::create(menuItem1, menuItem2, menuItem3, NULL);
     menu->setPosition(Point::ZERO);
 	
 	menuItem2->setPosition(Point(pCenter.x - 70,  pCenter.y - 50));
 	menuItem1->setPosition(Point(pCenter.x - 70 *3 ,  pCenter.y - 50));
 	menuItem3->setPosition(Point(pCenter.x + 70,  pCenter.y - 50));
-	menuItem4->setPosition(Point(pCenter.x + 70 *3 ,  pCenter.y - 50));
 	
-	backItem->setPosition(Point(pCenter.x, pCenter.y - 200 ));
-	LabelTTF* title = LabelTTF::create("关闭", "Arial", 40, backItem->getContentSize(), TextHAlignment::CENTER);
-	title->cocos2d::Node::setAnchorPoint(Point(0.5f, 0.5f));
-	title->setPosition(backItem->getPosition());
-	bg->setPosition(pCenter);
+//	backItem->setPosition(Point(pCenter.x, pCenter.y - 200 ));
+//	LabelTTF* title = LabelTTF::create("关闭", "Arial", 40, backItem->getContentSize(), TextHAlignment::CENTER);
+//	title->cocos2d::Node::setAnchorPoint(Point(0.5f, 0.5f));
+//	title->setPosition(backItem->getPosition());
+//	bg->setPosition(pCenter);
 	
 	bgLay = Layer::create();
 	bgLay->setContentSize(winSize);
 	bgLay->addChild(bg);
     bgLay->addChild(menu, 1);
-	bgLay->addChild(title,2);
+//	bgLay->addChild(title,2);
 	
 	this->addChild(bgLay);
 }
-void PopUpWrongLayer::setCallbackFunc(Object* target, SEL_CallFuncN callfun, SEL_CallFuncN m1, SEL_CallFuncN m2, SEL_CallFuncN m3, SEL_CallFuncN m4){
+void PopUpWrongLayer::setCallbackFunc(Object* target, SEL_CallFuncN m1, SEL_CallFuncN m2, SEL_CallFuncN m3){
 	m_callbackListener = target;
-    m_callback = callfun;
-	
 	m1_ = m1;
 	m2_ = m2;
 	m3_ = m3;
-	m4_ = m3;
 }
 
 
-void PopUpWrongLayer::shareToFriends(Object * pSender){
+void PopUpWrongLayer::wrongShare(Object * pSender){
 	
 	Node* node = dynamic_cast<Node*>(pSender);
-    if (m_callback && m_callbackListener){
+    if (m1_ && m_callbackListener){
         (m_callbackListener->*m1_)(node);
     }
 	
 }
-void PopUpWrongLayer::shareToFriend(Object * pSender){
+void PopUpWrongLayer::wrongBomb(Object * pSender){
 	Node* node = dynamic_cast<Node*>(pSender);
-    if (m_callback && m_callbackListener){
+    if (m2_ && m_callbackListener){
         (m_callbackListener->*m2_)(node);
     }
 }
-void PopUpWrongLayer::shareToQZone(Object * pSender){
+void PopUpWrongLayer::wrongBack(Object * pSender){
 	Node* node = dynamic_cast<Node*>(pSender);
-    if (m_callback && m_callbackListener){
+    if (m3_ && m_callbackListener){
         (m_callbackListener->*m3_)(node);
-    }
-}
-void PopUpWrongLayer::shareToTencent(Object * pSender){
-	Node* node = dynamic_cast<Node*>(pSender);
-    if (m_callback && m_callbackListener){
-        (m_callbackListener->*m4_)(node);
-    }
-}
-
-void PopUpWrongLayer::shareClose(Object * pSender){
-	Node* node = dynamic_cast<Node*>(pSender);
-    if (m_callback && m_callbackListener){
-        (m_callbackListener->*m_callback)(node);
     }
 }
