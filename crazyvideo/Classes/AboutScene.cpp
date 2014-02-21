@@ -71,6 +71,14 @@ bool AboutScene::init()
 	setItemPosition(backLayer, Point(0.5f, 0.5f),
 					Point(origin.x + visibleSize.width / 3 - 10, origin.y + visibleSize.height * 3 / 4), mii2);
 	
+	if ( DataMgr::getInstance()->isBgSoundOpen() ){
+		mii1->setVisible(true);
+		mii2->setVisible(false);
+	}else{
+		mii1->setVisible(true);
+		mii2->setVisible(false);
+	}
+
 	////mail
 	auto mailItem = MenuItemImage::create(
 		"setting_mail.png",
