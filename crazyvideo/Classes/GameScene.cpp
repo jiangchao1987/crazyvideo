@@ -164,16 +164,16 @@ bool GameScene::init()
 	// question
 	String* str = String::createWithFormat("你到底爱不爱我safsafsfs撒旦就发来时就按了福建省老奥发来 ");
 	
-	question = LabelTTF::create(str->getCString(), "Arial", 30, Size(300, 200), TextHAlignment::CENTER, cocos2d::TextVAlignment::TOP);
+	question = LabelTTF::create(str->getCString(), "AmericanTypewriter-Bold", 30, Size(300, 200), TextHAlignment::CENTER, cocos2d::TextVAlignment::TOP);
 	question->setAnchorPoint(Point(0.5f,0.5f));
 	question->setPosition(origin.x + visibleSize.width/2, nav->getPositionY() - 260 + 0);
 
 	backLayer->addChild(question);
 	
-	string title1 = " 爱";
-	string title2 = " 不爱";
-	string title3 = " 爱你个头呀";
-	string title4 = " 爱死你了";
+	string title1 = "";
+	string title2 = "";
+	string title3 = "";
+	string title4 = "";
 	
 //522 88
 
@@ -315,10 +315,21 @@ void GameScene::resetView(){
 	CCString* index = (CCString*) currentDic_->objectForKey(Key_guanka_index);
 	CCString* topic = (CCString*) currentDic_->objectForKey(Key_topic_title);
 
-	btn1->setTitleForState(o1->_string, Control::State::NORMAL) ;
-	btn2->setTitleForState(o2->_string, Control::State::NORMAL) ;
-	btn3->setTitleForState(o3->_string, Control::State::NORMAL) ;
-	btn4->setTitleForState(o4->_string, Control::State::NORMAL) ;
+	LabelTTF* t1 = (LabelTTF*)btn1->getChildByTag(1000);
+	LabelTTF* t2 = (LabelTTF*)btn2->getChildByTag(1000);
+	LabelTTF* t3 = (LabelTTF*)btn3->getChildByTag(1000);
+	LabelTTF* t4 = (LabelTTF*)btn4->getChildByTag(1000);
+
+	t1->setString(o1->_string);
+	t2->setString(o2->_string);
+	t3->setString(o3->_string);
+	t4->setString(o4->_string);
+
+//	btn1->setTitleForState(o1->_string, Control::State::NORMAL) ;
+//	btn2->setTitleForState(o2->_string, Control::State::NORMAL) ;
+//	btn3->setTitleForState(o3->_string, Control::State::NORMAL) ;
+//	btn4->setTitleForState(o4->_string, Control::State::NORMAL) ;
+//	
 	question->setString(q->_string);
 	guanka_index->setString(index->_string);
 	topic_title->setString(topic->_string);
@@ -500,6 +511,11 @@ void GameScene::answerAnimation( int answerIndex){
 	Sprite* sp = Sprite::create(correctwrongImgStr);
 	sp->setPosition( Point( btn->getPositionX() - btn->getContentSize().width/2 + sp->getContentSize().width, btn->getPositionY()));
 	this->addChild(sp);
+	
+	CCLabelBMFont* label = CCLabelBMFont::create("23","prim30.fnt");
+	label->setColor(Color3B::BLACK);
+	label->setPosition(sp->getPosition());
+	this->addChild(label);
 	
 }
 

@@ -71,33 +71,26 @@ ControlButton* standardButtonWithTitle( const char * bgname, const char * bgsele
 	
 
 	ControlButton* btn = ControlButton::create();
-	
+	btn->setPreferredSize(Size(522, 88));
+
 	Scale9Sprite*	normal = Scale9Sprite::create(bgname);
 	Scale9Sprite*	select = Scale9Sprite::create(bgseledname);
 	Scale9Sprite* hightlight = Scale9Sprite::create(bgseledname);
 	Scale9Sprite* disable = Scale9Sprite::create(bgname);
 	
-	//522 88
-//	normal->setContentSize(Size(522, 88));
-//	select->setContentSize(Size(522, 88));
-//	hightlight->setContentSize(Size(522, 88));
-//	disable->setContentSize(Size(522, 88));
-//	btn->setContentSize(Size(522,88));
 	btn->setBackgroundSpriteForState(normal, Control::State::NORMAL);
 	btn->setBackgroundSpriteForState(select, Control::State::SELECTED);
 	btn->setBackgroundSpriteForState(hightlight, Control::State::HIGH_LIGHTED);
 	btn->setBackgroundSpriteForState(disable, Control::State::DISABLED);
 	
 	
-    LabelTTF *titleButton = LabelTTF::create(title, "Marker Felt", 30);//添加文字
-	titleButton->setColor(Color3B(0, 0, 0));//设置文字点击前的颜色
-    btn->setPreferredSize(Size(522, 88));
-	
-	btn->setTitleLabel(titleButton);
-//	
-//    button->setBackgroundSpriteForState(backgroundHighlightedButton, Control::State::HIGH_LIGHTED);
-//    button->setTitleColorForState(Color3B::WHITE, Control::State::HIGH_LIGHTED);//设置文字点击后的颜色
-//    
+    LabelTTF *titleButton = LabelTTF::create(title, "AmericanTypewriter", 30);//添加文字
+	titleButton->setAnchorPoint(Point(0.5f, 0.5f));
+	titleButton->setPosition(Point(btn->getContentSize().width/2, btn->getContentSize().height/2));
+	titleButton->setColor(Color3B::BLACK);//设置文字点击前的颜色
+	titleButton->setTag(1000);
+	btn->addChild(titleButton);
+
     return btn;
 }
 

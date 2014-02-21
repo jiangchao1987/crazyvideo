@@ -191,6 +191,9 @@
 		61DA12E618B72730002EE4C6 /* TeamScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 61DA12E418B72730002EE4C6 /* TeamScene.cpp */; };
 		61DA12E918B72B07002EE4C6 /* play_correct.png in Resources */ = {isa = PBXBuildFile; fileRef = 61DA12E718B72B07002EE4C6 /* play_correct.png */; };
 		61DA12EA18B72B07002EE4C6 /* play_wrong.png in Resources */ = {isa = PBXBuildFile; fileRef = 61DA12E818B72B07002EE4C6 /* play_wrong.png */; };
+		61DA12EF18B74131002EE4C6 /* Marker Felt.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 61DA12EC18B74131002EE4C6 /* Marker Felt.ttf */; };
+		61DA12F018B74131002EE4C6 /* prim30.fnt in Resources */ = {isa = PBXBuildFile; fileRef = 61DA12ED18B74131002EE4C6 /* prim30.fnt */; };
+		61DA12F118B74131002EE4C6 /* prim30.png in Resources */ = {isa = PBXBuildFile; fileRef = 61DA12EE18B74131002EE4C6 /* prim30.png */; };
 		BF171245129291EC00B8313A /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF170DB012928DE900B8313A /* OpenGLES.framework */; };
 		BF1712471292920000B8313A /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = BF170DB412928DE900B8313A /* libz.dylib */; };
 		BF1C47F01293687400B63C5D /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF1C47EA1293683800B63C5D /* QuartzCore.framework */; };
@@ -574,6 +577,9 @@
 		61DA12E518B72730002EE4C6 /* TeamScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TeamScene.h; path = ../Classes/TeamScene.h; sourceTree = "<group>"; };
 		61DA12E718B72B07002EE4C6 /* play_correct.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = play_correct.png; sourceTree = "<group>"; };
 		61DA12E818B72B07002EE4C6 /* play_wrong.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = play_wrong.png; sourceTree = "<group>"; };
+		61DA12EC18B74131002EE4C6 /* Marker Felt.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Marker Felt.ttf"; sourceTree = "<group>"; };
+		61DA12ED18B74131002EE4C6 /* prim30.fnt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = prim30.fnt; sourceTree = "<group>"; };
+		61DA12EE18B74131002EE4C6 /* prim30.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = prim30.png; sourceTree = "<group>"; };
 		BF170DB012928DE900B8313A /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
 		BF170DB412928DE900B8313A /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		BF1C47EA1293683800B63C5D /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
@@ -1042,9 +1048,20 @@
 			path = pop;
 			sourceTree = "<group>";
 		};
+		61DA12EB18B74131002EE4C6 /* fonts */ = {
+			isa = PBXGroup;
+			children = (
+				61DA12EC18B74131002EE4C6 /* Marker Felt.ttf */,
+				61DA12ED18B74131002EE4C6 /* prim30.fnt */,
+				61DA12EE18B74131002EE4C6 /* prim30.png */,
+			);
+			path = fonts;
+			sourceTree = "<group>";
+		};
 		78C7DDAA14EBA5050085D0C2 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				61DA12EB18B74131002EE4C6 /* fonts */,
 				61D5E4DA18B5F0A9002341CB /* pop */,
 				61C92C0D18B4ECC4007E7C2E /* video */,
 				61D8071618B4C03100A7EC06 /* jishijiangli.txt */,
@@ -1315,6 +1332,7 @@
 				61DA12D918B726F3002EE4C6 /* setting_rate_selected.png in Resources */,
 				61DA12E218B726F3002EE4C6 /* team_chengxu.png in Resources */,
 				6113913518B37D4B00FFAF9B /* background.wav in Resources */,
+				61DA12F118B74131002EE4C6 /* prim30.png in Resources */,
 				61DA12E118B726F3002EE4C6 /* team_cehua.png in Resources */,
 				61C92C3118B4ECC4007E7C2E /* 大话西游.mp4 in Resources */,
 				5087E78017EB970100C73F5D /* Icon-114.png in Resources */,
@@ -1328,6 +1346,7 @@
 				6113913918B37D4B00FFAF9B /* opendoor.wav in Resources */,
 				6113913A18B37D4B00FFAF9B /* pop3.mp3 in Resources */,
 				61C92C3918B4ECC4007E7C2E /* 梅西.mp4 in Resources */,
+				61DA12F018B74131002EE4C6 /* prim30.fnt in Resources */,
 				50EF62A217ECD613001EB2F8 /* Icon-29.png in Resources */,
 				6113912218B3742300FFAF9B /* index_play.png in Resources */,
 				61C92C2D18B4ECC4007E7C2E /* 仙履奇缘.mp4 in Resources */,
@@ -1344,6 +1363,7 @@
 				61C92C3018B4ECC4007E7C2E /* 圣斗士星矢.mp4 in Resources */,
 				6113916218B395EF00FFAF9B /* pop_button.png in Resources */,
 				61D5E4E618B5F0A9002341CB /* play_dialog_bg.png in Resources */,
+				61DA12EF18B74131002EE4C6 /* Marker Felt.ttf in Resources */,
 				61C92C4818B4ECC4007E7C2E /* 赌神.mp4 in Resources */,
 				50EF629817ECD46A001EB2F8 /* Icon-80.png in Resources */,
 				61DA12DB18B726F3002EE4C6 /* setting_reset_selected.png in Resources */,
