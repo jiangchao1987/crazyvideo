@@ -11,8 +11,12 @@
 
 #include "PopUpShareLayer.h"
 #include "PopUpWrongLayer.h"
+#include "PopUpBombLayer.h"
+#include "PopUpRightLayer.h"
 
 #define POPUPSHARELAYER_TAG  324234
 #define POPUPWRONGLAYER_TAG  (POPUPSHARELAYER_TAG + 1)
+#define POPUPRIGHTLAYER_TAG  (POPUPSHARELAYER_TAG + 2)
+#define POPUPBOMBLAYER_TAG  (POPUPSHARELAYER_TAG + 3)
 
 #endif
