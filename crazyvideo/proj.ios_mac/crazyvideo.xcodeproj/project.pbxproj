@@ -170,6 +170,7 @@
 		61D8073C18B4DA0500A7EC06 /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 61D8073B18B4DA0500A7EC06 /* MediaPlayer.framework */; };
 		61DA12AD18B6F8CA002EE4C6 /* PopUpWrongLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 61DA12AB18B6F8CA002EE4C6 /* PopUpWrongLayer.cpp */; };
 		61DA12B818B722D3002EE4C6 /* PopUpRightLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 61DA12B618B722D3002EE4C6 /* PopUpRightLayer.cpp */; };
+		61DA12C118B7241E002EE4C6 /* PopUpBombLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 61DA12BF18B7241E002EE4C6 /* PopUpBombLayer.cpp */; };
 		BF171245129291EC00B8313A /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF170DB012928DE900B8313A /* OpenGLES.framework */; };
 		BF1712471292920000B8313A /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = BF170DB412928DE900B8313A /* libz.dylib */; };
 		BF1C47F01293687400B63C5D /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF1C47EA1293683800B63C5D /* QuartzCore.framework */; };
@@ -530,6 +531,8 @@
 		61DA12AC18B6F8CA002EE4C6 /* PopUpWrongLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PopUpWrongLayer.h; path = ../Classes/PopUpWrongLayer.h; sourceTree = "<group>"; };
 		61DA12B618B722D3002EE4C6 /* PopUpRightLayer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = PopUpRightLayer.cpp; path = ../Classes/PopUpRightLayer.cpp; sourceTree = "<group>"; };
 		61DA12B718B722D3002EE4C6 /* PopUpRightLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PopUpRightLayer.h; path = ../Classes/PopUpRightLayer.h; sourceTree = "<group>"; };
+		61DA12BF18B7241E002EE4C6 /* PopUpBombLayer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = PopUpBombLayer.cpp; path = ../Classes/PopUpBombLayer.cpp; sourceTree = "<group>"; };
+		61DA12C018B7241E002EE4C6 /* PopUpBombLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PopUpBombLayer.h; path = ../Classes/PopUpBombLayer.h; sourceTree = "<group>"; };
 		BF170DB012928DE900B8313A /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
 		BF170DB412928DE900B8313A /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		BF1C47EA1293683800B63C5D /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
@@ -952,6 +955,8 @@
 				61DA12AC18B6F8CA002EE4C6 /* PopUpWrongLayer.h */,
 				61D5E4D618B5EE14002341CB /* PopUpShareLayer.cpp */,
 				61D5E4D718B5EE14002341CB /* PopUpShareLayer.h */,
+				61DA12BF18B7241E002EE4C6 /* PopUpBombLayer.cpp */,
+				61DA12C018B7241E002EE4C6 /* PopUpBombLayer.h */,
 				61D5E4D918B5F05C002341CB /* PopLayerHeader.h */,
 			);
 			name = popup;
@@ -1311,6 +1316,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6113915C18B395C300FFAF9B /* PopupLayer.cpp in Sources */,
+				61DA12C118B7241E002EE4C6 /* PopUpBombLayer.cpp in Sources */,
 				503AE10017EB989F00D1A890 /* AppController.mm in Sources */,
 				6113914818B38E7100FFAF9B /* StringUtil.cpp in Sources */,
 				611390FA18B3636C00FFAF9B /* Tools.cpp in Sources */,
