@@ -121,6 +121,7 @@ void stopBackGroundMusic(){
 	}
 }
 void playEffectBtnClicked(){
-	
+	//pop3.mp3
+	CocosDenshion::SimpleAudioEngine::getInstance()->playEffect("pop3.mp3");
 }
 

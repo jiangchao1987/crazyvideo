@@ -159,14 +159,19 @@ void StartScene::menu1CloseCallback(Object* pSender){
 //	Scene* s = LevelScene::createScene();
 	
 	//CloudScene.h
+	
+	playEffectBtnClicked();
 	Scene* s = LevelView::scene();
 	Director::getInstance()->replaceScene(TransitionFade::create(0.5, s));
 }
 void StartScene::menu2CloseCallback(Object* pSender){
+	playEffectBtnClicked();
+
 	Scene* s = AboutScene::createScene();
 	Director::getInstance()->replaceScene(TransitionFade::create(0.5, s));
 }
 void StartScene::menu3CloseCallback(Object* pSender){
+	playEffectBtnClicked();
 	
 	Scene* s = AboutScene::createScene();
 	Director::getInstance()->replaceScene(TransitionFade::create(0.5, s));

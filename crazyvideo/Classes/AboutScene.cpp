@@ -131,10 +131,13 @@ bool AboutScene::init()
 }
 
 void AboutScene::menuBackCallback(Object* pSender){
+	playEffectBtnClicked();
+
 	Scene* s = StartScene::createScene();
 	Director::getInstance()->replaceScene(TransitionFade::create(0.5, s));
 }
 void AboutScene::menuSoundCallback(Object* pSender){
+	playEffectBtnClicked();
 
 	if ( (MenuItemImage*) pSender == mii1){
 		mii1->setVisible(false);
@@ -150,19 +153,25 @@ void AboutScene::menuSoundCallback(Object* pSender){
 }
 
 void AboutScene::menuMailCallback(Object* pSender){
+	playEffectBtnClicked();
 
 }
 void AboutScene::menuResetCallback(Object* pSender){
+	playEffectBtnClicked();
 
 }
 void AboutScene::menuRateCallback(Object* pSender){
+	playEffectBtnClicked();
 
 }
 void AboutScene::menuTeamCallback(Object* pSender){
+	playEffectBtnClicked();
+
 	Scene* s = TeamScene::createScene();
 	Director::getInstance()->replaceScene(TransitionFade::create(0.5, s));
 }
 void AboutScene::menuDeclaimerCallback(Object* pSender){
+	playEffectBtnClicked();
 
 }
 cocos2d::Layer* AboutScene::createStartBackLayer(){

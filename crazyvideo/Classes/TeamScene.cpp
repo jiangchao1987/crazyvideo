@@ -105,11 +105,16 @@ bool TeamScene::init()
 }
 
 void TeamScene::menuBackCallback(Object* pSender){
+	playEffectBtnClicked();
+
 	Scene* s = AboutScene::createScene();
 	Director::getInstance()->replaceScene(TransitionFade::create(0.5, s));
 }
 
-void TeamScene::menuCehuaCallback(Object* pSender) {}
+void TeamScene::menuCehuaCallback(Object* pSender) {
+	playEffectBtnClicked();
+
+}
 
 cocos2d::Layer* TeamScene::createStartBackLayer(){
 	return NULL;

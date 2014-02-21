@@ -255,6 +255,9 @@ void GameScene::menu2CloseCallback(Object* pSender){
 	
 }
 void GameScene::menu3CloseCallback(Object* pSender){
+	
+	playEffectBtnClicked();
+
 	Scene* s = StartScene::createScene();
 	Director::getInstance()->replaceScene(TransitionFade::create(0.5, s));
 }
@@ -263,25 +266,26 @@ void GameScene::menu3CloseCallback(Object* pSender){
 #pragma mark -- Menu Functions
 
 void GameScene::menuBackCallback(Object* pSender){
-	
+	playEffectBtnClicked();
+
 	playBackGroundMusic();
 	
 	Scene* s = LevelView::scene();
 	Director::getInstance()->replaceScene(TransitionFade::create(0.5, s));
 }
 void GameScene::menuGoldCallback(Object* pSender){
-	log("gold");
+	playEffectBtnClicked();
 }
 void GameScene::menuShareCallback(Object* pSender){
-	log("share");
+	playEffectBtnClicked();
 	this->popShareLayer();
 }
 void GameScene::menuBombCallback(Object* pSender){
-	log("bomb");
+	playEffectBtnClicked();
 	this->popBombLayer();
 }
 void GameScene::menuPlayCallback(Object* pSender){
-	log("play");
+	playEffectBtnClicked();
 	
 	String* isLocal = (String*)currentDic_->objectForKey(Key_local_resource);
 	String* netstr = (String*)currentDic_->objectForKey(Key_m3u8_url);
@@ -338,22 +342,30 @@ void GameScene::resetView(){
 #pragma mark --
 #pragma mark -- Button Clicks
 void GameScene::btn1callBack(Object *pSender, Control::EventType controlEvents){
+	playEffectBtnClicked();
+
 	if ( controlEvents == Control::EventType::TOUCH_UP_INSIDE ) {
 		this->checkAnswer(1);
 	}
 }
 
 void GameScene::btn2callBack(Object *pSender, Control::EventType controlEvents){
+	playEffectBtnClicked();
+
 	if ( controlEvents == Control::EventType::TOUCH_UP_INSIDE ) {
 		this->checkAnswer(2);
 	}
 }
 void GameScene::btn3callBack(Object *pSender, Control::EventType controlEvents){
+	playEffectBtnClicked();
+
 	if ( controlEvents == Control::EventType::TOUCH_UP_INSIDE ) {
 		this->checkAnswer(3);
 	}
 }
 void GameScene::btn4callBack(Object *pSender, Control::EventType controlEvents){
+	playEffectBtnClicked();
+
 	if ( controlEvents == Control::EventType::TOUCH_UP_INSIDE ) {
 		this->checkAnswer(4);
 	}
@@ -450,6 +462,9 @@ void GameScene::rightAskFriends(CCNode * pSender){
 void GameScene::rightContinue(CCNode * pSender){
 	PopUpRightLayer* p = (PopUpRightLayer*)this->getChildByTag(POPUPRIGHTLAYER_TAG);
 	p->removeFromParentAndCleanup(true);
+	
+	Scene* s = GameScene::createScene();
+	Director::getInstance()->replaceScene(s);
 }
 
 #pragma mark --

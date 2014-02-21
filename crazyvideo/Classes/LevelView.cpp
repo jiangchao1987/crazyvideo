@@ -97,6 +97,7 @@ void LevelView::touchEventAction(LsTouch *touch, int type){
     }
     if (type == 1 && touch){
         // 收到 type 为 1 表示触发关卡选择
+		playEffectBtnClicked();
         CCString* str = CCString::createWithFormat("您选择的关卡为 %d .", touch->getEventId() + 1);
       //  MessageBox("关卡", str->getCString());
 		
@@ -334,6 +335,8 @@ void LevelView::setCurPageBall()
 }
 
 void LevelView::menuBackCallback(Object* pSender){
+	
+	playEffectBtnClicked();
 	Scene* s = StartScene::createScene();
 	Director::getInstance()->replaceScene(TransitionFade::create(0.5, s));
 }
