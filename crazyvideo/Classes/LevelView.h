@@ -49,6 +49,8 @@ public:
     void setCurPageBall();
     
 
+	void menuBackCallback(Object* pSender);
+
 private:
     Point m_touchPoint;
     Point m_touchOffset;

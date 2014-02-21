@@ -109,7 +109,6 @@ void playBackGroundMusic(){
 		
 		if(DataMgr::getInstance()->isBgSoundOpen()){
 			CocosDenshion::SimpleAudioEngine::getInstance()->playBackgroundMusic("background.wav");
-
 		}
 	}else{
 	}

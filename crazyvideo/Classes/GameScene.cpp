@@ -230,13 +230,14 @@ bool GameScene::init()
 
 void GameScene::onEnter(){
 	CCLayer::onEnter();
-	playBackGroundMusic();
+	stopBackGroundMusic();
 	currentDic_ = DataMgr::getInstance()->getCurrentQuestion();
 	this->resetView();
 }
 void GameScene::onExit(){
 	CCLayer::onExit();
-	stopBackGroundMusic();
+	playBackGroundMusic();
+
 }
 void GameScene::menuCloseCallback(Object* pSender)
 {

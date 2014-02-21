@@ -7,6 +7,7 @@
 //
 
 #include "LevelView.h"
+#include "StartScene.h"
 #include "Tools.h"
 
 LevelView::LevelView():
@@ -38,6 +39,15 @@ bool LevelView::init(){
         // 添加一个半透明的灰显层
         Layer* backLayerColor = createCommonBackLayer();
         this->addChild(backLayerColor);
+		
+		////back
+		auto backItem = MenuItemImage::create(
+											  "setting_back.png",
+											  "setting_back_selected.png",
+											  CC_CALLBACK_1(LevelView::menuBackCallback, this));
+		setItemPosition(backLayerColor, Point(0.5f, 0.5f),
+						Point( winSize.width / 7, winSize.height * 6 / 7 + backItem->getContentSize().height / 2), backItem);
+		
         
         // 创建一个 CCScrollView, 内容大小和当前的界面一样
         ScrollView* scrollView = ScrollView::create(this->getContentSize());
@@ -321,4 +331,9 @@ void LevelView::setCurPageBall()
                             size.width / 2 - ball_width * (m_nPageCount - 1) / 2,
                             size.height / 2 + 516 / 2 + 5);
 	}
+}
+
+void LevelView::menuBackCallback(Object* pSender){
+	Scene* s = StartScene::createScene();
+	Director::getInstance()->replaceScene(TransitionFade::create(0.5, s));
 }
