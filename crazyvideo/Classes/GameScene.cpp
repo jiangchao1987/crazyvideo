@@ -450,10 +450,13 @@ bool GameScene::checkAnswer(int answerIndex){
 		}
 	}
 	
+	this->answerAnimation( answerIndex );
 	if ( bRet ) {
 		this->popRightLayer();
+		log("answer right");
 	}else{
 		this->popWrongLayer();
+		log("answer wrong");
 	}
 	
 	return bRet;
@@ -488,11 +491,14 @@ void GameScene::answerAnimation( int answerIndex){
 	
 	if ( st == GameStateAnswerStateRight ) {
 		//right
-		correctwrongImgStr = "";
+		correctwrongImgStr = "play_correct.png";
 	}else{
-		correctwrongImgStr = "";
+		correctwrongImgStr = "play_wrong.png";
 	}
 	
+	Sprite* sp = Sprite::create(correctwrongImgStr);
+	sp->setPosition( Point( btn->getPositionX() - btn->getContentSize().width/2 + sp->getContentSize().width, btn->getPositionY()));//(btn->getContentSize())
+	this->addChild(sp);
 	
 }
 
