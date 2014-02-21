@@ -28,7 +28,7 @@ public:
     virtual void onTouchEnded(cocos2d::Touch *touch, cocos2d::Event *unused_event);
     virtual void onTouchCancelled(cocos2d::Touch *touch, cocos2d::Event *unused_event);
 	
-	void setCallbackFunc(Object* target, SEL_CallFuncN m1, SEL_CallFuncN m2, SEL_CallFuncN m3);
+	void setCallbackFunc(Object* target, SEL_CallFuncN m1, SEL_CallFuncN m2);
 	
     
     virtual void onEnter();
@@ -42,11 +42,9 @@ private:
     Object* m_callbackListener;
 	SEL_CallFuncN m1_;
 	SEL_CallFuncN m2_;
-	SEL_CallFuncN m3_;
 	
-	void wrongShare(Object * pSender);
-	void wrongBomb(Object * pSender);
-	void wrongBack(Object * pSender);
+	void bombUse(Object * pSender);
+	void bombNotUse(Object * pSender);
     
 };
 #endif /* defined(__crazyvideo__PopUpBombLayer__) */

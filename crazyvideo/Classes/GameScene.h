@@ -84,7 +84,13 @@ public:
 	void wrongShare(CCNode * pSender);
 	void wrongBomb(CCNode * pSender);
 	void wrongBack(CCNode * pSender);
-    
+    //bomb pop call back
+	void bombUse(CCNode * pSender);
+	void bombNotUse(CCNode * pSender);
+	//right pop call back
+	
+	void rightAskFriends(CCNode * pSender);
+	void rightContinue(CCNode * pSender);
 	
 	//检查 是否答对
 	bool checkAnswer(int answerIndex);

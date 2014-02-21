@@ -41,11 +41,9 @@ private:
     Object* m_callbackListener;
 	SEL_CallFuncN m1_;
 	SEL_CallFuncN m2_;
-	SEL_CallFuncN m3_;
 	
-	void wrongShare(Object * pSender);
-	void wrongBomb(Object * pSender);
-	void wrongBack(Object * pSender);
+	void rightAskFriends(Object * pSender);
+	void rightContinue(Object * pSender);
     
 };
 #endif /* defined(__crazyvideo__PopUpRightLayer__) */

@@ -83,27 +83,25 @@ void PopUpWrongLayer::setUpView(){
 	
 	std::vector<std::string> imgs;
 	imgs.push_back(std::string("play_dialog_bg.png"));//bg
-	imgs.push_back(std::string("UMS_qq_icon@2x.png"));
-	imgs.push_back(std::string("UMS_qzone_icon_bonus@2x.png"));
-	imgs.push_back(std::string("UMS_wechat_session_icon@2x.png"));
-	imgs.push_back(std::string("UMS_wechat_timeline_icon_bonus@2x.png"));
-	imgs.push_back(std::string("play_dialog_button.png")); //close b n
-	imgs.push_back(std::string("play_dialog_button_selected.png")); //close b s
+	imgs.push_back(std::string("play_dialog_button.png"));
+	imgs.push_back(std::string("play_dialog_button_selected.png"));
 	
+	bgLay = Layer::create();
+
 	Sprite* bg = Sprite::create( imgs.at(0));
 	auto menuItem1 = MenuItemImage::create(
 										   imgs.at(1),
-										   imgs.at(1),
+										   imgs.at(2),
 										   CC_CALLBACK_1(PopUpWrongLayer::wrongShare, this));
 	auto menuItem2 = MenuItemImage::create(
-										   imgs.at(2),
+										   imgs.at(1),
 										   imgs.at(2),
 										   CC_CALLBACK_1(PopUpWrongLayer::wrongBomb, this));
 	auto menuItem3 = MenuItemImage::create(
-										   imgs.at(3),
-										   imgs.at(3),
+										   imgs.at(1),
+										   imgs.at(2),
 										   CC_CALLBACK_1(PopUpWrongLayer::wrongBomb, this));
-		
+	
 	bg->setAnchorPoint(Point(0.5f, 0.5f));
 	menuItem1->setAnchorPoint(Point(0.5f, 0.5f));
 	menuItem2->setAnchorPoint(Point(0.5f, 0.5f));
@@ -113,17 +111,32 @@ void PopUpWrongLayer::setUpView(){
     auto menu = Menu::create(menuItem1, menuItem2, menuItem3, NULL);
     menu->setPosition(Point::ZERO);
 	
-	menuItem2->setPosition(Point(pCenter.x - 70,  pCenter.y - 50));
-	menuItem1->setPosition(Point(pCenter.x - 70 *3 ,  pCenter.y - 50));
-	menuItem3->setPosition(Point(pCenter.x + 70,  pCenter.y - 50));
+	menuItem1->setPosition(Point(pCenter.x - menuItem1->getContentSize().width ,  pCenter.y - 150));
+	menuItem2->setPosition(Point(pCenter.x ,  pCenter.y - 150));
+	menuItem3->setPosition(Point(pCenter.x + menuItem1->getContentSize().width,  pCenter.y - 150));
 	
-//	backItem->setPosition(Point(pCenter.x, pCenter.y - 200 ));
-//	LabelTTF* title = LabelTTF::create("关闭", "Arial", 40, backItem->getContentSize(), TextHAlignment::CENTER);
-//	title->cocos2d::Node::setAnchorPoint(Point(0.5f, 0.5f));
-//	title->setPosition(backItem->getPosition());
+
+	LabelTTF *label1 = LabelTTF::create("求组好友", "AmericanTypewriter", 30);//添加文字
+	
+	label1->setColor(Color3B::WHITE);
+	label1->setPosition(menuItem1->getPosition());
+	bgLay->addChild(label1, 2);
+	
+	LabelTTF *label2 = LabelTTF::create("使用炸弹", "AmericanTypewriter", 30);//添加文字
+	
+	label2->setColor(Color3B::WHITE);
+	label2->setPosition(menuItem2->getPosition());
+	bgLay->addChild(label2,2);
+	
+	
+	LabelTTF *label3 = LabelTTF::create("返回", "AmericanTypewriter", 30);//添加文字
+	
+	label3->setColor(Color3B::WHITE);
+	label3->setPosition(menuItem3->getPosition());
+	bgLay->addChild(label3,2);
+	
 	bg->setPosition(pCenter);
 	
-	bgLay = Layer::create();
 	bgLay->setContentSize(winSize);
 	bgLay->addChild(bg);
     bgLay->addChild(menu, 1);

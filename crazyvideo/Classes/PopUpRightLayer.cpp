@@ -11,7 +11,6 @@ PopUpRightLayer::PopUpRightLayer():
 m_callbackListener(NULL)
 , m1_(NULL)
 , m2_(NULL)
-, m3_(NULL)
 {
     
 }
@@ -83,39 +82,32 @@ void PopUpRightLayer::setUpView(){
 	
 	std::vector<std::string> imgs;
 	imgs.push_back(std::string("play_dialog_bg.png"));//bg
-	imgs.push_back(std::string("UMS_qq_icon@2x.png"));
-	imgs.push_back(std::string("UMS_qzone_icon_bonus@2x.png"));
-	imgs.push_back(std::string("UMS_wechat_session_icon@2x.png"));
-	imgs.push_back(std::string("UMS_wechat_timeline_icon_bonus@2x.png"));
-	imgs.push_back(std::string("play_dialog_button.png")); //close b n
-	imgs.push_back(std::string("play_dialog_button_selected.png")); //close b s
+	imgs.push_back(std::string("play_continue_share.png"));
+	imgs.push_back(std::string("play_continue_share_selected.png"));
 	
+	imgs.push_back(std::string("success_continue.png"));
+	imgs.push_back(std::string("success_continue_selected.png")); //close b n
+
 	Sprite* bg = Sprite::create( imgs.at(0));
 	auto menuItem1 = MenuItemImage::create(
 										   imgs.at(1),
 										   imgs.at(1),
-										   CC_CALLBACK_1(PopUpRightLayer::wrongShare, this));
+										   CC_CALLBACK_1(PopUpRightLayer::rightAskFriends, this));
 	auto menuItem2 = MenuItemImage::create(
 										   imgs.at(2),
 										   imgs.at(2),
-										   CC_CALLBACK_1(PopUpRightLayer::wrongBomb, this));
-	auto menuItem3 = MenuItemImage::create(
-										   imgs.at(3),
-										   imgs.at(3),
-										   CC_CALLBACK_1(PopUpRightLayer::wrongBomb, this));
+										   CC_CALLBACK_1(PopUpRightLayer::rightContinue, this));
 	
 	bg->setAnchorPoint(Point(0.5f, 0.5f));
 	menuItem1->setAnchorPoint(Point(0.5f, 0.5f));
 	menuItem2->setAnchorPoint(Point(0.5f, 0.5f));
-	menuItem3->setAnchorPoint(Point(0.5f, 0.5f));
 	
 	// create menu, it's an autorelease object
-    auto menu = Menu::create(menuItem1, menuItem2, menuItem3, NULL);
+    auto menu = Menu::create(menuItem1, menuItem2, NULL);
     menu->setPosition(Point::ZERO);
 	
 	menuItem2->setPosition(Point(pCenter.x - 70,  pCenter.y - 50));
 	menuItem1->setPosition(Point(pCenter.x - 70 *3 ,  pCenter.y - 50));
-	menuItem3->setPosition(Point(pCenter.x + 70,  pCenter.y - 50));
 	
 	//	backItem->setPosition(Point(pCenter.x, pCenter.y - 200 ));
 	//	LabelTTF* title = LabelTTF::create("关闭", "Arial", 40, backItem->getContentSize(), TextHAlignment::CENTER);
@@ -135,11 +127,10 @@ void PopUpRightLayer::setCallbackFunc(Object* target, SEL_CallFuncN m1, SEL_Call
 	m_callbackListener = target;
 	m1_ = m1;
 	m2_ = m2;
-	m3_ = m3;
 }
 
 
-void PopUpRightLayer::wrongShare(Object * pSender){
+void PopUpRightLayer::rightAskFriends(Object * pSender){
 	
 	Node* node = dynamic_cast<Node*>(pSender);
     if (m1_ && m_callbackListener){
@@ -147,15 +138,9 @@ void PopUpRightLayer::wrongShare(Object * pSender){
     }
 	
 }
-void PopUpRightLayer::wrongBomb(Object * pSender){
+void PopUpRightLayer::rightContinue(Object * pSender){
 	Node* node = dynamic_cast<Node*>(pSender);
     if (m2_ && m_callbackListener){
         (m_callbackListener->*m2_)(node);
-    }
-}
-void PopUpRightLayer::wrongBack(Object * pSender){
-	Node* node = dynamic_cast<Node*>(pSender);
-    if (m3_ && m_callbackListener){
-        (m_callbackListener->*m3_)(node);
     }
 }

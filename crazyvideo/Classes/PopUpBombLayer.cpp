@@ -11,7 +11,6 @@ PopUpBombLayer::PopUpBombLayer():
 m_callbackListener(NULL)
 , m1_(NULL)
 , m2_(NULL)
-, m3_(NULL)
 {
     
 }
@@ -83,47 +82,47 @@ void PopUpBombLayer::setUpView(){
 	
 	std::vector<std::string> imgs;
 	imgs.push_back(std::string("play_dialog_bg.png"));//bg
-	imgs.push_back(std::string("UMS_qq_icon@2x.png"));
-	imgs.push_back(std::string("UMS_qzone_icon_bonus@2x.png"));
-	imgs.push_back(std::string("UMS_wechat_session_icon@2x.png"));
-	imgs.push_back(std::string("UMS_wechat_timeline_icon_bonus@2x.png"));
-	imgs.push_back(std::string("play_dialog_button.png")); //close b n
-	imgs.push_back(std::string("play_dialog_button_selected.png")); //close b s
+
+	imgs.push_back(std::string("play_dialog_button_long.png")); //close b n
+	imgs.push_back(std::string("play_dialog_button_long_selected.png")); //close b s
 	
+	bgLay = Layer::create();
+
 	Sprite* bg = Sprite::create( imgs.at(0));
 	auto menuItem1 = MenuItemImage::create(
 										   imgs.at(1),
-										   imgs.at(1),
-										   CC_CALLBACK_1(PopUpBombLayer::wrongShare, this));
+										   imgs.at(2),
+										   CC_CALLBACK_1(PopUpBombLayer::bombUse, this));
 	auto menuItem2 = MenuItemImage::create(
+										   imgs.at(1),
 										   imgs.at(2),
-										   imgs.at(2),
-										   CC_CALLBACK_1(PopUpBombLayer::wrongBomb, this));
-	auto menuItem3 = MenuItemImage::create(
-										   imgs.at(3),
-										   imgs.at(3),
-										   CC_CALLBACK_1(PopUpBombLayer::wrongBomb, this));
+										   CC_CALLBACK_1(PopUpBombLayer::bombNotUse, this));
 	
 	bg->setAnchorPoint(Point(0.5f, 0.5f));
 	menuItem1->setAnchorPoint(Point(0.5f, 0.5f));
 	menuItem2->setAnchorPoint(Point(0.5f, 0.5f));
-	menuItem3->setAnchorPoint(Point(0.5f, 0.5f));
 	
 	// create menu, it's an autorelease object
-    auto menu = Menu::create(menuItem1, menuItem2, menuItem3, NULL);
+    auto menu = Menu::create(menuItem1, menuItem2, NULL);
     menu->setPosition(Point::ZERO);
 	
-	menuItem2->setPosition(Point(pCenter.x - 70,  pCenter.y - 50));
-	menuItem1->setPosition(Point(pCenter.x - 70 *3 ,  pCenter.y - 50));
-	menuItem3->setPosition(Point(pCenter.x + 70,  pCenter.y - 50));
+	menuItem1->setPosition(Point(pCenter.x - 120,  pCenter.y - 150));
+	menuItem2->setPosition(Point(pCenter.x + 120 ,  pCenter.y - 150));
 	
-	//	backItem->setPosition(Point(pCenter.x, pCenter.y - 200 ));
-	//	LabelTTF* title = LabelTTF::create("关闭", "Arial", 40, backItem->getContentSize(), TextHAlignment::CENTER);
-	//	title->cocos2d::Node::setAnchorPoint(Point(0.5f, 0.5f));
-	//	title->setPosition(backItem->getPosition());
+	LabelTTF *label1 = LabelTTF::create("好的", "AmericanTypewriter", 30);//添加文字
+
+	label1->setColor(Color3B::WHITE);
+	label1->setPosition(menuItem1->getPosition());
+	bgLay->addChild(label1, 2);
+	
+	LabelTTF *label2 = LabelTTF::create("忍着不用", "AmericanTypewriter", 30);//添加文字
+
+	label2->setColor(Color3B::WHITE);
+	label2->setPosition(menuItem2->getPosition());
+	bgLay->addChild(label2,2);
+	
 	bg->setPosition(pCenter);
 	
-	bgLay = Layer::create();
 	bgLay->setContentSize(winSize);
 	bgLay->addChild(bg);
     bgLay->addChild(menu, 1);
@@ -131,15 +130,16 @@ void PopUpBombLayer::setUpView(){
 	
 	this->addChild(bgLay);
 }
-void PopUpBombLayer::setCallbackFunc(Object* target, SEL_CallFuncN m1, SEL_CallFuncN m2, SEL_CallFuncN m3){
+void PopUpBombLayer::setCallbackFunc(Object* target, SEL_CallFuncN m1, SEL_CallFuncN m2){
 	m_callbackListener = target;
 	m1_ = m1;
 	m2_ = m2;
-	m3_ = m3;
 }
 
+//	void bombUse(Object * pSender);
+//void bombNot(Object * pSender);
 
-void PopUpBombLayer::wrongShare(Object * pSender){
+void PopUpBombLayer::bombUse(Object * pSender){
 	
 	Node* node = dynamic_cast<Node*>(pSender);
     if (m1_ && m_callbackListener){
@@ -147,15 +147,10 @@ void PopUpBombLayer::wrongShare(Object * pSender){
     }
 	
 }
-void PopUpBombLayer::wrongBomb(Object * pSender){
+void PopUpBombLayer::bombNotUse(Object * pSender){
 	Node* node = dynamic_cast<Node*>(pSender);
     if (m2_ && m_callbackListener){
         (m_callbackListener->*m2_)(node);
     }
 }
-void PopUpBombLayer::wrongBack(Object * pSender){
-	Node* node = dynamic_cast<Node*>(pSender);
-    if (m3_ && m_callbackListener){
-        (m_callbackListener->*m3_)(node);
-    }
-}
+

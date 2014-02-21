@@ -99,6 +99,10 @@
 		6113915D18B395C300FFAF9B /* PopupScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6113915A18B395C300FFAF9B /* PopupScene.cpp */; };
 		6113916118B395EF00FFAF9B /* BackGround.png in Resources */ = {isa = PBXBuildFile; fileRef = 6113915F18B395EF00FFAF9B /* BackGround.png */; };
 		6113916218B395EF00FFAF9B /* pop_button.png in Resources */ = {isa = PBXBuildFile; fileRef = 6113916018B395EF00FFAF9B /* pop_button.png */; };
+		611B667618B76F080004E5E5 /* play_continue_share_selected.png in Resources */ = {isa = PBXBuildFile; fileRef = 611B667218B76F080004E5E5 /* play_continue_share_selected.png */; };
+		611B667718B76F080004E5E5 /* play_continue_share.png in Resources */ = {isa = PBXBuildFile; fileRef = 611B667318B76F080004E5E5 /* play_continue_share.png */; };
+		611B667818B76F080004E5E5 /* success_continue_selected.png in Resources */ = {isa = PBXBuildFile; fileRef = 611B667418B76F080004E5E5 /* success_continue_selected.png */; };
+		611B667918B76F080004E5E5 /* success_continue.png in Resources */ = {isa = PBXBuildFile; fileRef = 611B667518B76F080004E5E5 /* success_continue.png */; };
 		6192ECB718B44DFF00C8259A /* level in Resources */ = {isa = PBXBuildFile; fileRef = 6192ECB618B44DFF00C8259A /* level */; };
 		61C92C0618B4E246007E7C2E /* CCVideoPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 61C92BF918B4E246007E7C2E /* CCVideoPlayer.m */; };
 		61C92C0718B4E246007E7C2E /* CCVideoPlayerImpliOS.m in Sources */ = {isa = PBXBuildFile; fileRef = 61C92BFC18B4E246007E7C2E /* CCVideoPlayerImpliOS.m */; };
@@ -470,6 +474,10 @@
 		6113915B18B395C300FFAF9B /* PopupScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PopupScene.h; sourceTree = "<group>"; };
 		6113915F18B395EF00FFAF9B /* BackGround.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = BackGround.png; sourceTree = "<group>"; };
 		6113916018B395EF00FFAF9B /* pop_button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pop_button.png; sourceTree = "<group>"; };
+		611B667218B76F080004E5E5 /* play_continue_share_selected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = play_continue_share_selected.png; sourceTree = "<group>"; };
+		611B667318B76F080004E5E5 /* play_continue_share.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = play_continue_share.png; sourceTree = "<group>"; };
+		611B667418B76F080004E5E5 /* success_continue_selected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = success_continue_selected.png; sourceTree = "<group>"; };
+		611B667518B76F080004E5E5 /* success_continue.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = success_continue.png; sourceTree = "<group>"; };
 		6192ECB618B44DFF00C8259A /* level */ = {isa = PBXFileReference; lastKnownFileType = folder; path = level; sourceTree = "<group>"; };
 		61C92BF818B4E246007E7C2E /* CCVideoPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCVideoPlayer.h; sourceTree = "<group>"; };
 		61C92BF918B4E246007E7C2E /* CCVideoPlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCVideoPlayer.m; sourceTree = "<group>"; };
@@ -1033,6 +1041,10 @@
 		61D5E4DA18B5F0A9002341CB /* pop */ = {
 			isa = PBXGroup;
 			children = (
+				611B667218B76F080004E5E5 /* play_continue_share_selected.png */,
+				611B667318B76F080004E5E5 /* play_continue_share.png */,
+				611B667418B76F080004E5E5 /* success_continue_selected.png */,
+				611B667518B76F080004E5E5 /* success_continue.png */,
 				61D5E4DB18B5F0A9002341CB /* play_dialog_bg.png */,
 				61D5E4DC18B5F0A9002341CB /* play_dialog_button.png */,
 				61D5E4DD18B5F0A9002341CB /* play_dialog_button_long.png */,
@@ -1272,6 +1284,7 @@
 			files = (
 				61C92C4418B4ECC4007E7C2E /* 老男孩.mp4 in Resources */,
 				61C92C3B18B4ECC4007E7C2E /* 泰囧.mp4 in Resources */,
+				611B667718B76F080004E5E5 /* play_continue_share.png in Resources */,
 				61D5E4EC18B5F0A9002341CB /* UMS_qzone_icon@2x.png in Resources */,
 				61C92C2E18B4ECC4007E7C2E /* 凤姐.mp4 in Resources */,
 				61D5E4E718B5F0A9002341CB /* play_dialog_button.png in Resources */,
@@ -1318,6 +1331,7 @@
 				61C92C3C18B4ECC4007E7C2E /* 泰坦尼克号.mp4 in Resources */,
 				61D0A97A18B4852D008E959B /* play_answer_a_bg.png in Resources */,
 				5087E78517EB970100C73F5D /* Icon-72.png in Resources */,
+				611B667618B76F080004E5E5 /* play_continue_share_selected.png in Resources */,
 				6113913C18B37D4B00FFAF9B /* star_gain.m4a in Resources */,
 				1AFAF8BD16D35E4900DB1158 /* CloseSelected.png in Resources */,
 				6113912518B3742300FFAF9B /* index_store_selected.png in Resources */,
@@ -1344,6 +1358,7 @@
 				61D5E4E818B5F0A9002341CB /* play_dialog_button_long.png in Resources */,
 				61D0A99518B486B3008E959B /* play_video_button.png in Resources */,
 				6113913918B37D4B00FFAF9B /* opendoor.wav in Resources */,
+				611B667918B76F080004E5E5 /* success_continue.png in Resources */,
 				6113913A18B37D4B00FFAF9B /* pop3.mp3 in Resources */,
 				61C92C3918B4ECC4007E7C2E /* 梅西.mp4 in Resources */,
 				61DA12F018B74131002EE4C6 /* prim30.fnt in Resources */,
@@ -1385,6 +1400,7 @@
 				61D0A99218B486B3008E959B /* play_share.png in Resources */,
 				50EF629717ECD46A001EB2F8 /* Icon-58.png in Resources */,
 				6113913618B37D4B00FFAF9B /* bounce.caf in Resources */,
+				611B667818B76F080004E5E5 /* success_continue_selected.png in Resources */,
 				61D8071718B4C03100A7EC06 /* jishijiangli.txt in Resources */,
 				61DA12EA18B72B07002EE4C6 /* play_wrong.png in Resources */,
 				61C92C2F18B4ECC4007E7C2E /* 咱们结婚吧1.mp4 in Resources */,

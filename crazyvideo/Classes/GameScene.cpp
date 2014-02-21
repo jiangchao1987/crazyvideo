@@ -166,7 +166,7 @@ bool GameScene::init()
 	// question
 	String* str = String::createWithFormat("你到底爱不爱我safsafsfs撒旦就发来时就按了福建省老奥发来 ");
 	
-	question = LabelTTF::create(str->getCString(), "AmericanTypewriter-Bold", 30, Size(300, 200), TextHAlignment::CENTER, cocos2d::TextVAlignment::TOP);
+	question = LabelTTF::create(str->getCString(), "AmericanTypewriter-Bold", 30, Size(300, 200), TextHAlignment::CENTER, cocos2d::TextVAlignment::CENTER);
 	question->setAnchorPoint(Point(0.5f,0.5f));
 	question->setPosition(origin.x + visibleSize.width/2, nav->getPositionY() - 260 + 0);
 
@@ -369,7 +369,10 @@ void GameScene::popShareLayer(){
 	this->addChild(p,2);
 }
 void GameScene::popBombLayer(){
-	
+	PopUpBombLayer* p = PopUpBombLayer::create();//create("play_dialog_bg.png");
+	p->setTag(POPUPBOMBLAYER_TAG);
+	p->setCallbackFunc(this, callfuncN_selector(GameScene::bombUse),callfuncN_selector(GameScene::bombNotUse) );
+	this->addChild(p,2);
 }
 void GameScene::popRightLayer(){
 	
@@ -420,6 +423,30 @@ void GameScene::wrongBack(Node * pSender){
 	PopUpWrongLayer* p = (PopUpWrongLayer*)this->getChildByTag(POPUPWRONGLAYER_TAG);
 	p->removeFromParentAndCleanup(true);
 	
+}
+
+#pragma mark --
+#pragma mark PopBombLayer CallBack
+//bomb pop call back
+void GameScene::bombUse(CCNode * pSender){
+	PopUpWrongLayer* p = (PopUpWrongLayer*)this->getChildByTag(POPUPBOMBLAYER_TAG);
+	p->removeFromParentAndCleanup(true);
+}
+void GameScene::bombNotUse(CCNode * pSender){
+	PopUpWrongLayer* p = (PopUpWrongLayer*)this->getChildByTag(POPUPBOMBLAYER_TAG);
+	p->removeFromParentAndCleanup(true);
+}
+
+#pragma mark --
+#pragma mark PopRightLayer CallBack
+
+void GameScene::rightAskFriends(CCNode * pSender){
+	PopUpRightLayer* p = (PopUpRightLayer*)this->getChildByTag(POPUPRIGHTLAYER_TAG);
+	p->removeFromParentAndCleanup(true);
+}
+void GameScene::rightContinue(CCNode * pSender){
+	PopUpRightLayer* p = (PopUpRightLayer*)this->getChildByTag(POPUPRIGHTLAYER_TAG);
+	p->removeFromParentAndCleanup(true);
 }
 
 #pragma mark --
