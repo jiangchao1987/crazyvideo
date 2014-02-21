@@ -182,6 +182,7 @@ void LevelScene::menu2CloseCallback(Object* pSender){
 	
 }
 void LevelScene::menu3CloseCallback(Object* pSender){
+	
 	Scene* s = StartScene::createScene();
 	Director::getInstance()->replaceScene(TransitionFade::create(0.5, s));
 }

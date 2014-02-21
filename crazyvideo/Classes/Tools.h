@@ -29,4 +29,9 @@ ControlButton* standardButtonWithTitle( const char * bgname, const char * bgsele
 
 void setItemPosition(Layer* layer, Point anchor, Point position, MenuItemImage* item);
 
+void playBackGroundMusic();
+void stopBackGroundMusic();
+
+void playEffectBtnClicked();
+
 #endif /* defined(__crazyvideo__Tools__) */

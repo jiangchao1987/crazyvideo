@@ -141,13 +141,7 @@ bool StartScene::init()
 
 void StartScene::onEnter(){
 	CCLayer::onEnter();
-
-	if (CocosDenshion::SimpleAudioEngine::getInstance()->isBackgroundMusicPlaying()) {
-		;
-	}else{
-		
-		CocosDenshion::SimpleAudioEngine::getInstance()->playBackgroundMusic("background.wav", true);
-	}
+	playBackGroundMusic();
 }
 void StartScene::onExit(){
 	CCLayer::onExit();

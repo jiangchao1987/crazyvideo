@@ -50,23 +50,29 @@ bool AboutScene::init()
 		CC_CALLBACK_1(AboutScene::menuBackCallback, this));
 	setItemPosition(backLayer, Point(0.5f, 0.5f),
 		Point(origin.x + visibleSize.width / 7, origin.y + visibleSize.height * 6 / 7 + backItem->getContentSize().height / 2), backItem);
-	//backItem->setAnchorPoint(Point(0.5f, 0.5f));
-	//backItem->setPosition(Point(origin.x + visibleSize.width / 7, origin.y + visibleSize.height * 6 / 7 + backItem->getContentSize().height / 2));
-	//// create menu, it's an autorelease object
-	//auto backMenu = Menu::create(backItem, NULL);
-	//backMenu->setPosition(Point::ZERO);
-	//backLayer->addChild(backMenu, 1);
-
+	
 	////sound
+//	auto soundItem = MenuItemImage::create(
+//		"setting_soundon.png",
+//		"setting_soundoff.png",
 	auto soundItem = MenuItemImage::create(
-		"setting_soundon.png",
-		"setting_soundoff.png",
+										   "setting_soundon.png",
+										   "setting_soundon.png",
+
 		CC_CALLBACK_1(AboutScene::menuSoundCallback, this));
-	//this->setItemPos(backLayer, Point(0.5f, 0.5f),
-	//	Point(origin.x + visibleSize.width / 3 - 10, origin.y + visibleSize.height * 3 / 4), soundItem);
 	setItemPosition(backLayer, Point(0.5f, 0.5f),
 		Point(origin.x + visibleSize.width / 3 - 10, origin.y + visibleSize.height * 3 / 4), soundItem);
 
+	auto soundItem1 = MenuItemImage::create(
+										   "setting_soundoff.png",
+										   "setting_soundoff.png",
+					   
+										   CC_CALLBACK_1(AboutScene::menuSoundCallback, this));
+	setItemPosition(backLayer, Point(0.5f, 0.5f),
+					Point(origin.x + visibleSize.width / 3 - 10, origin.y + visibleSize.height * 3 / 4), soundItem1);
+	soundItem->setTag(10000);
+	soundItem1->setTag(10001);
+	
 	////mail
 	auto mailItem = MenuItemImage::create(
 		"setting_mail.png",
@@ -123,8 +129,19 @@ void AboutScene::menuBackCallback(Object* pSender){
 	Director::getInstance()->replaceScene(TransitionFade::create(0.5, s));
 }
 void AboutScene::menuSoundCallback(Object* pSender){
+	
+	MenuItemImage* mii1 = (MenuItemImage*)this->getChildByTag(10000);
+	MenuItemImage* mii2 = (MenuItemImage*)this->getChildByTag(10001);
 
+	if ( (MenuItemImage*) pSender == mii1){
+		mii1->setVisible(false);
+		mii2->setVisible(true);
+	}else{
+		mii1->setVisible(true);
+		mii2->setVisible(false);
+	}
 }
+
 void AboutScene::menuMailCallback(Object* pSender){
 
 }

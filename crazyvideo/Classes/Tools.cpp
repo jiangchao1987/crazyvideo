@@ -8,7 +8,7 @@
 
 #include "Tools.h"
 #include "GameScene.h"
-//#inlcude "GameScene.h"
+#include "SimpleAudioEngine.h"
 
 Layer* createCommonBackLayer(){
 	
@@ -101,5 +101,22 @@ void setItemPosition(Layer* backLayer, Point anchor, Point position, MenuItemIma
 	auto menu = Menu::create(item, NULL);
 	menu->setPosition(Point::ZERO);
 	backLayer->addChild(menu, 1);
+}
+
+void playBackGroundMusic(){
+	if (CocosDenshion::SimpleAudioEngine::getInstance()->isBackgroundMusicPlaying()) {
+		CocosDenshion::SimpleAudioEngine::getInstance()->playBackgroundMusic("background.wav");
+	}else{
+	}
+}
+
+void stopBackGroundMusic(){
+	if (CocosDenshion::SimpleAudioEngine::getInstance()->isBackgroundMusicPlaying()) {
+		CocosDenshion::SimpleAudioEngine::getInstance()->stopBackgroundMusic();
+	}else{
+	}
+}
+void playEffectBtnClicked(){
+	
 }
 

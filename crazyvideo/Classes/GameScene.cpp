@@ -15,6 +15,8 @@
 #include "Defines.h"
 #include "CrossPlatformHelper.h"
 #include "PopLayerHeader.h"
+#include "SimpleAudioEngine.h"
+#include "LevelView.h"
 
 USING_NS_CC;
 USING_NS_CC_EXT;
@@ -228,19 +230,13 @@ bool GameScene::init()
 
 void GameScene::onEnter(){
 	CCLayer::onEnter();
-//	
-//	if (CocosDenshion::SimpleAudioEngine::getInstance()->isBackgroundMusicPlaying()) {
-//		;
-//	}else{
-//		
-//		CocosDenshion::SimpleAudioEngine::getInstance()->playBackgroundMusic("background.wav", true);
-//	}
-	
+	playBackGroundMusic();
 	currentDic_ = DataMgr::getInstance()->getCurrentQuestion();
 	this->resetView();
 }
 void GameScene::onExit(){
 	CCLayer::onExit();
+	stopBackGroundMusic();
 }
 void GameScene::menuCloseCallback(Object* pSender)
 {
@@ -266,7 +262,15 @@ void GameScene::menu3CloseCallback(Object* pSender){
 #pragma mark -- Menu Functions
 
 void GameScene::menuBackCallback(Object* pSender){
-	Scene* s = StartScene::createScene();
+	
+	if (CocosDenshion::SimpleAudioEngine::getInstance()->isBackgroundMusicPlaying()) {
+		
+	}else{
+		CocosDenshion::SimpleAudioEngine::getInstance()->playBackgroundMusic("");
+
+	}
+	
+	Scene* s = LevelView::scene();
 	Director::getInstance()->replaceScene(TransitionFade::create(0.5, s));
 }
 void GameScene::menuGoldCallback(Object* pSender){
