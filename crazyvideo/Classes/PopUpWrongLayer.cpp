@@ -121,7 +121,7 @@ void PopUpWrongLayer::setUpView(){
 //	LabelTTF* title = LabelTTF::create("关闭", "Arial", 40, backItem->getContentSize(), TextHAlignment::CENTER);
 //	title->cocos2d::Node::setAnchorPoint(Point(0.5f, 0.5f));
 //	title->setPosition(backItem->getPosition());
-//	bg->setPosition(pCenter);
+	bg->setPosition(pCenter);
 	
 	bgLay = Layer::create();
 	bgLay->setContentSize(winSize);
