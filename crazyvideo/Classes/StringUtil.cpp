@@ -22,8 +22,8 @@ bool StringUtil::init(){
     return true;
 }
 
-CCArray* StringUtil::split( const char* srcStr, const char* sSep ){
-    CCArray* stringList = CCArray::create();
+Array* StringUtil::split( const char* srcStr, const char* sSep ){
+    Array* stringList = Array::create();
 
     int size = strlen(srcStr);
 

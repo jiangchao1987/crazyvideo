@@ -325,11 +325,6 @@ void GameScene::resetView(){
 	t3->setString(o3->_string);
 	t4->setString(o4->_string);
 
-//	btn1->setTitleForState(o1->_string, Control::State::NORMAL) ;
-//	btn2->setTitleForState(o2->_string, Control::State::NORMAL) ;
-//	btn3->setTitleForState(o3->_string, Control::State::NORMAL) ;
-//	btn4->setTitleForState(o4->_string, Control::State::NORMAL) ;
-//	
 	question->setString(q->_string);
 	guanka_index->setString(index->_string);
 	topic_title->setString(topic->_string);
@@ -431,7 +426,7 @@ void GameScene::wrongBack(Node * pSender){
 bool GameScene::checkAnswer(int answerIndex){
 	
 	bool bRet = false;
-	int a = arc4random()/4;
+	int a = ((CCString*)currentDic_->objectForKey(Key_answer_index))->intValue();
 	
 	if ( a == answerIndex ){
 		bRet = true;

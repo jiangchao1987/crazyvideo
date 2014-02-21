@@ -155,6 +155,11 @@ bool DataMgr::loadData(){
 
 				}
 				
+				//temp answer
+				int a = 1 + arc4random()%4;
+				CCString* astr = CCString::createWithFormat("%d", a);
+				dic->setObject(astr, Key_answer_index);
+				
 				dataArr->addObject(dic);
             }
         }
