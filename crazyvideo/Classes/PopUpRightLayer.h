@@ -27,7 +27,7 @@ public:
     virtual void onTouchEnded(cocos2d::Touch *touch, cocos2d::Event *unused_event);
     virtual void onTouchCancelled(cocos2d::Touch *touch, cocos2d::Event *unused_event);
 	
-	void setCallbackFunc(Object* target, SEL_CallFuncN m1, SEL_CallFuncN m2, SEL_CallFuncN m3);
+	void setCallbackFunc(Object* target, SEL_CallFuncN m1, SEL_CallFuncN m2 );
 	
     
     virtual void onEnter();

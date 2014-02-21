@@ -375,7 +375,10 @@ void GameScene::popBombLayer(){
 	this->addChild(p,2);
 }
 void GameScene::popRightLayer(){
-	
+	PopUpRightLayer* p = PopUpRightLayer::create();
+	p->setTag(POPUPRIGHTLAYER_TAG);
+	p->setCallbackFunc(this, callfuncN_selector(GameScene::rightAskFriends),callfuncN_selector(GameScene::rightContinue));
+	this->addChild(p,2);
 }
 void GameScene::popWrongLayer(){
 	PopUpWrongLayer* p = PopUpWrongLayer::create();

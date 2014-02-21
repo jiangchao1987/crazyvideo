@@ -91,11 +91,11 @@ void PopUpRightLayer::setUpView(){
 	Sprite* bg = Sprite::create( imgs.at(0));
 	auto menuItem1 = MenuItemImage::create(
 										   imgs.at(1),
-										   imgs.at(1),
+										   imgs.at(2),
 										   CC_CALLBACK_1(PopUpRightLayer::rightAskFriends, this));
 	auto menuItem2 = MenuItemImage::create(
-										   imgs.at(2),
-										   imgs.at(2),
+										   imgs.at(3),
+										   imgs.at(4),
 										   CC_CALLBACK_1(PopUpRightLayer::rightContinue, this));
 	
 	bg->setAnchorPoint(Point(0.5f, 0.5f));
@@ -106,9 +106,9 @@ void PopUpRightLayer::setUpView(){
     auto menu = Menu::create(menuItem1, menuItem2, NULL);
     menu->setPosition(Point::ZERO);
 	
-	menuItem2->setPosition(Point(pCenter.x - 70,  pCenter.y - 50));
-	menuItem1->setPosition(Point(pCenter.x - 70 *3 ,  pCenter.y - 50));
-	
+	menuItem1->setPosition(Point(pCenter.x - menuItem1->getContentSize().width/2 ,  pCenter.y - 150));
+	menuItem2->setPosition(Point(pCenter.x + menuItem2->getContentSize().width/2,  pCenter.y - 150));
+
 	//	backItem->setPosition(Point(pCenter.x, pCenter.y - 200 ));
 	//	LabelTTF* title = LabelTTF::create("关闭", "Arial", 40, backItem->getContentSize(), TextHAlignment::CENTER);
 	//	title->cocos2d::Node::setAnchorPoint(Point(0.5f, 0.5f));
@@ -123,7 +123,7 @@ void PopUpRightLayer::setUpView(){
 	
 	this->addChild(bgLay);
 }
-void PopUpRightLayer::setCallbackFunc(Object* target, SEL_CallFuncN m1, SEL_CallFuncN m2, SEL_CallFuncN m3){
+void PopUpRightLayer::setCallbackFunc(Object* target, SEL_CallFuncN m1, SEL_CallFuncN m2){
 	m_callbackListener = target;
 	m1_ = m1;
 	m2_ = m2;
