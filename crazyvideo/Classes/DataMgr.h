@@ -20,7 +20,7 @@ class DataMgr {
 	
 private:
 	// user data
-	int   currnetIndex;
+//	int   currnetIndex;
 	// data;
 	Array*   dataArr;
 public:

@@ -9,6 +9,7 @@
 #include "LevelView.h"
 #include "StartScene.h"
 #include "Tools.h"
+#include "UserInfoMgr.h"
 
 LevelView::LevelView():
 m_nCurPage(0),
@@ -103,6 +104,7 @@ void LevelView::touchEventAction(LsTouch *touch, int type){
         CCString* str = CCString::createWithFormat("您选择的关卡为 %d .", touch->getEventId() + 1);
       //  MessageBox("关卡", str->getCString());
 		
+		UserInfoMgr::getInstance()->setFreedomLevel( touch->getEventId() - 1);
 		enterGameScene();
     }
 }

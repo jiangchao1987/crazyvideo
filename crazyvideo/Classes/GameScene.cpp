@@ -243,7 +243,7 @@ void GameScene::onEnter(){
 	this->resetView();
 	
 	if ( bShowVideoOnShow_ ) {
-		this->menuPlayCallback(NULL);
+		this->playTheVideo();
 	}
 }
 void GameScene::onExit(){
@@ -298,7 +298,9 @@ void GameScene::menuBombCallback(Object* pSender){
 }
 void GameScene::menuPlayCallback(Object* pSender){
 	playEffectBtnClicked();
-	
+}
+
+void GameScene::playTheVideo(){
 	String* isLocal = (String*)currentDic_->objectForKey(Key_local_resource);
 	String* netstr = (String*)currentDic_->objectForKey(Key_m3u8_url);
 	String* localstr = (String*)currentDic_->objectForKey(Key_resource_name);
@@ -310,8 +312,6 @@ void GameScene::menuPlayCallback(Object* pSender){
 		playNetVideo(netstr->_string);
 	}
 }
-
-
 
 cocos2d::Layer* GameScene::createStartBackLayer(){
 	return NULL;
@@ -489,6 +489,9 @@ void GameScene::rightAskFriends(CCNode * pSender){
 }
 void GameScene::rightContinue(CCNode * pSender){
 	playEffectBtnClicked();
+	
+	UserInfoMgr::getInstance()->setFreedomLevel( UserInfoMgr::getInstance()->getFreedomLevel() + 1);
+	
 	PopUpRightLayer* p = (PopUpRightLayer*)this->getChildByTag(POPUPRIGHTLAYER_TAG);
 	p->removeFromParentAndCleanup(true);
 	

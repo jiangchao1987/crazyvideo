@@ -97,6 +97,8 @@ public:
 	bool checkAnswer(int answerIndex);
 	void answerAnimation( int answerIndex);
 	
+	// 播放
+	void playTheVideo();
 //	void btnStateLogic(int nIndex, bool bChanged);
 private:
 	Dictionary* currentDic_;

@@ -12,11 +12,13 @@
 #include "json/document.h"
 #include "Defines.h"
 #include "Tools.h"
+#include "UserInfoMgr.h"
+
 using namespace rapidjson;
 
 DataMgr* DataMgr::instance = NULL;
 
-DataMgr::DataMgr():currnetIndex(0), dataArr(NULL){
+DataMgr::DataMgr(): dataArr(NULL){
 	
 	dataArr = CCArray::create();
 	dataArr->retain();
@@ -181,8 +183,6 @@ bool DataMgr::loadData(){
 bool DataMgr::loadUserData(){
 	
 	{
-//		currnetIndex = UserInfoMgr::getInstance()->getFreedomLevel();
-		//		score = UserInfoMgr::getInstance()->getGold();
 		return true;
 	}
 	
@@ -191,18 +191,11 @@ bool DataMgr::loadUserData(){
 
 CCDictionary* DataMgr::getCurrentQuestion(){
 	
-	if ( 0 <= currnetIndex && currnetIndex < dataArr->count() ) {
-		CCDictionary* dic = (CCDictionary*)dataArr->objectAtIndex(currnetIndex);
-//		currentAnswer = (CCString*)dic->objectForKey("answer");
-//		currentAnswerStr = (CCString*)dic->objectForKey(currentAnswer->getCString());
-//		currentQuestionStr = (CCString*)dic->objectForKey("question");
-		currnetIndex ++;
-	//	bIsShowRightAnswer = false;
-		
-	//	UserInfoMgr::getInstance()->setFreedomLevel(currnetIndex);
-		
+	if ( 0 <= UserInfoMgr::getInstance()->getFreedomLevel() && UserInfoMgr::getInstance()->getFreedomLevel() < dataArr->count() ) {
+		CCDictionary* dic = (CCDictionary*)dataArr->objectAtIndex(UserInfoMgr::getInstance()->getFreedomLevel());
+
 		return dic;
-	}else if( currnetIndex == dataArr->count() ){
+	}else if( UserInfoMgr::getInstance()->getFreedomLevel() == dataArr->count() ){
 		assert( "ques finished!" );
 	}
 	assert("current index too big");
@@ -225,7 +218,7 @@ CCDictionary* DataMgr::getCurrentQuestion(){
 //	return UserInfoMgr::getInstance()->getGold();
 //}
 int DataMgr::getCurrentQuestionIndex(){
-	return currnetIndex;
+	return UserInfoMgr::getInstance()->getFreedomLevel();
 }
 
 bool DataMgr::isBgSoundOpen(){
