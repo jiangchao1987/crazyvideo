@@ -108,6 +108,7 @@
 		611CBEA118BB0637008E4036 /* libWeChatSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 611CBE9D18BB0637008E4036 /* libWeChatSDK.a */; };
 		611CBEA218BB0637008E4036 /* libWeChatSDK_armv7_armv7s.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 611CBE9E18BB0637008E4036 /* libWeChatSDK_armv7_armv7s.a */; };
 		6192ECB718B44DFF00C8259A /* level in Resources */ = {isa = PBXBuildFile; fileRef = 6192ECB618B44DFF00C8259A /* level */; };
+		61BE83FB18BB4CDD00F69C63 /* date.txt in Resources */ = {isa = PBXBuildFile; fileRef = 61BE83FA18BB4CDD00F69C63 /* date.txt */; };
 		61C92C0618B4E246007E7C2E /* CCVideoPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 61C92BF918B4E246007E7C2E /* CCVideoPlayer.m */; };
 		61C92C0718B4E246007E7C2E /* CCVideoPlayerImpliOS.m in Sources */ = {isa = PBXBuildFile; fileRef = 61C92BFC18B4E246007E7C2E /* CCVideoPlayerImpliOS.m */; };
 		61C92C0818B4E246007E7C2E /* videoOverlayView.m in Sources */ = {isa = PBXBuildFile; fileRef = 61C92BFE18B4E246007E7C2E /* videoOverlayView.m */; };
@@ -491,6 +492,7 @@
 		611CBE9F18BB0637008E4036 /* WXApi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXApi.h; sourceTree = "<group>"; };
 		611CBEA018BB0637008E4036 /* WXApiObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXApiObject.h; sourceTree = "<group>"; };
 		6192ECB618B44DFF00C8259A /* level */ = {isa = PBXFileReference; lastKnownFileType = folder; path = level; sourceTree = "<group>"; };
+		61BE83FA18BB4CDD00F69C63 /* date.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = date.txt; sourceTree = "<group>"; };
 		61C92BF818B4E246007E7C2E /* CCVideoPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCVideoPlayer.h; sourceTree = "<group>"; };
 		61C92BF918B4E246007E7C2E /* CCVideoPlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCVideoPlayer.m; sourceTree = "<group>"; };
 		61C92BFB18B4E246007E7C2E /* CCVideoPlayerImpliOS.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCVideoPlayerImpliOS.h; sourceTree = "<group>"; };
@@ -1117,6 +1119,7 @@
 				61D5E4DA18B5F0A9002341CB /* pop */,
 				61C92C0D18B4ECC4007E7C2E /* video */,
 				61D8071618B4C03100A7EC06 /* jishijiangli.txt */,
+				61BE83FA18BB4CDD00F69C63 /* date.txt */,
 				6192ECB618B44DFF00C8259A /* level */,
 				6113915E18B395EF00FFAF9B /* popuplayer */,
 				6113914A18B38F6600FFAF9B /* map */,
@@ -1366,6 +1369,7 @@
 				61DA12D418B726F3002EE4C6 /* setting_back.png in Resources */,
 				61D0A97E18B4852D008E959B /* play_back.png in Resources */,
 				5087E77D17EB970100C73F5D /* Default-568h@2x.png in Resources */,
+				61BE83FB18BB4CDD00F69C63 /* date.txt in Resources */,
 				61D0A99118B486B3008E959B /* play_share_selected.png in Resources */,
 				6113912718B3742300FFAF9B /* index_title.png in Resources */,
 				61C92C3C18B4ECC4007E7C2E /* 泰坦尼克号.mp4 in Resources */,

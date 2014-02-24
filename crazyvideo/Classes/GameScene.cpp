@@ -298,6 +298,7 @@ void GameScene::menuBombCallback(Object* pSender){
 }
 void GameScene::menuPlayCallback(Object* pSender){
 	playEffectBtnClicked();
+	playTheVideo();
 }
 
 void GameScene::playTheVideo(){
@@ -344,7 +345,11 @@ void GameScene::resetView(){
 
 	
 	question->setString(q->_string);
-	guanka_index->setString(index->_string);
+//	guanka_index->setString(index->_string);
+	int ddd = UserInfoMgr::getInstance()->getFreedomLevel() + 1;
+	CCString* levelIndex = CCString::createWithFormat("%d", ddd);
+	guanka_index->setString(levelIndex->_string);
+
 	topic_title->setString(topic->_string);
 	
 	answerOneState_ = GameStateAnswerStateInit;

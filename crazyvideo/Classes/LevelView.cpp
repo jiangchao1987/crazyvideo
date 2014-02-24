@@ -104,7 +104,7 @@ void LevelView::touchEventAction(LsTouch *touch, int type){
         CCString* str = CCString::createWithFormat("您选择的关卡为 %d .", touch->getEventId() + 1);
       //  MessageBox("关卡", str->getCString());
 		
-		UserInfoMgr::getInstance()->setFreedomLevel( touch->getEventId() - 1);
+		UserInfoMgr::getInstance()->setFreedomLevel( touch->getEventId());
 		enterGameScene();
     }
 }

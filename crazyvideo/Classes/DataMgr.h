@@ -33,6 +33,8 @@ private:
 	
 private:
 	bool loadData();
+	bool loadData1();
+
 	bool loadUserData();
 	
 public:

@@ -13,7 +13,19 @@
 #include "Defines.h"
 #include "Tools.h"
 #include "UserInfoMgr.h"
+#include "StringUtil.h"
 
+std::string& trim(std::string &s)
+{
+    if (s.empty())
+    {
+        return s;
+    }
+	
+    s.erase(0,s.find_first_not_of(" "));
+    s.erase(s.find_last_not_of(" ") + 1);
+    return s;
+}
 using namespace rapidjson;
 
 DataMgr* DataMgr::instance = NULL;
@@ -23,7 +35,8 @@ DataMgr::DataMgr(): dataArr(NULL){
 	dataArr = CCArray::create();
 	dataArr->retain();
 
-	this->loadData();
+//	this->loadData();
+	this->loadData1();
 	this->loadUserData();
 }
 
@@ -163,6 +176,7 @@ bool DataMgr::loadData(){
 				CCString* astr = CCString::createWithFormat("%d", a);
 				dic->setObject(astr, Key_answer_index);
 				
+				
 				dataArr->addObject(dic);
             }
         }
@@ -174,6 +188,63 @@ bool DataMgr::loadData(){
 	
 	if ( dataArr != NULL && dataArr->count() > 0 ) {
 
+		return true;
+	}
+	
+	return false;
+}
+
+bool DataMgr::loadData1(){
+	auto File = cocos2d::FileUtils::getInstance();
+	std::string sFullPath = File->fullPathForFilename("date.txt");
+    std::string  Beffer = File->getStringFromFile(sFullPath);
+	
+	Array* totalArr = StringUtil::sharedStrUtil()->split(Beffer.c_str(), "\n");
+	log( "count is:%d", totalArr->count());
+	
+	for(int i = 0; i< totalArr->count();i++){
+		Array* dicArr = StringUtil::sharedStrUtil()->split( ((CCString*)totalArr->getObjectAtIndex(i))->_string.c_str(), ";");
+		CCDictionary* dic = CCDictionary::create();
+		/*
+		 #define  Key_topic_title "topic_title"
+		 #define  Key_resource_name  "resource_name"
+		 #define  Key_m3u8_url "m3u8_url"
+		 #define  Key_option2 "option2"
+		 #define  Key_remark "remark"
+		 #define  Key_option4 "option4"
+		 #define  Key_detail_url "detail_url"
+		 #define  Key_local_resource "local_resource"
+		 #define  Key_option1 "option1"
+		 #define  Key_guanka_index "guanka_index"
+		 #define  Key_question "question"
+		 #define  Key_option3 "option3"
+		 #define  Key_createdAt "createdAt"
+		 #define  Key_answer_index "Key_answer_index"
+		 */
+		
+		log( "dic is:%d", dicArr->count());
+		dic->setObject(dicArr->getObjectAtIndex(0), Key_guanka_index);
+		dic->setObject(dicArr->getObjectAtIndex(1), Key_topic_title);
+		dic->setObject(dicArr->getObjectAtIndex(2), Key_remark);
+		dic->setObject(dicArr->getObjectAtIndex(3), Key_local_resource);
+		dic->setObject(dicArr->getObjectAtIndex(4), Key_resource_name);
+		dic->setObject(dicArr->getObjectAtIndex(5), Key_question);
+		dic->setObject(dicArr->getObjectAtIndex(6), Key_m3u8_url);
+		dic->setObject(dicArr->getObjectAtIndex(7), Key_detail_url);
+		dic->setObject(dicArr->getObjectAtIndex(8), Key_option1);
+		dic->setObject(dicArr->getObjectAtIndex(9), Key_option2);
+		dic->setObject(dicArr->getObjectAtIndex(10), Key_option3);
+		dic->setObject(dicArr->getObjectAtIndex(11), Key_option4);
+		
+		int a = 1 + arc4random()%4;
+		CCString* astr = CCString::createWithFormat("%d", a);
+		dic->setObject(astr, Key_answer_index);
+		//astr->
+		dataArr->addObject(dic);
+	}
+	
+	if ( dataArr != NULL && dataArr->count() > 0 ) {
+		
 		return true;
 	}
 	

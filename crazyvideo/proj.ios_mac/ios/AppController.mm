@@ -236,11 +236,11 @@ static AppDelegate s_sharedApplication;
 	CCSize size = Director::getInstance()->getWinSize();
 //	[CCVideoPlayer setScrrenSize:CGSizeMake(size.width-400, size.height-300)];
 	[CCVideoPlayer setNoSkip:true];
-//	[CCVideoPlayer playMovieWithFile:@"xcm.mp4"];
 	[CCVideoPlayer playMovieWithFile:url];
 }
 - (void) playLocalVideo_IOS:(NSString*)filename{
 	
+//	[filename ]
 	NSString* f1 = [NSString stringWithFormat:@"%@.mp4", filename];
 	CCSize size = Director::getInstance()->getWinSize();
 //	[CCVideoPlayer sets:CGSizeMake(size.width-400, size.height-300)];
