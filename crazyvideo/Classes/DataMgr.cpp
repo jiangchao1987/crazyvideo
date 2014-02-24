@@ -231,16 +231,25 @@ bool DataMgr::loadData1(){
 		dic->setObject(dicArr->getObjectAtIndex(5), Key_question);
 		dic->setObject(dicArr->getObjectAtIndex(6), Key_m3u8_url);
 		dic->setObject(dicArr->getObjectAtIndex(7), Key_detail_url);
-		dic->setObject(dicArr->getObjectAtIndex(8), Key_option1);
-		dic->setObject(dicArr->getObjectAtIndex(9), Key_option2);
-		dic->setObject(dicArr->getObjectAtIndex(10), Key_option3);
-		dic->setObject(dicArr->getObjectAtIndex(11), Key_option4);
+		
+		Array* answerArr = Array::create(dicArr->getObjectAtIndex(8),dicArr->getObjectAtIndex(9),dicArr->getObjectAtIndex(10),dicArr->getObjectAtIndex(11), NULL);
 		
 		int a = 1 + arc4random()%4;
+		
+//		answerArr->exchangeObjectAtIndex(0, 4-a+1);
+		answerArr->exchangeObjectAtIndex(a-1, 0);
+		//answerArr->exchangeObjectAtIndex(ssize_t index1, ;)
+		
 		CCString* astr = CCString::createWithFormat("%d", a);
 		dic->setObject(astr, Key_answer_index);
-		//astr->
 		dataArr->addObject(dic);
+				
+		dic->setObject(answerArr->getObjectAtIndex(0), Key_option1);
+		dic->setObject(answerArr->getObjectAtIndex(1), Key_option2);
+		dic->setObject(answerArr->getObjectAtIndex(2), Key_option3);
+		dic->setObject(answerArr->getObjectAtIndex(3), Key_option4);
+		
+
 	}
 	
 	if ( dataArr != NULL && dataArr->count() > 0 ) {

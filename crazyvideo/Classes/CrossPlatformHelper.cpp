@@ -129,7 +129,6 @@ std::string getNickName(){
 	return getNickName_IOS();
 }
 
-
 void playNetVideo(std::string url){
 	
 	log("play net video name is:%s", url.c_str());
