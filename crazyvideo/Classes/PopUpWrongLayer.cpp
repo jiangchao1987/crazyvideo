@@ -64,7 +64,7 @@ void PopUpWrongLayer::onEnter(){
 										  CCScaleTo::create(0.06, 1.05),
 										  CCScaleTo::create(0.08, 0.95),
 										  CCScaleTo::create(0.08, 1.0), NULL);
-    bgLay->runAction(popupLayer);
+  //  bgLay->runAction(popupLayer);
 	
 }
 
@@ -116,7 +116,7 @@ void PopUpWrongLayer::setUpView(){
 	menuItem3->setPosition(Point(pCenter.x + menuItem1->getContentSize().width,  pCenter.y - 150));
 	
 
-	LabelTTF *label1 = LabelTTF::create("求组好友", "AmericanTypewriter", 30);//添加文字
+	LabelTTF *label1 = LabelTTF::create("求助好友", "AmericanTypewriter", 30);//添加文字
 	
 	label1->setColor(Color3B::WHITE);
 	label1->setPosition(menuItem1->getPosition());

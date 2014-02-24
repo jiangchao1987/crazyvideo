@@ -26,8 +26,15 @@ long long getTimestamp();
 std::string getSign();
 std::string getNickName();
 
+#pragma mark --
+#pragma mark -- Up Functions is Dirty
 
 void playNetVideo(std::string url);
 void playLocalVideo(std::string filename);
+
+void shareToFriends();
+void shareToFriend();
+void shareToQQ();
+void shareToQZone();
 
 #endif /* defined(__knowledgegame__CrossPlatformHelper__) */

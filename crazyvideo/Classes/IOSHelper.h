@@ -22,3 +22,8 @@ std::string getNickName_IOS();
 
 void playNetVideo_IOS(std::string url);
 void playLocalVideo_IOS(std::string filename);
+
+void shareToFriends_IOS();
+void shareToFriend_IOS();
+void shareToQQ_IOS();
+void shareToQZone_IOS();

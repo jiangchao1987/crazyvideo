@@ -17,6 +17,7 @@
 #include "PopLayerHeader.h"
 #include "SimpleAudioEngine.h"
 #include "LevelView.h"
+#include "UserInfoMgr.h"
 
 USING_NS_CC;
 USING_NS_CC_EXT;
@@ -35,6 +36,23 @@ Scene* GameScene::createScene()
     // return the scene
     return scene;
 }
+
+Scene* GameScene::createScene( bool bShowVideoOnAppear){
+
+	// 'scene' is an autorelease object
+    auto scene = Scene::create();
+    
+    // 'layer' is an autorelease object
+    auto layer = GameScene::create();
+	
+	layer->setShowVideoOnShow( bShowVideoOnAppear);
+    // add layer as a child to scene
+    scene->addChild(layer);
+	
+    // return the scene
+    return scene;
+}
+
 
 // on "init" you need to initialize your instance
 bool GameScene::init()
@@ -210,9 +228,6 @@ bool GameScene::init()
 	backLayer->addChild(btn2);
 	backLayer->addChild(btn3);
 	backLayer->addChild(btn4);
-	
-	btn1->setTitleForState("sdf", Control::State::NORMAL);
-	
 
 	this->addChild(backLayer);
     
@@ -224,7 +239,6 @@ bool GameScene::init()
 	EventDispatcher* eventDispatcher = backLayer->getEventDispatcher();
 	//eventDispatcher->addEventListenerWithSceneGraphPriority( listener, backLayer);
 	
-	
 	return true;
 }
 
@@ -233,6 +247,10 @@ void GameScene::onEnter(){
 	stopBackGroundMusic();
 	currentDic_ = DataMgr::getInstance()->getCurrentQuestion();
 	this->resetView();
+	
+	if ( bShowVideoOnShow_ ) {
+		this->menuPlayCallback(NULL);
+	}
 }
 void GameScene::onExit(){
 	CCLayer::onExit();
@@ -318,6 +336,7 @@ void GameScene::resetView(){
 	CCString* q = (CCString*)currentDic_->objectForKey(Key_question);
 	CCString* index = (CCString*) currentDic_->objectForKey(Key_guanka_index);
 	CCString* topic = (CCString*) currentDic_->objectForKey(Key_topic_title);
+	
 
 	LabelTTF* t1 = (LabelTTF*)btn1->getChildByTag(1000);
 	LabelTTF* t2 = (LabelTTF*)btn2->getChildByTag(1000);
@@ -329,6 +348,7 @@ void GameScene::resetView(){
 	t3->setString(o3->_string);
 	t4->setString(o4->_string);
 
+	
 	question->setString(q->_string);
 	guanka_index->setString(index->_string);
 	topic_title->setString(topic->_string);
@@ -337,6 +357,10 @@ void GameScene::resetView(){
 	answerTwoState_ = GameStateAnswerStateInit;
 	answerThreeState_ = GameStateAnswerStateInit;
 	answerFouState_ = GameStateAnswerStateInit;
+	
+	int nGold = UserInfoMgr::getInstance()->getGold();
+	CCString* goldStr = CCString::createWithFormat("%d", nGold);
+	gold->setString(goldStr->_string);
 }
 
 #pragma mark --
@@ -412,8 +436,9 @@ void GameScene::shareToTencent(Node * node){
 	
 }
 void GameScene::shareToQZone(Node * node){
-	Scene* s = GameScene::createScene();
-	Director::getInstance()->replaceScene(s);
+//	Scene* s = GameScene::createScene();
+//	Director::getInstance()->replaceScene(s);
+//	
 }
 void GameScene::shareClose(Node *node){
 	PopUpShareLayer* p = (PopUpShareLayer*)this->getChildByTag(POPUPSHARELAYER_TAG);
@@ -433,6 +458,7 @@ void GameScene::wrongBomb(Node * pSender){
 	PopUpWrongLayer* p = (PopUpWrongLayer*)this->getChildByTag(POPUPWRONGLAYER_TAG);
 	p->removeFromParentAndCleanup(true);
 	
+	this->popBombLayer();
 }
 void GameScene::wrongBack(Node * pSender){
 	PopUpWrongLayer* p = (PopUpWrongLayer*)this->getChildByTag(POPUPWRONGLAYER_TAG);
@@ -456,14 +482,17 @@ void GameScene::bombNotUse(CCNode * pSender){
 #pragma mark PopRightLayer CallBack
 
 void GameScene::rightAskFriends(CCNode * pSender){
-	PopUpRightLayer* p = (PopUpRightLayer*)this->getChildByTag(POPUPRIGHTLAYER_TAG);
-	p->removeFromParentAndCleanup(true);
+//	PopUpRightLayer* p = (PopUpRightLayer*)this->getChildByTag(POPUPRIGHTLAYER_TAG);
+//	p->removeFromParentAndCleanup(true);
+//
+	this->popShareLayer();
 }
 void GameScene::rightContinue(CCNode * pSender){
 	PopUpRightLayer* p = (PopUpRightLayer*)this->getChildByTag(POPUPRIGHTLAYER_TAG);
 	p->removeFromParentAndCleanup(true);
 	
-	Scene* s = GameScene::createScene();
+	Scene* s = GameScene::createScene(true);
+	
 	Director::getInstance()->replaceScene(s);
 }
 
@@ -505,11 +534,16 @@ bool GameScene::checkAnswer(int answerIndex){
 	this->answerAnimation( answerIndex );
 	if ( bRet ) {
 		this->popRightLayer();
-		log("answer right");
+		UserInfoMgr::getInstance()->answerRight();
+		
 	}else{
 		this->popWrongLayer();
-		log("answer wrong");
+		UserInfoMgr::getInstance()->answerWrong();
 	}
+	
+	int nGold = UserInfoMgr::getInstance()->getGold();
+	CCString* goldStr = CCString::createWithFormat("%d", nGold);
+	gold->setString(goldStr->_string);
 	
 	return bRet;
 }
@@ -560,3 +594,9 @@ void GameScene::answerAnimation( int answerIndex){
 	
 }
 
+#pragma mark --
+#pragma mark -- ShowVideo On EnterScene
+
+void GameScene::setShowVideoOnShow(bool bShow){
+	bShowVideoOnShow_ = bShow;
+}

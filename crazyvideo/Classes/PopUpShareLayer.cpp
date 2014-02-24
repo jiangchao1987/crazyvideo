@@ -67,7 +67,7 @@ void PopUpShareLayer::onEnter(){
                                               CCScaleTo::create(0.06, 1.05),
                                               CCScaleTo::create(0.08, 0.95),
                                               CCScaleTo::create(0.08, 1.0), NULL);
-    bgLay->runAction(popupLayer);
+  //  bgLay->runAction(popupLayer);
 	
 }
 

@@ -25,29 +25,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "../Classes/PopUpShareLayer.cpp"
-            timestampString = "414605681.48079"
+            filePath = "../Classes/DataMgr.cpp"
+            timestampString = "414671977.177092"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "163"
-            endingLineNumber = "163"
-            landmarkName = "PopUpShareLayer::shareToFriends(Object * pSender)"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "../Classes/GameScene.cpp"
-            timestampString = "414604822.677645"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "393"
-            endingLineNumber = "393"
-            landmarkName = "GameScene::shareClose(Node *node)"
+            startingLineNumber = "235"
+            endingLineNumber = "235"
+            landmarkName = "DataMgr::openBgSound(bool bOpen)"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

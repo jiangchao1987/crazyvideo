@@ -52,8 +52,13 @@ static AppDelegate s_sharedApplication;
     
     cocos2d::Application::getInstance()->run();
 	
-//	[CCVideoPlayer setDelegate :self];
 
+	if ( [WXApi registerApp:@"wx31e942829d9eb144"] ) {
+		CCLOG("register wx right");
+	}else{
+		CCLOG("register wx wrong");
+	}
+	
     return YES;
 }
 
@@ -111,9 +116,60 @@ static AppDelegate s_sharedApplication;
     [super dealloc];
 }
 
+#pragma mark --
+#pragma mark Fuck WinXin
 
-#pragma mark -
-#pragma mark - Video;
+- (BOOL)application:(UIApplication *)application handleOpenURL:(NSURL *)url{
+	return [WXApi handleOpenURL:url delegate:self];
+}
+
+- (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation{
+	return [WXApi handleOpenURL:url delegate:self];
+}
+
+#pragma mark --
+#pragma mark -- Share Functions
+
+- (void) shareToFriends{
+	
+	// 发送内容给微信
+	WXMediaMessage *message = [WXMediaMessage message];
+	message.title = @"江湖救急";
+	message.description = @"偶的神啊！答不上来了，谁能告诉我正确答案啊！";
+	[message setThumbImage:[[UIImage imageNamed:@"Default.png"] resizedImage:CGSizeMake(320, 480) interpolationQuality:kCGInterpolationNone]];
+	
+	WXImageObject *ext = [WXImageObject object];
+//	ext.imageData = data;
+	
+	message.mediaObject = ext;
+	
+	SendMessageToWXReq* req = [[[SendMessageToWXReq alloc] init]autorelease];
+	req.bText = NO;
+	req.message = message;
+	
+	/*
+	 scene = WXSceneSession;
+	 wxSendHelpByFriend();
+	 break;
+	 case 1:
+	 scene = WXSceneTimeline;
+	 */
+	req.scene = WXSceneTimeline;
+	
+	[WXApi sendReq:req];
+}
+- (void) shareToFriend{
+	
+}
+- (void) shareToQQ{
+	
+}
+- (void) shareToQZone{
+	
+}
+
+#pragma mark --
+#pragma mark -- Video;
 
 - (void) movieStartsPlaying{
 	NSLog(@"start play");

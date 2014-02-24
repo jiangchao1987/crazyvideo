@@ -264,3 +264,22 @@ void playLocalVideo_IOS(std::string filename){
 	[app playLocalVideo_IOS:str];
 }
 
+void shareToFriends_IOS(){
+	AppController *app = (AppController*) [[UIApplication sharedApplication] delegate];
+	
+	[app shareToFriends];
+}
+void shareToFriend_IOS(){
+	AppController *app = (AppController*) [[UIApplication sharedApplication] delegate];
+	
+	[app shareToFriend];
+}
+void shareToQQ_IOS(){
+	AppController *app = (AppController*) [[UIApplication sharedApplication] delegate];
+	[app shareToQQ];
+}
+void shareToQZone_IOS(){
+	AppController *app = (AppController*) [[UIApplication sharedApplication] delegate];
+	[app shareToQZone];
+}
+

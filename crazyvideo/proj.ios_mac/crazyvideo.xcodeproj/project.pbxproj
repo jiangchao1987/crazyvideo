@@ -103,6 +103,9 @@
 		611B667718B76F080004E5E5 /* play_continue_share.png in Resources */ = {isa = PBXBuildFile; fileRef = 611B667318B76F080004E5E5 /* play_continue_share.png */; };
 		611B667818B76F080004E5E5 /* success_continue_selected.png in Resources */ = {isa = PBXBuildFile; fileRef = 611B667418B76F080004E5E5 /* success_continue_selected.png */; };
 		611B667918B76F080004E5E5 /* success_continue.png in Resources */ = {isa = PBXBuildFile; fileRef = 611B667518B76F080004E5E5 /* success_continue.png */; };
+		611CBE9518BAFF65008E4036 /* UserInfoMgr.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 611CBE9318BAFF65008E4036 /* UserInfoMgr.cpp */; };
+		611CBEA118BB0637008E4036 /* libWeChatSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 611CBE9D18BB0637008E4036 /* libWeChatSDK.a */; };
+		611CBEA218BB0637008E4036 /* libWeChatSDK_armv7_armv7s.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 611CBE9E18BB0637008E4036 /* libWeChatSDK_armv7_armv7s.a */; };
 		6192ECB718B44DFF00C8259A /* level in Resources */ = {isa = PBXBuildFile; fileRef = 6192ECB618B44DFF00C8259A /* level */; };
 		61C92C0618B4E246007E7C2E /* CCVideoPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 61C92BF918B4E246007E7C2E /* CCVideoPlayer.m */; };
 		61C92C0718B4E246007E7C2E /* CCVideoPlayerImpliOS.m in Sources */ = {isa = PBXBuildFile; fileRef = 61C92BFC18B4E246007E7C2E /* CCVideoPlayerImpliOS.m */; };
@@ -478,6 +481,12 @@
 		611B667318B76F080004E5E5 /* play_continue_share.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = play_continue_share.png; sourceTree = "<group>"; };
 		611B667418B76F080004E5E5 /* success_continue_selected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = success_continue_selected.png; sourceTree = "<group>"; };
 		611B667518B76F080004E5E5 /* success_continue.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = success_continue.png; sourceTree = "<group>"; };
+		611CBE9318BAFF65008E4036 /* UserInfoMgr.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = UserInfoMgr.cpp; path = ../Classes/UserInfoMgr.cpp; sourceTree = "<group>"; };
+		611CBE9418BAFF65008E4036 /* UserInfoMgr.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UserInfoMgr.h; path = ../Classes/UserInfoMgr.h; sourceTree = "<group>"; };
+		611CBE9D18BB0637008E4036 /* libWeChatSDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libWeChatSDK.a; sourceTree = "<group>"; };
+		611CBE9E18BB0637008E4036 /* libWeChatSDK_armv7_armv7s.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libWeChatSDK_armv7_armv7s.a; sourceTree = "<group>"; };
+		611CBE9F18BB0637008E4036 /* WXApi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXApi.h; sourceTree = "<group>"; };
+		611CBEA018BB0637008E4036 /* WXApiObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXApiObject.h; sourceTree = "<group>"; };
 		6192ECB618B44DFF00C8259A /* level */ = {isa = PBXFileReference; lastKnownFileType = folder; path = level; sourceTree = "<group>"; };
 		61C92BF818B4E246007E7C2E /* CCVideoPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCVideoPlayer.h; sourceTree = "<group>"; };
 		61C92BF918B4E246007E7C2E /* CCVideoPlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCVideoPlayer.m; sourceTree = "<group>"; };
@@ -603,8 +612,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				61D8073C18B4DA0500A7EC06 /* MediaPlayer.framework in Frameworks */,
+				611CBEA118BB0637008E4036 /* libWeChatSDK.a in Frameworks */,
 				1AC6FB2E180E99EB004C840B /* libbox2d iOS.a in Frameworks */,
 				1AC6FB2F180E99EB004C840B /* libchipmunk iOS.a in Frameworks */,
+				611CBEA218BB0637008E4036 /* libWeChatSDK_armv7_armv7s.a in Frameworks */,
 				1AC6FB30180E99EB004C840B /* libcocos2dx iOS.a in Frameworks */,
 				1AC6FB31180E99EB004C840B /* libcocos2dx-extensions iOS.a in Frameworks */,
 				1AC6FB32180E99EB004C840B /* libCocosDenshion iOS.a in Frameworks */,
@@ -651,11 +662,12 @@
 			isa = PBXGroup;
 			children = (
 				5087E77117EB970100C73F5D /* Icons */,
+				61C92BF718B4E246007E7C2E /* CCVideoPlayer */,
+				611CBE9C18BB0637008E4036 /* WeChatSDK */,
+				503AE0FD17EB989F00D1A890 /* Prefix.pch */,
+				503AE0FC17EB989F00D1A890 /* main.m */,
 				503AE0FA17EB989F00D1A890 /* AppController.h */,
 				503AE0FB17EB989F00D1A890 /* AppController.mm */,
-				61C92BF718B4E246007E7C2E /* CCVideoPlayer */,
-				503AE0FC17EB989F00D1A890 /* main.m */,
-				503AE0FD17EB989F00D1A890 /* Prefix.pch */,
 				503AE0FE17EB989F00D1A890 /* RootViewController.h */,
 				503AE0FF17EB989F00D1A890 /* RootViewController.mm */,
 			);
@@ -823,6 +835,8 @@
 				61D8071E18B4D2F200A7EC06 /* JAVAHelper.cpp */,
 				611390F818B3636C00FFAF9B /* Tools.cpp */,
 				611390F918B3636C00FFAF9B /* Tools.h */,
+				611CBE9318BAFF65008E4036 /* UserInfoMgr.cpp */,
+				611CBE9418BAFF65008E4036 /* UserInfoMgr.h */,
 				61D8070D18B4BA4500A7EC06 /* DataMgr.cpp */,
 				61D8070E18B4BA4500A7EC06 /* DataMgr.h */,
 				61D8071818B4CD7400A7EC06 /* Defines.h */,
@@ -937,6 +951,18 @@
 			);
 			path = popuplayer;
 			sourceTree = "<group>";
+		};
+		611CBE9C18BB0637008E4036 /* WeChatSDK */ = {
+			isa = PBXGroup;
+			children = (
+				611CBE9D18BB0637008E4036 /* libWeChatSDK.a */,
+				611CBE9E18BB0637008E4036 /* libWeChatSDK_armv7_armv7s.a */,
+				611CBE9F18BB0637008E4036 /* WXApi.h */,
+				611CBEA018BB0637008E4036 /* WXApiObject.h */,
+			);
+			name = WeChatSDK;
+			path = ios/WeChatSDK;
+			sourceTree = SOURCE_ROOT;
 		};
 		61C92BF718B4E246007E7C2E /* CCVideoPlayer */ = {
 			isa = PBXGroup;
@@ -1443,6 +1469,7 @@
 				61DA12AD18B6F8CA002EE4C6 /* PopUpWrongLayer.cpp in Sources */,
 				1AFAF8B716D35DE700DB1158 /* AppDelegate.cpp in Sources */,
 				611390EC18B360E100FFAF9B /* StartScene.cpp in Sources */,
+				611CBE9518BAFF65008E4036 /* UserInfoMgr.cpp in Sources */,
 				611390EF18B360EF00FFAF9B /* GameScene.cpp in Sources */,
 				6113914618B38E7100FFAF9B /* CloudScene.cpp in Sources */,
 				61C92C0618B4E246007E7C2E /* CCVideoPlayer.m in Sources */,
@@ -1555,7 +1582,7 @@
 				);
 				INFOPLIST_FILE = ios/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
-				LIBRARY_SEARCH_PATHS = "";
+				LIBRARY_SEARCH_PATHS = "/Users/tclizhen123/WorkSpace/TechWebGit/user-test-project/crazyvideo/proj.ios_mac/ios/WeChatSDK";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				USER_HEADER_SEARCH_PATHS = "";
@@ -1584,7 +1611,7 @@
 				);
 				INFOPLIST_FILE = ios/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
-				LIBRARY_SEARCH_PATHS = "";
+				LIBRARY_SEARCH_PATHS = "/Users/tclizhen123/WorkSpace/TechWebGit/user-test-project/crazyvideo/proj.ios_mac/ios/WeChatSDK";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				USER_HEADER_SEARCH_PATHS = "";
