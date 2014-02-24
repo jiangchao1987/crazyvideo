@@ -75,8 +75,8 @@ bool AboutScene::init()
 		mii1->setVisible(true);
 		mii2->setVisible(false);
 	}else{
-		mii1->setVisible(true);
-		mii2->setVisible(false);
+		mii1->setVisible(false);
+		mii2->setVisible(true);
 	}
 
 	////mail

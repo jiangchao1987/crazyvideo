@@ -421,21 +421,23 @@ void GameScene::popWrongLayer(){
 #pragma mark PopShareLayer CallBack
 //share pop call back
 void GameScene::shareToFriends(Node * node){
+	playEffectBtnClicked();
 	X_shareToFriends();
 }
 void GameScene::shareToFriend(Node * node){
+	playEffectBtnClicked();
 	X_shareToFriend();
 }
 void GameScene::shareToTencent(Node * node){
+	playEffectBtnClicked();
 	X_shareToQQ();
 }
 void GameScene::shareToQZone(Node * node){
-//	Scene* s = GameScene::createScene();
-//	Director::getInstance()->replaceScene(s);
-//
+	playEffectBtnClicked();
 	X_shareToQZone();
 }
 void GameScene::shareClose(Node *node){
+	playEffectBtnClicked();
 	PopUpShareLayer* p = (PopUpShareLayer*)this->getChildByTag(POPUPSHARELAYER_TAG);
 	p->removeFromParentAndCleanup(true);
 }
@@ -444,18 +446,21 @@ void GameScene::shareClose(Node *node){
 #pragma mark PopWrongLayer CallBack
 //wrong pop call back
 void GameScene::wrongShare(Node * pSender){
+	playEffectBtnClicked();
 	PopUpWrongLayer* p = (PopUpWrongLayer*)this->getChildByTag(POPUPWRONGLAYER_TAG);
 	p->removeFromParentAndCleanup(true);
 	
 	this->popShareLayer();
 }
 void GameScene::wrongBomb(Node * pSender){
+	playEffectBtnClicked();
 	PopUpWrongLayer* p = (PopUpWrongLayer*)this->getChildByTag(POPUPWRONGLAYER_TAG);
 	p->removeFromParentAndCleanup(true);
 	
 	this->popBombLayer();
 }
 void GameScene::wrongBack(Node * pSender){
+	playEffectBtnClicked();
 	PopUpWrongLayer* p = (PopUpWrongLayer*)this->getChildByTag(POPUPWRONGLAYER_TAG);
 	p->removeFromParentAndCleanup(true);
 	
@@ -465,10 +470,12 @@ void GameScene::wrongBack(Node * pSender){
 #pragma mark PopBombLayer CallBack
 //bomb pop call back
 void GameScene::bombUse(CCNode * pSender){
+	playEffectBtnClicked();
 	PopUpWrongLayer* p = (PopUpWrongLayer*)this->getChildByTag(POPUPBOMBLAYER_TAG);
 	p->removeFromParentAndCleanup(true);
 }
 void GameScene::bombNotUse(CCNode * pSender){
+	playEffectBtnClicked();
 	PopUpWrongLayer* p = (PopUpWrongLayer*)this->getChildByTag(POPUPBOMBLAYER_TAG);
 	p->removeFromParentAndCleanup(true);
 }
@@ -477,12 +484,11 @@ void GameScene::bombNotUse(CCNode * pSender){
 #pragma mark PopRightLayer CallBack
 
 void GameScene::rightAskFriends(CCNode * pSender){
-//	PopUpRightLayer* p = (PopUpRightLayer*)this->getChildByTag(POPUPRIGHTLAYER_TAG);
-//	p->removeFromParentAndCleanup(true);
-//
+	playEffectBtnClicked();
 	this->popShareLayer();
 }
 void GameScene::rightContinue(CCNode * pSender){
+	playEffectBtnClicked();
 	PopUpRightLayer* p = (PopUpRightLayer*)this->getChildByTag(POPUPRIGHTLAYER_TAG);
 	p->removeFromParentAndCleanup(true);
 	

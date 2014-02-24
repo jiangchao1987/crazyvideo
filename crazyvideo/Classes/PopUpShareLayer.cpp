@@ -133,7 +133,9 @@ void PopUpShareLayer::setUpView(){
 	menuItem4->setPosition(Point(pCenter.x + 70 *3 ,  pCenter.y - 50));
 	
 	backItem->setPosition(Point(pCenter.x, pCenter.y - 200 ));
-	LabelTTF* title = LabelTTF::create("关闭", "Arial", 40, backItem->getContentSize(), TextHAlignment::CENTER);
+//	LabelTTF* title = LabelTTF::create("关闭", "Arial", 30, backItem->getContentSize(), TextHAlignment::CENTER);
+	
+	LabelTTF *title = LabelTTF::create("好的", "AmericanTypewriter", 30);//添加文字
 	title->cocos2d::Node::setAnchorPoint(Point(0.5f, 0.5f));
 	title->setPosition(backItem->getPosition());
 	bg->setPosition(pCenter);

@@ -116,7 +116,7 @@
 	
 	if ([theMovie respondsToSelector:@selector(setControlStyle:)])
 	{
-		[ theMovie setControlStyle: MPMovieControlStyleFullscreen ];
+		[ theMovie setControlStyle: MPMovieControlStyleNone ];
 	}
 //#ifdef __IPHONE_OS_VERSION_MIN_ALLOWED
 //#if __IPHONE_OS_VERSION_MAX_ALLOWED < 30200

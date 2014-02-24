@@ -129,6 +129,9 @@ void stopBackGroundMusic(){
 }
 void playEffectBtnClicked(){
 	//pop3.mp3
+	if (!DataMgr::getInstance()->isBgSoundOpen()){
+		return;
+	}
 	CocosDenshion::SimpleAudioEngine::getInstance()->playEffect("pop3.mp3");
 }
 
