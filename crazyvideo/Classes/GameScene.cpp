@@ -108,7 +108,7 @@ bool GameScene::init()
                                            CC_CALLBACK_1(GameScene::menuBackCallback, this));
 	backItem->setAnchorPoint(Point(0.0f, 0.0f));
 	
-	backItem->setPosition(Point(origin.x + 10, nav->getPosition().y + 50));
+	backItem->setPosition(Point(origin.x + 10,  nav->getPosition().y + 50));
 	
     // create menu, it's an autorelease object
     auto menu = Menu::create(backItem, NULL);
@@ -137,9 +137,9 @@ bool GameScene::init()
 											 "play_share.png",
 											 "play_share_selected.png",
 											 CC_CALLBACK_1(GameScene::menuShareCallback, this));
-	shareItem->setAnchorPoint(Point(0.0f, 0.0f));
+	shareItem->setAnchorPoint(Point(0.5f, 0.5f));
 	
-	shareItem->setPosition(Point(origin.x + 10, nav->getPosition().y - 260));
+	shareItem->setPosition(Point(origin.x + 10 + shareItem->getContentSize().width/2, origin.y + visibleSize.height/2 + shareItem->getContentSize().height * 2));
 	
     // create menu, it's an autorelease object
     auto menu2 = Menu::create(shareItem, NULL);
@@ -151,9 +151,8 @@ bool GameScene::init()
 										   "play_bombtool.png",
 										   "play_bombtool_selected.png",
 										   CC_CALLBACK_1(GameScene::menuBombCallback, this));
-	bombItem->setAnchorPoint(Point(0.0f, 0.0f));
-	
-	bombItem->setPosition(Point(origin.x + visibleSize.width - bombItem->getContentSize().width/2 -10, nav->getPosition().y - 220));
+	bombItem->setAnchorPoint(Point(0.5f, 0.5f));
+	bombItem->setPosition(Point(origin.x + visibleSize.width - bombItem->getContentSize().width/2 -10, origin.y + visibleSize.height/2  + bombItem->getContentSize().height * 2));
 	
     // create menu, it's an autorelease object
     auto menu3 = Menu::create(bombItem, NULL);
@@ -163,7 +162,7 @@ bool GameScene::init()
 	// tv Bg
 	Sprite* tvBg = Sprite::create("play_video_bg.png");
 	bombItem->setAnchorPoint(Point(0.5f, 0.5f));
-	tvBg->setPosition(origin.x + visibleSize.width/2 + 20, nav->getPositionY() - 260);
+	tvBg->setPosition(origin.x + visibleSize.width/2 + 20, origin.y + visibleSize.height/2 + tvBg->getContentSize().height/2); // nav->getPositionY() - 260);
 	
 	backLayer->addChild(tvBg);
 
@@ -174,7 +173,7 @@ bool GameScene::init()
                                            CC_CALLBACK_1(GameScene::menuPlayCallback, this));
 	playItem->setAnchorPoint(Point(0.5f, 0.5f));
 	
-	playItem->setPosition(Point(origin.x + 485, nav->getPositionY() - 350 - 15));
+	playItem->setPosition(Point(origin.x + 485, origin.y + visibleSize.height/2 + 70));
 	
     // create menu, it's an autorelease object
     auto menu4 = Menu::create(playItem, NULL);
@@ -182,11 +181,11 @@ bool GameScene::init()
     backLayer->addChild(menu4, 1);
 
 	// question
-	String* str = String::createWithFormat("你到底爱不爱我safsafsfs撒旦就发来时就按了福建省老奥发来 ");
+	String* str = String::createWithFormat("");
 	
 	question = LabelTTF::create(str->getCString(), "AmericanTypewriter-Bold", 30, Size(300, 200), TextHAlignment::CENTER, cocos2d::TextVAlignment::CENTER);
 	question->setAnchorPoint(Point(0.5f,0.5f));
-	question->setPosition(origin.x + visibleSize.width/2, nav->getPositionY() - 260 + 0);
+	question->setPosition(origin.x + visibleSize.width/2, tvBg->getPosition().y);
 
 	backLayer->addChild(question);
 	
@@ -202,7 +201,7 @@ bool GameScene::init()
 	btn3 = standardButtonWithTitle("play_answer_c_bg.png", "play_answer_c_bg.png", "");
 	btn4 = standardButtonWithTitle("play_answer_d_bg.png", "play_answer_d_bg.png", "");
 	
-	int ybase = nav->getPositionY() - 850;
+	int ybase = origin.y + visibleSize.height/2 - btn1->getContentSize().height/2;
 	int offset = 20;
 
 	btn1->setAnchorPoint(Point(0.5f, 0.5f));
@@ -210,20 +209,16 @@ bool GameScene::init()
 	btn3->setAnchorPoint(Point(0.5f, 0.5f));
 	btn4->setAnchorPoint(Point(0.5f, 0.5f));
 
-	btn1->setPosition( visibleSize.width/2 ,ybase + (btn1->getContentSize().height + offset) * 3 );
-	btn2->setPosition( visibleSize.width/2 ,ybase + (btn1->getContentSize().height + offset) * 2 );
-	btn3->setPosition( visibleSize.width/2 ,ybase + (btn1->getContentSize().height + offset) * 1 );
-	btn4->setPosition( visibleSize.width/2 ,ybase + (btn1->getContentSize().height + offset) * 0);
+	btn1->setPosition( visibleSize.width/2 ,ybase - (btn1->getContentSize().height + offset) * 0 );
+	btn2->setPosition( visibleSize.width/2 ,ybase - (btn1->getContentSize().height + offset) * 1 );
+	btn3->setPosition( visibleSize.width/2 ,ybase - (btn1->getContentSize().height + offset) * 2 );
+	btn4->setPosition( visibleSize.width/2 ,ybase - (btn1->getContentSize().height + offset) * 3);
 	
-	/*
-	 potentiometer->addTargetWithActionForControlEvents(this, cccontrol_selector(ControlPotentiometer::onValueChange), CCControlEventValueChanged)
-	 */
 	btn1->addTargetWithActionForControlEvents(this, cccontrol_selector( GameScene::btn1callBack),Control::EventType::TOUCH_UP_INSIDE);
 	btn2->addTargetWithActionForControlEvents(this, cccontrol_selector( GameScene::btn2callBack),Control::EventType::TOUCH_UP_INSIDE);
 	btn3->addTargetWithActionForControlEvents(this, cccontrol_selector( GameScene::btn3callBack),Control::EventType::TOUCH_UP_INSIDE);
 	btn4->addTargetWithActionForControlEvents(this, cccontrol_selector( GameScene::btn4callBack),Control::EventType::TOUCH_UP_INSIDE);
 
-//	addTargetWithActionForControlEvents
 	backLayer->addChild(btn1);
 	backLayer->addChild(btn2);
 	backLayer->addChild(btn3);
@@ -232,7 +227,6 @@ bool GameScene::init()
 	this->addChild(backLayer);
     
 	auto listener = EventListenerTouchOneByOne::create();
-	//listener->registerScriptHandler();
 	listener->onTouchBegan = NULL;
 	listener->onTouchEnded = NULL;
 	
@@ -427,18 +421,19 @@ void GameScene::popWrongLayer(){
 #pragma mark PopShareLayer CallBack
 //share pop call back
 void GameScene::shareToFriends(Node * node){
-	
+	X_shareToFriends();
 }
 void GameScene::shareToFriend(Node * node){
-	
+	X_shareToFriend();
 }
 void GameScene::shareToTencent(Node * node){
-	
+	X_shareToQQ();
 }
 void GameScene::shareToQZone(Node * node){
 //	Scene* s = GameScene::createScene();
 //	Director::getInstance()->replaceScene(s);
-//	
+//
+	X_shareToQZone();
 }
 void GameScene::shareClose(Node *node){
 	PopUpShareLayer* p = (PopUpShareLayer*)this->getChildByTag(POPUPSHARELAYER_TAG);

@@ -100,7 +100,7 @@ void PopUpWrongLayer::setUpView(){
 	auto menuItem3 = MenuItemImage::create(
 										   imgs.at(1),
 										   imgs.at(2),
-										   CC_CALLBACK_1(PopUpWrongLayer::wrongBomb, this));
+										   CC_CALLBACK_1(PopUpWrongLayer::wrongBack, this));
 	
 	bg->setAnchorPoint(Point(0.5f, 0.5f));
 	menuItem1->setAnchorPoint(Point(0.5f, 0.5f));

@@ -33,9 +33,11 @@ bool LevelView::init(){
     bool bRef = false;
     do{
         CC_BREAK_IF(!Layer::init());
-        Size winSize = Director::getInstance()->getWinSize();
-       // Point pointCenter = Point(winSize.width / 2, winSize.height / 2);
+//        Size winSize = Director::getInstance()->getWinSize();
 
+		Size visibleSize = Director::getInstance()->getVisibleSize();
+		Point origin = Director::getInstance()->getVisibleOrigin();
+	
         // 添加一个半透明的灰显层
         Layer* backLayerColor = createCommonBackLayer();
         this->addChild(backLayerColor);
@@ -46,7 +48,7 @@ bool LevelView::init(){
 											  "setting_back_selected.png",
 											  CC_CALLBACK_1(LevelView::menuBackCallback, this));
 		setItemPosition(backLayerColor, Point(0.5f, 0.5f),
-						Point( winSize.width / 7, winSize.height * 6 / 7 + backItem->getContentSize().height / 2), backItem);
+						Point(origin.x + visibleSize.width / 7, origin.y +visibleSize.height * 6 / 7 + backItem->getContentSize().height / 2), backItem);
 		
         
         // 创建一个 CCScrollView, 内容大小和当前的界面一样
@@ -130,7 +132,11 @@ void LevelView::onTouchEnded(Touch *touch, Event *unused_event){
 	Point endPoint = CCDirector::getInstance()->convertToGL(touch->getLocationInView());
     float distance = endPoint.x - m_touchPoint.x;
     float distanceY = endPoint.y - m_touchPoint.y;
-    if (fabs(distance) < 3 && fabs(distanceY) < 3){
+	
+	log("distance x:%f y:%f", distance, distanceY);
+//    if (fabs(distance) < 3 && fabs(distanceY) < 3){
+	if (fabs(distance) < 10 ){
+
         // 小于三，不做拖动操作，也排除了（抖动误操作）,第二个参数，事件类型 1： touch end， 由 touchEventAction 自动相应
         sendTouchMessage(touch, 1);
 		
@@ -221,9 +227,14 @@ Layer* LevelView::getContainLayer(){
     
     log("关卡数：%d, 页数：%d", levelCount, m_nPageCount);
     
-    Size winSize = CCDirector::getInstance()->getWinSize();
-    Point pointCenter = Point(winSize.width / 2, winSize.height / 2);
+//    Size winSize = CCDirector::getInstance()->getWinSize();
+//    Point pointCenter = Point(winSize.width / 2, winSize.height / 2);
     
+	Size visibleSize = Director::getInstance()->getVisibleSize();
+	Point origin = Director::getInstance()->getVisibleOrigin();
+	Point pointCenter = Point(visibleSize.width / 2, visibleSize.height / 2);
+
+	
     Layer* layer = Layer::create();
     layer->setPosition(Point::ZERO);
     
@@ -232,7 +243,7 @@ Layer* LevelView::getContainLayer(){
 	Size z = Size(0, 0);
     for (int i = 0; i < m_nPageCount; i++) {
         Sprite* frame = Sprite::create("level/frame.png");
-        frame->setPosition(pointCenter + Point(winSize.width * i, 0));
+        frame->setPosition(pointCenter + Point(visibleSize.width * i, 0));
         layer->addChild(frame, 0, 0);
 		if ( i == 0 ) {
 			p.x = frame->getPosition().x;
@@ -251,11 +262,11 @@ Layer* LevelView::getContainLayer(){
         float xOffset = i % 4 * 100 + 165;
         float yOffset = p.y + z.height/2 - 80  - ((i % (widthCount * heightCount)) / widthCount * 120 );
         
-        level->setPosition(Point(xOffset + winSize.width * curPageIndex, yOffset));
+        level->setPosition(Point(xOffset + visibleSize.width * curPageIndex, yOffset));
         layer->addChild(level ,2, i);
     }
     
-    layer->setContentSize(Size(winSize.width * m_nPageCount, winSize.height));
+    layer->setContentSize(Size(visibleSize.width * m_nPageCount, visibleSize.height));
 
     return layer;
 }

@@ -49,12 +49,19 @@ cocos2d::Sprite* createLogo(){
 }
 
 cocos2d::Sprite* createGameNavBg(){
+	/*
+	 Size visibleSize = Director::getInstance()->getVisibleSize();
+	 Point origin = Director::getInstance()->getVisibleOrigin();
+	 */
+	
 	Size size = Director::getInstance()->getVisibleSize();
+	Point origin = Director::getInstance()->getVisibleOrigin();
+
 	string logoName;
 	logoName = "play_navbar_bg.png";
 	Sprite* logo = Sprite::create(logoName);
 	logo->setAnchorPoint(Point(0, 0));
-	logo->setPosition(Point(0, size.height - logo->getContentSize().height));
+	logo->setPosition(Point( origin.x + 0, origin.y + size.height - logo->getContentSize().height));
 	
 	return logo;
 }

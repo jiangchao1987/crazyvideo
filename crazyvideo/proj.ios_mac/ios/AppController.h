@@ -12,9 +12,9 @@
 - (void) playNetVideo_IOS:(NSString*)url;
 - (void) playLocalVideo_IOS:(NSString*)filename;
 
-- (void) shareToFriends;
-- (void) shareToFriend;
-- (void) shareToQQ;
-- (void) shareToQZone;
+- (void) AppShareToFriends;
+- (void) AppShareToFriend;
+- (void) AppShareToQQ;
+- (void) AppShareToQZone;
 @end
 

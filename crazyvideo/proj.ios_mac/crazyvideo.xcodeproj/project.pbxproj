@@ -99,6 +99,7 @@
 		6113915D18B395C300FFAF9B /* PopupScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6113915A18B395C300FFAF9B /* PopupScene.cpp */; };
 		6113916118B395EF00FFAF9B /* BackGround.png in Resources */ = {isa = PBXBuildFile; fileRef = 6113915F18B395EF00FFAF9B /* BackGround.png */; };
 		6113916218B395EF00FFAF9B /* pop_button.png in Resources */ = {isa = PBXBuildFile; fileRef = 6113916018B395EF00FFAF9B /* pop_button.png */; };
+		611808B618BB199B00A7F64C /* UIImageAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 611808B518BB199B00A7F64C /* UIImageAdditions.m */; };
 		611B667618B76F080004E5E5 /* play_continue_share_selected.png in Resources */ = {isa = PBXBuildFile; fileRef = 611B667218B76F080004E5E5 /* play_continue_share_selected.png */; };
 		611B667718B76F080004E5E5 /* play_continue_share.png in Resources */ = {isa = PBXBuildFile; fileRef = 611B667318B76F080004E5E5 /* play_continue_share.png */; };
 		611B667818B76F080004E5E5 /* success_continue_selected.png in Resources */ = {isa = PBXBuildFile; fileRef = 611B667418B76F080004E5E5 /* success_continue_selected.png */; };
@@ -477,6 +478,8 @@
 		6113915B18B395C300FFAF9B /* PopupScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PopupScene.h; sourceTree = "<group>"; };
 		6113915F18B395EF00FFAF9B /* BackGround.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = BackGround.png; sourceTree = "<group>"; };
 		6113916018B395EF00FFAF9B /* pop_button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pop_button.png; sourceTree = "<group>"; };
+		611808B418BB199B00A7F64C /* UIImageAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIImageAdditions.h; sourceTree = "<group>"; };
+		611808B518BB199B00A7F64C /* UIImageAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIImageAdditions.m; sourceTree = "<group>"; };
 		611B667218B76F080004E5E5 /* play_continue_share_selected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = play_continue_share_selected.png; sourceTree = "<group>"; };
 		611B667318B76F080004E5E5 /* play_continue_share.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = play_continue_share.png; sourceTree = "<group>"; };
 		611B667418B76F080004E5E5 /* success_continue_selected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = success_continue_selected.png; sourceTree = "<group>"; };
@@ -666,6 +669,7 @@
 				611CBE9C18BB0637008E4036 /* WeChatSDK */,
 				503AE0FD17EB989F00D1A890 /* Prefix.pch */,
 				503AE0FC17EB989F00D1A890 /* main.m */,
+				611808B318BB199B00A7F64C /* Helper */,
 				503AE0FA17EB989F00D1A890 /* AppController.h */,
 				503AE0FB17EB989F00D1A890 /* AppController.mm */,
 				503AE0FE17EB989F00D1A890 /* RootViewController.h */,
@@ -951,6 +955,16 @@
 			);
 			path = popuplayer;
 			sourceTree = "<group>";
+		};
+		611808B318BB199B00A7F64C /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				611808B418BB199B00A7F64C /* UIImageAdditions.h */,
+				611808B518BB199B00A7F64C /* UIImageAdditions.m */,
+			);
+			name = Helper;
+			path = ios/Helper;
+			sourceTree = SOURCE_ROOT;
 		};
 		611CBE9C18BB0637008E4036 /* WeChatSDK */ = {
 			isa = PBXGroup;
@@ -1471,6 +1485,7 @@
 				611390EC18B360E100FFAF9B /* StartScene.cpp in Sources */,
 				611CBE9518BAFF65008E4036 /* UserInfoMgr.cpp in Sources */,
 				611390EF18B360EF00FFAF9B /* GameScene.cpp in Sources */,
+				611808B618BB199B00A7F64C /* UIImageAdditions.m in Sources */,
 				6113914618B38E7100FFAF9B /* CloudScene.cpp in Sources */,
 				61C92C0618B4E246007E7C2E /* CCVideoPlayer.m in Sources */,
 				61D8072418B4D2F200A7EC06 /* JAVAHelper.cpp in Sources */,

@@ -32,9 +32,9 @@ std::string getNickName();
 void playNetVideo(std::string url);
 void playLocalVideo(std::string filename);
 
-void shareToFriends();
-void shareToFriend();
-void shareToQQ();
-void shareToQZone();
+void X_shareToFriends();
+void X_shareToFriend();
+void X_shareToQQ();
+void X_shareToQZone();
 
 #endif /* defined(__knowledgegame__CrossPlatformHelper__) */

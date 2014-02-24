@@ -137,17 +137,17 @@ void playLocalVideo(std::string filename){
 	return playLocalVideo_IOS(filename);
 }
 
-void shareToFriends(){
-	
+void X_shareToFriends(){
+	return shareToFriends_IOS();
 }
-void shareToFriend(){
-	
+void X_shareToFriend(){
+	return shareToFriend_IOS();
 }
-void shareToQQ(){
-	
+void X_shareToQQ(){
+	return shareToQQ_IOS();
 }
-void shareToQZone(){
-	
+void X_shareToQZone(){
+	return shareToQZone_IOS();
 }
 
 #endif

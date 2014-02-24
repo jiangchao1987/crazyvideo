@@ -130,7 +130,7 @@ static AppDelegate s_sharedApplication;
 #pragma mark --
 #pragma mark -- Share Functions
 
-- (void) shareToFriends{
+- (void) AppShareToFriends{
 	
 	// 发送内容给微信
 	WXMediaMessage *message = [WXMediaMessage message];
@@ -139,8 +139,13 @@ static AppDelegate s_sharedApplication;
 	[message setThumbImage:[[UIImage imageNamed:@"Default.png"] resizedImage:CGSizeMake(320, 480) interpolationQuality:kCGInterpolationNone]];
 	
 	WXImageObject *ext = [WXImageObject object];
-//	ext.imageData = data;
+//	ext.imageData = [[UIImage imageNamed:@"Default.png"] ]//data;
+//	ext.imageData = [[UIImage imageNamed:@"Default.png"] ];
 	
+	UIImage* image = [UIImage imageNamed:@"Default.png"];
+	NSData *imageData = UIImagePNGRepresentation(image);
+
+	ext.imageData = imageData;
 	message.mediaObject = ext;
 	
 	SendMessageToWXReq* req = [[[SendMessageToWXReq alloc] init]autorelease];
@@ -156,17 +161,63 @@ static AppDelegate s_sharedApplication;
 	 */
 	req.scene = WXSceneTimeline;
 	
-	[WXApi sendReq:req];
+	BOOL isSuccess = [WXApi sendReq:req];
+	if ( isSuccess ) {
+		NSLog(@"sadfsa");
+	}else {
+		NSLog(@"fuckingi");
+	}
 }
-- (void) shareToFriend{
+- (void) AppShareToFriend{
 	
 }
-- (void) shareToQQ{
+- (void) AppShareToQQ{
 	
 }
-- (void) shareToQZone{
+- (void) AppShareToQZone{
 	
 }
+
+#pragma mark --
+#pragma mark -- WXApiDelegate <NSObject>
+
+/*! @brief 收到一个来自微信的请求，处理完后调用sendResp
+ *
+ * 收到一个来自微信的请求，异步处理完成后必须调用sendResp发送处理结果给微信。
+ * 可能收到的请求有GetMessageFromWXReq、ShowMessageFromWXReq等。
+ * @param req 具体请求内容，是自动释放的
+ */
+-(void) onReq:(BaseReq*)req{
+	BaseReq*  reqaa = req;
+	
+}
+
+/*! @brief 发送一个sendReq后，收到微信的回应
+ *
+ * 收到一个来自微信的处理结果。调用一次sendReq后会收到onResp。
+ * 可能收到的处理结果有SendMessageToWXResp、SendAuthResp等。
+ * @param resp具体的回应内容，是自动释放的
+ */
+-(void) onResp:(BaseResp*)resp{
+	
+	BaseResp* qq = resp;
+	
+	switch ( qq.errCode) {
+		case 0:
+			;
+			break;
+		case 1:
+			;
+			break;
+		case 2:
+			;
+			break;
+		default:
+			break;
+	}
+	
+}
+
 
 #pragma mark --
 #pragma mark -- Video;
