@@ -108,6 +108,7 @@
 		611CBE9518BAFF65008E4036 /* UserInfoMgr.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 611CBE9318BAFF65008E4036 /* UserInfoMgr.cpp */; };
 		611CBEA218BB0637008E4036 /* libWeChatSDK_armv7_armv7s.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 611CBE9E18BB0637008E4036 /* libWeChatSDK_armv7_armv7s.a */; };
 		6192ECB718B44DFF00C8259A /* level in Resources */ = {isa = PBXBuildFile; fileRef = 6192ECB618B44DFF00C8259A /* level */; };
+		619DC4FC18BC6D1700477616 /* PopUpAppraise.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 619DC4FA18BC6D1700477616 /* PopUpAppraise.cpp */; };
 		61BE83FB18BB4CDD00F69C63 /* date.txt in Resources */ = {isa = PBXBuildFile; fileRef = 61BE83FA18BB4CDD00F69C63 /* date.txt */; };
 		61C92C0618B4E246007E7C2E /* CCVideoPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 61C92BF918B4E246007E7C2E /* CCVideoPlayer.m */; };
 		61C92C0718B4E246007E7C2E /* CCVideoPlayerImpliOS.m in Sources */ = {isa = PBXBuildFile; fileRef = 61C92BFC18B4E246007E7C2E /* CCVideoPlayerImpliOS.m */; };
@@ -493,6 +494,8 @@
 		611CBE9F18BB0637008E4036 /* WXApi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXApi.h; sourceTree = "<group>"; };
 		611CBEA018BB0637008E4036 /* WXApiObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXApiObject.h; sourceTree = "<group>"; };
 		6192ECB618B44DFF00C8259A /* level */ = {isa = PBXFileReference; lastKnownFileType = folder; path = level; sourceTree = "<group>"; };
+		619DC4FA18BC6D1700477616 /* PopUpAppraise.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = PopUpAppraise.cpp; path = ../Classes/PopUpAppraise.cpp; sourceTree = "<group>"; };
+		619DC4FB18BC6D1700477616 /* PopUpAppraise.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PopUpAppraise.h; path = ../Classes/PopUpAppraise.h; sourceTree = "<group>"; };
 		61BE83FA18BB4CDD00F69C63 /* date.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = date.txt; sourceTree = "<group>"; };
 		61C92BF818B4E246007E7C2E /* CCVideoPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCVideoPlayer.h; sourceTree = "<group>"; };
 		61C92BF918B4E246007E7C2E /* CCVideoPlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCVideoPlayer.m; sourceTree = "<group>"; };
@@ -1076,6 +1079,8 @@
 				61DA12C018B7241E002EE4C6 /* PopUpBombLayer.h */,
 				610019E018BC58DF008D2D03 /* PopUpNoBombLayer.cpp */,
 				610019E118BC58DF008D2D03 /* PopUpNoBombLayer.h */,
+				619DC4FA18BC6D1700477616 /* PopUpAppraise.cpp */,
+				619DC4FB18BC6D1700477616 /* PopUpAppraise.h */,
 				61D5E4D918B5F05C002341CB /* PopLayerHeader.h */,
 			);
 			name = popup;
@@ -1496,6 +1501,7 @@
 				61D8072418B4D2F200A7EC06 /* JAVAHelper.cpp in Sources */,
 				6113914718B38E7100FFAF9B /* TiledFourCell.cpp in Sources */,
 				61D5E4D818B5EE14002341CB /* PopUpShareLayer.cpp in Sources */,
+				619DC4FC18BC6D1700477616 /* PopUpAppraise.cpp in Sources */,
 				6113915518B3955F00FFAF9B /* LsTouch.cpp in Sources */,
 				61D8072118B4D2F200A7EC06 /* CrossPlatformHelper.cpp in Sources */,
 				61C92C0718B4E246007E7C2E /* CCVideoPlayerImpliOS.m in Sources */,

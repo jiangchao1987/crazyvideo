@@ -23,9 +23,11 @@ typedef enum GameAnswerState{
 
 }GameAnswerState;
 
-class GameAnswerState1 : public CCObject{
-	
-};
+//class GameAnswerState1 : public CCObject{
+//
+//public:
+//	GameAnswerState  state_;
+//};
 
 class GameScene : public cocos2d::Layer
 {
@@ -78,6 +80,7 @@ public:
 	void popBombLayer();
 	void popRightLayer();
 	void popWrongLayer();
+	void popNoBombLayer();
 	
 	//share pop call back
 	void shareToFriends(CCNode * node);
@@ -93,12 +96,14 @@ public:
 	void bombUse(CCNode * pSender);
 	void bombNotUse(CCNode * pSender);
 	//right pop call back
-	
 	void rightAskFriends(CCNode * pSender);
 	void rightContinue(CCNode * pSender);
+	//nob bomb pop call back
+	void noBombClose(CCNode * pSender);
+
 	
 	//检查 是否答对
-	bool checkAnswer(int answerIndex);
+	bool checkAnswer(int answerIndex, bool useBomb = false);
 	void answerAnimation( int answerIndex);
 	
 	// 播放
@@ -106,13 +111,16 @@ public:
 //	void btnStateLogic(int nIndex, bool bChanged);
 private:
 	Dictionary* currentDic_;
-	GameAnswerState answerOneState_;
-	GameAnswerState answerTwoState_;
-	GameAnswerState answerThreeState_;
-	GameAnswerState answerFouState_;
+	GameAnswerState answerStateArr_[4];
+
+//	GameAnswerState answerOneState_;
+//	GameAnswerState answerTwoState_;
+//	GameAnswerState answerThreeState_;
+//	GameAnswerState answerFouState_;
 	
 private:
 	bool  bShowVideoOnShow_;
+//	CCArray*  answerStateArr_;
 public :
 	void setShowVideoOnShow(bool bShow);
 
