@@ -67,11 +67,13 @@ bool GameScene::init()
     Size visibleSize = Director::getInstance()->getVisibleSize();
     Point origin = Director::getInstance()->getVisibleOrigin();
 	
-    guanka_index = LabelTTF::create("Hello World", "Arial", 30);
+	//	LabelTTF * tip = LabelTTF::create("很抱歉 答错啦", "AmericanTypewriter", 30);//添加文字
+
+    guanka_index = LabelTTF::create("AmericanTypewriter", "Arial", 40);
     
     // position the label on the center of the screen
     guanka_index->setPosition(Point(origin.x + visibleSize.width/2,
-							 origin.y + visibleSize.height - guanka_index->getContentSize().height));
+							 origin.y + visibleSize.height - guanka_index->getContentSize().height/4*3));
 	
     // add the label as a child to this layer
 	 this->addChild(guanka_index, 1);
@@ -86,9 +88,9 @@ bool GameScene::init()
 	
 	gold = LabelTTF::create("209", "Arial", 36);
 	gold->setHorizontalAlignment(TextHAlignment::RIGHT);
-	gold->setAnchorPoint(Point(1,0));
+	gold->setAnchorPoint(Point(1,0.5f));
     gold->setPosition(Point(origin.x + visibleSize.width - 20,
-								   origin.y + visibleSize.height - (topic_title->getContentSize().height- guanka_index->getContentSize().height) - 48 - 24));
+								   origin.y + visibleSize.height - 45));
 	
     // add the label as a child to this layer
 	this->addChild(gold, 1);

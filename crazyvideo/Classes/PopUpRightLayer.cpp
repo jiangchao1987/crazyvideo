@@ -88,6 +88,8 @@ void PopUpRightLayer::setUpView(){
 	imgs.push_back(std::string("success_continue.png"));
 	imgs.push_back(std::string("success_continue_selected.png")); //close b n
 
+	bgLay = Layer::create();
+
 	Sprite* bg = Sprite::create( imgs.at(0));
 	auto menuItem1 = MenuItemImage::create(
 										   imgs.at(1),
@@ -102,12 +104,28 @@ void PopUpRightLayer::setUpView(){
 	menuItem1->setAnchorPoint(Point(0.5f, 0.5f));
 	menuItem2->setAnchorPoint(Point(0.5f, 0.5f));
 	
+	
+	LabelTTF * tip = LabelTTF::create("恭喜你 答对了", "AmericanTypewriter", 30);//添加文字
+	tip->setAnchorPoint(Point(0.5f, 0.5f));
+	tip->setColor(Color3B::YELLOW);
+	tip->setVerticalAlignment(TextVAlignment::CENTER);
+	tip->setPosition(Point(pCenter.x, pCenter.y + 40));
+	bgLay->addChild(tip, 2);
+	
+	LabelTTF *label = LabelTTF::create("奖励20金币", "AmericanTypewriter", 40);//添加文字
+	label->setAnchorPoint(Point(0.5f, 0.5f));
+	label->setColor(Color3B::WHITE);
+	label->setVerticalAlignment(TextVAlignment::CENTER);
+	label->setPosition(Point(pCenter.x, pCenter.y - 60));
+	bgLay->addChild(label, 2);
+	
+	
 	// create menu, it's an autorelease object
     auto menu = Menu::create(menuItem1, menuItem2, NULL);
     menu->setPosition(Point::ZERO);
 	
-	menuItem1->setPosition(Point(pCenter.x - menuItem1->getContentSize().width/2 ,  pCenter.y - 150));
-	menuItem2->setPosition(Point(pCenter.x + menuItem2->getContentSize().width/2,  pCenter.y - 150));
+	menuItem1->setPosition(Point(pCenter.x - menuItem1->getContentSize().width/2 ,  pCenter.y - 180));
+	menuItem2->setPosition(Point(pCenter.x + menuItem2->getContentSize().width/2,  pCenter.y - 180));
 
 	//	backItem->setPosition(Point(pCenter.x, pCenter.y - 200 ));
 	//	LabelTTF* title = LabelTTF::create("关闭", "Arial", 40, backItem->getContentSize(), TextHAlignment::CENTER);
@@ -115,7 +133,6 @@ void PopUpRightLayer::setUpView(){
 	//	title->setPosition(backItem->getPosition());
 	bg->setPosition(pCenter);
 	
-	bgLay = Layer::create();
 	bgLay->setContentSize(winSize);
 	bgLay->addChild(bg);
     bgLay->addChild(menu, 1);
