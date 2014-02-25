@@ -62,6 +62,7 @@
 		50EF629917ECD46A001EB2F8 /* Icon-100.png in Resources */ = {isa = PBXBuildFile; fileRef = 50EF629517ECD46A001EB2F8 /* Icon-100.png */; };
 		50EF62A217ECD613001EB2F8 /* Icon-29.png in Resources */ = {isa = PBXBuildFile; fileRef = 50EF62A017ECD613001EB2F8 /* Icon-29.png */; };
 		50EF62A317ECD613001EB2F8 /* Icon-50.png in Resources */ = {isa = PBXBuildFile; fileRef = 50EF62A117ECD613001EB2F8 /* Icon-50.png */; };
+		610019E218BC58DF008D2D03 /* PopUpNoBombLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 610019E018BC58DF008D2D03 /* PopUpNoBombLayer.cpp */; };
 		611390EC18B360E100FFAF9B /* StartScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 611390EA18B360E100FFAF9B /* StartScene.cpp */; };
 		611390EF18B360EF00FFAF9B /* GameScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 611390ED18B360EF00FFAF9B /* GameScene.cpp */; };
 		611390F218B360FB00FFAF9B /* LevelScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 611390F018B360FB00FFAF9B /* LevelScene.cpp */; };
@@ -105,7 +106,6 @@
 		611B667818B76F080004E5E5 /* success_continue_selected.png in Resources */ = {isa = PBXBuildFile; fileRef = 611B667418B76F080004E5E5 /* success_continue_selected.png */; };
 		611B667918B76F080004E5E5 /* success_continue.png in Resources */ = {isa = PBXBuildFile; fileRef = 611B667518B76F080004E5E5 /* success_continue.png */; };
 		611CBE9518BAFF65008E4036 /* UserInfoMgr.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 611CBE9318BAFF65008E4036 /* UserInfoMgr.cpp */; };
-		611CBEA118BB0637008E4036 /* libWeChatSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 611CBE9D18BB0637008E4036 /* libWeChatSDK.a */; };
 		611CBEA218BB0637008E4036 /* libWeChatSDK_armv7_armv7s.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 611CBE9E18BB0637008E4036 /* libWeChatSDK_armv7_armv7s.a */; };
 		6192ECB718B44DFF00C8259A /* level in Resources */ = {isa = PBXBuildFile; fileRef = 6192ECB618B44DFF00C8259A /* level */; };
 		61BE83FB18BB4CDD00F69C63 /* date.txt in Resources */ = {isa = PBXBuildFile; fileRef = 61BE83FA18BB4CDD00F69C63 /* date.txt */; };
@@ -429,6 +429,8 @@
 		50EF629517ECD46A001EB2F8 /* Icon-100.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-100.png"; sourceTree = "<group>"; };
 		50EF62A017ECD613001EB2F8 /* Icon-29.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-29.png"; sourceTree = "<group>"; };
 		50EF62A117ECD613001EB2F8 /* Icon-50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-50.png"; sourceTree = "<group>"; };
+		610019E018BC58DF008D2D03 /* PopUpNoBombLayer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = PopUpNoBombLayer.cpp; path = ../Classes/PopUpNoBombLayer.cpp; sourceTree = "<group>"; };
+		610019E118BC58DF008D2D03 /* PopUpNoBombLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PopUpNoBombLayer.h; path = ../Classes/PopUpNoBombLayer.h; sourceTree = "<group>"; };
 		611390EA18B360E100FFAF9B /* StartScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = StartScene.cpp; path = ../Classes/StartScene.cpp; sourceTree = "<group>"; };
 		611390EB18B360E100FFAF9B /* StartScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = StartScene.h; path = ../Classes/StartScene.h; sourceTree = "<group>"; };
 		611390ED18B360EF00FFAF9B /* GameScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = GameScene.cpp; path = ../Classes/GameScene.cpp; sourceTree = "<group>"; };
@@ -487,7 +489,6 @@
 		611B667518B76F080004E5E5 /* success_continue.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = success_continue.png; sourceTree = "<group>"; };
 		611CBE9318BAFF65008E4036 /* UserInfoMgr.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = UserInfoMgr.cpp; path = ../Classes/UserInfoMgr.cpp; sourceTree = "<group>"; };
 		611CBE9418BAFF65008E4036 /* UserInfoMgr.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UserInfoMgr.h; path = ../Classes/UserInfoMgr.h; sourceTree = "<group>"; };
-		611CBE9D18BB0637008E4036 /* libWeChatSDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libWeChatSDK.a; sourceTree = "<group>"; };
 		611CBE9E18BB0637008E4036 /* libWeChatSDK_armv7_armv7s.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libWeChatSDK_armv7_armv7s.a; sourceTree = "<group>"; };
 		611CBE9F18BB0637008E4036 /* WXApi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXApi.h; sourceTree = "<group>"; };
 		611CBEA018BB0637008E4036 /* WXApiObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXApiObject.h; sourceTree = "<group>"; };
@@ -617,7 +618,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				61D8073C18B4DA0500A7EC06 /* MediaPlayer.framework in Frameworks */,
-				611CBEA118BB0637008E4036 /* libWeChatSDK.a in Frameworks */,
 				1AC6FB2E180E99EB004C840B /* libbox2d iOS.a in Frameworks */,
 				1AC6FB2F180E99EB004C840B /* libchipmunk iOS.a in Frameworks */,
 				611CBEA218BB0637008E4036 /* libWeChatSDK_armv7_armv7s.a in Frameworks */,
@@ -971,7 +971,6 @@
 		611CBE9C18BB0637008E4036 /* WeChatSDK */ = {
 			isa = PBXGroup;
 			children = (
-				611CBE9D18BB0637008E4036 /* libWeChatSDK.a */,
 				611CBE9E18BB0637008E4036 /* libWeChatSDK_armv7_armv7s.a */,
 				611CBE9F18BB0637008E4036 /* WXApi.h */,
 				611CBEA018BB0637008E4036 /* WXApiObject.h */,
@@ -1075,6 +1074,8 @@
 				61D5E4D718B5EE14002341CB /* PopUpShareLayer.h */,
 				61DA12BF18B7241E002EE4C6 /* PopUpBombLayer.cpp */,
 				61DA12C018B7241E002EE4C6 /* PopUpBombLayer.h */,
+				610019E018BC58DF008D2D03 /* PopUpNoBombLayer.cpp */,
+				610019E118BC58DF008D2D03 /* PopUpNoBombLayer.h */,
 				61D5E4D918B5F05C002341CB /* PopLayerHeader.h */,
 			);
 			name = popup;
@@ -1507,6 +1508,7 @@
 				61D8070F18B4BA4500A7EC06 /* DataMgr.cpp in Sources */,
 				503AE10117EB989F00D1A890 /* main.m in Sources */,
 				1AFAF8B816D35DE700DB1158 /* HelloWorldScene.cpp in Sources */,
+				610019E218BC58DF008D2D03 /* PopUpNoBombLayer.cpp in Sources */,
 				6113915D18B395C300FFAF9B /* PopupScene.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

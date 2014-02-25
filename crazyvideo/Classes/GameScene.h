@@ -23,6 +23,10 @@ typedef enum GameAnswerState{
 
 }GameAnswerState;
 
+class GameAnswerState1 : public CCOjbect{
+	
+};
+
 class GameScene : public cocos2d::Layer
 {
 public:
