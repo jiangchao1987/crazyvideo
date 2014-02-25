@@ -23,7 +23,7 @@ typedef enum GameAnswerState{
 
 }GameAnswerState;
 
-class GameAnswerState1 : public CCOjbect{
+class GameAnswerState1 : public CCObject{
 	
 };
 
