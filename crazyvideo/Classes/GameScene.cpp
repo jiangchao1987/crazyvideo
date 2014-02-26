@@ -275,6 +275,11 @@ void GameScene::menuBackCallback(Object* pSender){
 }
 void GameScene::menuGoldCallback(Object* pSender){
 	playEffectBtnClicked();
+	
+	
+	Scene* s = ShopScene::createScene();
+	Director::getInstance()->pushScene(TransitionFade::create(0.5, s));
+	
 }
 void GameScene::menuShareCallback(Object* pSender){
 	playEffectBtnClicked();

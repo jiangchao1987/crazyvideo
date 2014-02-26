@@ -71,6 +71,13 @@ void UserInfoMgr::addGold( int nGold){
 	this->setGold( this->getGold() + nGold );
 }
 
+bool UserInfoMgr::buyGold(int nGold){
+	this->addGold(nGold);
+}
+
+bool UserInfoMgr::exchangeGold(int nGold){
+	this->addGold(nGold);
+}
 #pragma mark --
 #pragma mark -- User Logic Functions
 void UserInfoMgr::answerRight(){

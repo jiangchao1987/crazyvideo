@@ -12,6 +12,7 @@
 #include "SimpleAudioEngine.h"
 #include "StartScene.h"
 #include "DataMgr.h"
+#include "UserInfoMgr.h"
 
 USING_NS_CC;
 
@@ -134,8 +135,8 @@ bool ShopScene::init()
 void ShopScene::menuBackCallback(Object* pSender){
 	playEffectBtnClicked();
 	
-	Scene* s = StartScene::createScene();
-	Director::getInstance()->replaceScene(TransitionFade::create(0.5, s));
+//	Scene* s = StartScene::createScene();
+	Director::getInstance()->popScene();
 }
 void ShopScene::menuSoundCallback(Object* pSender){
 	playEffectBtnClicked();
@@ -163,6 +164,8 @@ void ShopScene::menuResetCallback(Object* pSender){
 }
 void ShopScene::menuRateCallback(Object* pSender){
 	playEffectBtnClicked();
+	
+	UserInfoMgr::getInstance()->buyGold(100);
 	
 }
 void ShopScene::menuTeamCallback(Object* pSender){
