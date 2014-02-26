@@ -28,6 +28,9 @@ public:
 	void shareToFrientsSuccess();
 	void shareToQZoneSuccess();
 	
+	bool canUseBomb();
+	bool canAnswerQuestion();
+	
 private:
 	void addGold( int nGold);
 };

@@ -308,3 +308,4 @@ void DataMgr::openBgSound(bool bOpen){
 	SaveBooleanToXML("isBgSoundOpen", bOpen);
 	WriteDisk;
 }
+

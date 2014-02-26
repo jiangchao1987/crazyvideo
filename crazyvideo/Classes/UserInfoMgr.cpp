@@ -81,3 +81,20 @@ void UserInfoMgr::shareToFrientsSuccess(){
 void UserInfoMgr::shareToQZoneSuccess(){
 	this->addGold( 40 );
 }
+
+bool UserInfoMgr::canUseBomb(){
+	bool bRet = false;
+	if ( this->getGold() >= 20 ){
+		bRet = true;
+	}
+	
+	return bRet;
+}
+bool UserInfoMgr::canAnswerQuestion(){
+	bool bRet = false;
+	if ( this->getGold() >= 20 ){
+		bRet = true;
+	}
+	
+	return bRet;
+}

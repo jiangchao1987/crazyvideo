@@ -81,6 +81,9 @@ public:
 	void popRightLayer();
 	void popWrongLayer();
 	void popNoBombLayer();
+	void popCanNotUseBombLayer();
+	void popNoGoldNotEnoughLayer();
+
 	
 	//share pop call back
 	void shareToFriends(CCNode * node);
@@ -98,8 +101,14 @@ public:
 	//right pop call back
 	void rightAskFriends(CCNode * pSender);
 	void rightContinue(CCNode * pSender);
-	//nob bomb pop call back
+	//no bomb pop call back
 	void noBombClose(CCNode * pSender);
+	//cannot use bomb
+	void bombCannotUseClose(CCNode * pSender);
+	void bombCannotUseOK(CCNode * pSender);
+    //gold not engough
+	void goldNotEnoughClose(CCNode * pSender);
+
 
 	
 	//检查 是否答对

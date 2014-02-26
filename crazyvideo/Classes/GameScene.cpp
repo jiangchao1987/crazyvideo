@@ -302,6 +302,13 @@ void GameScene::menuShareCallback(Object* pSender){
 	this->popShareLayer();
 }
 void GameScene::menuBombCallback(Object* pSender){
+	
+	if ( !UserInfoMgr::getInstance()->canUseBomb() ) {
+		
+		this->popCanNotUseBombLayer();
+		return;
+	}
+	
 	playEffectBtnClicked();
 	this->popBombLayer();
 }
@@ -441,6 +448,18 @@ void GameScene::popNoBombLayer(){
 	p->setCallbackFunc(this, callfuncN_selector(GameScene::noBombClose));
 	this->addChild(p,2);
 }
+void GameScene::popCanNotUseBombLayer(){
+	PopCanNotUseBombLayer* p = PopCanNotUseBombLayer::create();
+	p->setTag(POPUPCANNOTUSEBOMBLAYER_TAG);
+	p->setCallbackFunc(this, callfuncN_selector(GameScene::bombCannotUseClose), callfuncN_selector(GameScene::bombCannotUseOK));
+	this->addChild(p,2);
+}
+void GameScene::popNoGoldNotEnoughLayer(){
+	PopUpGoldNotEnough* p = PopUpGoldNotEnough::create();
+	p->setTag(POPUPGOLDNOTENOUGHLAYER_TAG);
+	p->setCallbackFunc(this, callfuncN_selector(GameScene::goldNotEnoughClose));
+	this->addChild(p,2);
+}
 #pragma mark --
 #pragma mark PopShareLayer CallBack
 //share pop call back
@@ -477,6 +496,7 @@ void GameScene::wrongShare(Node * pSender){
 	this->popShareLayer();
 }
 void GameScene::wrongBomb(Node * pSender){
+	
 	playEffectBtnClicked();
 	PopUpWrongLayer* p = (PopUpWrongLayer*)this->getChildByTag(POPUPWRONGLAYER_TAG);
 	p->removeFromParentAndCleanup(true);
@@ -565,9 +585,35 @@ void GameScene::noBombClose(CCNode * pSender){
 }
 
 #pragma mark --
+#pragma mark PopNoBombLayer CallBack
+void GameScene::bombCannotUseClose(CCNode * pSender){
+	playEffectBtnClicked();
+	
+	PopUpNoBombLayer* p = (PopUpNoBombLayer*)this->getChildByTag(POPUPCANNOTUSEBOMBLAYER_TAG);
+	p->removeFromParentAndCleanup(true);
+}
+void GameScene::bombCannotUseOK(CCNode * pSender){
+	playEffectBtnClicked();
+	
+	PopUpNoBombLayer* p = (PopUpNoBombLayer*)this->getChildByTag(POPUPCANNOTUSEBOMBLAYER_TAG);
+	p->removeFromParentAndCleanup(true);
+}
+#pragma mark --
+#pragma mark PopNoBombLayer CallBack
+void GameScene::goldNotEnoughClose(CCNode * pSender){
+	playEffectBtnClicked();
+	
+	PopUpGoldNotEnough* p = (PopUpGoldNotEnough*)this->getChildByTag(POPUPGOLDNOTENOUGHLAYER_TAG);
+	p->removeFromParentAndCleanup(true);
+}
+
+#pragma mark --
 #pragma mark -- Game Logic Functions
 bool GameScene::checkAnswer(int answerIndex, bool useBomb){
 	
+	if (!UserInfoMgr::getInstance()->canAnswerQuestion()) {
+		this->popNoGoldNotEnoughLayer();
+	}
 	bool bRet = false;
 	int a = ((CCString*)currentDic_->objectForKey(Key_answer_index))->intValue();
 	
