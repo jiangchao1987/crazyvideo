@@ -26,9 +26,9 @@ bool PopUpGodTipsLayer::init(){
         
 		this->setUpView();
 		auto myListener = EventListenerTouchOneByOne::create();
-		myListener->onTouchBegan = CC_CALLBACK_2(PopUpGoldNotEnough::onTouchBegan, this);
-		myListener->onTouchMoved = CC_CALLBACK_2(PopUpGoldNotEnough::onTouchMoved, this);
-		myListener->onTouchEnded = CC_CALLBACK_2(PopUpGoldNotEnough::onTouchEnded, this);
+		myListener->onTouchBegan = CC_CALLBACK_2(PopUpGodTipsLayer::onTouchBegan, this);
+		myListener->onTouchMoved = CC_CALLBACK_2(PopUpGodTipsLayer::onTouchMoved, this);
+		myListener->onTouchEnded = CC_CALLBACK_2(PopUpGodTipsLayer::onTouchEnded, this);
 		
 		myListener->setSwallowTouches(true);
 		auto dispatcher = Director::getInstance()->getEventDispatcher();
@@ -107,35 +107,35 @@ void PopUpGodTipsLayer::setUpView(){
 	auto menuItem1 = MenuItemImage::create(
 										   imgs.at(1),
 										   imgs.at(2),
-										   CC_CALLBACK_1(PopUpGoldNotEnough::godNotEnoughClose, this));
-	//	auto menuItem2 = MenuItemImage::create(
-	//										   imgs.at(1),
-	//										   imgs.at(2),
-	//										   CC_CALLBACK_1(PopCanNotUseBombLayer::bombCannotUseOK, this));
+										   CC_CALLBACK_1(PopUpGodTipsLayer::godTipsGetGod, this));
+	auto menuItem2 = MenuItemImage::create(
+										   imgs.at(1),
+										   imgs.at(2),
+										   CC_CALLBACK_1(PopUpGodTipsLayer::godTipsGiveUp, this));
 	
 	bg->setAnchorPoint(Point(0.5f, 0.5f));
 	menuItem1->setAnchorPoint(Point(0.5f, 0.5f));
-	//	menuItem2->setAnchorPoint(Point(0.5f, 0.5f));
+	menuItem2->setAnchorPoint(Point(0.5f, 0.5f));
 	
 	// create menu, it's an autorelease object
-    auto menu = Menu::create(menuItem1, NULL);
+    auto menu = Menu::create(menuItem1,menuItem2, NULL);
     menu->setPosition(Point::ZERO);
 	
-	menuItem1->setPosition(Point(pCenter.x,  pCenter.y - 180));
-	//	menuItem2->setPosition(Point(pCenter.x + 120 ,  pCenter.y - 180));
+	menuItem1->setPosition(Point(pCenter.x - 120,  pCenter.y - 180));
+	menuItem2->setPosition(Point(pCenter.x + 120 ,  pCenter.y - 180));
 	
-	LabelTTF *label1 = LabelTTF::create("那好吧", "AmericanTypewriter", 30);//添加文字
+	LabelTTF *label1 = LabelTTF::create("获取金币", "AmericanTypewriter", 30);//添加文字
 	
 	label1->setColor(Color3B::WHITE);
 	label1->setPosition(menuItem1->getPosition());
 	bgLay->addChild(label1, 2);
 	
-	//	LabelTTF *label2 = LabelTTF::create("忍着不领", "AmericanTypewriter", 30);//添加文字
-	//
-	//	label2->setColor(Color3B::WHITE);
-	//	label2->setPosition(menuItem2->getPosition());
-	//	bgLay->addChild(label2,2);
-	//
+	LabelTTF *label2 = LabelTTF::create("放弃", "AmericanTypewriter", 30);//添加文字
+
+	label2->setColor(Color3B::WHITE);
+	label2->setPosition(menuItem2->getPosition());
+	bgLay->addChild(label2,2);
+
 	bg->setPosition(pCenter);
 	
 	bgLay->setContentSize(winSize);

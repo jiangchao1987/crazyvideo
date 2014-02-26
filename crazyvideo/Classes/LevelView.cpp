@@ -139,6 +139,11 @@ void LevelView::touchEventAction(LsTouch *touch, int type){
         CCString* str = CCString::createWithFormat("您选择的关卡为 %d .", touch->getEventId() + 1);
       //  MessageBox("关卡", str->getCString());
 		
+		if ( !UserInfoMgr::getInstance()->canAnswerQuestion() ) {
+			this->popGodTipsLayer();
+			return;
+		}
+		
 		UserInfoMgr::getInstance()->setFreedomLevel( touch->getEventId());
 		enterGameScene();
     }
@@ -389,12 +394,15 @@ void LevelView::resetView(){
 	gold->setString(goldStr->_string);
 }
 
+#pragma mark --
+#pragma mark -- Functions
+
 void LevelView::popGodTipsLayer(){
 	
 	PopUpGodTipsLayer* p = PopUpGodTipsLayer::create();
 	p->setTag(POPUPGOLDTIPSLAYER_TAG);
 	
-	p->setCallbackFunc(this, callfuncN_selector(GameScene::shareClose),callfuncN_selector(GameScene::shareToFriend),callfuncN_selector(GameScene::shareToFriends),callfuncN_selector(GameScene::shareToTencent),callfuncN_selector(GameScene::shareToQZone) );
+	p->setCallbackFunc(this, callfuncN_selector(LevelView::godTipsGetGod),callfuncN_selector(LevelView::godTipsGiveUp) );
 	this->addChild(p,2);
 	
 }
@@ -404,14 +412,13 @@ void LevelView::godTipsGetGod(Node * pSender){
 	PopUpGodTipsLayer* p = (PopUpGodTipsLayer*)this->getChildByTag(POPUPGOLDTIPSLAYER_TAG);
 	p->removeFromParentAndCleanup(true);
 	
-	this->popShareLayer();
+	Scene* s = ShopScene::createScene();
+	Director::getInstance()->pushScene(TransitionFade::create(0.5, s));
 }
 void LevelView::godTipsGiveUp(Node * pSender){
 	playEffectBtnClicked();
 	PopUpGodTipsLayer* p = (PopUpGodTipsLayer*)this->getChildByTag(POPUPGOLDTIPSLAYER_TAG);
 	p->removeFromParentAndCleanup(true);
-	
-	this->popShareLayer();
 }
 
 void LevelView::menuBackCallback(Object* pSender){
