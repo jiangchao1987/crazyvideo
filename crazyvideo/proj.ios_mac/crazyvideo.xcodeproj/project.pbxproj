@@ -107,6 +107,27 @@
 		611B667918B76F080004E5E5 /* success_continue.png in Resources */ = {isa = PBXBuildFile; fileRef = 611B667518B76F080004E5E5 /* success_continue.png */; };
 		611CBE9518BAFF65008E4036 /* UserInfoMgr.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 611CBE9318BAFF65008E4036 /* UserInfoMgr.cpp */; };
 		611CBEA218BB0637008E4036 /* libWeChatSDK_armv7_armv7s.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 611CBE9E18BB0637008E4036 /* libWeChatSDK_armv7_armv7s.a */; };
+		6154DFF318BDF76200254F43 /* DomobOfferWallBundle.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 6154DF9918BDF76100254F43 /* DomobOfferWallBundle.bundle */; };
+		6154DFF418BDF76200254F43 /* libDomobOfferWallSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6154DF9A18BDF76100254F43 /* libDomobOfferWallSDK.a */; };
+		6154DFF518BDF76200254F43 /* DomobAdSDKBundle.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 6154DFA318BDF76100254F43 /* DomobAdSDKBundle.bundle */; };
+		6154DFF618BDF76200254F43 /* libDomobAdSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6154DFA418BDF76100254F43 /* libDomobAdSDK.a */; };
+		6154E01E18BDFC8000254F43 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6154E01D18BDFC8000254F43 /* CoreTelephony.framework */; };
+		6154E02018BDFC8F00254F43 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6154E01F18BDFC8F00254F43 /* MessageUI.framework */; };
+		6154E02218BDFC9A00254F43 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6154E02118BDFC9A00254F43 /* CFNetwork.framework */; };
+		6154E02418BDFCA600254F43 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6154E02318BDFCA600254F43 /* MobileCoreServices.framework */; };
+		6154E02618BDFCB300254F43 /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6154E02518BDFCB300254F43 /* CoreMedia.framework */; };
+		6154E02818BDFCCE00254F43 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6154E02718BDFCCE00254F43 /* QuartzCore.framework */; };
+		6154E02A18BDFCD900254F43 /* CoreText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6154E02918BDFCD900254F43 /* CoreText.framework */; };
+		6154E02C18BDFCE800254F43 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6154E02B18BDFCE800254F43 /* UIKit.framework */; };
+		6154E02E18BDFD0F00254F43 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6154E02D18BDFD0F00254F43 /* CoreGraphics.framework */; };
+		6154E03018BDFD1A00254F43 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6154E02F18BDFD1A00254F43 /* SystemConfiguration.framework */; };
+		6154E03218BDFD2400254F43 /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6154E03118BDFD2400254F43 /* AdSupport.framework */; };
+		6154E03418BDFD2B00254F43 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6154E03318BDFD2B00254F43 /* CoreLocation.framework */; };
+		6154E03618BDFD3300254F43 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6154E03518BDFD3300254F43 /* StoreKit.framework */; };
+		6154E03818BDFD3E00254F43 /* PassKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6154E03718BDFD3E00254F43 /* PassKit.framework */; };
+		6154E03A18BDFD4400254F43 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6154E03918BDFD4400254F43 /* Social.framework */; };
+		6154E03C18BDFD4D00254F43 /* EventKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6154E03B18BDFD4D00254F43 /* EventKit.framework */; };
+		6154E03E18BDFD5E00254F43 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 6154E03D18BDFD5E00254F43 /* libsqlite3.dylib */; };
 		6192ECB718B44DFF00C8259A /* level in Resources */ = {isa = PBXBuildFile; fileRef = 6192ECB618B44DFF00C8259A /* level */; };
 		619DC4FC18BC6D1700477616 /* PopUpAppraise.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 619DC4FA18BC6D1700477616 /* PopUpAppraise.cpp */; };
 		619DC50518BD994600477616 /* PopCanNotUseBombLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 619DC50318BD994600477616 /* PopCanNotUseBombLayer.cpp */; };
@@ -497,6 +518,37 @@
 		611CBE9E18BB0637008E4036 /* libWeChatSDK_armv7_armv7s.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libWeChatSDK_armv7_armv7s.a; sourceTree = "<group>"; };
 		611CBE9F18BB0637008E4036 /* WXApi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXApi.h; sourceTree = "<group>"; };
 		611CBEA018BB0637008E4036 /* WXApiObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXApiObject.h; sourceTree = "<group>"; };
+		6154DF9418BDF76100254F43 /* DMOfferWallManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DMOfferWallManager.h; sourceTree = "<group>"; };
+		6154DF9518BDF76100254F43 /* DMOfferWallManagerDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DMOfferWallManagerDelegate.h; sourceTree = "<group>"; };
+		6154DF9618BDF76100254F43 /* DMOfferWallViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DMOfferWallViewController.h; sourceTree = "<group>"; };
+		6154DF9718BDF76100254F43 /* DMVideoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DMVideoViewController.h; sourceTree = "<group>"; };
+		6154DF9918BDF76100254F43 /* DomobOfferWallBundle.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = DomobOfferWallBundle.bundle; sourceTree = "<group>"; };
+		6154DF9A18BDF76100254F43 /* libDomobOfferWallSDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libDomobOfferWallSDK.a; sourceTree = "<group>"; };
+		6154DF9C18BDF76100254F43 /* DMAdView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DMAdView.h; sourceTree = "<group>"; };
+		6154DF9D18BDF76100254F43 /* DMFeedsAdView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DMFeedsAdView.h; sourceTree = "<group>"; };
+		6154DF9E18BDF76100254F43 /* DMInterstitialAdController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DMInterstitialAdController.h; sourceTree = "<group>"; };
+		6154DF9F18BDF76100254F43 /* DMRTSplashAdController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DMRTSplashAdController.h; sourceTree = "<group>"; };
+		6154DFA018BDF76100254F43 /* DMSplashAdController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DMSplashAdController.h; sourceTree = "<group>"; };
+		6154DFA118BDF76100254F43 /* DMTools.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DMTools.h; sourceTree = "<group>"; };
+		6154DFA318BDF76100254F43 /* DomobAdSDKBundle.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = DomobAdSDKBundle.bundle; sourceTree = "<group>"; };
+		6154DFA418BDF76100254F43 /* libDomobAdSDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libDomobAdSDK.a; sourceTree = "<group>"; };
+		6154E01D18BDFC8000254F43 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.0.sdk/System/Library/Frameworks/CoreTelephony.framework; sourceTree = DEVELOPER_DIR; };
+		6154E01F18BDFC8F00254F43 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.0.sdk/System/Library/Frameworks/MessageUI.framework; sourceTree = DEVELOPER_DIR; };
+		6154E02118BDFC9A00254F43 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.0.sdk/System/Library/Frameworks/CFNetwork.framework; sourceTree = DEVELOPER_DIR; };
+		6154E02318BDFCA600254F43 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.0.sdk/System/Library/Frameworks/MobileCoreServices.framework; sourceTree = DEVELOPER_DIR; };
+		6154E02518BDFCB300254F43 /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.0.sdk/System/Library/Frameworks/CoreMedia.framework; sourceTree = DEVELOPER_DIR; };
+		6154E02718BDFCCE00254F43 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.0.sdk/System/Library/Frameworks/QuartzCore.framework; sourceTree = DEVELOPER_DIR; };
+		6154E02918BDFCD900254F43 /* CoreText.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreText.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.0.sdk/System/Library/Frameworks/CoreText.framework; sourceTree = DEVELOPER_DIR; };
+		6154E02B18BDFCE800254F43 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.0.sdk/System/Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
+		6154E02D18BDFD0F00254F43 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.0.sdk/System/Library/Frameworks/CoreGraphics.framework; sourceTree = DEVELOPER_DIR; };
+		6154E02F18BDFD1A00254F43 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.0.sdk/System/Library/Frameworks/SystemConfiguration.framework; sourceTree = DEVELOPER_DIR; };
+		6154E03118BDFD2400254F43 /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.0.sdk/System/Library/Frameworks/AdSupport.framework; sourceTree = DEVELOPER_DIR; };
+		6154E03318BDFD2B00254F43 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.0.sdk/System/Library/Frameworks/CoreLocation.framework; sourceTree = DEVELOPER_DIR; };
+		6154E03518BDFD3300254F43 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.0.sdk/System/Library/Frameworks/StoreKit.framework; sourceTree = DEVELOPER_DIR; };
+		6154E03718BDFD3E00254F43 /* PassKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PassKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.0.sdk/System/Library/Frameworks/PassKit.framework; sourceTree = DEVELOPER_DIR; };
+		6154E03918BDFD4400254F43 /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.0.sdk/System/Library/Frameworks/Social.framework; sourceTree = DEVELOPER_DIR; };
+		6154E03B18BDFD4D00254F43 /* EventKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = EventKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.0.sdk/System/Library/Frameworks/EventKit.framework; sourceTree = DEVELOPER_DIR; };
+		6154E03D18BDFD5E00254F43 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.0.sdk/usr/lib/libsqlite3.dylib; sourceTree = DEVELOPER_DIR; };
 		6192ECB618B44DFF00C8259A /* level */ = {isa = PBXFileReference; lastKnownFileType = folder; path = level; sourceTree = "<group>"; };
 		619DC4FA18BC6D1700477616 /* PopUpAppraise.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = PopUpAppraise.cpp; path = ../Classes/PopUpAppraise.cpp; sourceTree = "<group>"; };
 		619DC4FB18BC6D1700477616 /* PopUpAppraise.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PopUpAppraise.h; path = ../Classes/PopUpAppraise.h; sourceTree = "<group>"; };
@@ -632,7 +684,25 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6154DFF618BDF76200254F43 /* libDomobAdSDK.a in Frameworks */,
+				6154E03E18BDFD5E00254F43 /* libsqlite3.dylib in Frameworks */,
+				6154E03C18BDFD4D00254F43 /* EventKit.framework in Frameworks */,
+				6154E03A18BDFD4400254F43 /* Social.framework in Frameworks */,
+				6154E03818BDFD3E00254F43 /* PassKit.framework in Frameworks */,
+				6154E03618BDFD3300254F43 /* StoreKit.framework in Frameworks */,
+				6154E03418BDFD2B00254F43 /* CoreLocation.framework in Frameworks */,
+				6154E03218BDFD2400254F43 /* AdSupport.framework in Frameworks */,
+				6154E03018BDFD1A00254F43 /* SystemConfiguration.framework in Frameworks */,
+				6154E02E18BDFD0F00254F43 /* CoreGraphics.framework in Frameworks */,
+				6154E02C18BDFCE800254F43 /* UIKit.framework in Frameworks */,
+				6154E02A18BDFCD900254F43 /* CoreText.framework in Frameworks */,
+				6154E02818BDFCCE00254F43 /* QuartzCore.framework in Frameworks */,
 				61D8073C18B4DA0500A7EC06 /* MediaPlayer.framework in Frameworks */,
+				6154E02618BDFCB300254F43 /* CoreMedia.framework in Frameworks */,
+				6154E02418BDFCA600254F43 /* MobileCoreServices.framework in Frameworks */,
+				6154E02218BDFC9A00254F43 /* CFNetwork.framework in Frameworks */,
+				6154E02018BDFC8F00254F43 /* MessageUI.framework in Frameworks */,
+				6154E01E18BDFC8000254F43 /* CoreTelephony.framework in Frameworks */,
 				1AC6FB2E180E99EB004C840B /* libbox2d iOS.a in Frameworks */,
 				1AC6FB2F180E99EB004C840B /* libchipmunk iOS.a in Frameworks */,
 				611CBEA218BB0637008E4036 /* libWeChatSDK_armv7_armv7s.a in Frameworks */,
@@ -647,6 +717,7 @@
 				BF1712471292920000B8313A /* libz.dylib in Frameworks */,
 				BF1C47F01293687400B63C5D /* QuartzCore.framework in Frameworks */,
 				D44C620C132DFF330009C878 /* OpenAL.framework in Frameworks */,
+				6154DFF418BDF76200254F43 /* libDomobOfferWallSDK.a in Frameworks */,
 				D44C620E132DFF430009C878 /* AVFoundation.framework in Frameworks */,
 				D44C6210132DFF4E0009C878 /* AudioToolbox.framework in Frameworks */,
 			);
@@ -684,9 +755,10 @@
 				5087E77117EB970100C73F5D /* Icons */,
 				61C92BF718B4E246007E7C2E /* CCVideoPlayer */,
 				611CBE9C18BB0637008E4036 /* WeChatSDK */,
+				611808B318BB199B00A7F64C /* Helper */,
+				6154DF9218BDF76100254F43 /* DM */,
 				503AE0FD17EB989F00D1A890 /* Prefix.pch */,
 				503AE0FC17EB989F00D1A890 /* main.m */,
-				611808B318BB199B00A7F64C /* Helper */,
 				503AE0FA17EB989F00D1A890 /* AppController.h */,
 				503AE0FB17EB989F00D1A890 /* AppController.mm */,
 				503AE0FE17EB989F00D1A890 /* RootViewController.h */,
@@ -757,6 +829,23 @@
 		29B97323FDCFA39411CA2CEA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				6154E03D18BDFD5E00254F43 /* libsqlite3.dylib */,
+				6154E03B18BDFD4D00254F43 /* EventKit.framework */,
+				6154E03918BDFD4400254F43 /* Social.framework */,
+				6154E03718BDFD3E00254F43 /* PassKit.framework */,
+				6154E03518BDFD3300254F43 /* StoreKit.framework */,
+				6154E03318BDFD2B00254F43 /* CoreLocation.framework */,
+				6154E03118BDFD2400254F43 /* AdSupport.framework */,
+				6154E02F18BDFD1A00254F43 /* SystemConfiguration.framework */,
+				6154E02D18BDFD0F00254F43 /* CoreGraphics.framework */,
+				6154E02B18BDFCE800254F43 /* UIKit.framework */,
+				6154E02918BDFCD900254F43 /* CoreText.framework */,
+				6154E02718BDFCCE00254F43 /* QuartzCore.framework */,
+				6154E02518BDFCB300254F43 /* CoreMedia.framework */,
+				6154E02318BDFCA600254F43 /* MobileCoreServices.framework */,
+				6154E02118BDFC9A00254F43 /* CFNetwork.framework */,
+				6154E01F18BDFC8F00254F43 /* MessageUI.framework */,
+				6154E01D18BDFC8000254F43 /* CoreTelephony.framework */,
 				61D8073B18B4DA0500A7EC06 /* MediaPlayer.framework */,
 				D6B0611A1803AB670077942B /* CoreMotion.framework */,
 				503AE11A17EB9C5A00D1A890 /* IOKit.framework */,
@@ -996,6 +1085,60 @@
 			path = ios/WeChatSDK;
 			sourceTree = SOURCE_ROOT;
 		};
+		6154DF9218BDF76100254F43 /* DM */ = {
+			isa = PBXGroup;
+			children = (
+				6154DF9318BDF76100254F43 /* DMOfferWallSDK */,
+				6154DF9B18BDF76100254F43 /* DomobAdSDK */,
+			);
+			name = DM;
+			path = ios/DM;
+			sourceTree = SOURCE_ROOT;
+		};
+		6154DF9318BDF76100254F43 /* DMOfferWallSDK */ = {
+			isa = PBXGroup;
+			children = (
+				6154DF9418BDF76100254F43 /* DMOfferWallManager.h */,
+				6154DF9518BDF76100254F43 /* DMOfferWallManagerDelegate.h */,
+				6154DF9618BDF76100254F43 /* DMOfferWallViewController.h */,
+				6154DF9718BDF76100254F43 /* DMVideoViewController.h */,
+				6154DF9818BDF76100254F43 /* DomobOfferWallBundle */,
+				6154DF9A18BDF76100254F43 /* libDomobOfferWallSDK.a */,
+			);
+			path = DMOfferWallSDK;
+			sourceTree = "<group>";
+		};
+		6154DF9818BDF76100254F43 /* DomobOfferWallBundle */ = {
+			isa = PBXGroup;
+			children = (
+				6154DF9918BDF76100254F43 /* DomobOfferWallBundle.bundle */,
+			);
+			path = DomobOfferWallBundle;
+			sourceTree = "<group>";
+		};
+		6154DF9B18BDF76100254F43 /* DomobAdSDK */ = {
+			isa = PBXGroup;
+			children = (
+				6154DF9C18BDF76100254F43 /* DMAdView.h */,
+				6154DF9D18BDF76100254F43 /* DMFeedsAdView.h */,
+				6154DF9E18BDF76100254F43 /* DMInterstitialAdController.h */,
+				6154DF9F18BDF76100254F43 /* DMRTSplashAdController.h */,
+				6154DFA018BDF76100254F43 /* DMSplashAdController.h */,
+				6154DFA118BDF76100254F43 /* DMTools.h */,
+				6154DFA218BDF76100254F43 /* DomobAdSDKBundle */,
+				6154DFA418BDF76100254F43 /* libDomobAdSDK.a */,
+			);
+			path = DomobAdSDK;
+			sourceTree = "<group>";
+		};
+		6154DFA218BDF76100254F43 /* DomobAdSDKBundle */ = {
+			isa = PBXGroup;
+			children = (
+				6154DFA318BDF76100254F43 /* DomobAdSDKBundle.bundle */,
+			);
+			path = DomobAdSDKBundle;
+			sourceTree = "<group>";
+		};
 		61C92BF718B4E246007E7C2E /* CCVideoPlayer */ = {
 			isa = PBXGroup;
 			children = (
@@ -1228,6 +1371,7 @@
 				Japanese,
 				French,
 				German,
+				en,
 			);
 			mainGroup = 29B97314FDCFA39411CA2CEA /* CustomTemplate */;
 			projectDirPath = "";
@@ -1420,6 +1564,7 @@
 				61DA12D918B726F3002EE4C6 /* setting_rate_selected.png in Resources */,
 				619DC53718BDEC9700477616 /* 11.mp4 in Resources */,
 				61DA12E218B726F3002EE4C6 /* team_chengxu.png in Resources */,
+				6154DFF518BDF76200254F43 /* DomobAdSDKBundle.bundle in Resources */,
 				6113913518B37D4B00FFAF9B /* background.wav in Resources */,
 				61DA12F118B74131002EE4C6 /* prim30.png in Resources */,
 				619DC53118BDEC9700477616 /* 5.mp4 in Resources */,
@@ -1432,6 +1577,7 @@
 				61D0A99518B486B3008E959B /* play_video_button.png in Resources */,
 				6113913918B37D4B00FFAF9B /* opendoor.wav in Resources */,
 				611B667918B76F080004E5E5 /* success_continue.png in Resources */,
+				6154DFF318BDF76200254F43 /* DomobOfferWallBundle.bundle in Resources */,
 				6113913A18B37D4B00FFAF9B /* pop3.mp3 in Resources */,
 				61DA12F018B74131002EE4C6 /* prim30.fnt in Resources */,
 				50EF62A217ECD613001EB2F8 /* Icon-29.png in Resources */,
@@ -1633,7 +1779,15 @@
 				);
 				INFOPLIST_FILE = ios/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
-				LIBRARY_SEARCH_PATHS = "/Users/tclizhen123/WorkSpace/TechWebGit/user-test-project/crazyvideo/proj.ios_mac/ios/WeChatSDK";
+				LIBRARY_SEARCH_PATHS = (
+					"/Users/tclizhen123/WorkSpace/TechWebGit/user-test-project/crazyvideo/proj.ios_mac/ios/WeChatSDK",
+					"/Users/tclizhen123/WorkSpace/TechWebGit/user-test-project/crazyvideo/proj.ios_mac/ios/DM/DMOfferWallSDK",
+					"/Users/tclizhen123/WorkSpace/TechWebGit/user-test-project/crazyvideo/proj.ios_mac/ios/DM/DomobAdSDK",
+					"/Users/tclizhen123/WorkSpace/TechWebGit/user-test-project/crazyvideo/proj.ios_mac/ios/DM/OriPackage/domob_ios_offerwall_sdk-4.1.5/DMOfferWallSDK",
+					"/Users/tclizhen123/WorkSpace/TechWebGit/user-test-project/crazyvideo/proj.ios_mac/ios/DM/OriPackage/domob_ios_offerwall_sdk-4.1.5/Samples/DMOfferWallSample/DMOfferWallSDK",
+					"/Users/tclizhen123/WorkSpace/TechWebGit/user-test-project/crazyvideo/proj.ios_mac/ios/DM/OriPackage/domob_ios_offerwall_sdk-4.1.5/static_library_for_64bit-A7",
+					"/Users/tclizhen123/WorkSpace/TechWebGit/user-test-project/crazyvideo/proj.ios_mac/ios/DM/OriPackage/domob_ios_sdk-4.1.2/DomobAdSDK",
+				);
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				USER_HEADER_SEARCH_PATHS = "";
@@ -1662,7 +1816,15 @@
 				);
 				INFOPLIST_FILE = ios/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
-				LIBRARY_SEARCH_PATHS = "/Users/tclizhen123/WorkSpace/TechWebGit/user-test-project/crazyvideo/proj.ios_mac/ios/WeChatSDK";
+				LIBRARY_SEARCH_PATHS = (
+					"/Users/tclizhen123/WorkSpace/TechWebGit/user-test-project/crazyvideo/proj.ios_mac/ios/WeChatSDK",
+					"/Users/tclizhen123/WorkSpace/TechWebGit/user-test-project/crazyvideo/proj.ios_mac/ios/DM/DMOfferWallSDK",
+					"/Users/tclizhen123/WorkSpace/TechWebGit/user-test-project/crazyvideo/proj.ios_mac/ios/DM/DomobAdSDK",
+					"/Users/tclizhen123/WorkSpace/TechWebGit/user-test-project/crazyvideo/proj.ios_mac/ios/DM/OriPackage/domob_ios_offerwall_sdk-4.1.5/DMOfferWallSDK",
+					"/Users/tclizhen123/WorkSpace/TechWebGit/user-test-project/crazyvideo/proj.ios_mac/ios/DM/OriPackage/domob_ios_offerwall_sdk-4.1.5/Samples/DMOfferWallSample/DMOfferWallSDK",
+					"/Users/tclizhen123/WorkSpace/TechWebGit/user-test-project/crazyvideo/proj.ios_mac/ios/DM/OriPackage/domob_ios_offerwall_sdk-4.1.5/static_library_for_64bit-A7",
+					"/Users/tclizhen123/WorkSpace/TechWebGit/user-test-project/crazyvideo/proj.ios_mac/ios/DM/OriPackage/domob_ios_sdk-4.1.2/DomobAdSDK",
+				);
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				USER_HEADER_SEARCH_PATHS = "";

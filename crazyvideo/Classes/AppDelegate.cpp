@@ -28,9 +28,9 @@ bool AppDelegate::applicationDidFinishLaunching() {
 
 	director->setAnimationInterval(1.0 / 10);
 
-	CCSize designSize = CCSizeMake(320*2, 1136);
-    CCSize resourceSize = CCSizeMake(320*2, 1136);
-    CCSize screenSize = CCEGLView::sharedOpenGLView()->getFrameSize();
+	Size designSize = Size(320*2, 1136);
+    Size resourceSize = Size(320*2, 1136);
+    Size screenSize = CCEGLView::sharedOpenGLView()->getFrameSize();
     
 	director->setContentScaleFactor(resourceSize.width/designSize.width);
     CCEGLView::sharedOpenGLView()->setDesignResolutionSize(designSize.width, designSize.height, kResolutionNoBorder);

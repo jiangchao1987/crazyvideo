@@ -96,7 +96,7 @@ void PopUpGodTipsLayer::setUpView(){
 	tip->setPosition(Point(pCenter.x, pCenter.y + 40));
 	bgLay->addChild(tip, 2);
 	
-	LabelTTF *label = LabelTTF::create("您的金币已经用尽，\n休息一会吧", "AmericanTypewriter", 40);//添加文字
+	LabelTTF *label = LabelTTF::create("您的金币已经用尽，\n如下方式可以获得金币", "AmericanTypewriter", 40);//添加文字
 	label->setAnchorPoint(Point(0.5f, 0.5f));
 	label->setColor(Color3B::WHITE);
 	label->setPosition(Point(pCenter.x, pCenter.y - 60));
@@ -161,8 +161,8 @@ void PopUpGodTipsLayer::godTipsGetGod(Object * pSender){
 }
 void PopUpGodTipsLayer::godTipsGiveUp(Object * pSender){
 	Node* node = dynamic_cast<Node*>(pSender);
-    if (m1_ && m_callbackListener){
-        (m_callbackListener->*m1_)(node);
+    if (m2_ && m_callbackListener){
+        (m_callbackListener->*m2_)(node);
     }
 }
 

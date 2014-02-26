@@ -34,6 +34,16 @@ static AppDelegate s_sharedApplication;
     viewController.wantsFullScreenLayout = YES;
     viewController.view = __glView;
 
+	_dmAdView = [[DMAdView alloc] initWithPublisherId:@"56OJzUf4uNKK9Bsb6n" placementId:@"16TLm6UlAp-T2NUfWhvLSows" size:DOMOB_AD_SIZE_320x50 autorefresh:true];
+	
+	_dmAdView.frame = CGRectMake(0, [[UIScreen mainScreen] bounds].size.height - DOMOB_AD_SIZE_320x50.height, DOMOB_AD_SIZE_320x50.width, DOMOB_AD_SIZE_320x50.height);
+	
+	_dmAdView.delegate = self;
+	_dmAdView.rootViewController = viewController;
+	[__glView addSubview:_dmAdView];
+	[_dmAdView loadAd];
+	
+	
     // Set RootViewController to window
     if ( [[UIDevice currentDevice].systemVersion floatValue] < 6.0)
     {
@@ -258,4 +268,48 @@ static AppDelegate s_sharedApplication;
 	// [viewController playURLVideo];
 }
 
+#pragma mark --
+#pragma mark -- DMAdViewDelegate <NSObject>
+// Sent when an ad request success to loaded an ad
+- (void)dmAdViewSuccessToLoadAd:(DMAdView *)adView{
+	NSLog(@"%s",__FUNCTION__);
+}
+// Sent when an ad request fail to loaded an ad
+- (void)dmAdViewFailToLoadAd:(DMAdView *)adView withError:(NSError *)error{
+	NSLog(@"%s",__FUNCTION__);
+	
+}
+// Sent when the ad view is clicked
+- (void)dmAdViewDidClicked:(DMAdView *)adView{
+	NSLog(@"%s",__FUNCTION__);
+	
+}
+// Sent just before presenting the user a modal view
+- (void)dmWillPresentModalViewFromAd:(DMAdView *)adView{
+	NSLog(@"%s",__FUNCTION__);
+	
+}
+// Sent just after dismissing the modal view
+- (void)dmDidDismissModalViewFromAd:(DMAdView *)adView{
+	NSLog(@"%s",__FUNCTION__);
+	
+}
+// Sent just before the application will background or terminate because the user's action
+// (Such as the user clicked on an ad that will launch App Store).
+- (void)dmApplicationWillEnterBackgroundFromAd:(DMAdView *)adView{
+	NSLog(@"%s",__FUNCTION__);
+	
+}
+
+#pragma mark --
+#pragma mark -- Ad Functions
+- (void)showBannerAdd:(BOOL) bShow{
+	_dmAdView.hidden = bShow;
+}
+- (void)showLeftAdL:(BOOL) bShow{
+	
+}
+- (void)showRightAd:(BOOL) bShow{
+	
+}
 @end
