@@ -86,10 +86,10 @@ void PopUpShareLayer::setUpView(){
 	
 	std::vector<std::string> imgs;
 	imgs.push_back(std::string("play_dialog_bg.png"));//bg
-	imgs.push_back(std::string("UMS_qq_icon@2x.png"));
-	imgs.push_back(std::string("UMS_qzone_icon_bonus@2x.png"));
 	imgs.push_back(std::string("UMS_wechat_session_icon@2x.png"));
 	imgs.push_back(std::string("UMS_wechat_timeline_icon_bonus@2x.png"));
+	imgs.push_back(std::string("UMS_qq_icon@2x.png"));
+	imgs.push_back(std::string("UMS_qzone_icon_bonus@2x.png"));
 	imgs.push_back(std::string("play_dialog_button.png")); //close b n
 	imgs.push_back(std::string("play_dialog_button_selected.png")); //close b s
 		
@@ -127,14 +127,28 @@ void PopUpShareLayer::setUpView(){
     auto menu = Menu::create(menuItem1, menuItem2, menuItem3, menuItem4,backItem, NULL);
     menu->setPosition(Point::ZERO);
 	
-	menuItem2->setPosition(Point(pCenter.x - 70,  pCenter.y - 50));
 	menuItem1->setPosition(Point(pCenter.x - 70 *3 ,  pCenter.y - 50));
+	menuItem2->setPosition(Point(pCenter.x - 70,  pCenter.y - 50));
 	menuItem3->setPosition(Point(pCenter.x + 70,  pCenter.y - 50));
 	menuItem4->setPosition(Point(pCenter.x + 70 *3 ,  pCenter.y - 50));
 	
 	backItem->setPosition(Point(pCenter.x, pCenter.y - 200 ));
-//	LabelTTF* title = LabelTTF::create("关闭", "Arial", 30, backItem->getContentSize(), TextHAlignment::CENTER);
 	
+	LabelTTF* title1 = LabelTTF::create("微信好友", "Arial", 18, menuItem1->getContentSize(), TextHAlignment::CENTER);
+	LabelTTF* title2 = LabelTTF::create("朋友圈", "Arial", 18, menuItem2->getContentSize(), TextHAlignment::CENTER);
+	LabelTTF* title3 = LabelTTF::create("QQ好友", "Arial", 18, menuItem3->getContentSize(), TextHAlignment::CENTER);
+	LabelTTF* title4 = LabelTTF::create("QQ空间", "Arial", 18, menuItem4->getContentSize(), TextHAlignment::CENTER);
+
+	title1->setAnchorPoint(Point(0.5f,0.5f));
+	title2->setAnchorPoint(Point(0.5f,0.5f));
+	title3->setAnchorPoint(Point(0.5f,0.5f));
+	title4->setAnchorPoint(Point(0.5f,0.5f));
+	
+	title1->setPosition(Point(menuItem1->getPositionX(), menuItem1->getPositionY() - menuItem1->getContentSize().height));
+	title2->setPosition(Point(menuItem2->getPositionX(), menuItem2->getPositionY() - menuItem2->getContentSize().height));
+	title3->setPosition(Point(menuItem3->getPositionX(), menuItem3->getPositionY() - menuItem3->getContentSize().height));
+	title4->setPosition(Point(menuItem4->getPositionX(), menuItem4->getPositionY() - menuItem4->getContentSize().height));
+
 	LabelTTF *title = LabelTTF::create("好的", "AmericanTypewriter", 30);//添加文字
 	title->cocos2d::Node::setAnchorPoint(Point(0.5f, 0.5f));
 	title->setPosition(backItem->getPosition());
@@ -144,6 +158,12 @@ void PopUpShareLayer::setUpView(){
 	bgLay->setContentSize(winSize);
 	bgLay->addChild(bg);
     bgLay->addChild(menu, 1);
+	
+	bgLay->addChild(title1,2);
+	bgLay->addChild(title2,2);
+	bgLay->addChild(title3,2);
+	bgLay->addChild(title4,2);
+
 	bgLay->addChild(title,2);
 	
 	this->addChild(bgLay);
