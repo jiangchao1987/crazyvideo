@@ -32,7 +32,8 @@ public:
 	
 	void onEnter();
 	void onExit();
-	
+	cocos2d::LabelTTF* gold;
+
 	cocos2d::Layer* createStartBackLayer();
 };
 

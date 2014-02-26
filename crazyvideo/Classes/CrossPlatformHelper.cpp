@@ -152,6 +152,16 @@ void X_shareToQZone(){
 	return shareToQZone_IOS();
 }
 
+void X_showLevelAdBanner(){
+	return showLevelAdBanner_IOS();
+}
+void X_showLevelLeftAd(){
+	return showLevelLeftAd_IOS();
+}
+void X_showLevelRightAd(){
+	return showLevelRightAd_IOS();
+}
+
 #endif
 
 

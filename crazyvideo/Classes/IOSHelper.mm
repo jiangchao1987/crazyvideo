@@ -283,3 +283,12 @@ void shareToQZone_IOS(){
 	[app AppShareToQZone];
 }
 
+void showLevelAdBanner_IOS(){
+	
+}
+void showLevelLeftAd_IOS(){
+	
+}
+void showLevelRightAd_IOS(){
+	
+}

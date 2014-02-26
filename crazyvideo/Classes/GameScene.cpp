@@ -279,8 +279,8 @@ void GameScene::menuGoldCallback(Object* pSender){
 	
 	Scene* s = ShopScene::createScene();
 	Director::getInstance()->pushScene(TransitionFade::create(0.5, s));
-	
 }
+
 void GameScene::menuShareCallback(Object* pSender){
 	playEffectBtnClicked();
 	this->popShareLayer();

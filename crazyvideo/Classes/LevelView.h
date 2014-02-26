@@ -26,6 +26,10 @@ public:
     virtual bool init();
     CREATE_FUNC(LevelView);
     
+	void onEnter();
+	void onExit();
+	
+	
     virtual void touchEventAction(LsTouch* touch, int type);
     
 //    virtual void registerWithTouchDispatcher(void);
@@ -50,6 +54,10 @@ public:
     
 
 	void menuBackCallback(Object* pSender);
+	void menuGoldCallback(Object* pSender);
+	LabelTTF* gold;
+
+	void resetView();
 
 private:
     Point m_touchPoint;

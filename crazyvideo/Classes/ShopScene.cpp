@@ -83,43 +83,36 @@ bool ShopScene::init()
 	
 	////mail
 	auto mailItem = MenuItemImage::create(
-										  "setting_mail.png",
-										  "setting_mail_selected.png",
+										  "play_dialog_button_long.png",
+										  "play_dialog_button_long_selected.png",
 										  CC_CALLBACK_1(ShopScene::menuMailCallback, this));
 	setItemPosition(backLayer, Point(0.5f, 0.5f),
 					Point(origin.x + visibleSize.width * 2 / 3 + 10, origin.y + visibleSize.height * 3 / 4), mailItem);
 	
 	////reset
 	auto resetItem = MenuItemImage::create(
-										   "setting_reset.png",
-										   "setting_reset_selected.png",
+										   "play_dialog_button_long.png",
+										   "play_dialog_button_long_selected.png",
 										   CC_CALLBACK_1(ShopScene::menuResetCallback, this));
 	setItemPosition(backLayer, Point(0.5f, 0.5f),
 					Point(origin.x + visibleSize.width / 2, origin.y + visibleSize.height / 2 + resetItem->getContentSize().height), resetItem);
 	
 	////rate
 	auto rateItem = MenuItemImage::create(
-										  "setting_rate.png",
-										  "setting_rate_selected.png",
+										  "play_dialog_button_long.png",
+										  "play_dialog_button_long_selected.png",
 										  CC_CALLBACK_1(ShopScene::menuRateCallback, this));
 	setItemPosition(backLayer, Point(0.5f, 0.5f),
 					Point(origin.x + visibleSize.width / 2, origin.y + visibleSize.height / 2), rateItem);
 	
 	////team
 	auto teamItem = MenuItemImage::create(
-										  "setting_team.png",
-										  "setting_team_selected.png",
+										  "play_dialog_button_long.png",
+										  "play_dialog_button_long_selected.png",
 										  CC_CALLBACK_1(ShopScene::menuTeamCallback, this));
 	setItemPosition(backLayer, Point(0.5f, 0.5f),
 					Point(origin.x + visibleSize.width / 2, origin.y + visibleSize.height / 2 - teamItem->getContentSize().height), teamItem);
 	
-	////declaimer
-	auto declaimerItem = MenuItemImage::create(
-											   "setting_declaimer.png",
-											   "setting_declaimer_selected.png",
-											   CC_CALLBACK_1(ShopScene::menuDeclaimerCallback, this));
-	setItemPosition(backLayer, Point(0.5f, 0.5f),
-					Point(origin.x + visibleSize.width / 2, origin.y + visibleSize.height / 2 - declaimerItem->getContentSize().height * 2), declaimerItem);
 	
 	////version label
 	auto versionLabel = LabelTTF::create("Version: 1.0", "Arial", 30);

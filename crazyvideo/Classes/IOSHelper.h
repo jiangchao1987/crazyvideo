@@ -27,3 +27,7 @@ void shareToFriends_IOS();
 void shareToFriend_IOS();
 void shareToQQ_IOS();
 void shareToQZone_IOS();
+
+void showLevelAdBanner_IOS();
+void showLevelLeftAd_IOS();
+void showLevelRightAd_IOS();
