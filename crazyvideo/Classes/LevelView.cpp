@@ -11,6 +11,7 @@
 #include "Tools.h"
 #include "UserInfoMgr.h"
 #include "ShopScene.h"
+#include "PopLayerHeader.h"
 
 LevelView::LevelView():
 m_nCurPage(0),
@@ -388,6 +389,30 @@ void LevelView::resetView(){
 	gold->setString(goldStr->_string);
 }
 
+void LevelView::popGodTipsLayer(){
+	
+	PopUpGodTipsLayer* p = PopUpGodTipsLayer::create();
+	p->setTag(POPUPGOLDTIPSLAYER_TAG);
+	
+	p->setCallbackFunc(this, callfuncN_selector(GameScene::shareClose),callfuncN_selector(GameScene::shareToFriend),callfuncN_selector(GameScene::shareToFriends),callfuncN_selector(GameScene::shareToTencent),callfuncN_selector(GameScene::shareToQZone) );
+	this->addChild(p,2);
+	
+}
+
+void LevelView::godTipsGetGod(Node * pSender){
+	playEffectBtnClicked();
+	PopUpGodTipsLayer* p = (PopUpGodTipsLayer*)this->getChildByTag(POPUPGOLDTIPSLAYER_TAG);
+	p->removeFromParentAndCleanup(true);
+	
+	this->popShareLayer();
+}
+void LevelView::godTipsGiveUp(Node * pSender){
+	playEffectBtnClicked();
+	PopUpGodTipsLayer* p = (PopUpGodTipsLayer*)this->getChildByTag(POPUPGOLDTIPSLAYER_TAG);
+	p->removeFromParentAndCleanup(true);
+	
+	this->popShareLayer();
+}
 
 void LevelView::menuBackCallback(Object* pSender){
 	

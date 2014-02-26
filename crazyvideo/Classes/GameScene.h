@@ -86,28 +86,28 @@ public:
 
 	
 	//share pop call back
-	void shareToFriends(CCNode * node);
-	void shareToFriend(CCNode * node);
-	void shareToTencent(CCNode * node);
-	void shareToQZone(CCNode * node);
-	void shareClose(CCNode *node);
+	void shareToFriends(Node * node);
+	void shareToFriend(Node * node);
+	void shareToTencent(Node * node);
+	void shareToQZone(Node * node);
+	void shareClose(Node *node);
 	//wrong pop call back
-	void wrongShare(CCNode * pSender);
-	void wrongBomb(CCNode * pSender);
-	void wrongBack(CCNode * pSender);
+	void wrongShare(Node * pSender);
+	void wrongBomb(Node * pSender);
+	void wrongBack(Node * pSender);
     //bomb pop call back
-	void bombUse(CCNode * pSender);
-	void bombNotUse(CCNode * pSender);
+	void bombUse(Node * pSender);
+	void bombNotUse(Node * pSender);
 	//right pop call back
-	void rightAskFriends(CCNode * pSender);
-	void rightContinue(CCNode * pSender);
+	void rightAskFriends(Node * pSender);
+	void rightContinue(Node * pSender);
 	//no bomb pop call back
-	void noBombClose(CCNode * pSender);
+	void noBombClose(Node * pSender);
 	//cannot use bomb
-	void bombCannotUseClose(CCNode * pSender);
-	void bombCannotUseOK(CCNode * pSender);
+	void bombCannotUseClose(Node * pSender);
+	void bombCannotUseOK(Node * pSender);
     //gold not engough
-	void goldNotEnoughClose(CCNode * pSender);
+	void goldNotEnoughClose(Node * pSender);
 
 
 	

@@ -29,22 +29,14 @@ public:
 	void onEnter();
 	void onExit();
 	
-	
-    virtual void touchEventAction(LsTouch* touch, int type);
-    
-//    virtual void registerWithTouchDispatcher(void);
-//    
-//	virtual bool ccTouchBegan(CCTouch* pTouch, CCEvent* pEvent);
-//	virtual void ccTouchMoved(CCTouch* pTouch, CCEvent* pEvent);
-//	virtual void ccTouchEnded(CCTouch* pTouch, CCEvent* pEvent);
-//	virtual void ccTouchCancelled(CCTouch* pTouch, CCEvent* pEvent);
-    
 	virtual bool onTouchBegan(Touch *touch, Event *unused_event);
     virtual void onTouchMoved(Touch *touch, Event *unused_event);
     virtual void onTouchEnded(Touch *touch, Event *unused_event);
     virtual void onTouchCancelled(Touch *touch, Event *unused_event);
 
 	
+	virtual void touchEventAction(LsTouch* touch, int type);
+
     void adjustScrollView(float offset);
     Layer* getContainLayer();
     
@@ -58,7 +50,10 @@ public:
 	LabelTTF* gold;
 
 	void resetView();
-
+	void popGodTipsLayer();
+	
+	void godTipsGetGod(Node * pSender);
+	void godTipsGiveUp(Node * pSender);
 private:
     Point m_touchPoint;
     Point m_touchOffset;

@@ -112,6 +112,7 @@
 		619DC50518BD994600477616 /* PopCanNotUseBombLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 619DC50318BD994600477616 /* PopCanNotUseBombLayer.cpp */; };
 		619DC50818BD9A9A00477616 /* PopUpGoldNotEnough.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 619DC50618BD9A9A00477616 /* PopUpGoldNotEnough.cpp */; };
 		619DC50B18BDC0CC00477616 /* ShopScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 619DC50918BDC0CC00477616 /* ShopScene.cpp */; };
+		619DC50E18BDE99700477616 /* PopUpGodTipsLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 619DC50C18BDE99700477616 /* PopUpGodTipsLayer.cpp */; };
 		61BE83FB18BB4CDD00F69C63 /* date.txt in Resources */ = {isa = PBXBuildFile; fileRef = 61BE83FA18BB4CDD00F69C63 /* date.txt */; };
 		61C92C0618B4E246007E7C2E /* CCVideoPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 61C92BF918B4E246007E7C2E /* CCVideoPlayer.m */; };
 		61C92C0718B4E246007E7C2E /* CCVideoPlayerImpliOS.m in Sources */ = {isa = PBXBuildFile; fileRef = 61C92BFC18B4E246007E7C2E /* CCVideoPlayerImpliOS.m */; };
@@ -505,6 +506,8 @@
 		619DC50718BD9A9A00477616 /* PopUpGoldNotEnough.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PopUpGoldNotEnough.h; path = ../Classes/PopUpGoldNotEnough.h; sourceTree = "<group>"; };
 		619DC50918BDC0CC00477616 /* ShopScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ShopScene.cpp; path = ../Classes/ShopScene.cpp; sourceTree = "<group>"; };
 		619DC50A18BDC0CC00477616 /* ShopScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ShopScene.h; path = ../Classes/ShopScene.h; sourceTree = "<group>"; };
+		619DC50C18BDE99700477616 /* PopUpGodTipsLayer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = PopUpGodTipsLayer.cpp; path = ../Classes/PopUpGodTipsLayer.cpp; sourceTree = "<group>"; };
+		619DC50D18BDE99700477616 /* PopUpGodTipsLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PopUpGodTipsLayer.h; path = ../Classes/PopUpGodTipsLayer.h; sourceTree = "<group>"; };
 		61BE83FA18BB4CDD00F69C63 /* date.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = date.txt; sourceTree = "<group>"; };
 		61C92BF818B4E246007E7C2E /* CCVideoPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCVideoPlayer.h; sourceTree = "<group>"; };
 		61C92BF918B4E246007E7C2E /* CCVideoPlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCVideoPlayer.m; sourceTree = "<group>"; };
@@ -1096,6 +1099,8 @@
 				619DC50418BD994600477616 /* PopCanNotUseBombLayer.h */,
 				619DC50618BD9A9A00477616 /* PopUpGoldNotEnough.cpp */,
 				619DC50718BD9A9A00477616 /* PopUpGoldNotEnough.h */,
+				619DC50C18BDE99700477616 /* PopUpGodTipsLayer.cpp */,
+				619DC50D18BDE99700477616 /* PopUpGodTipsLayer.h */,
 				61D5E4D918B5F05C002341CB /* PopLayerHeader.h */,
 			);
 			name = popup;
@@ -1504,6 +1509,7 @@
 				6113914818B38E7100FFAF9B /* StringUtil.cpp in Sources */,
 				611390FA18B3636C00FFAF9B /* Tools.cpp in Sources */,
 				611390F518B3610800FFAF9B /* AboutScene.cpp in Sources */,
+				619DC50E18BDE99700477616 /* PopUpGodTipsLayer.cpp in Sources */,
 				61D8072318B4D2F200A7EC06 /* Util.m in Sources */,
 				503AE10217EB989F00D1A890 /* RootViewController.mm in Sources */,
 				61DA12AD18B6F8CA002EE4C6 /* PopUpWrongLayer.cpp in Sources */,
