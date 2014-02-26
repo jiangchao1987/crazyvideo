@@ -120,7 +120,7 @@ void PopUpGoldNotEnough::setUpView(){
     auto menu = Menu::create(menuItem1, NULL);
     menu->setPosition(Point::ZERO);
 	
-	menuItem1->setPosition(Point(pCenter.x - 120,  pCenter.y));
+	menuItem1->setPosition(Point(pCenter.x,  pCenter.y - 180));
 //	menuItem2->setPosition(Point(pCenter.x + 120 ,  pCenter.y - 180));
 	
 	LabelTTF *label1 = LabelTTF::create("那好吧", "AmericanTypewriter", 30);//添加文字

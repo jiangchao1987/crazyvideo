@@ -18,6 +18,7 @@
 #include "SimpleAudioEngine.h"
 #include "LevelView.h"
 #include "UserInfoMgr.h"
+#include "ShopScene.h"
 
 USING_NS_CC;
 USING_NS_CC_EXT;
@@ -260,28 +261,6 @@ void GameScene::onExit(){
 	playBackGroundMusic();
 
 }
-void GameScene::menuCloseCallback(Object* pSender)
-{
-    Director::getInstance()->end();
-	
-#if (CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
-    exit(0);
-#endif
-}
-
-void GameScene::menu1CloseCallback(Object* pSender){
-	
-}
-void GameScene::menu2CloseCallback(Object* pSender){
-	
-}
-void GameScene::menu3CloseCallback(Object* pSender){
-	
-	playEffectBtnClicked();
-
-	Scene* s = StartScene::createScene();
-	Director::getInstance()->replaceScene(TransitionFade::create(0.5, s));
-}
 
 #pragma mark --
 #pragma mark -- Menu Functions
@@ -389,7 +368,13 @@ void GameScene::btn1callBack(Object *pSender, Control::EventType controlEvents){
 	playEffectBtnClicked();
 
 	if ( controlEvents == Control::EventType::TOUCH_UP_INSIDE ) {
+		
+		if (!UserInfoMgr::getInstance()->canAnswerQuestion()) {
+			this->popNoGoldNotEnoughLayer();
+			return ;
+		}
 		this->checkAnswer(1);
+		
 	}
 }
 
@@ -397,6 +382,10 @@ void GameScene::btn2callBack(Object *pSender, Control::EventType controlEvents){
 	playEffectBtnClicked();
 
 	if ( controlEvents == Control::EventType::TOUCH_UP_INSIDE ) {
+		if (!UserInfoMgr::getInstance()->canAnswerQuestion()) {
+			this->popNoGoldNotEnoughLayer();
+			return ;
+		}
 		this->checkAnswer(2);
 	}
 }
@@ -404,6 +393,10 @@ void GameScene::btn3callBack(Object *pSender, Control::EventType controlEvents){
 	playEffectBtnClicked();
 
 	if ( controlEvents == Control::EventType::TOUCH_UP_INSIDE ) {
+		if (!UserInfoMgr::getInstance()->canAnswerQuestion()) {
+			this->popNoGoldNotEnoughLayer();
+			return ;
+		}
 		this->checkAnswer(3);
 	}
 }
@@ -411,6 +404,10 @@ void GameScene::btn4callBack(Object *pSender, Control::EventType controlEvents){
 	playEffectBtnClicked();
 
 	if ( controlEvents == Control::EventType::TOUCH_UP_INSIDE ) {
+		if (!UserInfoMgr::getInstance()->canAnswerQuestion()) {
+			this->popNoGoldNotEnoughLayer();
+			return ;
+		}
 		this->checkAnswer(4);
 	}
 }
@@ -597,6 +594,10 @@ void GameScene::bombCannotUseOK(CCNode * pSender){
 	
 	PopUpNoBombLayer* p = (PopUpNoBombLayer*)this->getChildByTag(POPUPCANNOTUSEBOMBLAYER_TAG);
 	p->removeFromParentAndCleanup(true);
+	
+	
+	Scene* s = ShopScene::createScene();
+	Director::getInstance()->pushScene(TransitionFade::create(0.5, s));
 }
 #pragma mark --
 #pragma mark PopNoBombLayer CallBack
@@ -605,15 +606,14 @@ void GameScene::goldNotEnoughClose(CCNode * pSender){
 	
 	PopUpGoldNotEnough* p = (PopUpGoldNotEnough*)this->getChildByTag(POPUPGOLDNOTENOUGHLAYER_TAG);
 	p->removeFromParentAndCleanup(true);
+	
+	this->menuBackCallback(NULL);
 }
 
 #pragma mark --
 #pragma mark -- Game Logic Functions
 bool GameScene::checkAnswer(int answerIndex, bool useBomb){
 	
-	if (!UserInfoMgr::getInstance()->canAnswerQuestion()) {
-		this->popNoGoldNotEnoughLayer();
-	}
 	bool bRet = false;
 	int a = ((CCString*)currentDic_->objectForKey(Key_answer_index))->intValue();
 	

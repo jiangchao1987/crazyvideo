@@ -43,8 +43,8 @@ private:
 	SEL_CallFuncN m1_;
 	SEL_CallFuncN m2_;
 	
-	void bombCannotUseClose(Object * pSender);
 	void bombCannotUseOK(Object * pSender);
+	void bombCannotUseClose(Object * pSender);
     
 };
 #endif /* defined(__crazyvideo__PopCanNotUseBombLayer__) */

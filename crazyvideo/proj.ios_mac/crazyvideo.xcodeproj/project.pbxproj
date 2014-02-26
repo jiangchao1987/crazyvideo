@@ -111,6 +111,7 @@
 		619DC4FC18BC6D1700477616 /* PopUpAppraise.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 619DC4FA18BC6D1700477616 /* PopUpAppraise.cpp */; };
 		619DC50518BD994600477616 /* PopCanNotUseBombLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 619DC50318BD994600477616 /* PopCanNotUseBombLayer.cpp */; };
 		619DC50818BD9A9A00477616 /* PopUpGoldNotEnough.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 619DC50618BD9A9A00477616 /* PopUpGoldNotEnough.cpp */; };
+		619DC50B18BDC0CC00477616 /* ShopScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 619DC50918BDC0CC00477616 /* ShopScene.cpp */; };
 		61BE83FB18BB4CDD00F69C63 /* date.txt in Resources */ = {isa = PBXBuildFile; fileRef = 61BE83FA18BB4CDD00F69C63 /* date.txt */; };
 		61C92C0618B4E246007E7C2E /* CCVideoPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 61C92BF918B4E246007E7C2E /* CCVideoPlayer.m */; };
 		61C92C0718B4E246007E7C2E /* CCVideoPlayerImpliOS.m in Sources */ = {isa = PBXBuildFile; fileRef = 61C92BFC18B4E246007E7C2E /* CCVideoPlayerImpliOS.m */; };
@@ -502,6 +503,8 @@
 		619DC50418BD994600477616 /* PopCanNotUseBombLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PopCanNotUseBombLayer.h; path = ../Classes/PopCanNotUseBombLayer.h; sourceTree = "<group>"; };
 		619DC50618BD9A9A00477616 /* PopUpGoldNotEnough.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = PopUpGoldNotEnough.cpp; path = ../Classes/PopUpGoldNotEnough.cpp; sourceTree = "<group>"; };
 		619DC50718BD9A9A00477616 /* PopUpGoldNotEnough.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PopUpGoldNotEnough.h; path = ../Classes/PopUpGoldNotEnough.h; sourceTree = "<group>"; };
+		619DC50918BDC0CC00477616 /* ShopScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ShopScene.cpp; path = ../Classes/ShopScene.cpp; sourceTree = "<group>"; };
+		619DC50A18BDC0CC00477616 /* ShopScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ShopScene.h; path = ../Classes/ShopScene.h; sourceTree = "<group>"; };
 		61BE83FA18BB4CDD00F69C63 /* date.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = date.txt; sourceTree = "<group>"; };
 		61C92BF818B4E246007E7C2E /* CCVideoPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCVideoPlayer.h; sourceTree = "<group>"; };
 		61C92BF918B4E246007E7C2E /* CCVideoPlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCVideoPlayer.m; sourceTree = "<group>"; };
@@ -833,6 +836,8 @@
 				611390F318B3610800FFAF9B /* AboutScene.cpp */,
 				61DA12E418B72730002EE4C6 /* TeamScene.cpp */,
 				61DA12E518B72730002EE4C6 /* TeamScene.h */,
+				619DC50918BDC0CC00477616 /* ShopScene.cpp */,
+				619DC50A18BDC0CC00477616 /* ShopScene.h */,
 			);
 			name = Scene;
 			sourceTree = "<group>";
@@ -1525,6 +1530,7 @@
 				61DA12E618B72730002EE4C6 /* TeamScene.cpp in Sources */,
 				61D8070F18B4BA4500A7EC06 /* DataMgr.cpp in Sources */,
 				503AE10117EB989F00D1A890 /* main.m in Sources */,
+				619DC50B18BDC0CC00477616 /* ShopScene.cpp in Sources */,
 				1AFAF8B816D35DE700DB1158 /* HelloWorldScene.cpp in Sources */,
 				610019E218BC58DF008D2D03 /* PopUpNoBombLayer.cpp in Sources */,
 				6113915D18B395C300FFAF9B /* PopupScene.cpp in Sources */,

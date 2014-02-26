@@ -106,11 +106,11 @@ void PopCanNotUseBombLayer::setUpView(){
 	auto menuItem1 = MenuItemImage::create(
 										   imgs.at(1),
 										   imgs.at(2),
-										   CC_CALLBACK_1(PopCanNotUseBombLayer::bombCannotUseClose, this));
+										   CC_CALLBACK_1(PopCanNotUseBombLayer::bombCannotUseOK, this));
 	auto menuItem2 = MenuItemImage::create(
 										   imgs.at(1),
 										   imgs.at(2),
-										   CC_CALLBACK_1(PopCanNotUseBombLayer::bombCannotUseOK, this));
+										   CC_CALLBACK_1(PopCanNotUseBombLayer::bombCannotUseClose, this));
 	
 	bg->setAnchorPoint(Point(0.5f, 0.5f));
 	menuItem1->setAnchorPoint(Point(0.5f, 0.5f));

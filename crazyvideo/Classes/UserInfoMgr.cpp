@@ -40,6 +40,10 @@ UserInfoMgr::UserInfoMgr(){
 		SaveBooleanToXML(K_FIRESTLOAD, true);
 		WriteDisk;
 	}
+	
+	if( this->getGold() <=0 ){
+		this->setGold(0);
+	}
 }
 
 UserInfoMgr::~UserInfoMgr(){

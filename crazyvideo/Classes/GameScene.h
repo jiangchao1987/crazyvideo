@@ -46,10 +46,10 @@ public:
     void menuBombCallback(Object* pSender);
 	void menuPlayCallback(Object* pSender);
 	
-	void menuCloseCallback(Object* pSender);
-	void menu1CloseCallback(Object* pSender);
-    void menu2CloseCallback(Object* pSender);
-    void menu3CloseCallback(Object* pSender);
+//	void menuCloseCallback(Object* pSender);
+//	void menu1CloseCallback(Object* pSender);
+//    void menu2CloseCallback(Object* pSender);
+//    void menu3CloseCallback(Object* pSender);
 	
 	void btn1callBack(Object *pSender, Control::EventType controlEvents);
 	void btn2callBack(Object *pSender, Control::EventType controlEvents);
