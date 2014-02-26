@@ -109,6 +109,8 @@
 		611CBEA218BB0637008E4036 /* libWeChatSDK_armv7_armv7s.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 611CBE9E18BB0637008E4036 /* libWeChatSDK_armv7_armv7s.a */; };
 		6192ECB718B44DFF00C8259A /* level in Resources */ = {isa = PBXBuildFile; fileRef = 6192ECB618B44DFF00C8259A /* level */; };
 		619DC4FC18BC6D1700477616 /* PopUpAppraise.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 619DC4FA18BC6D1700477616 /* PopUpAppraise.cpp */; };
+		619DC50518BD994600477616 /* PopCanNotUseBombLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 619DC50318BD994600477616 /* PopCanNotUseBombLayer.cpp */; };
+		619DC50818BD9A9A00477616 /* PopUpGoldNotEnough.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 619DC50618BD9A9A00477616 /* PopUpGoldNotEnough.cpp */; };
 		61BE83FB18BB4CDD00F69C63 /* date.txt in Resources */ = {isa = PBXBuildFile; fileRef = 61BE83FA18BB4CDD00F69C63 /* date.txt */; };
 		61C92C0618B4E246007E7C2E /* CCVideoPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 61C92BF918B4E246007E7C2E /* CCVideoPlayer.m */; };
 		61C92C0718B4E246007E7C2E /* CCVideoPlayerImpliOS.m in Sources */ = {isa = PBXBuildFile; fileRef = 61C92BFC18B4E246007E7C2E /* CCVideoPlayerImpliOS.m */; };
@@ -496,6 +498,10 @@
 		6192ECB618B44DFF00C8259A /* level */ = {isa = PBXFileReference; lastKnownFileType = folder; path = level; sourceTree = "<group>"; };
 		619DC4FA18BC6D1700477616 /* PopUpAppraise.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = PopUpAppraise.cpp; path = ../Classes/PopUpAppraise.cpp; sourceTree = "<group>"; };
 		619DC4FB18BC6D1700477616 /* PopUpAppraise.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PopUpAppraise.h; path = ../Classes/PopUpAppraise.h; sourceTree = "<group>"; };
+		619DC50318BD994600477616 /* PopCanNotUseBombLayer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = PopCanNotUseBombLayer.cpp; path = ../Classes/PopCanNotUseBombLayer.cpp; sourceTree = "<group>"; };
+		619DC50418BD994600477616 /* PopCanNotUseBombLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PopCanNotUseBombLayer.h; path = ../Classes/PopCanNotUseBombLayer.h; sourceTree = "<group>"; };
+		619DC50618BD9A9A00477616 /* PopUpGoldNotEnough.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = PopUpGoldNotEnough.cpp; path = ../Classes/PopUpGoldNotEnough.cpp; sourceTree = "<group>"; };
+		619DC50718BD9A9A00477616 /* PopUpGoldNotEnough.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PopUpGoldNotEnough.h; path = ../Classes/PopUpGoldNotEnough.h; sourceTree = "<group>"; };
 		61BE83FA18BB4CDD00F69C63 /* date.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = date.txt; sourceTree = "<group>"; };
 		61C92BF818B4E246007E7C2E /* CCVideoPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCVideoPlayer.h; sourceTree = "<group>"; };
 		61C92BF918B4E246007E7C2E /* CCVideoPlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCVideoPlayer.m; sourceTree = "<group>"; };
@@ -1081,6 +1087,10 @@
 				610019E118BC58DF008D2D03 /* PopUpNoBombLayer.h */,
 				619DC4FA18BC6D1700477616 /* PopUpAppraise.cpp */,
 				619DC4FB18BC6D1700477616 /* PopUpAppraise.h */,
+				619DC50318BD994600477616 /* PopCanNotUseBombLayer.cpp */,
+				619DC50418BD994600477616 /* PopCanNotUseBombLayer.h */,
+				619DC50618BD9A9A00477616 /* PopUpGoldNotEnough.cpp */,
+				619DC50718BD9A9A00477616 /* PopUpGoldNotEnough.h */,
 				61D5E4D918B5F05C002341CB /* PopLayerHeader.h */,
 			);
 			name = popup;
@@ -1482,6 +1492,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				619DC50818BD9A9A00477616 /* PopUpGoldNotEnough.cpp in Sources */,
 				6113915C18B395C300FFAF9B /* PopupLayer.cpp in Sources */,
 				61DA12C118B7241E002EE4C6 /* PopUpBombLayer.cpp in Sources */,
 				503AE10017EB989F00D1A890 /* AppController.mm in Sources */,
@@ -1506,6 +1517,7 @@
 				61D8072118B4D2F200A7EC06 /* CrossPlatformHelper.cpp in Sources */,
 				61C92C0718B4E246007E7C2E /* CCVideoPlayerImpliOS.m in Sources */,
 				61C92C0818B4E246007E7C2E /* videoOverlayView.m in Sources */,
+				619DC50518BD994600477616 /* PopCanNotUseBombLayer.cpp in Sources */,
 				611390F218B360FB00FFAF9B /* LevelScene.cpp in Sources */,
 				6113915418B3955F00FFAF9B /* LevelView.cpp in Sources */,
 				61D8072218B4D2F200A7EC06 /* IOSHelper.mm in Sources */,
