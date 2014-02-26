@@ -2,11 +2,12 @@
 #import "CCVideoPlayer.h"
 #import "WXApi.h"
 #import "DMAdView.h"
+#import "DMOfferWallViewController.h"
 
 @class RootViewController;
 
 
-@interface AppController : NSObject <UIApplicationDelegate,CCVideoPlayerDelegate, WXApiDelegate, DMAdViewDelegate> {
+@interface AppController : NSObject <UIApplicationDelegate,CCVideoPlayerDelegate, WXApiDelegate, DMAdViewDelegate, DMOfferWallDelegate> {
     UIWindow *window;
     RootViewController    *viewController;
 	
@@ -22,9 +23,12 @@
 - (void) AppShareToQQ;
 - (void) AppShareToQZone;
 
+- (void)showOffWall;
+
 - (void)showBannerAdd:(BOOL) bShow;
 - (void)showLeftAd:(BOOL) bShow;
 - (void)showRightAd:(BOOL) bShow;
+
 
 @end
 

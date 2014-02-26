@@ -8,6 +8,8 @@
 
 #ifndef DomobOfferWallSDK_DODemoConstants_h
 #define DomobOfferWallSDK_DODemoConstants_h
-#define PUBLISHER_ID @"96ZJ39xwzegKfwTA/L" // online
+//#define PUBLISHER_ID @"96ZJ39xwzegKfwTA/L" // online
+//
+#define PUBLISHER_ID @"16TLm6UlAp-T2NUfVzFDPKus" // online
 
 #endif

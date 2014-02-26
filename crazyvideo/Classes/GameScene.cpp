@@ -255,10 +255,13 @@ void GameScene::onEnter(){
 	if ( bShowVideoOnShow_ ) {
 		this->playTheVideo();
 	}
+	
+	X_showLevelAdBanner( false );
 }
 void GameScene::onExit(){
 	CCLayer::onExit();
 	playBackGroundMusic();
+	X_showLevelAdBanner( true );
 
 }
 

@@ -283,8 +283,14 @@ void shareToQZone_IOS(){
 	[app AppShareToQZone];
 }
 
-void showLevelAdBanner_IOS(){
-	
+void showOffWall_IOS(){
+	AppController *app = (AppController*) [[UIApplication sharedApplication] delegate];
+	[app showOffWall];
+}
+
+void showLevelAdBanner_IOS( bool bShow){
+	AppController *app = (AppController*) [[UIApplication sharedApplication] delegate];
+	[app showBannerAdd:bShow];
 }
 void showLevelLeftAd_IOS(){
 	

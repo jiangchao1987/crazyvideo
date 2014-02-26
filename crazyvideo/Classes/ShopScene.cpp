@@ -13,6 +13,7 @@
 #include "StartScene.h"
 #include "DataMgr.h"
 #include "UserInfoMgr.h"
+#include "CrossPlatformHelper.h"
 
 USING_NS_CC;
 
@@ -53,49 +54,16 @@ bool ShopScene::init()
 	setItemPosition(backLayer, Point(0.5f, 0.5f),
 					Point(origin.x + visibleSize.width / 7, origin.y + visibleSize.height * 6 / 7 + backItem->getContentSize().height / 2), backItem);
 	
-	////sound
-	//	auto soundItem = MenuItemImage::create(
-	//		"setting_soundon.png",
-	//		"setting_soundoff.png",
-	mii1 = MenuItemImage::create(
-								 "setting_soundon.png",
-								 "setting_soundon.png",
-								 
-								 CC_CALLBACK_1(ShopScene::menuSoundCallback, this));
-	setItemPosition(backLayer, Point(0.5f, 0.5f),
-					Point(origin.x + visibleSize.width / 3 - 10, origin.y + visibleSize.height * 3 / 4), mii1);
-	
-	mii2 = MenuItemImage::create(
-								 "setting_soundoff.png",
-								 "setting_soundoff.png",
-								 
-								 CC_CALLBACK_1(ShopScene::menuSoundCallback, this));
-	setItemPosition(backLayer, Point(0.5f, 0.5f),
-					Point(origin.x + visibleSize.width / 3 - 10, origin.y + visibleSize.height * 3 / 4), mii2);
-	
-	if ( DataMgr::getInstance()->isBgSoundOpen() ){
-		mii1->setVisible(true);
-		mii2->setVisible(false);
-	}else{
-		mii1->setVisible(false);
-		mii2->setVisible(true);
-	}
-	
+
 	////mail
 	auto mailItem = MenuItemImage::create(
 										  "play_dialog_button_long.png",
 										  "play_dialog_button_long_selected.png",
 										  CC_CALLBACK_1(ShopScene::menuMailCallback, this));
 	setItemPosition(backLayer, Point(0.5f, 0.5f),
-					Point(origin.x + visibleSize.width * 2 / 3 + 10, origin.y + visibleSize.height * 3 / 4), mailItem);
+					Point(origin.x + visibleSize.width/2, origin.y + visibleSize.height * 3 / 4), mailItem);
 	
-	////reset
-	auto resetItem = MenuItemImage::create(
-										   "play_dialog_button_long.png",
-										   "play_dialog_button_long_selected.png",
-										   CC_CALLBACK_1(ShopScene::menuResetCallback, this));
-	setItemPosition(backLayer, Point(0.5f, 0.5f),
-					Point(origin.x + visibleSize.width / 2, origin.y + visibleSize.height / 2 + resetItem->getContentSize().height), resetItem);
+	
 	
 	////rate
 	auto rateItem = MenuItemImage::create(
@@ -105,6 +73,12 @@ bool ShopScene::init()
 	setItemPosition(backLayer, Point(0.5f, 0.5f),
 					Point(origin.x + visibleSize.width / 2, origin.y + visibleSize.height / 2), rateItem);
 	
+	////version label
+	auto getGold = LabelTTF::create("获取金币", "Arial", 30);
+	getGold->setAnchorPoint(Point(0.5f, 0.5f));
+	getGold->setPosition( rateItem->getPosition());
+	backLayer->addChild(getGold, 1);
+	
 	////team
 	auto teamItem = MenuItemImage::create(
 										  "play_dialog_button_long.png",
@@ -112,6 +86,12 @@ bool ShopScene::init()
 										  CC_CALLBACK_1(ShopScene::menuTeamCallback, this));
 	setItemPosition(backLayer, Point(0.5f, 0.5f),
 					Point(origin.x + visibleSize.width / 2, origin.y + visibleSize.height / 2 - teamItem->getContentSize().height), teamItem);
+	
+	/// label
+	auto shareToFriends = LabelTTF::create("分享获取金币", "Arial", 30);
+	shareToFriends->setAnchorPoint(Point(0.5f, 0.5f));
+	shareToFriends->setPosition( teamItem->getPosition());
+	backLayer->addChild(shareToFriends, 1);
 	
 	
 	////version label
@@ -154,6 +134,7 @@ void ShopScene::menuMailCallback(Object* pSender){
 void ShopScene::menuResetCallback(Object* pSender){
 	playEffectBtnClicked();
 	
+	X_showOffWall();
 }
 void ShopScene::menuRateCallback(Object* pSender){
 	playEffectBtnClicked();

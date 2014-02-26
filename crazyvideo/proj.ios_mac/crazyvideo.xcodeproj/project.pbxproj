@@ -128,6 +128,8 @@
 		6154E03A18BDFD4400254F43 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6154E03918BDFD4400254F43 /* Social.framework */; };
 		6154E03C18BDFD4D00254F43 /* EventKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6154E03B18BDFD4D00254F43 /* EventKit.framework */; };
 		6154E03E18BDFD5E00254F43 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 6154E03D18BDFD5E00254F43 /* libsqlite3.dylib */; };
+		6154E04018BE09E000254F43 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6154E03F18BE09E000254F43 /* Security.framework */; };
+		6154E04218BE09EB00254F43 /* libsqlite3.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 6154E04118BE09EB00254F43 /* libsqlite3.0.dylib */; };
 		6192ECB718B44DFF00C8259A /* level in Resources */ = {isa = PBXBuildFile; fileRef = 6192ECB618B44DFF00C8259A /* level */; };
 		619DC4FC18BC6D1700477616 /* PopUpAppraise.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 619DC4FA18BC6D1700477616 /* PopUpAppraise.cpp */; };
 		619DC50518BD994600477616 /* PopCanNotUseBombLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 619DC50318BD994600477616 /* PopCanNotUseBombLayer.cpp */; };
@@ -549,6 +551,9 @@
 		6154E03918BDFD4400254F43 /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.0.sdk/System/Library/Frameworks/Social.framework; sourceTree = DEVELOPER_DIR; };
 		6154E03B18BDFD4D00254F43 /* EventKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = EventKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.0.sdk/System/Library/Frameworks/EventKit.framework; sourceTree = DEVELOPER_DIR; };
 		6154E03D18BDFD5E00254F43 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.0.sdk/usr/lib/libsqlite3.dylib; sourceTree = DEVELOPER_DIR; };
+		6154E03F18BE09E000254F43 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.0.sdk/System/Library/Frameworks/Security.framework; sourceTree = DEVELOPER_DIR; };
+		6154E04118BE09EB00254F43 /* libsqlite3.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.0.dylib; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.0.sdk/usr/lib/libsqlite3.0.dylib; sourceTree = DEVELOPER_DIR; };
+		6154E04318BE09FC00254F43 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.0.sdk/System/Library/Frameworks/AVFoundation.framework; sourceTree = DEVELOPER_DIR; };
 		6192ECB618B44DFF00C8259A /* level */ = {isa = PBXFileReference; lastKnownFileType = folder; path = level; sourceTree = "<group>"; };
 		619DC4FA18BC6D1700477616 /* PopUpAppraise.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = PopUpAppraise.cpp; path = ../Classes/PopUpAppraise.cpp; sourceTree = "<group>"; };
 		619DC4FB18BC6D1700477616 /* PopUpAppraise.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PopUpAppraise.h; path = ../Classes/PopUpAppraise.h; sourceTree = "<group>"; };
@@ -684,6 +689,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6154DFF418BDF76200254F43 /* libDomobOfferWallSDK.a in Frameworks */,
+				6154E02618BDFCB300254F43 /* CoreMedia.framework in Frameworks */,
+				6154E04218BE09EB00254F43 /* libsqlite3.0.dylib in Frameworks */,
+				6154E04018BE09E000254F43 /* Security.framework in Frameworks */,
 				6154DFF618BDF76200254F43 /* libDomobAdSDK.a in Frameworks */,
 				6154E03E18BDFD5E00254F43 /* libsqlite3.dylib in Frameworks */,
 				6154E03C18BDFD4D00254F43 /* EventKit.framework in Frameworks */,
@@ -698,7 +707,6 @@
 				6154E02A18BDFCD900254F43 /* CoreText.framework in Frameworks */,
 				6154E02818BDFCCE00254F43 /* QuartzCore.framework in Frameworks */,
 				61D8073C18B4DA0500A7EC06 /* MediaPlayer.framework in Frameworks */,
-				6154E02618BDFCB300254F43 /* CoreMedia.framework in Frameworks */,
 				6154E02418BDFCA600254F43 /* MobileCoreServices.framework in Frameworks */,
 				6154E02218BDFC9A00254F43 /* CFNetwork.framework in Frameworks */,
 				6154E02018BDFC8F00254F43 /* MessageUI.framework in Frameworks */,
@@ -717,7 +725,6 @@
 				BF1712471292920000B8313A /* libz.dylib in Frameworks */,
 				BF1C47F01293687400B63C5D /* QuartzCore.framework in Frameworks */,
 				D44C620C132DFF330009C878 /* OpenAL.framework in Frameworks */,
-				6154DFF418BDF76200254F43 /* libDomobOfferWallSDK.a in Frameworks */,
 				D44C620E132DFF430009C878 /* AVFoundation.framework in Frameworks */,
 				D44C6210132DFF4E0009C878 /* AudioToolbox.framework in Frameworks */,
 			);
@@ -829,6 +836,9 @@
 		29B97323FDCFA39411CA2CEA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				6154E04318BE09FC00254F43 /* AVFoundation.framework */,
+				6154E04118BE09EB00254F43 /* libsqlite3.0.dylib */,
+				6154E03F18BE09E000254F43 /* Security.framework */,
 				6154E03D18BDFD5E00254F43 /* libsqlite3.dylib */,
 				6154E03B18BDFD4D00254F43 /* EventKit.framework */,
 				6154E03918BDFD4400254F43 /* Social.framework */,

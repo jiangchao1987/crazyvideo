@@ -34,7 +34,7 @@ static AppDelegate s_sharedApplication;
     viewController.wantsFullScreenLayout = YES;
     viewController.view = __glView;
 
-	_dmAdView = [[DMAdView alloc] initWithPublisherId:@"56OJzUf4uNKK9Bsb6n" placementId:@"16TLm6UlAp-T2NUfWhvLSows" size:DOMOB_AD_SIZE_320x50 autorefresh:true];
+	_dmAdView = [[DMAdView alloc] initWithPublisherId:@"56OJzUf4uNKK9Bsb6n" placementId:@"16TLm6UlAp-T2NUfVKLlzlrz" size:DOMOB_AD_SIZE_320x50 autorefresh:true];
 	
 	_dmAdView.frame = CGRectMake(0, [[UIScreen mainScreen] bounds].size.height - DOMOB_AD_SIZE_320x50.height, DOMOB_AD_SIZE_320x50.width, DOMOB_AD_SIZE_320x50.height);
 	
@@ -269,6 +269,26 @@ static AppDelegate s_sharedApplication;
 }
 
 #pragma mark --
+#pragma mark -- Ad Functions
+
+- (void)showOffWall{
+	DMOfferWallViewController* offWall = [[[DMOfferWallViewController alloc] initWithPublisherID:@"96ZJ2VOgze0s3wTAVM"] autorelease];
+	offWall.delegate = self;
+	
+	[offWall presentOfferWallWithViewController:viewController];
+}
+
+- (void)showBannerAdd:(BOOL) bShow{
+	_dmAdView.hidden = !bShow;
+}
+- (void)showLeftAdL:(BOOL) bShow{
+	
+}
+- (void)showRightAd:(BOOL) bShow{
+	
+}
+
+#pragma mark --
 #pragma mark -- DMAdViewDelegate <NSObject>
 // Sent when an ad request success to loaded an ad
 - (void)dmAdViewSuccessToLoadAd:(DMAdView *)adView{
@@ -302,14 +322,49 @@ static AppDelegate s_sharedApplication;
 }
 
 #pragma mark --
-#pragma mark -- Ad Functions
-- (void)showBannerAdd:(BOOL) bShow{
-	_dmAdView.hidden = bShow;
-}
-- (void)showLeftAdL:(BOOL) bShow{
+#pragma mark --  DMOfferWallDelegate <NSObject>
+// 积分墙开始加载列表数据。
+// Offer wall starts to fetch list info.
+- (void)offerWallDidStartLoad{
 	
 }
-- (void)showRightAd:(BOOL) bShow{
+// 积分墙加载完成。
+// Fetching offer wall list successfully.
+- (void)offerWallDidFinishLoad{
 	
 }
+// 积分墙加载失败。可能的原因由error部分提供，例如网络连接失败、被禁用等。
+// Failed to load offer wall.
+- (void)offerWallDidFailLoadWithError:(NSError *)error{
+	
+}
+// 积分墙页面被关闭。
+// Offer wall closed.
+- (void)offerWallDidClosed{
+	
+}
+
+#pragma mark OfferWall Interstitial
+// 当积分墙插屏广告被成功加载后，回调该方法
+// Called when interstitial ad is loaded successfully.
+- (void)dmOfferWallInterstitialSuccessToLoadAd:(DMOfferWallViewController *)dmOWInterstitial{
+	
+}
+// 当积分墙插屏广告加载失败后，回调该方法
+// Called when failed to load interstitial ad.
+- (void)dmOfferWallInterstitialFailToLoadAd:(DMOfferWallViewController *)dmOWInterstitial withError:(NSError *)err{
+	
+}
+// 当积分墙插屏广告要被呈现出来前，回调该方法
+// Called when interstitial ad will be presented.
+- (void)dmOfferWallInterstitialWillPresentScreen:(DMOfferWallViewController *)dmOWInterstitial{
+	
+}
+// 当积分墙插屏广告被关闭后，回调该方法
+// Called when interstitial ad has been closed.
+- (void)dmOfferWallInterstitialDidDismissScreen:(DMOfferWallViewController *)dmOWInterstitial{
+	
+}
+
+
 @end
