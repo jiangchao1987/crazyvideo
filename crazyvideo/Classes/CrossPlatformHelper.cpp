@@ -53,6 +53,27 @@ void X_shareToQQ(){
 
 void X_shareToQZone(){
 }
+
+void X_showOffWall()
+{
+
+}
+void X_showLevelAdBanner( bool bShow )
+{
+}
+void X_showLevelLeftAd()
+{
+
+}
+void X_showLevelRightAd()
+{
+}
+void X_writeEmail()
+{
+}
+void X_commentUs()
+{
+}
 #endif
 
 #if CC_TARGET_PLATFORM == CC_PLATFORM_IOS
