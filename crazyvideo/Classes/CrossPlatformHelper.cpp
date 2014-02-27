@@ -8,7 +8,7 @@
 
 #include "CrossPlatformHelper.h"
 #include "cocos2d.h"
-#include "cocos-ext.h"
+#include "extensions/cocos-ext.h"
 //#include "UserInfoMgr.h"
 
 USING_NS_CC;
@@ -31,9 +31,28 @@ void buy(int goodIndex){
 }
 
 void choujiang(){
-	
 }
 
+void playNetVideo(std::string url){
+	log("play net video name is:%s", url.c_str());
+}
+
+void playLocalVideo(std::string filename){
+	log("play video name is:%s", filename.c_str());
+	playLocalVideo_JAVA(filename);
+}
+
+void X_shareToFriends(){
+}
+
+void X_shareToFriend(){
+}
+
+void X_shareToQQ(){
+}
+
+void X_shareToQZone(){
+}
 #endif
 
 #if CC_TARGET_PLATFORM == CC_PLATFORM_IOS

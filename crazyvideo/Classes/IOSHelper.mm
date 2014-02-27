@@ -11,7 +11,7 @@
 //#import "OpenUDID.h"
 #include "Util.h"
 #include "cocos2d.h"
-#include "cocos-ext.h"
+#include "extensions/cocos-ext.h"
 #import "CrossPlatformHelper.h"
 
 #import "AppController.h"

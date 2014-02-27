@@ -9,7 +9,7 @@
 #include "GameScene.h"
 #include "Tools.h"
 #include "SimpleAudioEngine.h"
-#include "cocos-ext.h"
+#include "extensions/cocos-ext.h"
 #include "StartScene.h"
 #include "DataMgr.h"
 #include "Defines.h"
