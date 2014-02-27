@@ -171,6 +171,28 @@ void X_shareToQZone(){
 	return shareToQZone_IOS();
 }
 
+void X_showOffWall(){
+	return showOffWall_IOS();
+}
+void X_showLevelAdBanner( bool bShow ){
+	return showLevelAdBanner_IOS( bShow);
+}
+void X_showLevelLeftAd(){
+	return showLevelLeftAd_IOS();
+}
+void X_showLevelRightAd(){
+	return showLevelRightAd_IOS();
+}
+
+void X_writeEmail(){
+	return writeEmail_IOS();
+}
+
+void X_commentUs(){
+	return commentUs_IOS();
+
+}
+
 #endif
 
 

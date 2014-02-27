@@ -40,6 +40,10 @@ UserInfoMgr::UserInfoMgr(){
 		SaveBooleanToXML(K_FIRESTLOAD, true);
 		WriteDisk;
 	}
+	
+	if( this->getGold() <=0 ){
+		this->setGold(0);
+	}
 }
 
 UserInfoMgr::~UserInfoMgr(){
@@ -67,6 +71,13 @@ void UserInfoMgr::addGold( int nGold){
 	this->setGold( this->getGold() + nGold );
 }
 
+bool UserInfoMgr::buyGold(int nGold){
+	this->addGold(nGold);
+}
+
+bool UserInfoMgr::exchangeGold(int nGold){
+	this->addGold(nGold);
+}
 #pragma mark --
 #pragma mark -- User Logic Functions
 void UserInfoMgr::answerRight(){
@@ -80,4 +91,21 @@ void UserInfoMgr::shareToFrientsSuccess(){
 }
 void UserInfoMgr::shareToQZoneSuccess(){
 	this->addGold( 40 );
+}
+
+bool UserInfoMgr::canUseBomb(){
+	bool bRet = false;
+	if ( this->getGold() >= 20 ){
+		bRet = true;
+	}
+	
+	return bRet;
+}
+bool UserInfoMgr::canAnswerQuestion(){
+	bool bRet = false;
+	if ( this->getGold() >= 20 ){
+		bRet = true;
+	}
+	
+	return bRet;
 }

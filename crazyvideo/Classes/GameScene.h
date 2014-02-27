@@ -23,6 +23,12 @@ typedef enum GameAnswerState{
 
 }GameAnswerState;
 
+//class GameAnswerState1 : public CCObject{
+//
+//public:
+//	GameAnswerState  state_;
+//};
+
 class GameScene : public cocos2d::Layer
 {
 public:
@@ -40,10 +46,10 @@ public:
     void menuBombCallback(Object* pSender);
 	void menuPlayCallback(Object* pSender);
 	
-	void menuCloseCallback(Object* pSender);
-	void menu1CloseCallback(Object* pSender);
-    void menu2CloseCallback(Object* pSender);
-    void menu3CloseCallback(Object* pSender);
+//	void menuCloseCallback(Object* pSender);
+//	void menu1CloseCallback(Object* pSender);
+//    void menu2CloseCallback(Object* pSender);
+//    void menu3CloseCallback(Object* pSender);
 	
 	void btn1callBack(Object *pSender, Control::EventType controlEvents);
 	void btn2callBack(Object *pSender, Control::EventType controlEvents);
@@ -74,27 +80,39 @@ public:
 	void popBombLayer();
 	void popRightLayer();
 	void popWrongLayer();
+	void popNoBombLayer();
+	void popCanNotUseBombLayer();
+	void popNoGoldNotEnoughLayer();
+
 	
 	//share pop call back
-	void shareToFriends(CCNode * node);
-	void shareToFriend(CCNode * node);
-	void shareToTencent(CCNode * node);
-	void shareToQZone(CCNode * node);
-	void shareClose(CCNode *node);
+	void shareToFriends(Node * node);
+	void shareToFriend(Node * node);
+	void shareToTencent(Node * node);
+	void shareToQZone(Node * node);
+	void shareClose(Node *node);
 	//wrong pop call back
-	void wrongShare(CCNode * pSender);
-	void wrongBomb(CCNode * pSender);
-	void wrongBack(CCNode * pSender);
+	void wrongShare(Node * pSender);
+	void wrongBomb(Node * pSender);
+	void wrongBack(Node * pSender);
     //bomb pop call back
-	void bombUse(CCNode * pSender);
-	void bombNotUse(CCNode * pSender);
+	void bombUse(Node * pSender);
+	void bombNotUse(Node * pSender);
 	//right pop call back
-	
-	void rightAskFriends(CCNode * pSender);
-	void rightContinue(CCNode * pSender);
+	void rightAskFriends(Node * pSender);
+	void rightContinue(Node * pSender);
+	//no bomb pop call back
+	void noBombClose(Node * pSender);
+	//cannot use bomb
+	void bombCannotUseClose(Node * pSender);
+	void bombCannotUseOK(Node * pSender);
+    //gold not engough
+	void goldNotEnoughClose(Node * pSender);
+
+
 	
 	//检查 是否答对
-	bool checkAnswer(int answerIndex);
+	bool checkAnswer(int answerIndex, bool useBomb = false);
 	void answerAnimation( int answerIndex);
 	
 	// 播放
@@ -102,13 +120,16 @@ public:
 //	void btnStateLogic(int nIndex, bool bChanged);
 private:
 	Dictionary* currentDic_;
-	GameAnswerState answerOneState_;
-	GameAnswerState answerTwoState_;
-	GameAnswerState answerThreeState_;
-	GameAnswerState answerFouState_;
+	GameAnswerState answerStateArr_[4];
+
+//	GameAnswerState answerOneState_;
+//	GameAnswerState answerTwoState_;
+//	GameAnswerState answerThreeState_;
+//	GameAnswerState answerFouState_;
 	
 private:
 	bool  bShowVideoOnShow_;
+//	CCArray*  answerStateArr_;
 public :
 	void setShowVideoOnShow(bool bShow);
 

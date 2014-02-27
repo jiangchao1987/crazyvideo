@@ -283,3 +283,27 @@ void shareToQZone_IOS(){
 	[app AppShareToQZone];
 }
 
+void showOffWall_IOS(){
+	AppController *app = (AppController*) [[UIApplication sharedApplication] delegate];
+	[app showOffWall];
+}
+
+void showLevelAdBanner_IOS( bool bShow){
+	AppController *app = (AppController*) [[UIApplication sharedApplication] delegate];
+	[app showBannerAdd:bShow];
+}
+void showLevelLeftAd_IOS(){
+	
+}
+void showLevelRightAd_IOS(){
+	
+}
+void writeEmail_IOS(){
+	AppController *app = (AppController*) [[UIApplication sharedApplication] delegate];
+	[app writeEmail];
+}
+
+void commentUs_IOS(){
+	AppController *app = (AppController*) [[UIApplication sharedApplication] delegate];
+	[app commentUs];
+}

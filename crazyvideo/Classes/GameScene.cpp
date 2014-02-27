@@ -18,6 +18,7 @@
 #include "SimpleAudioEngine.h"
 #include "LevelView.h"
 #include "UserInfoMgr.h"
+#include "ShopScene.h"
 
 USING_NS_CC;
 USING_NS_CC_EXT;
@@ -67,11 +68,13 @@ bool GameScene::init()
     Size visibleSize = Director::getInstance()->getVisibleSize();
     Point origin = Director::getInstance()->getVisibleOrigin();
 	
-    guanka_index = LabelTTF::create("Hello World", "Arial", 30);
+	//	LabelTTF * tip = LabelTTF::create("很抱歉 答错啦", "AmericanTypewriter", 30);//添加文字
+
+    guanka_index = LabelTTF::create("AmericanTypewriter", "Arial", 40);
     
     // position the label on the center of the screen
     guanka_index->setPosition(Point(origin.x + visibleSize.width/2,
-							 origin.y + visibleSize.height - guanka_index->getContentSize().height));
+							 origin.y + visibleSize.height - guanka_index->getContentSize().height/4*3));
 	
     // add the label as a child to this layer
 	 this->addChild(guanka_index, 1);
@@ -86,9 +89,9 @@ bool GameScene::init()
 	
 	gold = LabelTTF::create("209", "Arial", 36);
 	gold->setHorizontalAlignment(TextHAlignment::RIGHT);
-	gold->setAnchorPoint(Point(1,0));
+	gold->setAnchorPoint(Point(1,0.5f));
     gold->setPosition(Point(origin.x + visibleSize.width - 20,
-								   origin.y + visibleSize.height - (topic_title->getContentSize().height- guanka_index->getContentSize().height) - 48 - 24));
+								   origin.y + visibleSize.height - 45));
 	
     // add the label as a child to this layer
 	this->addChild(gold, 1);
@@ -233,6 +236,13 @@ bool GameScene::init()
 	EventDispatcher* eventDispatcher = backLayer->getEventDispatcher();
 	//eventDispatcher->addEventListenerWithSceneGraphPriority( listener, backLayer);
 	
+//	answerStateArr_
+//	GameAnswerState1* 
+	
+	for (int i = 0; i<4; i++) {
+		answerStateArr_[i] = GameAnswerState::GameStateAnswerStateInit;
+	}
+	
 	return true;
 }
 
@@ -245,33 +255,14 @@ void GameScene::onEnter(){
 	if ( bShowVideoOnShow_ ) {
 		this->playTheVideo();
 	}
+	
+	X_showLevelAdBanner( false );
 }
 void GameScene::onExit(){
 	CCLayer::onExit();
 	playBackGroundMusic();
+	X_showLevelAdBanner( true );
 
-}
-void GameScene::menuCloseCallback(Object* pSender)
-{
-    Director::getInstance()->end();
-	
-#if (CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
-    exit(0);
-#endif
-}
-
-void GameScene::menu1CloseCallback(Object* pSender){
-	
-}
-void GameScene::menu2CloseCallback(Object* pSender){
-	
-}
-void GameScene::menu3CloseCallback(Object* pSender){
-	
-	playEffectBtnClicked();
-
-	Scene* s = StartScene::createScene();
-	Director::getInstance()->replaceScene(TransitionFade::create(0.5, s));
 }
 
 #pragma mark --
@@ -287,12 +278,24 @@ void GameScene::menuBackCallback(Object* pSender){
 }
 void GameScene::menuGoldCallback(Object* pSender){
 	playEffectBtnClicked();
+	
+	
+	Scene* s = ShopScene::createScene();
+	Director::getInstance()->pushScene(TransitionFade::create(0.5, s));
 }
+
 void GameScene::menuShareCallback(Object* pSender){
 	playEffectBtnClicked();
 	this->popShareLayer();
 }
 void GameScene::menuBombCallback(Object* pSender){
+	
+	if ( !UserInfoMgr::getInstance()->canUseBomb() ) {
+		
+		this->popCanNotUseBombLayer();
+		return;
+	}
+	
 	playEffectBtnClicked();
 	this->popBombLayer();
 }
@@ -351,11 +354,16 @@ void GameScene::resetView(){
 	guanka_index->setString(levelIndex->_string);
 
 	topic_title->setString(topic->_string);
+
+	for (int i = 0; i<4; i++) {
+		answerStateArr_[i] = GameAnswerState::GameStateAnswerStateInit;
+	}
 	
-	answerOneState_ = GameStateAnswerStateInit;
-	answerTwoState_ = GameStateAnswerStateInit;
-	answerThreeState_ = GameStateAnswerStateInit;
-	answerFouState_ = GameStateAnswerStateInit;
+	
+//	answerOneState_ = GameStateAnswerStateInit;
+//	answerTwoState_ = GameStateAnswerStateInit;
+//	answerThreeState_ = GameStateAnswerStateInit;
+//	answerFouState_ = GameStateAnswerStateInit;
 	
 	int nGold = UserInfoMgr::getInstance()->getGold();
 	CCString* goldStr = CCString::createWithFormat("%d", nGold);
@@ -368,7 +376,13 @@ void GameScene::btn1callBack(Object *pSender, Control::EventType controlEvents){
 	playEffectBtnClicked();
 
 	if ( controlEvents == Control::EventType::TOUCH_UP_INSIDE ) {
+		
+		if (!UserInfoMgr::getInstance()->canAnswerQuestion()) {
+			this->popNoGoldNotEnoughLayer();
+			return ;
+		}
 		this->checkAnswer(1);
+		
 	}
 }
 
@@ -376,6 +390,10 @@ void GameScene::btn2callBack(Object *pSender, Control::EventType controlEvents){
 	playEffectBtnClicked();
 
 	if ( controlEvents == Control::EventType::TOUCH_UP_INSIDE ) {
+		if (!UserInfoMgr::getInstance()->canAnswerQuestion()) {
+			this->popNoGoldNotEnoughLayer();
+			return ;
+		}
 		this->checkAnswer(2);
 	}
 }
@@ -383,6 +401,10 @@ void GameScene::btn3callBack(Object *pSender, Control::EventType controlEvents){
 	playEffectBtnClicked();
 
 	if ( controlEvents == Control::EventType::TOUCH_UP_INSIDE ) {
+		if (!UserInfoMgr::getInstance()->canAnswerQuestion()) {
+			this->popNoGoldNotEnoughLayer();
+			return ;
+		}
 		this->checkAnswer(3);
 	}
 }
@@ -390,6 +412,10 @@ void GameScene::btn4callBack(Object *pSender, Control::EventType controlEvents){
 	playEffectBtnClicked();
 
 	if ( controlEvents == Control::EventType::TOUCH_UP_INSIDE ) {
+		if (!UserInfoMgr::getInstance()->canAnswerQuestion()) {
+			this->popNoGoldNotEnoughLayer();
+			return ;
+		}
 		this->checkAnswer(4);
 	}
 }
@@ -421,7 +447,24 @@ void GameScene::popWrongLayer(){
 	p->setCallbackFunc(this, callfuncN_selector(GameScene::wrongShare),callfuncN_selector(GameScene::wrongBomb), callfuncN_selector(GameScene::wrongBack) );
 	this->addChild(p,2);
 }
-
+void GameScene::popNoBombLayer(){
+	PopUpNoBombLayer* p = PopUpNoBombLayer::create();
+	p->setTag(POPUPNOBOMBLAYER_TAG);
+	p->setCallbackFunc(this, callfuncN_selector(GameScene::noBombClose));
+	this->addChild(p,2);
+}
+void GameScene::popCanNotUseBombLayer(){
+	PopCanNotUseBombLayer* p = PopCanNotUseBombLayer::create();
+	p->setTag(POPUPCANNOTUSEBOMBLAYER_TAG);
+	p->setCallbackFunc(this, callfuncN_selector(GameScene::bombCannotUseClose), callfuncN_selector(GameScene::bombCannotUseOK));
+	this->addChild(p,2);
+}
+void GameScene::popNoGoldNotEnoughLayer(){
+	PopUpGoldNotEnough* p = PopUpGoldNotEnough::create();
+	p->setTag(POPUPGOLDNOTENOUGHLAYER_TAG);
+	p->setCallbackFunc(this, callfuncN_selector(GameScene::goldNotEnoughClose));
+	this->addChild(p,2);
+}
 #pragma mark --
 #pragma mark PopShareLayer CallBack
 //share pop call back
@@ -458,6 +501,7 @@ void GameScene::wrongShare(Node * pSender){
 	this->popShareLayer();
 }
 void GameScene::wrongBomb(Node * pSender){
+	
 	playEffectBtnClicked();
 	PopUpWrongLayer* p = (PopUpWrongLayer*)this->getChildByTag(POPUPWRONGLAYER_TAG);
 	p->removeFromParentAndCleanup(true);
@@ -478,6 +522,37 @@ void GameScene::bombUse(CCNode * pSender){
 	playEffectBtnClicked();
 	PopUpWrongLayer* p = (PopUpWrongLayer*)this->getChildByTag(POPUPBOMBLAYER_TAG);
 	p->removeFromParentAndCleanup(true);
+	
+	bool bCanBombUse = false;
+	
+	Array* leftButtons = CCArray::create();
+	for ( int i = 0;  i<4; i++) {
+		GameAnswerState state = answerStateArr_[i];
+		if ( state == GameStateAnswerStateInit ) {
+			leftButtons->addObject(CCString::createWithFormat("%d",i+1));
+		}
+	}
+	
+	if ( leftButtons->count() == 1 ) {
+		this->popNoBombLayer();
+	}else{
+		int correctIndex = ((CCString*)currentDic_->objectForKey(Key_answer_index))->intValue();
+		int tmpCorrectIndex = 0;
+		for(int j = 0; j< leftButtons->count();j++ ){
+			CCString* tmpStr = (CCString*)leftButtons->getObjectAtIndex(j);
+			if ( tmpStr->intValue() == correctIndex){
+				tmpCorrectIndex = j;
+			}
+		}
+		
+		leftButtons->removeObjectAtIndex(tmpCorrectIndex);
+		
+		int randomBombIndex = arc4random()%leftButtons->count();
+		
+		CCString* randomBombStr = (CCString*)leftButtons->getObjectAtIndex(randomBombIndex);
+		
+		this->checkAnswer(randomBombStr->intValue(), true);
+	}
 }
 void GameScene::bombNotUse(CCNode * pSender){
 	playEffectBtnClicked();
@@ -506,8 +581,46 @@ void GameScene::rightContinue(CCNode * pSender){
 }
 
 #pragma mark --
+#pragma mark PopNoBombLayer CallBack
+void GameScene::noBombClose(CCNode * pSender){
+	playEffectBtnClicked();
+	
+	PopUpNoBombLayer* p = (PopUpNoBombLayer*)this->getChildByTag(POPUPNOBOMBLAYER_TAG);
+	p->removeFromParentAndCleanup(true);
+}
+
+#pragma mark --
+#pragma mark PopNoBombLayer CallBack
+void GameScene::bombCannotUseClose(CCNode * pSender){
+	playEffectBtnClicked();
+	
+	PopUpNoBombLayer* p = (PopUpNoBombLayer*)this->getChildByTag(POPUPCANNOTUSEBOMBLAYER_TAG);
+	p->removeFromParentAndCleanup(true);
+}
+void GameScene::bombCannotUseOK(CCNode * pSender){
+	playEffectBtnClicked();
+	
+	PopUpNoBombLayer* p = (PopUpNoBombLayer*)this->getChildByTag(POPUPCANNOTUSEBOMBLAYER_TAG);
+	p->removeFromParentAndCleanup(true);
+	
+	
+	Scene* s = ShopScene::createScene();
+	Director::getInstance()->pushScene(TransitionFade::create(0.5, s));
+}
+#pragma mark --
+#pragma mark PopNoBombLayer CallBack
+void GameScene::goldNotEnoughClose(CCNode * pSender){
+	playEffectBtnClicked();
+	
+	PopUpGoldNotEnough* p = (PopUpGoldNotEnough*)this->getChildByTag(POPUPGOLDNOTENOUGHLAYER_TAG);
+	p->removeFromParentAndCleanup(true);
+	
+	this->menuBackCallback(NULL);
+}
+
+#pragma mark --
 #pragma mark -- Game Logic Functions
-bool GameScene::checkAnswer(int answerIndex){
+bool GameScene::checkAnswer(int answerIndex, bool useBomb){
 	
 	bool bRet = false;
 	int a = ((CCString*)currentDic_->objectForKey(Key_answer_index))->intValue();
@@ -519,25 +632,11 @@ bool GameScene::checkAnswer(int answerIndex){
 	}
 	
 	if ( bRet ) {
-		if ( answerIndex == 1) {
-			answerOneState_ = GameAnswerState::GameStateAnswerStateRight;
-		}else if( answerIndex == 2){
-			answerTwoState_ = GameAnswerState::GameStateAnswerStateRight;
-		}else if( answerIndex == 3){
-			answerThreeState_ = GameAnswerState::GameStateAnswerStateRight;
-		}else if( answerIndex == 4){
-			answerFouState_ = GameAnswerState::GameStateAnswerStateRight;
-		}
+		
+		answerStateArr_[ answerIndex - 1] = GameAnswerState::GameStateAnswerStateRight;
+
 	}else{
-		if ( answerIndex == 1) {
-			answerOneState_ = GameAnswerState::GameStateAnswerStateWrong;
-		}else if( answerIndex == 2){
-			answerTwoState_ = GameAnswerState::GameStateAnswerStateWrong;
-		}else if( answerIndex == 3){
-			answerThreeState_ = GameAnswerState::GameStateAnswerStateWrong;
-		}else if( answerIndex == 4){
-			answerFouState_ = GameAnswerState::GameStateAnswerStateWrong;
-		}
+			answerStateArr_[ answerIndex - 1] = GameAnswerState::GameStateAnswerStateWrong;
 	}
 	
 	this->answerAnimation( answerIndex );
@@ -546,7 +645,10 @@ bool GameScene::checkAnswer(int answerIndex){
 		UserInfoMgr::getInstance()->answerRight();
 		
 	}else{
-		this->popWrongLayer();
+		if( !useBomb ){
+			this->popWrongLayer();
+		}
+		// lose answer wrong pusnish or use bomb fee 20 gold
 		UserInfoMgr::getInstance()->answerWrong();
 	}
 	
@@ -563,24 +665,25 @@ void GameScene::answerAnimation( int answerIndex){
 	ControlButton* btn;
 	switch ( answerIndex ) {
 		case 1:
-			st = answerOneState_;
+		//	st = answerOneState_;
 			btn = btn1;
 			break;
 		case 2:
-			st = answerTwoState_;
+		//	st = answerTwoState_;
 			btn = btn2;
 		    break;
 		case 3:
-			st = answerThreeState_;
+		//	st = answerThreeState_;
 			btn = btn3;
 			break;
 		case 4:
-			st = answerFouState_;
+		//	st = answerFouState_;
 			btn = btn4;
 			break;
 		default:
 			break;
 	}
+	st = answerStateArr_[ answerIndex - 1];
 	
 	std::string correctwrongImgStr;
 	
