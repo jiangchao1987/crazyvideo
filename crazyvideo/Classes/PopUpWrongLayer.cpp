@@ -89,6 +89,19 @@ void PopUpWrongLayer::setUpView(){
 	bgLay = Layer::create();
 
 	Sprite* bg = Sprite::create( imgs.at(0));
+	
+	LabelTTF * tip = LabelTTF::create("很抱歉 答错啦", "AmericanTypewriter", 30);//添加文字
+	tip->setAnchorPoint(Point(0.5f, 0.5f));
+	tip->setColor(Color3B::YELLOW);
+	tip->setPosition(Point(pCenter.x, pCenter.y + 40));
+	bgLay->addChild(tip, 2);
+	
+	LabelTTF *label = LabelTTF::create("扣除20金币\n加油，不要在答错了哦！", "AmericanTypewriter", 40);//添加文字
+	label->setAnchorPoint(Point(0.5f, 0.5f));
+	label->setColor(Color3B::WHITE);
+	label->setPosition(Point(pCenter.x, pCenter.y - 60));
+	bgLay->addChild(label, 2);
+	
 	auto menuItem1 = MenuItemImage::create(
 										   imgs.at(1),
 										   imgs.at(2),
@@ -111,9 +124,9 @@ void PopUpWrongLayer::setUpView(){
     auto menu = Menu::create(menuItem1, menuItem2, menuItem3, NULL);
     menu->setPosition(Point::ZERO);
 	
-	menuItem1->setPosition(Point(pCenter.x - menuItem1->getContentSize().width ,  pCenter.y - 150));
-	menuItem2->setPosition(Point(pCenter.x ,  pCenter.y - 150));
-	menuItem3->setPosition(Point(pCenter.x + menuItem1->getContentSize().width,  pCenter.y - 150));
+	menuItem1->setPosition(Point(pCenter.x - menuItem1->getContentSize().width ,  pCenter.y - 180));
+	menuItem2->setPosition(Point(pCenter.x ,  pCenter.y - 180));
+	menuItem3->setPosition(Point(pCenter.x + menuItem1->getContentSize().width,  pCenter.y - 180));
 	
 
 	LabelTTF *label1 = LabelTTF::create("求助好友", "AmericanTypewriter", 30);//添加文字

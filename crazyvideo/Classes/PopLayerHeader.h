@@ -13,10 +13,18 @@
 #include "PopUpWrongLayer.h"
 #include "PopUpBombLayer.h"
 #include "PopUpRightLayer.h"
+#include "PopUpNoBombLayer.h"
+#include "PopCanNotUseBombLayer.h"
+#include "PopUpGoldNotEnough.h"
+#include "PopUpGodTipsLayer.h"
 
 #define POPUPSHARELAYER_TAG  324234
 #define POPUPWRONGLAYER_TAG  (POPUPSHARELAYER_TAG + 1)
 #define POPUPRIGHTLAYER_TAG  (POPUPSHARELAYER_TAG + 2)
 #define POPUPBOMBLAYER_TAG  (POPUPSHARELAYER_TAG + 3)
+#define POPUPNOBOMBLAYER_TAG  (POPUPSHARELAYER_TAG + 4)
+#define POPUPCANNOTUSEBOMBLAYER_TAG  (POPUPSHARELAYER_TAG + 5)
+#define POPUPGOLDNOTENOUGHLAYER_TAG  (POPUPSHARELAYER_TAG + 6)
+#define POPUPGOLDTIPSLAYER_TAG  (POPUPSHARELAYER_TAG + 6)
 
 #endif

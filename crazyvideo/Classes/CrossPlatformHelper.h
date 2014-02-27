@@ -37,4 +37,12 @@ void X_shareToFriend();
 void X_shareToQQ();
 void X_shareToQZone();
 
+void X_showOffWall();
+void X_showLevelAdBanner( bool bShow );
+void X_showLevelLeftAd();
+void X_showLevelRightAd();
+
+void X_writeEmail();
+void X_commentUs();
+
 #endif /* defined(__knowledgegame__CrossPlatformHelper__) */

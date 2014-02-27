@@ -1,13 +1,14 @@
 //
-//  PopUpBombLayer.cpp
+//  PopUpGodTipsLayer.cpp
 //  crazyvideo
 //
-//  Created by zhangzhihh123 on 14-2-21.
+//  Created by zhangzhihh123 on 14-2-26.
 //
 //
 
-#include "PopUpBombLayer.h"
-PopUpBombLayer::PopUpBombLayer():
+#include "PopUpGodTipsLayer.h"
+
+PopUpGodTipsLayer::PopUpGodTipsLayer():
 m_callbackListener(NULL)
 , m1_(NULL)
 , m2_(NULL)
@@ -15,19 +16,19 @@ m_callbackListener(NULL)
     
 }
 
-PopUpBombLayer::~PopUpBombLayer(){
+PopUpGodTipsLayer::~PopUpGodTipsLayer(){
 }
 
-bool PopUpBombLayer::init(){
+bool PopUpGodTipsLayer::init(){
     bool bRef = false;
     do{
 		CC_BREAK_IF(!CCLayerColor::initWithColor(Color4B( 0x0a, 0x0a, 0x0a, 150 )) );
         
 		this->setUpView();
 		auto myListener = EventListenerTouchOneByOne::create();
-		myListener->onTouchBegan = CC_CALLBACK_2(PopUpBombLayer::onTouchBegan, this);
-		myListener->onTouchMoved = CC_CALLBACK_2(PopUpBombLayer::onTouchMoved, this);
-		myListener->onTouchEnded = CC_CALLBACK_2(PopUpBombLayer::onTouchEnded, this);
+		myListener->onTouchBegan = CC_CALLBACK_2(PopUpGodTipsLayer::onTouchBegan, this);
+		myListener->onTouchMoved = CC_CALLBACK_2(PopUpGodTipsLayer::onTouchMoved, this);
+		myListener->onTouchEnded = CC_CALLBACK_2(PopUpGodTipsLayer::onTouchEnded, this);
 		
 		myListener->setSwallowTouches(true);
 		auto dispatcher = Director::getInstance()->getEventDispatcher();
@@ -39,22 +40,22 @@ bool PopUpBombLayer::init(){
     return bRef;
 }
 
-bool PopUpBombLayer::onTouchBegan(Touch *touch, Event *unused_event){
+bool PopUpGodTipsLayer::onTouchBegan(Touch *touch, Event *unused_event){
 	log("PopupLayer touch");
 	return true;
 }
 
-void PopUpBombLayer::onTouchMoved(cocos2d::Touch *touch, cocos2d::Event *unused_event){
+void PopUpGodTipsLayer::onTouchMoved(cocos2d::Touch *touch, cocos2d::Event *unused_event){
 	
 }
-void PopUpBombLayer::onTouchEnded(cocos2d::Touch *touch, cocos2d::Event *unused_event){
+void PopUpGodTipsLayer::onTouchEnded(cocos2d::Touch *touch, cocos2d::Event *unused_event){
 	
 }
-void PopUpBombLayer::onTouchCancelled(cocos2d::Touch *touch, cocos2d::Event *unused_event){
+void PopUpGodTipsLayer::onTouchCancelled(cocos2d::Touch *touch, cocos2d::Event *unused_event){
 	
 }
 
-void PopUpBombLayer::onEnter(){
+void PopUpGodTipsLayer::onEnter(){
     Layer::onEnter();
 	
 	
@@ -63,11 +64,11 @@ void PopUpBombLayer::onEnter(){
 										  CCScaleTo::create(0.06, 1.05),
 										  CCScaleTo::create(0.08, 0.95),
 										  CCScaleTo::create(0.08, 1.0), NULL);
-  //  bgLay->runAction(popupLayer);
+	//  bgLay->runAction(popupLayer);
 	
 }
 
-void PopUpBombLayer::onExit(){
+void PopUpGodTipsLayer::onExit(){
     
     log("popup on exit.");
     CCLayer::onExit();
@@ -76,13 +77,13 @@ void PopUpBombLayer::onExit(){
 #pragma mark --
 #pragma mark -- Functions
 
-void PopUpBombLayer::setUpView(){
+void PopUpGodTipsLayer::setUpView(){
 	Size winSize = Director::getInstance()->getWinSize();
     Point pCenter = Point(winSize.width / 2, winSize.height / 2);
 	
 	std::vector<std::string> imgs;
 	imgs.push_back(std::string("play_dialog_bg.png"));//bg
-
+	
 	imgs.push_back(std::string("play_dialog_button_long.png")); //close b n
 	imgs.push_back(std::string("play_dialog_button_long_selected.png")); //close b s
 	
@@ -95,46 +96,46 @@ void PopUpBombLayer::setUpView(){
 	tip->setPosition(Point(pCenter.x, pCenter.y + 40));
 	bgLay->addChild(tip, 2);
 	
-	LabelTTF *label = LabelTTF::create("确认花费20枚金币，\n去掉一个错误答案么？", "AmericanTypewriter", 40);//添加文字
+	LabelTTF *label = LabelTTF::create("您的金币已经用尽，\n如下方式可以获得金币", "AmericanTypewriter", 40);//添加文字
 	label->setAnchorPoint(Point(0.5f, 0.5f));
 	label->setColor(Color3B::WHITE);
 	label->setPosition(Point(pCenter.x, pCenter.y - 60));
 	bgLay->addChild(label, 2);
 	
-
+	
 	Sprite* bg = Sprite::create( imgs.at(0));
 	auto menuItem1 = MenuItemImage::create(
 										   imgs.at(1),
 										   imgs.at(2),
-										   CC_CALLBACK_1(PopUpBombLayer::bombUse, this));
+										   CC_CALLBACK_1(PopUpGodTipsLayer::godTipsGetGod, this));
 	auto menuItem2 = MenuItemImage::create(
 										   imgs.at(1),
 										   imgs.at(2),
-										   CC_CALLBACK_1(PopUpBombLayer::bombNotUse, this));
+										   CC_CALLBACK_1(PopUpGodTipsLayer::godTipsGiveUp, this));
 	
 	bg->setAnchorPoint(Point(0.5f, 0.5f));
 	menuItem1->setAnchorPoint(Point(0.5f, 0.5f));
 	menuItem2->setAnchorPoint(Point(0.5f, 0.5f));
 	
 	// create menu, it's an autorelease object
-    auto menu = Menu::create(menuItem1, menuItem2, NULL);
+    auto menu = Menu::create(menuItem1,menuItem2, NULL);
     menu->setPosition(Point::ZERO);
 	
 	menuItem1->setPosition(Point(pCenter.x - 120,  pCenter.y - 180));
 	menuItem2->setPosition(Point(pCenter.x + 120 ,  pCenter.y - 180));
 	
-	LabelTTF *label1 = LabelTTF::create("好的", "AmericanTypewriter", 30);//添加文字
-
+	LabelTTF *label1 = LabelTTF::create("获取金币", "AmericanTypewriter", 30);//添加文字
+	
 	label1->setColor(Color3B::WHITE);
 	label1->setPosition(menuItem1->getPosition());
 	bgLay->addChild(label1, 2);
 	
-	LabelTTF *label2 = LabelTTF::create("忍着不用", "AmericanTypewriter", 30);//添加文字
+	LabelTTF *label2 = LabelTTF::create("放弃", "AmericanTypewriter", 30);//添加文字
 
 	label2->setColor(Color3B::WHITE);
 	label2->setPosition(menuItem2->getPosition());
 	bgLay->addChild(label2,2);
-	
+
 	bg->setPosition(pCenter);
 	
 	bgLay->setContentSize(winSize);
@@ -144,24 +145,21 @@ void PopUpBombLayer::setUpView(){
 	
 	this->addChild(bgLay);
 }
-void PopUpBombLayer::setCallbackFunc(Object* target, SEL_CallFuncN m1, SEL_CallFuncN m2){
+void PopUpGodTipsLayer::setCallbackFunc(Object* target, SEL_CallFuncN m1, SEL_CallFuncN m2){
 	m_callbackListener = target;
 	m1_ = m1;
 	m2_ = m2;
 }
 
-//	void bombUse(Object * pSender);
-//void bombNot(Object * pSender);
 
-void PopUpBombLayer::bombUse(Object * pSender){
+void PopUpGodTipsLayer::godTipsGetGod(Object * pSender){
 	
 	Node* node = dynamic_cast<Node*>(pSender);
     if (m1_ && m_callbackListener){
         (m_callbackListener->*m1_)(node);
     }
-	
 }
-void PopUpBombLayer::bombNotUse(Object * pSender){
+void PopUpGodTipsLayer::godTipsGiveUp(Object * pSender){
 	Node* node = dynamic_cast<Node*>(pSender);
     if (m2_ && m_callbackListener){
         (m_callbackListener->*m2_)(node);

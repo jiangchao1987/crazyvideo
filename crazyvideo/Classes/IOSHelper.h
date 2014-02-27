@@ -27,3 +27,10 @@ void shareToFriends_IOS();
 void shareToFriend_IOS();
 void shareToQQ_IOS();
 void shareToQZone_IOS();
+
+void showOffWall_IOS();
+void showLevelAdBanner_IOS( bool bShow);
+void showLevelLeftAd_IOS();
+void showLevelRightAd_IOS();
+void writeEmail_IOS();
+void commentUs_IOS();

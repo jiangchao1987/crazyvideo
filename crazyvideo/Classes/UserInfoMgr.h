@@ -28,6 +28,12 @@ public:
 	void shareToFrientsSuccess();
 	void shareToQZoneSuccess();
 	
+	bool canUseBomb();
+	bool canAnswerQuestion();
+	
+	bool buyGold(int nGold);
+	bool exchangeGold(int nGold);
+	
 private:
 	void addGold( int nGold);
 };

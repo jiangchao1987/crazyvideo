@@ -14,6 +14,7 @@
 #include "LevelView.h"
 #include "Tools.h"
 #include "SimpleAudioEngine.h"
+#include "ShopScene.h"
 
 
 USING_NS_CC;
@@ -167,8 +168,8 @@ void StartScene::menu1CloseCallback(Object* pSender){
 void StartScene::menu2CloseCallback(Object* pSender){
 	playEffectBtnClicked();
 
-	Scene* s = AboutScene::createScene();
-	Director::getInstance()->replaceScene(TransitionFade::create(0.5, s));
+	Scene* s = ShopScene::createScene();
+	Director::getInstance()->pushScene(TransitionFade::create(0.5, s));
 }
 void StartScene::menu3CloseCallback(Object* pSender){
 	playEffectBtnClicked();

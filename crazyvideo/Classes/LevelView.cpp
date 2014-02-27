@@ -10,6 +10,8 @@
 #include "StartScene.h"
 #include "Tools.h"
 #include "UserInfoMgr.h"
+#include "ShopScene.h"
+#include "PopLayerHeader.h"
 
 LevelView::LevelView():
 m_nCurPage(0),
@@ -28,6 +30,16 @@ Scene* LevelView::scene(){
     Layer* layer = LevelView::create();
     scene->addChild(layer);
     return scene;
+}
+
+void LevelView::onEnter(){
+	CCLayer::onEnter();
+	
+	this->resetView();
+}
+void LevelView::onExit(){
+	CCLayer::onExit();
+	
 }
 
 bool LevelView::init(){
@@ -49,9 +61,32 @@ bool LevelView::init(){
 											  "setting_back_selected.png",
 											  CC_CALLBACK_1(LevelView::menuBackCallback, this));
 		setItemPosition(backLayerColor, Point(0.5f, 0.5f),
-						Point(origin.x + visibleSize.width / 7, origin.y +visibleSize.height * 6 / 7 + backItem->getContentSize().height / 2), backItem);
+						Point(origin.x + visibleSize.width / 7, origin.y +visibleSize.height - 50), backItem);
 		
-        
+	
+		auto coinBgkItem = MenuItemImage::create(
+												 "play_navbar_getcoin.png",
+												 "play_navbar_getcoin_selected.png",
+												 CC_CALLBACK_1(LevelView::menuGoldCallback, this));
+		coinBgkItem->setAnchorPoint(Point(0.0f, 0.5f));
+		
+		coinBgkItem->setPosition(Point(origin.x + visibleSize.width - coinBgkItem->getContentSize().width - 10,origin.y + visibleSize.height - 45));
+		
+		// create menu, it's an autorelease object
+		auto menu1 = Menu::create(coinBgkItem, NULL);
+		menu1->setPosition(Point::ZERO);
+		this->addChild(menu1, 1);
+		
+		
+		gold = LabelTTF::create("209", "Arial", 36);
+		gold->setHorizontalAlignment(TextHAlignment::RIGHT);
+		gold->setAnchorPoint(Point(1,0.5f));
+		gold->setPosition(Point(origin.x + visibleSize.width - 20,
+								origin.y + visibleSize.height - 45));
+		
+		// add the label as a child to this layer
+		this->addChild(gold, 1);
+		
         // 创建一个 CCScrollView, 内容大小和当前的界面一样
         ScrollView* scrollView = ScrollView::create(this->getContentSize());
         scrollView->setContainer(getContainLayer());
@@ -103,6 +138,11 @@ void LevelView::touchEventAction(LsTouch *touch, int type){
 		playEffectBtnClicked();
         CCString* str = CCString::createWithFormat("您选择的关卡为 %d .", touch->getEventId() + 1);
       //  MessageBox("关卡", str->getCString());
+		
+		if ( !UserInfoMgr::getInstance()->canAnswerQuestion() ) {
+			this->popGodTipsLayer();
+			return;
+		}
 		
 		UserInfoMgr::getInstance()->setFreedomLevel( touch->getEventId());
 		enterGameScene();
@@ -347,9 +387,50 @@ void LevelView::setCurPageBall()
 	}
 }
 
+void LevelView::resetView(){
+	
+	int nGold = UserInfoMgr::getInstance()->getGold();
+	CCString* goldStr = CCString::createWithFormat("%d", nGold);
+	gold->setString(goldStr->_string);
+}
+
+#pragma mark --
+#pragma mark -- Functions
+
+void LevelView::popGodTipsLayer(){
+	
+	PopUpGodTipsLayer* p = PopUpGodTipsLayer::create();
+	p->setTag(POPUPGOLDTIPSLAYER_TAG);
+	
+	p->setCallbackFunc(this, callfuncN_selector(LevelView::godTipsGetGod),callfuncN_selector(LevelView::godTipsGiveUp) );
+	this->addChild(p,2);
+	
+}
+
+void LevelView::godTipsGetGod(Node * pSender){
+	playEffectBtnClicked();
+	PopUpGodTipsLayer* p = (PopUpGodTipsLayer*)this->getChildByTag(POPUPGOLDTIPSLAYER_TAG);
+	p->removeFromParentAndCleanup(true);
+	
+	Scene* s = ShopScene::createScene();
+	Director::getInstance()->pushScene(TransitionFade::create(0.5, s));
+}
+void LevelView::godTipsGiveUp(Node * pSender){
+	playEffectBtnClicked();
+	PopUpGodTipsLayer* p = (PopUpGodTipsLayer*)this->getChildByTag(POPUPGOLDTIPSLAYER_TAG);
+	p->removeFromParentAndCleanup(true);
+}
+
 void LevelView::menuBackCallback(Object* pSender){
 	
 	playEffectBtnClicked();
 	Scene* s = StartScene::createScene();
 	Director::getInstance()->replaceScene(TransitionFade::create(0.5, s));
+}
+
+void LevelView::menuGoldCallback(Object* pSender){
+	playEffectBtnClicked();
+	
+	Scene* s = ShopScene::createScene();
+	Director::getInstance()->pushScene(TransitionFade::create(0.5, s));
 }
