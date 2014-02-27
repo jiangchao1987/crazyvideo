@@ -169,7 +169,7 @@ void StartScene::menu2CloseCallback(Object* pSender){
 	playEffectBtnClicked();
 
 	Scene* s = ShopScene::createScene();
-	Director::getInstance()->replaceScene(TransitionFade::create(0.5, s));
+	Director::getInstance()->pushScene(TransitionFade::create(0.5, s));
 }
 void StartScene::menu3CloseCallback(Object* pSender){
 	playEffectBtnClicked();

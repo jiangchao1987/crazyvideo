@@ -366,5 +366,11 @@ static AppDelegate s_sharedApplication;
 	
 }
 
+- (void)writeEmail{
+	
+}
+- (void)commentUs{
+	
+}
 
 @end

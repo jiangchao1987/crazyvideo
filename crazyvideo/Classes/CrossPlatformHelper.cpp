@@ -165,6 +165,15 @@ void X_showLevelRightAd(){
 	return showLevelRightAd_IOS();
 }
 
+void X_writeEmail(){
+	return writeEmail_IOS();
+}
+
+void X_commentUs(){
+	return commentUs_IOS();
+
+}
+
 #endif
 
 

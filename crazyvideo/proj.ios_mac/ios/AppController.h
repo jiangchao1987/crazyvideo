@@ -29,6 +29,7 @@
 - (void)showLeftAd:(BOOL) bShow;
 - (void)showRightAd:(BOOL) bShow;
 
-
+- (void)writeEmail;
+- (void)commentUs;
 @end
 

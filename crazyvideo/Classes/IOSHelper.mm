@@ -298,3 +298,12 @@ void showLevelLeftAd_IOS(){
 void showLevelRightAd_IOS(){
 	
 }
+void writeEmail_IOS(){
+	AppController *app = (AppController*) [[UIApplication sharedApplication] delegate];
+	[app writeEmail];
+}
+
+void commentUs_IOS(){
+	AppController *app = (AppController*) [[UIApplication sharedApplication] delegate];
+	[app commentUs];
+}
