@@ -34,14 +34,14 @@ static AppDelegate s_sharedApplication;
     viewController.wantsFullScreenLayout = YES;
     viewController.view = __glView;
 
-	_dmAdView = [[DMAdView alloc] initWithPublisherId:@"56OJzUf4uNKK9Bsb6n" placementId:@"16TLm6UlAp-T2NUfVKLlzlrz" size:DOMOB_AD_SIZE_320x50 autorefresh:true];
-	
-	_dmAdView.frame = CGRectMake(0, [[UIScreen mainScreen] bounds].size.height - DOMOB_AD_SIZE_320x50.height, DOMOB_AD_SIZE_320x50.width, DOMOB_AD_SIZE_320x50.height);
-	
-	_dmAdView.delegate = self;
-	_dmAdView.rootViewController = viewController;
-	[__glView addSubview:_dmAdView];
-	[_dmAdView loadAd];
+//	_dmAdView = [[DMAdView alloc] initWithPublisherId:@"56OJzUf4uNKK9Bsb6n" placementId:@"16TLm6UlAp-T2NUfVKLlzlrz" size:DOMOB_AD_SIZE_320x50 autorefresh:true];
+//	
+//	_dmAdView.frame = CGRectMake(0, [[UIScreen mainScreen] bounds].size.height - DOMOB_AD_SIZE_320x50.height, DOMOB_AD_SIZE_320x50.width, DOMOB_AD_SIZE_320x50.height);
+//	
+//	_dmAdView.delegate = self;
+//	_dmAdView.rootViewController = viewController;
+//	[__glView addSubview:_dmAdView];
+//	[_dmAdView loadAd];
 	
 	
     // Set RootViewController to window
@@ -63,12 +63,12 @@ static AppDelegate s_sharedApplication;
     cocos2d::Application::getInstance()->run();
 	
 
-	if ( [WXApi registerApp:@"wx31e942829d9eb144"] ) {
-		CCLOG("register wx right");
-	}else{
-		CCLOG("register wx wrong");
-	}
-	
+//	if ( [WXApi registerApp:@"wx31e942829d9eb144"] ) {
+//		CCLOG("register wx right");
+//	}else{
+//		CCLOG("register wx wrong");
+//	}
+//	
     return YES;
 }
 
@@ -129,54 +129,54 @@ static AppDelegate s_sharedApplication;
 #pragma mark --
 #pragma mark Fuck WinXin
 
-- (BOOL)application:(UIApplication *)application handleOpenURL:(NSURL *)url{
-	return [WXApi handleOpenURL:url delegate:self];
-}
+//- (BOOL)application:(UIApplication *)application handleOpenURL:(NSURL *)url{
+//	return [WXApi handleOpenURL:url delegate:self];
+//}
 
-- (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation{
-	return [WXApi handleOpenURL:url delegate:self];
-}
+//- (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation{
+//	return [WXApi handleOpenURL:url delegate:self];
+//}
 
 #pragma mark --
 #pragma mark -- Share Functions
 
 - (void) AppShareToFriends{
 	
-	// 发送内容给微信
-	WXMediaMessage *message = [WXMediaMessage message];
-	message.title = @"江湖救急";
-	message.description = @"偶的神啊！答不上来了，谁能告诉我正确答案啊！";
-	[message setThumbImage:[[UIImage imageNamed:@"Default.png"] resizedImage:CGSizeMake(320, 480) interpolationQuality:kCGInterpolationNone]];
-	
-	WXImageObject *ext = [WXImageObject object];
-//	ext.imageData = [[UIImage imageNamed:@"Default.png"] ]//data;
-//	ext.imageData = [[UIImage imageNamed:@"Default.png"] ];
-	
-	UIImage* image = [UIImage imageNamed:@"Default.png"];
-	NSData *imageData = UIImagePNGRepresentation(image);
-
-	ext.imageData = imageData;
-	message.mediaObject = ext;
-	
-	SendMessageToWXReq* req = [[[SendMessageToWXReq alloc] init]autorelease];
-	req.bText = NO;
-	req.message = message;
-	
-	/*
-	 scene = WXSceneSession;
-	 wxSendHelpByFriend();
-	 break;
-	 case 1:
-	 scene = WXSceneTimeline;
-	 */
-	req.scene = WXSceneTimeline;
-	
-	BOOL isSuccess = [WXApi sendReq:req];
-	if ( isSuccess ) {
-		NSLog(@"sadfsa");
-	}else {
-		NSLog(@"fuckingi");
-	}
+//	// 发送内容给微信
+//	WXMediaMessage *message = [WXMediaMessage message];
+//	message.title = @"江湖救急";
+//	message.description = @"偶的神啊！答不上来了，谁能告诉我正确答案啊！";
+//	[message setThumbImage:[[UIImage imageNamed:@"Default.png"] resizedImage:CGSizeMake(320, 480) interpolationQuality:kCGInterpolationNone]];
+//	
+//	WXImageObject *ext = [WXImageObject object];
+////	ext.imageData = [[UIImage imageNamed:@"Default.png"] ]//data;
+////	ext.imageData = [[UIImage imageNamed:@"Default.png"] ];
+//	
+//	UIImage* image = [UIImage imageNamed:@"Default.png"];
+//	NSData *imageData = UIImagePNGRepresentation(image);
+//
+//	ext.imageData = imageData;
+//	message.mediaObject = ext;
+//	
+//	SendMessageToWXReq* req = [[[SendMessageToWXReq alloc] init]autorelease];
+//	req.bText = NO;
+//	req.message = message;
+//	
+//	/*
+//	 scene = WXSceneSession;
+//	 wxSendHelpByFriend();
+//	 break;
+//	 case 1:
+//	 scene = WXSceneTimeline;
+//	 */
+//	req.scene = WXSceneTimeline;
+//	
+//	BOOL isSuccess = [WXApi sendReq:req];
+//	if ( isSuccess ) {
+//		NSLog(@"sadfsa");
+//	}else {
+//		NSLog(@"fuckingi");
+//	}
 }
 - (void) AppShareToFriend{
 	
@@ -196,38 +196,38 @@ static AppDelegate s_sharedApplication;
  * 收到一个来自微信的请求，异步处理完成后必须调用sendResp发送处理结果给微信。
  * 可能收到的请求有GetMessageFromWXReq、ShowMessageFromWXReq等。
  * @param req 具体请求内容，是自动释放的
- */
--(void) onReq:(BaseReq*)req{
-	BaseReq*  reqaa = req;
-	
-}
-
-/*! @brief 发送一个sendReq后，收到微信的回应
- *
- * 收到一个来自微信的处理结果。调用一次sendReq后会收到onResp。
- * 可能收到的处理结果有SendMessageToWXResp、SendAuthResp等。
- * @param resp具体的回应内容，是自动释放的
- */
--(void) onResp:(BaseResp*)resp{
-	
-	BaseResp* qq = resp;
-	
-	switch ( qq.errCode) {
-		case 0:
-			;
-			break;
-		case 1:
-			;
-			break;
-		case 2:
-			;
-			break;
-		default:
-			break;
-	}
-	
-}
-
+// */
+//-(void) onReq:(BaseReq*)req{
+//	BaseReq*  reqaa = req;
+//	
+//}
+//
+///*! @brief 发送一个sendReq后，收到微信的回应
+// *
+// * 收到一个来自微信的处理结果。调用一次sendReq后会收到onResp。
+// * 可能收到的处理结果有SendMessageToWXResp、SendAuthResp等。
+// * @param resp具体的回应内容，是自动释放的
+// */
+//-(void) onResp:(BaseResp*)resp{
+//	
+//	BaseResp* qq = resp;
+//	
+//	switch ( qq.errCode) {
+//		case 0:
+//			;
+//			break;
+//		case 1:
+//			;
+//			break;
+//		case 2:
+//			;
+//			break;
+//		default:
+//			break;
+//	}
+//	
+//}
+//
 
 #pragma mark --
 #pragma mark -- Video;
@@ -267,59 +267,59 @@ static AppDelegate s_sharedApplication;
 //	//  播放网络视频
 	// [viewController playURLVideo];
 }
-
-#pragma mark --
-#pragma mark -- Ad Functions
-
+//
+//#pragma mark --
+//#pragma mark -- Ad Functions
+//
 - (void)showOffWall{
-	DMOfferWallViewController* offWall = [[[DMOfferWallViewController alloc] initWithPublisherID:@"96ZJ2VOgze0s3wTAVM"] autorelease];
-	offWall.delegate = self;
-	
-	[offWall presentOfferWallWithViewController:viewController];
+//	DMOfferWallViewController* offWall = [[[DMOfferWallViewController alloc] initWithPublisherID:@"96ZJ2VOgze0s3wTAVM"] autorelease];
+//	offWall.delegate = self;
+//	
+//	[offWall presentOfferWallWithViewController:viewController];
 }
-
+//
 - (void)showBannerAdd:(BOOL) bShow{
-	_dmAdView.hidden = !bShow;
+//	_dmAdView.hidden = !bShow;
 }
-- (void)showLeftAdL:(BOOL) bShow{
-	
-}
-- (void)showRightAd:(BOOL) bShow{
-	
-}
-
-#pragma mark --
-#pragma mark -- DMAdViewDelegate <NSObject>
-// Sent when an ad request success to loaded an ad
-- (void)dmAdViewSuccessToLoadAd:(DMAdView *)adView{
-	NSLog(@"%s",__FUNCTION__);
-}
-// Sent when an ad request fail to loaded an ad
-- (void)dmAdViewFailToLoadAd:(DMAdView *)adView withError:(NSError *)error{
-	NSLog(@"%s",__FUNCTION__);
-	
-}
-// Sent when the ad view is clicked
-- (void)dmAdViewDidClicked:(DMAdView *)adView{
-	NSLog(@"%s",__FUNCTION__);
-	
-}
-// Sent just before presenting the user a modal view
-- (void)dmWillPresentModalViewFromAd:(DMAdView *)adView{
-	NSLog(@"%s",__FUNCTION__);
-	
-}
-// Sent just after dismissing the modal view
-- (void)dmDidDismissModalViewFromAd:(DMAdView *)adView{
-	NSLog(@"%s",__FUNCTION__);
-	
-}
-// Sent just before the application will background or terminate because the user's action
-// (Such as the user clicked on an ad that will launch App Store).
-- (void)dmApplicationWillEnterBackgroundFromAd:(DMAdView *)adView{
-	NSLog(@"%s",__FUNCTION__);
-	
-}
+//- (void)showLeftAdL:(BOOL) bShow{
+//	
+//}
+//- (void)showRightAd:(BOOL) bShow{
+//	
+//}
+//
+//#pragma mark --
+//#pragma mark -- DMAdViewDelegate <NSObject>
+//// Sent when an ad request success to loaded an ad
+//- (void)dmAdViewSuccessToLoadAd:(DMAdView *)adView{
+//	NSLog(@"%s",__FUNCTION__);
+//}
+//// Sent when an ad request fail to loaded an ad
+//- (void)dmAdViewFailToLoadAd:(DMAdView *)adView withError:(NSError *)error{
+//	NSLog(@"%s",__FUNCTION__);
+//	
+//}
+//// Sent when the ad view is clicked
+//- (void)dmAdViewDidClicked:(DMAdView *)adView{
+//	NSLog(@"%s",__FUNCTION__);
+//	
+//}
+//// Sent just before presenting the user a modal view
+//- (void)dmWillPresentModalViewFromAd:(DMAdView *)adView{
+//	NSLog(@"%s",__FUNCTION__);
+//	
+//}
+//// Sent just after dismissing the modal view
+//- (void)dmDidDismissModalViewFromAd:(DMAdView *)adView{
+//	NSLog(@"%s",__FUNCTION__);
+//	
+//}
+//// Sent just before the application will background or terminate because the user's action
+//// (Such as the user clicked on an ad that will launch App Store).
+//- (void)dmApplicationWillEnterBackgroundFromAd:(DMAdView *)adView{
+//	NSLog(@"%s",__FUNCTION__);
+//	
+//}
 
 #pragma mark --
 #pragma mark --  DMOfferWallDelegate <NSObject>
@@ -345,26 +345,26 @@ static AppDelegate s_sharedApplication;
 }
 
 #pragma mark OfferWall Interstitial
-// 当积分墙插屏广告被成功加载后，回调该方法
-// Called when interstitial ad is loaded successfully.
-- (void)dmOfferWallInterstitialSuccessToLoadAd:(DMOfferWallViewController *)dmOWInterstitial{
-	
-}
-// 当积分墙插屏广告加载失败后，回调该方法
-// Called when failed to load interstitial ad.
-- (void)dmOfferWallInterstitialFailToLoadAd:(DMOfferWallViewController *)dmOWInterstitial withError:(NSError *)err{
-	
-}
-// 当积分墙插屏广告要被呈现出来前，回调该方法
-// Called when interstitial ad will be presented.
-- (void)dmOfferWallInterstitialWillPresentScreen:(DMOfferWallViewController *)dmOWInterstitial{
-	
-}
-// 当积分墙插屏广告被关闭后，回调该方法
-// Called when interstitial ad has been closed.
-- (void)dmOfferWallInterstitialDidDismissScreen:(DMOfferWallViewController *)dmOWInterstitial{
-	
-}
+//// 当积分墙插屏广告被成功加载后，回调该方法
+//// Called when interstitial ad is loaded successfully.
+//- (void)dmOfferWallInterstitialSuccessToLoadAd:(DMOfferWallViewController *)dmOWInterstitial{
+//	
+//}
+//// 当积分墙插屏广告加载失败后，回调该方法
+//// Called when failed to load interstitial ad.
+//- (void)dmOfferWallInterstitialFailToLoadAd:(DMOfferWallViewController *)dmOWInterstitial withError:(NSError *)err{
+//	
+//}
+//// 当积分墙插屏广告要被呈现出来前，回调该方法
+//// Called when interstitial ad will be presented.
+//- (void)dmOfferWallInterstitialWillPresentScreen:(DMOfferWallViewController *)dmOWInterstitial{
+//	
+//}
+//// 当积分墙插屏广告被关闭后，回调该方法
+//// Called when interstitial ad has been closed.
+//- (void)dmOfferWallInterstitialDidDismissScreen:(DMOfferWallViewController *)dmOWInterstitial{
+//	
+//}
 
 - (void)writeEmail{
 	

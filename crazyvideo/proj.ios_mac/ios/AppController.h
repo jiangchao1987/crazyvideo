@@ -1,17 +1,17 @@
 #import <UIKit/UIKit.h>
 #import "CCVideoPlayer.h"
-#import "WXApi.h"
-#import "DMAdView.h"
-#import "DMOfferWallViewController.h"
+//#import "WXApi.h"
+//#import "DMAdView.h"
+//#import "DMOfferWallViewController.h"
 
 @class RootViewController;
 
 
-@interface AppController : NSObject <UIApplicationDelegate,CCVideoPlayerDelegate, WXApiDelegate, DMAdViewDelegate, DMOfferWallDelegate> {
+@interface AppController : NSObject <UIApplicationDelegate,CCVideoPlayerDelegate> {
     UIWindow *window;
     RootViewController    *viewController;
 	
-	DMAdView* _dmAdView;
+//	DMAdView* _dmAdView;
 
 }
 - (CGSize)getWinSize;
