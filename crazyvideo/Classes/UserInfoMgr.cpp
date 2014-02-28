@@ -10,7 +10,7 @@
 #include "UserInfoMgr.h"
 #include "Tools.h"
 #include "cocos2d.h"
-#include "cocos-ext.h"
+#include "extensions/cocos-ext.h"
 
 USING_NS_CC;
 USING_NS_CC_EXT;

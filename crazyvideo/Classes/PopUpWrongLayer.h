@@ -11,7 +11,7 @@
 
 
 #include "cocos2d.h"
-#include "cocos-ext.h"
+#include "extensions/cocos-ext.h"
 
 using namespace cocos2d;
 using namespace cocos2d::extension;

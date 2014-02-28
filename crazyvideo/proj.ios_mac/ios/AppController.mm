@@ -367,10 +367,16 @@ static AppDelegate s_sharedApplication;
 }
 
 - (void)writeEmail{
-	
+	[viewController sendMailInApp];
 }
 - (void)commentUs{
-	
+	[self gotoAppStorePageRaisal:@"436957167"];
 }
 
+-(void)   gotoAppStorePageRaisal:(NSString *) nsAppId{
+	
+	NSString  * nsStringToOpen = [NSString  stringWithFormat: @"itms-apps://ax.itunes.apple.com/WebObjects/MZStore.woa/wa/viewContentsUserReviews?type=Purple+Software&id=%@",nsAppId  ];
+	
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:nsStringToOpen]];
+}
 @end

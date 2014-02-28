@@ -1,14 +1,15 @@
 //
 //  CrossPlatformHelper.cpp
 //  knowledgegame
-//
+///Users/tclizhen123/WorkSpace/TechWebGit/user-test-project/crazyvideo/Classes/CrossPlatformHelper.cpp
 //  Created by 畅玩 on 13-10-14.
 //
 //
 
 #include "CrossPlatformHelper.h"
 #include "cocos2d.h"
-#include "cocos-ext.h"
+#include "extensions/cocos-ext.h"
+
 //#include "UserInfoMgr.h"
 
 USING_NS_CC;
