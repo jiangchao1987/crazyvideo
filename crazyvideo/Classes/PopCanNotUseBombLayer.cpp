@@ -95,7 +95,7 @@ void PopCanNotUseBombLayer::setUpView(){
 	tip->setPosition(Point(pCenter.x, pCenter.y + 40));
 	bgLay->addChild(tip, 2);
 	
-	LabelTTF *label = LabelTTF::create("金币不足无法使用道具，\n去领取金币么？", "AmericanTypewriter", 40);//添加文字
+	LabelTTF *label = LabelTTF::create("金币不足无法使用道具，\n去领取金币么？.", "AmericanTypewriter", 40);//添加文字
 	label->setAnchorPoint(Point(0.5f, 0.5f));
 	label->setColor(Color3B::WHITE);
 	label->setPosition(Point(pCenter.x, pCenter.y - 60));

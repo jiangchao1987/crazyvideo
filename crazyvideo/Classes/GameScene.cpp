@@ -19,6 +19,8 @@
 #include "LevelView.h"
 #include "UserInfoMgr.h"
 #include "ShopScene.h"
+#include <ctime>
+#include <cstdlib>
 
 USING_NS_CC;
 USING_NS_CC_EXT;
@@ -114,7 +116,7 @@ bool GameScene::init()
 	backItem->setPosition(Point(origin.x + 10,  nav->getPosition().y + 50));
 	
     // create menu, it's an autorelease object
-    auto menu = Menu::create(backItem, NULL);
+    auto menu = Menu::create(backItem, nullptr);
     menu->setPosition(Point::ZERO);
     backLayer->addChild(menu, 1);
 	
@@ -129,7 +131,7 @@ bool GameScene::init()
 	coinBgkItem->setPosition(Point(origin.x + visibleSize.width - coinBgkItem->getContentSize().width - 10, nav->getPosition().y + 60));
 	
     // create menu, it's an autorelease object
-    auto menu1 = Menu::create(coinBgkItem, NULL);
+    auto menu1 = Menu::create(coinBgkItem, nullptr);
     menu1->setPosition(Point::ZERO);
     backLayer->addChild(menu1, 1);
 	
@@ -145,7 +147,7 @@ bool GameScene::init()
 	shareItem->setPosition(Point(origin.x + 10 + shareItem->getContentSize().width/2, origin.y + visibleSize.height/2 + shareItem->getContentSize().height * 2));
 	
     // create menu, it's an autorelease object
-    auto menu2 = Menu::create(shareItem, NULL);
+    auto menu2 = Menu::create(shareItem, nullptr);
     menu2->setPosition(Point::ZERO);
     backLayer->addChild(menu2, 1);
 	
@@ -158,7 +160,7 @@ bool GameScene::init()
 	bombItem->setPosition(Point(origin.x + visibleSize.width - bombItem->getContentSize().width/2 -10, origin.y + visibleSize.height/2  + bombItem->getContentSize().height * 2));
 	
     // create menu, it's an autorelease object
-    auto menu3 = Menu::create(bombItem, NULL);
+    auto menu3 = Menu::create(bombItem, nullptr);
     menu3->setPosition(Point::ZERO);
     backLayer->addChild(menu3, 1);
 	
@@ -179,7 +181,7 @@ bool GameScene::init()
 	playItem->setPosition(Point(origin.x + 485, origin.y + visibleSize.height/2 + 70));
 	
     // create menu, it's an autorelease object
-    auto menu4 = Menu::create(playItem, NULL);
+    auto menu4 = Menu::create(playItem, nullptr);
     menu4->setPosition(Point::ZERO);
     backLayer->addChild(menu4, 1);
 
@@ -230,8 +232,8 @@ bool GameScene::init()
 	this->addChild(backLayer);
     
 	auto listener = EventListenerTouchOneByOne::create();
-	listener->onTouchBegan = NULL;
-	listener->onTouchEnded = NULL;
+	listener->onTouchBegan = nullptr;
+	listener->onTouchEnded = nullptr;
 	
 	EventDispatcher* eventDispatcher = backLayer->getEventDispatcher();
 	//eventDispatcher->addEventListenerWithSceneGraphPriority( listener, backLayer);
@@ -256,12 +258,12 @@ void GameScene::onEnter(){
 		this->playTheVideo();
 	}
 	
-	X_showLevelAdBanner( false );
+	//X_showLevelAdBanner( false );
 }
 void GameScene::onExit(){
 	CCLayer::onExit();
 	playBackGroundMusic();
-	X_showLevelAdBanner( true );
+	//X_showLevelAdBanner( true );
 
 }
 
@@ -311,14 +313,14 @@ void GameScene::playTheVideo(){
 	
 	
 	if ( !isLocal->compare( "1" )){
-		playLocalVideo(localstr->_string);
+		//playLocalVideo(localstr->_string);
 	}else{
-		playNetVideo(netstr->_string);
+		//playNetVideo(netstr->_string);
 	}
 }
 
 cocos2d::Layer* GameScene::createStartBackLayer(){
-	return NULL;
+	return nullptr;
 }
 
 void GameScene::getCurrentDic(){
@@ -470,19 +472,19 @@ void GameScene::popNoGoldNotEnoughLayer(){
 //share pop call back
 void GameScene::shareToFriends(Node * node){
 	playEffectBtnClicked();
-	X_shareToFriends();
+	//X_shareToFriends();
 }
 void GameScene::shareToFriend(Node * node){
 	playEffectBtnClicked();
-	X_shareToFriend();
+	//X_shareToFriend();
 }
 void GameScene::shareToTencent(Node * node){
 	playEffectBtnClicked();
-	X_shareToQQ();
+	//X_shareToQQ();
 }
 void GameScene::shareToQZone(Node * node){
 	playEffectBtnClicked();
-	X_shareToQZone();
+	//X_shareToQZone();
 }
 void GameScene::shareClose(Node *node){
 	playEffectBtnClicked();
@@ -547,7 +549,8 @@ void GameScene::bombUse(CCNode * pSender){
 		
 		leftButtons->removeObjectAtIndex(tmpCorrectIndex);
 		
-		int randomBombIndex = arc4random()%leftButtons->count();
+		srand((unsigned)time(0));
+		int randomBombIndex = rand()%leftButtons->count();
 		
 		CCString* randomBombStr = (CCString*)leftButtons->getObjectAtIndex(randomBombIndex);
 		
@@ -615,7 +618,7 @@ void GameScene::goldNotEnoughClose(CCNode * pSender){
 	PopUpGoldNotEnough* p = (PopUpGoldNotEnough*)this->getChildByTag(POPUPGOLDNOTENOUGHLAYER_TAG);
 	p->removeFromParentAndCleanup(true);
 	
-	this->menuBackCallback(NULL);
+	this->menuBackCallback(nullptr);
 }
 
 #pragma mark --

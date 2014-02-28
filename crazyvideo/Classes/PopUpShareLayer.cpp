@@ -134,10 +134,10 @@ void PopUpShareLayer::setUpView(){
 	
 	backItem->setPosition(Point(pCenter.x, pCenter.y - 200 ));
 	
-	LabelTTF* title1 = LabelTTF::create("微信好友", "Arial", 18, menuItem1->getContentSize(), TextHAlignment::CENTER);
-	LabelTTF* title2 = LabelTTF::create("朋友圈", "Arial", 18, menuItem2->getContentSize(), TextHAlignment::CENTER);
-	LabelTTF* title3 = LabelTTF::create("QQ好友", "Arial", 18, menuItem3->getContentSize(), TextHAlignment::CENTER);
-	LabelTTF* title4 = LabelTTF::create("QQ空间", "Arial", 18, menuItem4->getContentSize(), TextHAlignment::CENTER);
+	LabelTTF* title1 = LabelTTF::create("微信好友.", "Arial", 18, menuItem1->getContentSize(), TextHAlignment::CENTER);
+	LabelTTF* title2 = LabelTTF::create("朋友圈.", "Arial", 18, menuItem2->getContentSize(), TextHAlignment::CENTER);
+	LabelTTF* title3 = LabelTTF::create("QQ好友.", "Arial", 18, menuItem3->getContentSize(), TextHAlignment::CENTER);
+	LabelTTF* title4 = LabelTTF::create("QQ空间.", "Arial", 18, menuItem4->getContentSize(), TextHAlignment::CENTER);
 
 	title1->setAnchorPoint(Point(0.5f,0.5f));
 	title2->setAnchorPoint(Point(0.5f,0.5f));

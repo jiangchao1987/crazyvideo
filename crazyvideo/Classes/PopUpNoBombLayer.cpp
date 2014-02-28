@@ -110,7 +110,7 @@ void PopUpNoBombLayer::setUpView(){
 	tip->setPosition(Point(pCenter.x, pCenter.y + 40));
 	bgLay->addChild(tip, 2);
 	
-	LabelTTF *label = LabelTTF::create("亲~看看还剩下几个答案，\n这是要闹哪样？", "AmericanTypewriter", 40);//添加文字
+	LabelTTF *label = LabelTTF::create("亲~看看还剩下几个答案，\n这是要闹哪样？.", "AmericanTypewriter", 40);//添加文字
 	label->setAnchorPoint(Point(0.5f, 0.5f));
 	label->setColor(Color3B::WHITE);
 	label->setPosition(Point(pCenter.x, pCenter.y - 60));
@@ -121,7 +121,7 @@ void PopUpNoBombLayer::setUpView(){
     menu->setPosition(Point::ZERO);
 	menuItem1->setPosition(Point(pCenter.x,  pCenter.y - 180));
 	
-	LabelTTF *label1 = LabelTTF::create("知道啦", "AmericanTypewriter", 30);//添加文字
+	LabelTTF *label1 = LabelTTF::create("知道啦.", "AmericanTypewriter", 30);//添加文字
 	
 	label1->setColor(Color3B::WHITE);
 	label1->setPosition(menuItem1->getPosition());

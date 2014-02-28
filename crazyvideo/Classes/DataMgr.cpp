@@ -14,6 +14,8 @@
 #include "Tools.h"
 #include "UserInfoMgr.h"
 #include "StringUtil.h"
+#include <ctime>
+#include <cstdlib>
 
 std::string& trim(std::string &s)
 {
@@ -172,7 +174,8 @@ bool DataMgr::loadData(){
 				}
 				
 				//temp answer
-				int a = 1 + arc4random()%4;
+				srand((unsigned)time(0));
+				int a = 1 + rand()%4;
 				CCString* astr = CCString::createWithFormat("%d", a);
 				dic->setObject(astr, Key_answer_index);
 				
@@ -234,7 +237,8 @@ bool DataMgr::loadData1(){
 		
 		Array* answerArr = Array::create(dicArr->getObjectAtIndex(8),dicArr->getObjectAtIndex(9),dicArr->getObjectAtIndex(10),dicArr->getObjectAtIndex(11), NULL);
 		
-		int a = 1 + arc4random()%4;
+		srand((unsigned)time(0));
+		int a = 1 + rand()%4;
 		
 //		answerArr->exchangeObjectAtIndex(0, 4-a+1);
 		answerArr->exchangeObjectAtIndex(a-1, 0);

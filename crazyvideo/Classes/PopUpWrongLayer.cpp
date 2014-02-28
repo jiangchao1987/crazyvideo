@@ -90,13 +90,13 @@ void PopUpWrongLayer::setUpView(){
 
 	Sprite* bg = Sprite::create( imgs.at(0));
 	
-	LabelTTF * tip = LabelTTF::create("很抱歉 答错啦", "AmericanTypewriter", 30);//添加文字
+	LabelTTF * tip = LabelTTF::create("很抱歉 答错啦.", "AmericanTypewriter", 30);//添加文字
 	tip->setAnchorPoint(Point(0.5f, 0.5f));
 	tip->setColor(Color3B::YELLOW);
 	tip->setPosition(Point(pCenter.x, pCenter.y + 40));
 	bgLay->addChild(tip, 2);
 	
-	LabelTTF *label = LabelTTF::create("扣除20金币\n加油，不要在答错了哦！", "AmericanTypewriter", 40);//添加文字
+	LabelTTF *label = LabelTTF::create("扣除20金币\n加油，不要在答错了哦！.", "AmericanTypewriter", 40);//添加文字
 	label->setAnchorPoint(Point(0.5f, 0.5f));
 	label->setColor(Color3B::WHITE);
 	label->setPosition(Point(pCenter.x, pCenter.y - 60));

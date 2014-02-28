@@ -134,7 +134,7 @@ void ShopScene::menuMailCallback(Object* pSender){
 void ShopScene::menuResetCallback(Object* pSender){
 	playEffectBtnClicked();
 	
-	X_showOffWall();
+	//X_showOffWall();
 }
 void ShopScene::menuRateCallback(Object* pSender){
 	playEffectBtnClicked();

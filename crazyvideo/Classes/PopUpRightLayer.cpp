@@ -105,7 +105,7 @@ void PopUpRightLayer::setUpView(){
 	menuItem2->setAnchorPoint(Point(0.5f, 0.5f));
 	
 	
-	LabelTTF * tip = LabelTTF::create("恭喜你 答对了", "AmericanTypewriter", 30);//添加文字
+	LabelTTF * tip = LabelTTF::create("恭喜你 答对了.", "AmericanTypewriter", 30);//添加文字
 	tip->setAnchorPoint(Point(0.5f, 0.5f));
 	tip->setColor(Color3B::YELLOW);
 	tip->setVerticalAlignment(TextVAlignment::CENTER);

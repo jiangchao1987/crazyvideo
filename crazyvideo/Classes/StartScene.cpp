@@ -75,7 +75,7 @@ bool StartScene::init()
 	backLayer->addChild(spriteLogo);
 	MoveTo* move1 = MoveTo::create(2, Point( spriteLogo->getPositionX(),spriteLogo->getPositionY() - 10));
 	MoveTo* move2 = MoveTo::create(2, Point( spriteLogo->getPositionX(), spriteLogo->getPositionY() + 10));
-	spriteLogo->runAction( RepeatForever::create(Sequence::create(move1, move2, NULL)));
+	spriteLogo->runAction( RepeatForever::create(Sequence::create(move1, move2, nullptr)));
 
 	//play
 	auto closeItem = MenuItemImage::create(
@@ -88,7 +88,7 @@ bool StartScene::init()
 								 visibleSize.height/2 - closeItem->getContentSize().height));
 	
     // create menu, it's an autorelease object
-    auto menu = Menu::create(closeItem, NULL);
+    auto menu = Menu::create(closeItem, nullptr);
     menu->setPosition(Point::ZERO);
     backLayer->addChild(menu, 1);
 	
@@ -102,7 +102,7 @@ bool StartScene::init()
 								 visibleSize.height/4 ));
 	
     // create menu, it's an autorelease object
-    auto menu1 = Menu::create(shopItem, NULL);
+    auto menu1 = Menu::create(shopItem, nullptr);
     menu1->setPosition(Point::ZERO);
     backLayer->addChild(menu1, 1);
 	
@@ -116,7 +116,7 @@ bool StartScene::init()
 								visibleSize.height/4 ));
 	
     // create menu, it's an autorelease object
-    auto menu2 = Menu::create(settingItem, NULL);
+    auto menu2 = Menu::create(settingItem, nullptr);
     menu2->setPosition(Point::ZERO);
     backLayer->addChild(menu2, 1);
 	
@@ -124,8 +124,8 @@ bool StartScene::init()
     
 	auto listener = EventListenerTouchOneByOne::create();
 	//listener->registerScriptHandler();
-	listener->onTouchBegan = NULL;
-	listener->onTouchEnded = NULL;
+	listener->onTouchBegan = nullptr;
+	listener->onTouchEnded = nullptr;
 	
 	auto myListener = EventListenerTouchOneByOne::create();
 
@@ -178,7 +178,7 @@ void StartScene::menu3CloseCallback(Object* pSender){
 	Director::getInstance()->replaceScene(TransitionFade::create(0.5, s));
 }
 cocos2d::Layer* StartScene::createStartBackLayer(){
-	return NULL;
+	return nullptr;
 }
 
 //test

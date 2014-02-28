@@ -10,11 +10,14 @@
 #include "GameScene.h"
 #include "SimpleAudioEngine.h"
 #include "DataMgr.h"
+#include <ctime>
+#include <cstdlib>
 
 Layer* createCommonBackLayer(){
 	
 	Layer* layerBg = Layer::create();
-	u_int32_t randomBgIndex = arc4random();
+	srand((unsigned)time(0));
+	unsigned int randomBgIndex = rand();
 	
 	randomBgIndex = randomBgIndex%2;
 	

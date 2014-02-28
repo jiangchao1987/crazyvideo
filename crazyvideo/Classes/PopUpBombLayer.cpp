@@ -95,7 +95,7 @@ void PopUpBombLayer::setUpView(){
 	tip->setPosition(Point(pCenter.x, pCenter.y + 40));
 	bgLay->addChild(tip, 2);
 	
-	LabelTTF *label = LabelTTF::create("确认花费20枚金币，\n去掉一个错误答案么？", "AmericanTypewriter", 40);//添加文字
+	LabelTTF *label = LabelTTF::create("确认花费20枚金币，\n去掉一个错误答案么？.", "AmericanTypewriter", 40);//添加文字
 	label->setAnchorPoint(Point(0.5f, 0.5f));
 	label->setColor(Color3B::WHITE);
 	label->setPosition(Point(pCenter.x, pCenter.y - 60));

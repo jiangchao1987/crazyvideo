@@ -83,6 +83,7 @@ bool CloudScene::onTouchBegan(Touch *touch, Event *unused_event){
 	changeCloudTiled1(cloudLayer, ccp(tiledMapPos.x, tiledMapPos.y + 1));
 	changeCloudTiled2(cloudLayer, ccp(tiledMapPos.x + 1, tiledMapPos.y + 1));
 
+	return true;
 }
 //void CloudScene::ccTouchesBegan( CCSet *pTouches, CCEvent *pEvent ) {
 //    CCTouch* touch = (CCTouch*)pTouches->anyObject();

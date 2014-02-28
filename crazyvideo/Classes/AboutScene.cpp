@@ -156,7 +156,7 @@ void AboutScene::menuSoundCallback(Object* pSender){
 
 void AboutScene::menuMailCallback(Object* pSender){
 	playEffectBtnClicked();
-	X_writeEmail();
+	//X_writeEmail();
 }
 void AboutScene::menuResetCallback(Object* pSender){
 	playEffectBtnClicked();
@@ -165,7 +165,7 @@ void AboutScene::menuResetCallback(Object* pSender){
 void AboutScene::menuRateCallback(Object* pSender){
 	playEffectBtnClicked();
 	
-	X_commentUs();
+	//X_commentUs();
 }
 void AboutScene::menuTeamCallback(Object* pSender){
 	playEffectBtnClicked();

@@ -123,7 +123,7 @@ void PopUpGoldNotEnough::setUpView(){
 	menuItem1->setPosition(Point(pCenter.x,  pCenter.y - 180));
 //	menuItem2->setPosition(Point(pCenter.x + 120 ,  pCenter.y - 180));
 	
-	LabelTTF *label1 = LabelTTF::create("那好吧", "AmericanTypewriter", 30);//添加文字
+	LabelTTF *label1 = LabelTTF::create("那好吧.", "AmericanTypewriter", 30);//添加文字
 	
 	label1->setColor(Color3B::WHITE);
 	label1->setPosition(menuItem1->getPosition());
