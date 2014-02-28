@@ -4,55 +4,29 @@
 
 @implementation RootViewController
 
-
+/*
  // The designated initializer.  Override if you create the controller programmatically and want to perform customization that is not appropriate for viewDidLoad.
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
     if ((self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil])) {
         // Custom initialization
-	
-		
     }
     return self;
 }
+*/
 
-
-
+/*
 // Implement loadView to create a view hierarchy programmatically, without using a nib.
 - (void)loadView {
-//	_dmAdView.delegate = self;
-//	_dmAdView.rootViewController = self;
-//	[self.view addSubview:_dmAdView];
-//	[_dmAdView loadAd];
 }
+*/
 
-
-
+/*
 // Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
 - (void)viewDidLoad {
     [super viewDidLoad];
-//	
-//	_dmAdView.delegate = self;
-//	_dmAdView.rootViewController = self;
-//	[self.view addSubview:_dmAdView];
-//	[_dmAdView loadAd];
-
-}
-
-- (void)viewDidUnload{
-	[super viewDidUnload];
-//	[_dmAdView removeFromSuperview];
-	
-}
-
-- (void)dealloc {
-	
-//	_dmAdView.delegate = nil;
-//	_dmAdView.rootViewController = nil;
-//	[_dmAdView release];
-    [super dealloc];
 }
  
-
+*/
 // Override to allow orientations other than the default portrait orientation.
 // This method is deprecated on ios6
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
@@ -91,15 +65,10 @@
     // Release any cached data, images, etc that aren't in use.
 }
 
-
-- (void)showBannerAdd:(BOOL) bShow{
-//	_dmAdView.hidden = bShow;
-}
-- (void)showLeftAdL:(BOOL) bShow{
-	
-}
-- (void)showRightAd:(BOOL) bShow{
-	
+- (void)viewDidUnload {
+    [super viewDidUnload];
+    // Release any retained subviews of the main view.
+    // e.g. self.myOutlet = nil;
 }
 
 
@@ -143,8 +112,8 @@
     //关于mimeType：http://www.iana.org/assignments/media-types/index.html
     [mailPicker addAttachmentData: imageData mimeType: @"" fileName: @"Icon.png"];
     
-//    //添加一个pdf附件
-//    NSString *file = [self fullBundlePathFromRelativePath:@"高质量C++编程指南.pdf"];
+	//    //添加一个pdf附件
+	//    NSString *file = [self fullBundlePathFromRelativePath:@"高质量C++编程指南.pdf"];
 //    NSData *pdf = [NSData dataWithContentsOfFile:file];
 //    [mailPicker addAttachmentData: pdf mimeType: @"" fileName: @"高质量C++编程指南.pdf"];
 	
@@ -188,4 +157,8 @@
 	[alert show];
 	
 }
+- (void)dealloc {
+    [super dealloc];
+}
+
 @end

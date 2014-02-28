@@ -5,9 +5,10 @@
 //	DMAdView* _dmAdView;
 }
 - (BOOL) prefersStatusBarHidden;
-
-
 - (void)sendMailInApp;
+
 - (void)displayMailPicker;
+
 - (void)alertWithMessage:(NSString*) msg;
+
 @end

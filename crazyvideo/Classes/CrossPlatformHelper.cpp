@@ -32,9 +32,49 @@ void buy(int goodIndex){
 }
 
 void choujiang(){
-	
 }
 
+void playNetVideo(std::string url){
+	log("play net video name is:%s", url.c_str());
+}
+
+void playLocalVideo(std::string filename){
+	log("play video name is:%s", filename.c_str());
+	playLocalVideo_JAVA(filename);
+}
+
+void X_shareToFriends(){
+}
+
+void X_shareToFriend(){
+}
+
+void X_shareToQQ(){
+}
+
+void X_shareToQZone(){
+}
+
+void X_showOffWall()
+{
+
+}
+void X_showLevelAdBanner( bool bShow )
+{
+}
+void X_showLevelLeftAd()
+{
+
+}
+void X_showLevelRightAd()
+{
+}
+void X_writeEmail()
+{
+}
+void X_commentUs()
+{
+}
 #endif
 
 #if CC_TARGET_PLATFORM == CC_PLATFORM_IOS
