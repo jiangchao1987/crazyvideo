@@ -254,7 +254,7 @@ void playNetVideo_IOS(std::string url){
 	AppController *app = (AppController*) [[UIApplication sharedApplication] delegate];
 
 	NSString* str = [NSString stringWithFormat:@"%s",url.c_str()];
-	[app playLocalVideo_IOS:str];
+	[app playNetVideo_IOS:str];
 }
 
 void playLocalVideo_IOS(std::string filename){

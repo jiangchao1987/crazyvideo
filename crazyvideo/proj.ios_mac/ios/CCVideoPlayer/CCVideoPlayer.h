@@ -60,6 +60,10 @@
  */
 + (void) playMovieWithFile: (NSString *) file;
 
+/** Start playing movie with net video
+*/
++ (void) playMovieWithUrl:(NSString *)url;
+
 /** Stop playing video if it's playing.
  */
 + (void) cancelPlaying;

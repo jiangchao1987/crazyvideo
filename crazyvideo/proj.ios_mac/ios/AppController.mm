@@ -246,7 +246,7 @@ static AppDelegate s_sharedApplication;
 	CCSize size = Director::getInstance()->getWinSize();
 //	[CCVideoPlayer setScrrenSize:CGSizeMake(size.width-400, size.height-300)];
 	[CCVideoPlayer setNoSkip:true];
-	[CCVideoPlayer playMovieWithFile:url];
+	[CCVideoPlayer playMovieWithUrl:url];
 }
 - (void) playLocalVideo_IOS:(NSString*)filename{
 	
@@ -292,11 +292,11 @@ static AppDelegate s_sharedApplication;
 #pragma mark -- DMAdViewDelegate <NSObject>
 // Sent when an ad request success to loaded an ad
 - (void)dmAdViewSuccessToLoadAd:(DMAdView *)adView{
-	NSLog(@"%s",__FUNCTION__);
+	//NSLog(@"%s",__FUNCTION__);
 }
 // Sent when an ad request fail to loaded an ad
 - (void)dmAdViewFailToLoadAd:(DMAdView *)adView withError:(NSError *)error{
-	NSLog(@"%s",__FUNCTION__);
+	///NSLog(@"%s",__FUNCTION__);
 	
 }
 // Sent when the ad view is clicked

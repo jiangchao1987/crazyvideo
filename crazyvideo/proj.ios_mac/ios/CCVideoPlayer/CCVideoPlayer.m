@@ -189,6 +189,14 @@ static  CCVideoPlayerImpl *_impl = nil;
     
 }
 
++ (void) playMovieWithUrl:(NSString *)url{
+	
+	NSURL* rrr = [NSURL URLWithString:url];
+	[ _impl performSelectorOnMainThread: @selector(playMovieAtURL:)
+							 withObject: rrr
+						  waitUntilDone: [NSThread isMainThread]  ];
+}
+
 + (void)userCancelPlaying
 {
 	// If the current thread is the main thread,than
