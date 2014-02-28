@@ -12,6 +12,7 @@
 #include "UserInfoMgr.h"
 #include "ShopScene.h"
 #include "PopLayerHeader.h"
+#include "DataMgr.h"
 
 LevelView::LevelView():
 m_nCurPage(0),
@@ -144,7 +145,7 @@ void LevelView::touchEventAction(LsTouch *touch, int type){
 			return;
 		}
 		
-		UserInfoMgr::getInstance()->setFreedomLevel( touch->getEventId());
+		UserInfoMgr::getInstance()->setCurrentLevel( touch->getEventId());
 		enterGameScene();
     }
 }
@@ -197,50 +198,7 @@ void LevelView::onTouchCancelled(Touch *touch, Event *unused_event){
 	adjustScrollView(0);
 
 }
-/*
-bool LevelView::ccTouchBegan(cocos2d::CCTouch *pTouch, cocos2d::CCEvent *pEvent){
-    CCLog("touch begin.");
-    m_touchPoint = CCDirector::sharedDirector()->convertToGL(pTouch->getLocationInView());
-    m_touchOffset = getScrollView()->getContentOffset();
-    // 发送触摸消息，并会在 touEventAction 自动相应， 如果触摸到元素
-    sendTouchMessage(pTouch, 0);
-    
-    return true;
-}
 
-void LevelView::ccTouchMoved(cocos2d::CCTouch *pTouch, cocos2d::CCEvent *pEvent){
-    CCPoint movePoint = CCDirector::sharedDirector()->convertToGL(pTouch->getLocationInView());
-    float distance = movePoint.x - m_touchPoint.x;
-    // 设定当前偏移位置
-    CCPoint adjustPoint = ccp(m_touchOffset.x + distance, 0);
-    getScrollView()->setContentOffset(adjustPoint, false);
-}
-
-void LevelView::ccTouchEnded(cocos2d::CCTouch *pTouch, cocos2d::CCEvent *pEvent){
-    CCPoint endPoint = CCDirector::sharedDirector()->convertToGL(pTouch->getLocationInView());
-    float distance = endPoint.x - m_touchPoint.x;
-    float distanceY = endPoint.y - m_touchPoint.y;
-    if (fabs(distance) < 3 && fabs(distanceY) < 3){
-        // 小于三，不做拖动操作，也排除了（抖动误操作）,第二个参数，事件类型 1： touch end， 由 touchEventAction 自动相应
-        sendTouchMessage(pTouch, 1);
-
-    }else if (fabs(distance) > 50){
-        // 大于 50，执行拖动效果
-        adjustScrollView(distance);
-        setCurPageBall();
-    }else{
-        // 回退为拖动之前的位置
-        adjustScrollView(0);
-    }
-    
-    sendTouchMessage(pTouch, 2);
-}
-
-void LevelView::ccTouchCancelled(cocos2d::CCTouch *pTouch, cocos2d::CCEvent *pEvent){
-    adjustScrollView(0);
-}
-
- */
 void LevelView::adjustScrollView(float offset){
     CCSize winSize = Director::getInstance()->getWinSize();
     // 我们根据 offset 的实际情况来判断移动效果
@@ -315,7 +273,15 @@ Layer* LevelView::getContainLayer(){
 
 Node* LevelView::getSpriteByLevel(int level){
 
-    Sprite* sprite = CCSprite::create("level/level.png");
+    Sprite* sprite;
+	
+	int nLevel = UserInfoMgr::getInstance()->getFreedomLevel();
+	
+	if( nLevel < level ){
+		sprite = CCSprite::create("level/level_lock.png");
+	}else{
+		sprite = CCSprite::create("level/level.png");
+	}
     // 添加关卡标示
     String* str = String::createWithFormat("%d", level + 1);
     LabelBMFont* label = LabelBMFont::create(str->getCString(),"level/prim30.fnt");

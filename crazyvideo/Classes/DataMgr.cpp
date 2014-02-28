@@ -271,11 +271,11 @@ bool DataMgr::loadUserData(){
 
 CCDictionary* DataMgr::getCurrentQuestion(){
 	
-	if ( 0 <= UserInfoMgr::getInstance()->getFreedomLevel() && UserInfoMgr::getInstance()->getFreedomLevel() < dataArr->count() ) {
-		CCDictionary* dic = (CCDictionary*)dataArr->objectAtIndex(UserInfoMgr::getInstance()->getFreedomLevel());
+	if ( 0 <= UserInfoMgr::getInstance()->getCurrentLevel() && UserInfoMgr::getInstance()->getCurrentLevel() < dataArr->count() ) {
+		CCDictionary* dic = (CCDictionary*)dataArr->objectAtIndex(UserInfoMgr::getInstance()->getCurrentLevel());
 
 		return dic;
-	}else if( UserInfoMgr::getInstance()->getFreedomLevel() == dataArr->count() ){
+	}else if( UserInfoMgr::getInstance()->getCurrentLevel() == dataArr->count() ){
 		assert( "ques finished!" );
 	}
 	assert("current index too big");
@@ -298,7 +298,7 @@ CCDictionary* DataMgr::getCurrentQuestion(){
 //	return UserInfoMgr::getInstance()->getGold();
 //}
 int DataMgr::getCurrentQuestionIndex(){
-	return UserInfoMgr::getInstance()->getFreedomLevel();
+	return UserInfoMgr::getInstance()->getCurrentLevel();
 }
 
 bool DataMgr::isBgSoundOpen(){

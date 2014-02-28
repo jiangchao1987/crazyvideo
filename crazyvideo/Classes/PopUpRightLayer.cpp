@@ -7,6 +7,8 @@
 //
 
 #include "PopUpRightLayer.h"
+#include "UserInfoMgr.h"
+
 PopUpRightLayer::PopUpRightLayer():
 m_callbackListener(NULL)
 , m1_(NULL)
@@ -112,7 +114,13 @@ void PopUpRightLayer::setUpView(){
 	tip->setPosition(Point(pCenter.x, pCenter.y + 40));
 	bgLay->addChild(tip, 2);
 	
-	LabelTTF *label = LabelTTF::create("奖励20金币", "AmericanTypewriter", 40);//添加文字
+	LabelTTF *label;
+	if ( UserInfoMgr::getInstance()->hasAnswerCurrentQuestion()){
+		label = LabelTTF::create("奖励0金币", "AmericanTypewriter", 40);//添加文字
+	}else{
+		label = LabelTTF::create("奖励20金币", "AmericanTypewriter", 40);//添加文字
+	}
+	
 	label->setAnchorPoint(Point(0.5f, 0.5f));
 	label->setColor(Color3B::WHITE);
 	label->setVerticalAlignment(TextVAlignment::CENTER);

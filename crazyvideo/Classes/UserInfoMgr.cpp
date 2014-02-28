@@ -19,6 +19,8 @@ USING_NS_CC_EXT;
 #define K_USERGOLD  "k_gold"
 #define K_USERDIAMOND "k_diamond"
 #define K_FREEDOMLEVEL "k_freedomlevel"
+#define K_CURRENTLEVEL "k_currentlevel"
+
 
 static UserInfoMgr* instance = NULL;
 
@@ -35,6 +37,7 @@ UserInfoMgr::UserInfoMgr(){
 	bFirstLoad = LoadBooleanFromXML(K_FIRESTLOAD);
 	if ( !bFirstLoad ) {
 		this->setGold(100);
+		this->setCurrentLevel(0);
 		this->setFreedomLevel(0);
 		
 		SaveBooleanToXML(K_FIRESTLOAD, true);
@@ -56,15 +59,48 @@ void UserInfoMgr::setGold(int nGold){
 }
 
 void UserInfoMgr::setFreedomLevel(int nLevel){
+	
 	SaveIntegerToXML(K_FREEDOMLEVEL, nLevel);
 	WriteDisk;
 }
+
+void UserInfoMgr::setCurrentLevel(int nLevel){
+	
+	SaveIntegerToXML(K_CURRENTLEVEL, nLevel);
+	WriteDisk;
+	
+	int freedomLevel = this->getFreedomLevel();
+	if ( nLevel > freedomLevel ){
+		this->setFreedomLevel(nLevel);
+	}
+}
+
+int UserInfoMgr::getCurrentLevel(){
+	return LoadIntegerFromXML(K_CURRENTLEVEL);
+}
+
 int UserInfoMgr::getGold(){
 	return LoadIntegerFromXML(K_USERGOLD);
 }
 
 int UserInfoMgr::getFreedomLevel(){
 	return LoadIntegerFromXML(K_FREEDOMLEVEL);
+}
+
+bool UserInfoMgr::hasAnswerQuention(int nLevel){
+	
+	int freedomLevel = this->getFreedomLevel();
+
+	if ( nLevel >= freedomLevel ){
+		return false;
+	}else{
+		return true;
+	}
+}
+
+bool UserInfoMgr::hasAnswerCurrentQuestion(){
+	
+	return this->hasAnswerQuention( this->getCurrentLevel());
 }
 
 void UserInfoMgr::addGold( int nGold){

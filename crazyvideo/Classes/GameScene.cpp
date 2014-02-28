@@ -349,7 +349,8 @@ void GameScene::resetView(){
 	
 	question->setString(q->_string);
 //	guanka_index->setString(index->_string);
-	int ddd = UserInfoMgr::getInstance()->getFreedomLevel() + 1;
+	int ddd = UserInfoMgr::getInstance()->getCurrentLevel() + 1;
+	
 	CCString* levelIndex = CCString::createWithFormat("%d", ddd);
 	guanka_index->setString(levelIndex->_string);
 
@@ -570,7 +571,7 @@ void GameScene::rightAskFriends(CCNode * pSender){
 void GameScene::rightContinue(CCNode * pSender){
 	playEffectBtnClicked();
 	
-	UserInfoMgr::getInstance()->setFreedomLevel( UserInfoMgr::getInstance()->getFreedomLevel() + 1);
+	UserInfoMgr::getInstance()->setCurrentLevel( UserInfoMgr::getInstance()->getCurrentLevel() + 1);
 	
 	PopUpRightLayer* p = (PopUpRightLayer*)this->getChildByTag(POPUPRIGHTLAYER_TAG);
 	p->removeFromParentAndCleanup(true);
@@ -642,14 +643,26 @@ bool GameScene::checkAnswer(int answerIndex, bool useBomb){
 	this->answerAnimation( answerIndex );
 	if ( bRet ) {
 		this->popRightLayer();
-		UserInfoMgr::getInstance()->answerRight();
+		
+		
+		if( UserInfoMgr::getInstance()->hasAnswerQuention( DataMgr::getInstance()->getCurrentQuestionIndex() )){
+			
+		}else{
+			UserInfoMgr::getInstance()->answerRight();
+		}
 		
 	}else{
 		if( !useBomb ){
 			this->popWrongLayer();
 		}
 		// lose answer wrong pusnish or use bomb fee 20 gold
-		UserInfoMgr::getInstance()->answerWrong();
+		
+		if( UserInfoMgr::getInstance()->hasAnswerQuention( DataMgr::getInstance()->getCurrentQuestionIndex() )){
+			
+		}else{
+			UserInfoMgr::getInstance()->answerWrong();
+		}
+
 	}
 	
 	int nGold = UserInfoMgr::getInstance()->getGold();

@@ -19,9 +19,14 @@ public:
 	
 	void setGold(int nGold);
 	void setFreedomLevel(int nLevel);
-	
+	void setCurrentLevel(int nLevel);
+
 	int getGold();
 	int getFreedomLevel();
+	int getCurrentLevel();
+	
+	bool hasAnswerQuention(int nLevel);
+	bool hasAnswerCurrentQuestion();
 	
 	void answerRight();
 	void answerWrong();
