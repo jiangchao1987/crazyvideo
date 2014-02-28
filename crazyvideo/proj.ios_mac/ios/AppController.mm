@@ -279,7 +279,20 @@ static AppDelegate s_sharedApplication;
 }
 
 - (void)showBannerAdd:(BOOL) bShow{
-	_dmAdView.hidden = !bShow;
+//	_dmAdView.hidden = !bShow;
+//	_dmAdView.alpha = bShow ? 1.0:0.0;
+	
+	if ( bShow ) {
+		if ( [_dmAdView superview] != nil ) {
+			
+		}else{
+			[viewController.view addSubview:_dmAdView];
+		}
+	}else{
+		[_dmAdView removeFromSuperview];
+	}
+	
+	
 }
 - (void)showLeftAdL:(BOOL) bShow{
 	
