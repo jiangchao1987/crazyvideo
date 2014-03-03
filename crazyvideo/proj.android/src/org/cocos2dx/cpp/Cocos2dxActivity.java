@@ -1,17 +1,24 @@
 package org.cocos2dx.cpp;
 
 import java.io.File;
+import java.io.InputStream;
 
 import android.app.NativeActivity;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
+import android.widget.Toast;
 
+import com.mz.games.crazyvideo.model.WxShare;
+import com.mz.games.crazyvideo.util.JniManager;
 import com.mz.games.crazyvideo.util.SystemUtil;
 
 public class Cocos2dxActivity extends NativeActivity{
 
 	public static Cocos2dxActivity coco;
+	private static WxShare wx;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -38,6 +45,9 @@ public class Cocos2dxActivity extends NativeActivity{
 		//2.Set the format of window
 		// getWindow().setFormat(PixelFormat.TRANSLUCENT);
 		
+		wx = new WxShare(this);
+		wx.init();
+		
 	}
 	
 	public static Handler handler = new Handler() {
@@ -52,9 +62,31 @@ public class Cocos2dxActivity extends NativeActivity{
 				SystemUtil.copyFileFromAssetsToSdcard(coco, folder, videoName);
 				SystemUtil.playVideoBySystemPlayer(coco, folder.getAbsolutePath() + File.separator + videoName);
 				break;
+			case 2:
+				Toast.makeText(coco, "分享给好友", Toast.LENGTH_SHORT).show();
+				boolean success = shareToWx(false);
+				JniManager.shareToFriendsCallback(success);
+				break;
+			case 3:
+				Toast.makeText(coco, "分享到微信圈", Toast.LENGTH_SHORT).show();
+				success = shareToWx(true);
+				JniManager.shareToFriendCallback(success);
+				break;
 			default:
 				break;
 			}
 		}
 	};
+	
+	private static boolean shareToWx(boolean timeline)
+	{
+		boolean success = false;
+		try {
+			InputStream is = coco.getResources().getAssets().open("HelloWorld.png");
+			success = wx.share("title", "summary", Bitmap.createScaledBitmap(BitmapFactory.decodeStream(is), 50, 50, timeline), false);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return success;
+	}
 }

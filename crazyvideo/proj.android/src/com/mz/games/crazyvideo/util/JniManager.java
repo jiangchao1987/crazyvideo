@@ -16,4 +16,24 @@ public class JniManager {
 		Cocos2dxActivity.handler.sendMessage(message);
 	}
 	
+	public static void shareToFriends()
+	{
+		Log.d("android crazyvideo debug info", "c++ call java, shareToFriends");
+		Message message = new Message();
+		message.what = 2;
+		Cocos2dxActivity.handler.sendMessage(message);
+	}
+	
+	public static void shareToFriend()
+	{
+		Log.d("android crazyvideo debug info", "c++ call java, shareToFriend");
+		Message message = new Message();
+		message.what = 3;
+		Cocos2dxActivity.handler.sendMessage(message);
+	}
+	
+	public native static void shareToFriendsCallback(boolean success);
+	
+	public native static void shareToFriendCallback(boolean success);
+	
 }
