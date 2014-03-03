@@ -44,9 +44,11 @@ void playLocalVideo(std::string filename){
 }
 
 void X_shareToFriends(){
+	X_shareToFriends_JAVA();
 }
 
 void X_shareToFriend(){
+	X_shareToFriend_JAVA();
 }
 
 void X_shareToQQ(){

@@ -13,6 +13,8 @@ void wxSendHelpByFriend_JAVA();
 void wxSendToFriendCircle_JAVA();
 void buy_JAVA(int goodId);
 void playLocalVideo_JAVA(std::string& filename);
+void X_shareToFriends_JAVA();
+void X_shareToFriend_JAVA();
 //#ifdef __cplusplus
 //extern "C" {
 //#endif
@@ -36,6 +38,28 @@ void playLocalVideo_JAVA(std::string& filename);
 //#ifdef __cplusplus
 //}
 //#endif
+#ifdef __cplusplus
+extern "C" {
+#endif
+	/*
+	* Class:     com_mz_games_crazyvideo_util_JniManager
+	* Method:    shareToFriendsCallback
+	* Signature: (Z)V
+	*/
+	JNIEXPORT void JNICALL Java_com_mz_games_crazyvideo_util_JniManager_shareToFriendsCallback
+		(JNIEnv *, jclass, jboolean);
+
+	/*
+	* Class:     com_mz_games_crazyvideo_util_JniManager
+	* Method:    shareToFriendCallback
+	* Signature: (Z)V
+	*/
+	JNIEXPORT void JNICALL Java_com_mz_games_crazyvideo_util_JniManager_shareToFriendCallback
+		(JNIEnv *, jclass, jboolean);
+
+#ifdef __cplusplus
+}
+#endif
 #endif/* defined(__knowledgegame__JAVAHelper__) */
 
 #endif
