@@ -6,3 +6,6 @@ crazyvideo/proj.win32/crazyvideo.sdf
 crazyvideo/proj.android/bin/
 crazyvideo/proj.android/gen/
 crazyvideo/proj.android/obj/
+
+Debug.win32
+touchtest

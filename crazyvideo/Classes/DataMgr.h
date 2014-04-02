@@ -32,7 +32,6 @@ private:
 	static DataMgr* instance;
 	
 private:
-	bool loadData();
 	bool loadData1();
 
 	bool loadUserData();

@@ -23,12 +23,12 @@ Layer* createCommonBackLayer(){
 	
 	string bgName;
 	if ( randomBgIndex == 0) {
-		bgName = "bg_day.png";
+		bgName = "index_bg.png";
 	}else{
-		bgName = "bg_night.png";
+		bgName = "index_bg_iphone5.png";
 	}
 	
-	bgName = "index_bg_iphone5.png";
+	//bgName = "index_bg_iphone5.png";
 	Size size = Director::getInstance()->getVisibleSize();
 	
 	

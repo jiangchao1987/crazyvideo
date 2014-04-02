@@ -62,6 +62,24 @@ private:
     int m_nPageCount;
 
     CC_SYNTHESIZE_RETAIN(ScrollView*, m_pScrollView, ScrollView);
+	
+	// 把上面的宏翻译下就是这样
+	//private: 
+	//	ScrollView* m_pScrollView;
+	//public: 
+	//	virtual ScrollView* getScrollView(void) const
+	//	{ 
+	//		return m_pScrollView; 
+	//	}
+	//	virtual void setScrollView(ScrollView* var)
+	//	{ 
+	//		 if (m_pScrollView != var)
+	//		{
+	//			CC_SAFE_RETAIN(var);
+	//			CC_SAFE_RELEASE(m_pScrollView);
+	//			m_pScrollView = var;
+	//		}
+	//	}
 };
 
 #endif
