@@ -11,6 +11,24 @@
 #include "SimpleAudioEngine.h"
 #include "DataMgr.h"
 
+cocos2d::Layer* createCoverBackLayer()
+{
+	Layer* layerBg = Layer::create();
+
+	string bgName;
+
+	bgName = "index_bg.png";
+	Size size = Director::getInstance()->getVisibleSize();
+
+
+	Sprite* bg = Sprite::create(bgName);
+	bg->setPosition(Point(size.width / 2, size.height / 2));
+
+	layerBg->addChild(bg);
+
+	return layerBg;
+}
+
 Layer* createCommonBackLayer(){
 	
 	Layer* layerBg = Layer::create();

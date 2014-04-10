@@ -68,7 +68,7 @@ bool StartScene::init()
     // position the sprite on the center of the screen
     sprite->setPosition(Point(visibleSize.width/2 + origin.x, visibleSize.height/2 + origin.y));
 
-	Layer* backLayer =	createCommonBackLayer();
+	Layer* backLayer =	createCoverBackLayer();
 	
 	//logo
 	Sprite* spriteLogo = createLogo();
@@ -166,10 +166,10 @@ void StartScene::menu1CloseCallback(Object* pSender){
 	Director::getInstance()->replaceScene(TransitionFade::create(0.5, s));
 }
 void StartScene::menu2CloseCallback(Object* pSender){
-	playEffectBtnClicked();
+	//playEffectBtnClicked();
 
-	Scene* s = ShopScene::createScene();
-	Director::getInstance()->pushScene(TransitionFade::create(0.5, s));
+	//Scene* s = ShopScene::createScene();
+	//Director::getInstance()->pushScene(TransitionFade::create(0.5, s));
 }
 void StartScene::menu3CloseCallback(Object* pSender){
 	playEffectBtnClicked();

@@ -139,7 +139,7 @@ void PopUpRightLayer::setUpView(){
 	//	LabelTTF* title = LabelTTF::create("关闭", "Arial", 40, backItem->getContentSize(), TextHAlignment::CENTER);
 	//	title->cocos2d::Node::setAnchorPoint(Point(0.5f, 0.5f));
 	//	title->setPosition(backItem->getPosition());
-	bg->setPosition(pCenter);
+	bg->setPosition(Point(pCenter.x, pCenter.y + 20));
 	
 	bgLay->setContentSize(winSize);
 	bgLay->addChild(bg);

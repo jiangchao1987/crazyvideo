@@ -156,7 +156,7 @@ void PopUpWrongLayer::setUpView(){
 	label3->setPosition(menuItem3->getPosition());
 	bgLay->addChild(label3,2);
 	
-	bg->setPosition(pCenter);
+	bg->setPosition(Point(pCenter.x, pCenter.y + 20));
 	
 	bgLay->setContentSize(winSize);
 	bgLay->addChild(bg);

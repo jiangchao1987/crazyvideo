@@ -135,7 +135,7 @@ void PopUpGoldNotEnough::setUpView(){
 //	label2->setPosition(menuItem2->getPosition());
 //	bgLay->addChild(label2,2);
 //	
-	bg->setPosition(pCenter);
+	bg->setPosition(Point(pCenter.x, pCenter.y + 20));
 	
 	bgLay->setContentSize(winSize);
 	bgLay->addChild(bg);

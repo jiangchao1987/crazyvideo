@@ -36,7 +36,7 @@ Scene* LevelView::scene(){
 void LevelView::onEnter(){
 	CCLayer::onEnter();
 	
-	this->resetView();
+	//this->resetView();
 }
 void LevelView::onExit(){
 	CCLayer::onExit();
@@ -62,31 +62,31 @@ bool LevelView::init(){
 											  "setting_back_selected.png",
 											  CC_CALLBACK_1(LevelView::menuBackCallback, this));
 		setItemPosition(backLayerColor, Point(0.5f, 0.5f),
-						Point(origin.x + visibleSize.width / 7, origin.y +visibleSize.height - 50), backItem);
+			Point(origin.x + visibleSize.width / 7, origin.y + visibleSize.height * 6 / 7 + backItem->getContentSize().height / 2), backItem);
 		
 	
-		auto coinBgkItem = MenuItemImage::create(
-												 "play_navbar_getcoin.png",
-												 "play_navbar_getcoin_selected.png",
-												 CC_CALLBACK_1(LevelView::menuGoldCallback, this));
-		coinBgkItem->setAnchorPoint(Point(0.0f, 0.5f));
-		
-		coinBgkItem->setPosition(Point(origin.x + visibleSize.width - coinBgkItem->getContentSize().width - 10,origin.y + visibleSize.height - 45));
-		
-		// create menu, it's an autorelease object
-		auto menu1 = Menu::create(coinBgkItem, NULL);
-		menu1->setPosition(Point::ZERO);
-		this->addChild(menu1, 1);
-		
-		
-		gold = LabelTTF::create("209", "Arial", 36);
-		gold->setHorizontalAlignment(TextHAlignment::RIGHT);
-		gold->setAnchorPoint(Point(1,0.5f));
-		gold->setPosition(Point(origin.x + visibleSize.width - 20,
-								origin.y + visibleSize.height - 45));
-		
-		// add the label as a child to this layer
-		this->addChild(gold, 1);
+		//auto coinBgkItem = MenuItemImage::create(
+		//										 "play_navbar_getcoin.png",
+		//										 "play_navbar_getcoin_selected.png",
+		//										 CC_CALLBACK_1(LevelView::menuGoldCallback, this));
+		//coinBgkItem->setAnchorPoint(Point(0.0f, 0.5f));
+		//
+		//coinBgkItem->setPosition(Point(origin.x + visibleSize.width - coinBgkItem->getContentSize().width - 10,origin.y + visibleSize.height - 45));
+		//
+		//// create menu, it's an autorelease object
+		//auto menu1 = Menu::create(coinBgkItem, NULL);
+		//menu1->setPosition(Point::ZERO);
+		//this->addChild(menu1, 1);
+		//
+		//
+		//gold = LabelTTF::create("209", "Arial", 36);
+		//gold->setHorizontalAlignment(TextHAlignment::RIGHT);
+		//gold->setAnchorPoint(Point(1,0.5f));
+		//gold->setPosition(Point(origin.x + visibleSize.width - 20,
+		//						origin.y + visibleSize.height - 45));
+		//
+		//// add the label as a child to this layer
+		//this->addChild(gold, 1);
 		
         // 创建一个 CCScrollView, 内容大小和当前的界面一样
         ScrollView* scrollView = ScrollView::create(this->getContentSize());
@@ -355,9 +355,9 @@ void LevelView::setCurPageBall()
 
 void LevelView::resetView(){
 	
-	int nGold = UserInfoMgr::getInstance()->getGold();
-	CCString* goldStr = CCString::createWithFormat("%d", nGold);
-	gold->setString(goldStr->_string);
+	//int nGold = UserInfoMgr::getInstance()->getGold();
+	//CCString* goldStr = CCString::createWithFormat("%d", nGold);
+	//gold->setString(goldStr->_string);
 }
 
 #pragma mark --

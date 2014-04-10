@@ -60,7 +60,7 @@ bool TeamScene::init()
 		Point(origin.x + visibleSize.width / 4, origin.y + visibleSize.height / 2 + cehuaItem->getContentSize().height * 3 / 2 - 10), cehuaItem);
 
 	////cehua label
-	auto cehuaLabel = LabelTTF::create("策划: 赤裸裸的抄袭", "Arial", 30);
+	auto cehuaLabel = LabelTTF::create("策划: zh", "Arial", 30);
 	cehuaLabel->setAnchorPoint(Point(0, 0.5f));
 	cehuaLabel->setPosition(Point(origin.x + visibleSize.width / 3 + 30, origin.y + visibleSize.height / 2 + cehuaItem->getContentSize().height * 3 / 2 - 10));
 	backLayer->addChild(cehuaLabel, 1);
@@ -74,7 +74,7 @@ bool TeamScene::init()
 		Point(origin.x + visibleSize.width / 4, origin.y + visibleSize.height / 2), chengxuItem);
 
 	////chengxu label
-	auto chengxuLabel = LabelTTF::create("程序: h && c", "Arial", 30);
+	auto chengxuLabel = LabelTTF::create("程序: zh && jc", "Arial", 30);
 	chengxuLabel->setAnchorPoint(Point(0, 0.5f));
 	chengxuLabel->setPosition(Point(origin.x + visibleSize.width / 3 + 30, origin.y + visibleSize.height / 2));
 	backLayer->addChild(chengxuLabel, 1);
@@ -88,7 +88,7 @@ bool TeamScene::init()
 		Point(origin.x + visibleSize.width / 4, origin.y + visibleSize.height / 2 - meishuItem->getContentSize().height * 3 / 2 + 10), meishuItem);
 
 	////meishu label
-	auto meishuLabel = LabelTTF::create("美术: fixpng!!!", "Arial", 30);
+	auto meishuLabel = LabelTTF::create("美术: kiana", "Arial", 30);
 	meishuLabel->setAnchorPoint(Point(0, 0.5f));
 	meishuLabel->setPosition(Point(origin.x + visibleSize.width / 3 + 30, origin.y + visibleSize.height / 2 - meishuItem->getContentSize().height * 3 / 2 + 10));
 	backLayer->addChild(meishuLabel, 1);

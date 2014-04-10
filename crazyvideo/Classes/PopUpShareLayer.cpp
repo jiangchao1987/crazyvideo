@@ -152,7 +152,7 @@ void PopUpShareLayer::setUpView(){
 	LabelTTF *title = LabelTTF::create("好的", "AmericanTypewriter", 30);//添加文字
 	title->cocos2d::Node::setAnchorPoint(Point(0.5f, 0.5f));
 	title->setPosition(backItem->getPosition());
-	bg->setPosition(pCenter);
+	bg->setPosition(Point(pCenter.x, pCenter.y + 20));
 	
 	bgLay = Layer::create();
 	bgLay->setContentSize(winSize);

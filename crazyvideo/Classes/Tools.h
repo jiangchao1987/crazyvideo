@@ -25,7 +25,7 @@ using namespace std;
 #define LoadBooleanFromXML CCUserDefault::sharedUserDefault()->getBoolForKey
 #define WriteDisk CCUserDefault::sharedUserDefault()->flush()
 
-
+cocos2d::Layer* createCoverBackLayer();
 cocos2d::Layer* createCommonBackLayer();
 cocos2d::Sprite* createLogo();
 cocos2d::Sprite* createGameNavBg();
